@@ -5,7 +5,7 @@
 				:src="user.avatar_url"
 				:raw-src="user.raw_avatar_url"
 				:alt="user.username"
-				:size="isModrinthUser ? '64px' : '96px'"
+				:size="isShroudEditUser ? '64px' : '96px'"
 				:tint-by="user.username"
 				circle
 			/>
@@ -34,7 +34,7 @@
 			<slot name="summary" />
 		</template>
 
-		<template v-if="!isModrinthUser" #metadata>
+		<template v-if="!isShroudEditUser" #metadata>
 			<PageHeaderMetadata>
 				<PageHeaderMetadataNumberItem
 					:icon="BoxIcon"
@@ -85,7 +85,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	AffiliateIcon,
 	BadgeCheckIcon,
@@ -101,7 +101,7 @@ import {
 	InfoIcon,
 	MoreVerticalIcon,
 	ReportIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import { computed } from 'vue'
 
 import Avatar from '#ui/components/base/Avatar.vue'
@@ -148,7 +148,7 @@ const messages = defineMessages({
 	},
 	officialAccount: {
 		id: 'profile.official-account',
-		defaultMessage: 'Official Modrinth account',
+		defaultMessage: 'Official ShroudEdit account',
 	},
 	profileJoinedLabel: {
 		id: 'profile.label.joined',
@@ -182,7 +182,7 @@ const props = withDefaults(
 		summary?: string | null
 		authUser?: AuthUser | null
 		editProfileLink?: string | (() => void)
-		isModrinthUser?: boolean
+		isShroudEditUser?: boolean
 		isOfficialAccount?: boolean
 		showAffiliateBadge?: boolean
 		isAffiliate?: boolean
@@ -198,7 +198,7 @@ const props = withDefaults(
 		summary: null,
 		authUser: null,
 		editProfileLink: '/settings/profile',
-		isModrinthUser: false,
+		isShroudEditUser: false,
 		isOfficialAccount: false,
 		showAffiliateBadge: false,
 		isAffiliate: false,

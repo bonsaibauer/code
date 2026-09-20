@@ -138,7 +138,7 @@ impl EmailQueue {
             mailer: Arc::new(TokioMutex::new(Mailer::Uninitialized)),
             identity: templates::MailingIdentity::from_env(),
             client: Client::builder()
-                .user_agent("Modrinth")
+                .user_agent("ShroudEdit")
                 .build()
                 .expect("Failed to build HTTP client"),
         })
@@ -203,7 +203,7 @@ impl EmailQueue {
         let mut futures = FuturesUnordered::new();
 
         // Some email notifications should still be processed sequentially. This is to avoid cache stampede in the
-        // case that processing the email can be heavy. For example, custom emails always make a POST request to modrinth.com,
+        // case that processing the email can be heavy. For example, custom emails always make a POST request to shroudedit.com,
         // which, while not necessarily slow, is subject to heavy rate limiting.
         let sequential_processing = Arc::new(Semaphore::new(1));
 

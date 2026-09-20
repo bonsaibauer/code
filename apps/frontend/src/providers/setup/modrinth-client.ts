@@ -1,16 +1,16 @@
-import { provideModrinthClient } from '@modrinth/ui'
+import { provideShroudEditClient } from '@shroudedit/ui'
 
-import { createModrinthClient } from '~/helpers/api.ts'
+import { createShroudEditClient } from '~/helpers/api.ts'
 
-export function setupModrinthClientProvider(auth: Awaited<ReturnType<typeof useAuth>>) {
+export function setupShroudEditClientProvider(auth: Awaited<ReturnType<typeof useAuth>>) {
 	const config = useRuntimeConfig()
-	const client = createModrinthClient(auth, {
+	const client = createShroudEditClient(auth, {
 		apiBaseUrl: config.public.apiBaseUrl.replace('/v2/', '/'),
 		archonBaseUrl: config.public.pyroBaseUrl.replace('/v2/', '/'),
 		sharedInstancesBaseUrl: config.public.sharedInstancesBaseUrl,
 		commitHash: config.public.hash,
 		rateLimitKey: config.rateLimitKey,
 	})
-	provideModrinthClient(client)
+	provideShroudEditClient(client)
 	return client
 }

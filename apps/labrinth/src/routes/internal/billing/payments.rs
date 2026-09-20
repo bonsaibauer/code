@@ -30,16 +30,16 @@ use super::{
 
 const DEFAULT_USER_COUNTRY: &str = "US";
 
-pub const MODRINTH_SUBSCRIPTION_ID: &str = "modrinth_subscription_id";
-pub const MODRINTH_PRICE_ID: &str = "modrinth_price_id";
-pub const MODRINTH_SUBSCRIPTION_INTERVAL: &str =
-    "modrinth_subscription_interval";
-pub const MODRINTH_CHARGE_TYPE: &str = "modrinth_charge_type";
-pub const MODRINTH_NEW_REGION: &str = "modrinth_new_region";
-pub const MODRINTH_USER_ID: &str = "modrinth_user_id";
-pub const MODRINTH_CHARGE_ID: &str = "modrinth_charge_id";
-pub const MODRINTH_TAX_AMOUNT: &str = "modrinth_tax_amount";
-pub const MODRINTH_PAYMENT_METADATA: &str = "modrinth_payment_metadata";
+pub const SHROUDEDIT_SUBSCRIPTION_ID: &str = "shroudedit_subscription_id";
+pub const SHROUDEDIT_PRICE_ID: &str = "shroudedit_price_id";
+pub const SHROUDEDIT_SUBSCRIPTION_INTERVAL: &str =
+    "shroudedit_subscription_interval";
+pub const SHROUDEDIT_CHARGE_TYPE: &str = "shroudedit_charge_type";
+pub const SHROUDEDIT_NEW_REGION: &str = "shroudedit_new_region";
+pub const SHROUDEDIT_USER_ID: &str = "shroudedit_user_id";
+pub const SHROUDEDIT_CHARGE_ID: &str = "shroudedit_charge_id";
+pub const SHROUDEDIT_TAX_AMOUNT: &str = "shroudedit_tax_amount";
+pub const SHROUDEDIT_PAYMENT_METADATA: &str = "shroudedit_payment_metadata";
 
 pub enum AttachedCharge {
     /// Create a proration charge.
@@ -426,16 +426,16 @@ pub async fn create_or_update_payment_intent(
 
     let mut metadata = HashMap::new();
 
-    metadata.insert(MODRINTH_USER_ID.to_owned(), to_base62(user.id.0));
+    metadata.insert(SHROUDEDIT_USER_ID.to_owned(), to_base62(user.id.0));
     metadata.insert(
-        MODRINTH_CHARGE_TYPE.to_owned(),
+        SHROUDEDIT_CHARGE_TYPE.to_owned(),
         charge_data.charge_type.as_str().to_owned(),
     );
-    metadata.insert(MODRINTH_TAX_AMOUNT.to_owned(), tax_amount.to_string());
+    metadata.insert(SHROUDEDIT_TAX_AMOUNT.to_owned(), tax_amount.to_string());
 
     if let Some(payment_metadata) = attach_payment_metadata {
         metadata.insert(
-            MODRINTH_PAYMENT_METADATA.to_owned(),
+            SHROUDEDIT_PAYMENT_METADATA.to_owned(),
             serde_json::to_string(&payment_metadata)
                 .wrap_request_err("inserting payment metadata into database")?,
         );
@@ -443,16 +443,16 @@ pub async fn create_or_update_payment_intent(
 
     if let AttachedCharge::UseExisting { charge } = attached_charge {
         metadata.insert(
-            MODRINTH_CHARGE_ID.to_owned(),
+            SHROUDEDIT_CHARGE_ID.to_owned(),
             to_base62(charge.id.0 as u64),
         );
 
         // These are only used to post-create the charge in the stripe webhook, so
         // unset them.
-        metadata.insert(MODRINTH_PRICE_ID.to_owned(), String::new());
+        metadata.insert(SHROUDEDIT_PRICE_ID.to_owned(), String::new());
         metadata
-            .insert(MODRINTH_SUBSCRIPTION_INTERVAL.to_owned(), String::new());
-        metadata.insert(MODRINTH_SUBSCRIPTION_ID.to_owned(), String::new());
+            .insert(SHROUDEDIT_SUBSCRIPTION_INTERVAL.to_owned(), String::new());
+        metadata.insert(SHROUDEDIT_SUBSCRIPTION_ID.to_owned(), String::new());
     } else if let AttachedCharge::Proration {
         amount: _,
         next_product_id: _,
@@ -469,20 +469,20 @@ pub async fn create_or_update_payment_intent(
             .wrap_internal_err("generating charge ID")?;
 
         metadata.insert(
-            MODRINTH_CHARGE_ID.to_owned(),
+            SHROUDEDIT_CHARGE_ID.to_owned(),
             to_base62(charge_id.0 as u64),
         );
 
         metadata.insert(
-            MODRINTH_PRICE_ID.to_owned(),
+            SHROUDEDIT_PRICE_ID.to_owned(),
             charge_data.price_id.to_string(),
         );
         metadata.insert(
-            MODRINTH_SUBSCRIPTION_INTERVAL.to_owned(),
+            SHROUDEDIT_SUBSCRIPTION_INTERVAL.to_owned(),
             next_interval.as_str().to_owned(),
         );
         metadata.insert(
-            MODRINTH_SUBSCRIPTION_ID.to_owned(),
+            SHROUDEDIT_SUBSCRIPTION_ID.to_owned(),
             current_subscription.to_string(),
         );
     } else if let AttachedCharge::Promotion {
@@ -501,23 +501,23 @@ pub async fn create_or_update_payment_intent(
             .wrap_internal_err("generating charge ID")?;
 
         metadata.insert(
-            MODRINTH_CHARGE_ID.to_owned(),
+            SHROUDEDIT_CHARGE_ID.to_owned(),
             to_base62(charge_id.0 as u64),
         );
 
         metadata.insert(
-            MODRINTH_PRICE_ID.to_owned(),
+            SHROUDEDIT_PRICE_ID.to_owned(),
             charge_data.price_id.to_string(),
         );
         metadata.insert(
-            MODRINTH_SUBSCRIPTION_INTERVAL.to_owned(),
+            SHROUDEDIT_SUBSCRIPTION_INTERVAL.to_owned(),
             interval.as_str().to_owned(),
         );
         metadata.insert(
-            MODRINTH_SUBSCRIPTION_ID.to_owned(),
+            SHROUDEDIT_SUBSCRIPTION_ID.to_owned(),
             current_subscription.to_string(),
         );
-        metadata.insert(MODRINTH_NEW_REGION.to_owned(), new_region);
+        metadata.insert(SHROUDEDIT_NEW_REGION.to_owned(), new_region);
     } else {
         let mut transaction = pg
             .begin()
@@ -531,22 +531,22 @@ pub async fn create_or_update_payment_intent(
             .wrap_internal_err("generating charge ID")?;
 
         metadata.insert(
-            MODRINTH_CHARGE_ID.to_owned(),
+            SHROUDEDIT_CHARGE_ID.to_owned(),
             to_base62(charge_id.0 as u64),
         );
         metadata.insert(
-            MODRINTH_SUBSCRIPTION_ID.to_owned(),
+            SHROUDEDIT_SUBSCRIPTION_ID.to_owned(),
             to_base62(subscription_id.0 as u64),
         );
 
         metadata.insert(
-            MODRINTH_PRICE_ID.to_owned(),
+            SHROUDEDIT_PRICE_ID.to_owned(),
             charge_data.price_id.to_string(),
         );
 
         if let Some(interval) = charge_data.interval {
             metadata.insert(
-                MODRINTH_SUBSCRIPTION_INTERVAL.to_owned(),
+                SHROUDEDIT_SUBSCRIPTION_INTERVAL.to_owned(),
                 interval.as_str().to_owned(),
             );
         }
@@ -641,7 +641,7 @@ pub async fn get_or_create_customer(
         Ok(customer_id)
     } else {
         let mut metadata = HashMap::new();
-        metadata.insert(MODRINTH_USER_ID.to_owned(), to_base62(user_id.0));
+        metadata.insert(SHROUDEDIT_USER_ID.to_owned(), to_base62(user_id.0));
 
         let customer = stripe::Customer::create(
             client,

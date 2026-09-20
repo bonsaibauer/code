@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { getMarginTarget } from '@modrinth/moderation'
-import { commonProjectTypeCategoryMessages, NavTabs, useVIntl } from '@modrinth/ui'
+import { getMarginTarget } from '@shroudedit/moderation'
+import { commonProjectTypeCategoryMessages, NavTabs, useVIntl } from '@shroudedit/ui'
 
 const { formatMessage } = useVIntl()
 
@@ -18,29 +18,14 @@ const selectableProjectTypes = [
 		type: 'mods',
 	},
 	{
-		label: formatMessage(commonProjectTypeCategoryMessages.resourcepack),
-		href: `/discover/resourcepacks`,
-		type: 'resourcepacks',
-	},
-	{
-		label: formatMessage(commonProjectTypeCategoryMessages.datapack),
-		href: `/discover/datapacks`,
-		type: 'datapacks',
-	},
-	{
-		label: formatMessage(commonProjectTypeCategoryMessages.shader),
-		href: `/discover/shaders`,
-		type: 'shaders',
+		label: formatMessage(commonProjectTypeCategoryMessages.schematic),
+		href: `/discover/schematics`,
+		type: 'schematics',
 	},
 	{
 		label: formatMessage(commonProjectTypeCategoryMessages.modpack),
 		href: `/discover/modpacks`,
 		type: 'modpacks',
-	},
-	{
-		label: formatMessage(commonProjectTypeCategoryMessages.plugin),
-		href: `/discover/plugins`,
-		type: 'plugins',
 	},
 	{
 		label: formatMessage(commonProjectTypeCategoryMessages.server),

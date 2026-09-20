@@ -49,7 +49,7 @@
 							class="min-w-full"
 							type="instance-download"
 							:entity-name="progressItem.title || item.title"
-							:entity-icon-url="progressItem.iconUrl ?? item.iconUrl ?? MinecraftServerIcon"
+							:entity-icon-url="progressItem.iconUrl ?? item.iconUrl ?? EnshroudedServerIcon"
 							:status-text="progressItem.text"
 							:progress="progressItem.progress"
 							:waiting="progressItem.waiting"
@@ -178,10 +178,10 @@ import {
 	DownloadIcon,
 	InfoIcon,
 	IssuesIcon,
-	MinecraftServerIcon,
+	EnshroudedServerIcon,
 	XCircleIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import { computed, ref } from 'vue'
 
 import { Button, type ButtonColor, IconButton } from '#ui/components/base/buttons'

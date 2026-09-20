@@ -17,8 +17,8 @@ import {
 	usePageLeaveSafety,
 	useSavable,
 	useVIntl,
-} from '@modrinth/ui'
-import { capitalizeString, isAdmin, sortedCategories } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { capitalizeString, isAdmin, sortedCategories } from '@shroudedit/utils'
 import { computed } from 'vue'
 
 import ValidationMessage from '~/components/ValidationMessage.vue'
@@ -151,13 +151,13 @@ useProjectSettingsHeadTitle(messages.title)
 
 const formatCategoryName = (categoryName: string) => formatCategory(formatMessage, categoryName)
 
-const isServerProject = computed(() => projectV3.value?.minecraft_server != null)
+const isServerProject = computed(() => projectV3.value?.enshrouded_server != null)
 
 const canSelectTags = computed(() => project.value.versions.length > 0 || isServerProject.value)
 
 const projectTypes = computed(() => {
 	if (isServerProject.value) {
-		return ['minecraft_java_server']
+		return ['server']
 	}
 
 	const types = projectV3.value?.project_types?.length
@@ -185,10 +185,7 @@ const projectTypeListFormatter = computed(
 )
 
 function formatProjectTypeName(type: string) {
-	return formatProjectTypeSentence(
-		formatMessage,
-		type === 'minecraft_java_server' ? 'server' : type,
-	)
+	return formatProjectTypeSentence(formatMessage, type)
 }
 
 function formatGroupTitle(header: string, types: string[]) {
@@ -239,7 +236,7 @@ const categorySections = computed(() => {
 				header,
 				types,
 				categories:
-					header === 'minecraft_server_features' ? withPokemonFirst(categories) : categories,
+					header === 'enshrouded_server_features' ? withPokemonFirst(categories) : categories,
 			})
 		}
 	}

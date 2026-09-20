@@ -161,10 +161,10 @@
   "nags.long-headers.title": {
     "defaultMessage": "Rövidebb fejlécek"
   },
-  "nags.minecraft-title-clause.description": {
-    "defaultMessage": "A projektek nem használhatják a Minecraft márkanevet, és nem tartalmazhatják a „Minecraft” szót a nevük jelentős részeként."
+  "nags.enshrouded-title-clause.description": {
+    "defaultMessage": "A projektek nem használhatják a Enshrouded márkanevet, és nem tartalmazhatják a „Enshrouded” szót a nevük jelentős részeként."
   },
-  "nags.minecraft-title-clause.title": {
+  "nags.enshrouded-title-clause.title": {
     "defaultMessage": "Ne sérts márka védjegyet"
   },
   "nags.missing-alt-text.description": {

@@ -1,42 +1,8 @@
 <template>
-	<div v-if="subtleLauncherRedirectUri">
-		<iframe
-			:src="subtleLauncherRedirectUri"
-			class="hidden"
-			:title="formatMessage(messages.launcherCallbackTitle)"
-		></iframe>
-		<div
-			class="universal-card mx-auto flex w-full max-w-[27rem] flex-col gap-6 border border-solid border-surface-5 !p-6 text-center"
-		>
-			<div class="flex flex-col gap-2">
-				<h1 class="m-0 text-2xl font-semibold text-contrast">
-					{{ formatMessage(messages.openingLauncherTitle) }}
-				</h1>
-				<p class="m-0 text-left text-primary">
-					{{ formatMessage(messages.openingLauncherDescription) }}
-				</p>
-			</div>
-			<div class="flex flex-col gap-2">
-				<Button
-					type="colored"
-					color="brand"
-					class="!w-full !justify-center"
-					@click="sendLauncherCallback"
-				>
-					{{ formatMessage(messages.returnToLauncherButton) }}
-					<RightArrowIcon />
-				</Button>
-				<ButtonLink to="/" class="!w-full !justify-center">
-					{{ formatMessage(messages.goToWebsiteButton) }}
-				</ButtonLink>
-			</div>
-		</div>
-	</div>
 	<div
-		v-else
 		class="universal-card mx-auto flex w-full max-w-[27rem] flex-col gap-6 border border-solid border-surface-5 !p-6"
 	>
-		<template v-if="flow && !subtleLauncherRedirectUri">
+		<template v-if="flow">
 			<div class="flex flex-col gap-4" :aria-busy="twoFactorPending">
 				<div class="flex w-full flex-col gap-1.5">
 					<label for="two-factor-code">
@@ -214,7 +180,7 @@ import {
 	RightArrowIcon,
 	SteamColorIcon,
 	UserKeyIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	type AccountChoice,
 	AccountChoiceList,
@@ -225,7 +191,7 @@ import {
 	defineMessages,
 	Input,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { useStorage } from '@vueuse/core'
 import { nextTick, ref, watch } from 'vue'
 import type { LocationQuery } from 'vue-router'
@@ -255,7 +221,6 @@ interface AuthGlobals {
 }
 
 interface Props {
-	subtleLauncherRedirectUri?: string
 	flow?: string
 	redirectTarget?: string
 	routeQuery?: LocationQuery
@@ -270,7 +235,6 @@ interface Props {
 }
 
 const {
-	subtleLauncherRedirectUri = '',
 	flow = '',
 	redirectTarget = '',
 	routeQuery = {},
@@ -322,28 +286,12 @@ const onOAuthProviderClick = (provider: AuthProvider) => {
 	pendingSignInOAuthProvider.value = provider
 }
 
-async function sendLauncherCallback() {
-	await fetch(subtleLauncherRedirectUri, { mode: 'no-cors' }).catch(() => undefined)
-}
-
 const { formatMessage } = useVIntl()
 
 const messages = defineMessages({
 	twoFactorIncorrect: {
 		id: 'auth.two-factor.incorrect-code',
 		defaultMessage: 'The two-factor code is incorrect. Try again or use a backup code.',
-	},
-	launcherCallbackTitle: {
-		id: 'auth.sign-in.launcher.callback.title',
-		defaultMessage: 'Modrinth App sign-in callback',
-	},
-	openingLauncherTitle: {
-		id: 'auth.sign-in.launcher.opening.title',
-		defaultMessage: 'Opening Modrinth App...',
-	},
-	openingLauncherDescription: {
-		id: 'auth.sign-in.launcher.opening.description',
-		defaultMessage: 'If the app doesn’t open, use the button below to finish signing in.',
 	},
 	forgotPasswordLabel: {
 		id: 'auth.sign-in.forgot-password',
@@ -359,11 +307,11 @@ const messages = defineMessages({
 	},
 	signInWithLabel: {
 		id: 'auth.sign-in.sign-in-with',
-		defaultMessage: 'Sign into Modrinth',
+		defaultMessage: 'Sign into ShroudEdit',
 	},
 	chooseAccountLabel: {
 		id: 'auth.sign-in.choose-account',
-		defaultMessage: 'Choose an account to use in Modrinth App',
+		defaultMessage: 'Choose an account to use on ShroudEdit',
 	},
 	addAccountLabel: {
 		id: 'auth.sign-in.add-account',
@@ -393,23 +341,6 @@ const messages = defineMessages({
 	continueWithPasskey: {
 		id: 'auth.sign-in.continue-with-passkey',
 		defaultMessage: 'Continue with passkey',
-	},
-	launcherSignInCompleteTitle: {
-		id: 'auth.sign-in.launcher.complete.title',
-		defaultMessage: 'You’re signed in',
-	},
-	launcherSignInCompleteDescription: {
-		id: 'auth.sign-in.launcher.complete.description',
-		defaultMessage:
-			'We’re returning you to the Modrinth App. If nothing happens, use the button below.',
-	},
-	returnToLauncherButton: {
-		id: 'auth.sign-in.launcher.complete.return-button',
-		defaultMessage: 'Open Modrinth App',
-	},
-	goToWebsiteButton: {
-		id: 'auth.sign-in.launcher.complete.go-to-website',
-		defaultMessage: 'Go to Modrinth.com',
 	},
 })
 </script>

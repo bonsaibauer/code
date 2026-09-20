@@ -197,7 +197,7 @@
 <script setup lang="ts" generic="T">
 import 'overlayscrollbars/overlayscrollbars.css'
 
-import { ChevronLeftIcon, SearchIcon } from '@modrinth/assets'
+import { ChevronLeftIcon, SearchIcon } from '@shroudedit/assets'
 import { onClickOutside } from '@vueuse/core'
 import { OverlayScrollbars, type PartialOptions } from 'overlayscrollbars'
 import {
@@ -254,7 +254,7 @@ const OPTIONS_OVERLAY_SCROLLBARS_OPTIONS = Object.freeze<PartialOptions>({
 		y: 'scroll',
 	},
 	scrollbars: {
-		theme: 'os-theme-modrinth',
+		theme: 'os-theme-shroudedit',
 		autoHide: 'leave',
 		autoHideSuspend: true,
 	},
@@ -1107,7 +1107,7 @@ watch(
 </script>
 
 <style scoped>
-.combobox-options-scrollbar :deep(.os-theme-modrinth) {
+.combobox-options-scrollbar :deep(.os-theme-shroudedit) {
 	--os-size: 8px;
 	--os-padding-perpendicular: 0px;
 	--os-padding-axis: 0px;

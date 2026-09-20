@@ -1,4 +1,4 @@
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 
 import { compareByIndex } from './utils'
 // noinspection JSUnusedGlobalSymbols
@@ -56,6 +56,7 @@ export type DisplayProjectType =
 	| 'datapack'
 	| 'resourcepack'
 	| 'modpack'
+	| 'schematic'
 	| 'shader'
 	| 'server'
 	| 'project'
@@ -126,7 +127,7 @@ export function getVersionGroupsForDisplay(
 
 	const releaseVersionsAsRanges: VersionDisplayGroup[] = projectVersionsGrouped.map(
 		({ major, minor }) => {
-			const versions = minor.map((minorVersion) => formatMinecraftMinorVersion(major, minorVersion))
+			const versions = minor.map((minorVersion) => formatEnshroudedMinorVersion(major, minorVersion))
 
 			if (minor.length === 1) {
 				return { label: versions[0], versions }
@@ -139,7 +140,7 @@ export function getVersionGroupsForDisplay(
 			}
 
 			return {
-				label: `${formatMinecraftMinorVersion(major, minor[0])}–${formatMinecraftMinorVersion(major, minor[minor.length - 1])}`,
+				label: `${formatEnshroudedMinorVersion(major, minor[0])}–${formatEnshroudedMinorVersion(major, minor[minor.length - 1])}`,
 				versions,
 			}
 		},
@@ -264,12 +265,13 @@ function validateRange(range: string): string {
 	return range
 }
 
-function formatMinecraftMinorVersion(major: string, minor: number): string {
+function formatEnshroudedMinorVersion(major: string, minor: number): string {
 	return minor === 0 ? major : `${major}.${minor}`
 }
 
 export const PROJECT_TYPE_PRECEDENCE = [
 	'server',
+	'schematic',
 	'modpack',
 	'datapack',
 	'plugin',
@@ -280,7 +282,7 @@ export const PROJECT_TYPE_PRECEDENCE = [
 ] as const
 
 export function getPrimaryProjectType(project: Labrinth.Projects.v3.Project): DisplayProjectType {
-	if (project.minecraft_server != null) {
+	if (project.enshrouded_server != null) {
 		return 'server'
 	} else {
 		const sorted = project.project_types

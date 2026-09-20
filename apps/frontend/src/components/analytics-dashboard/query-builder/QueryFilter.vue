@@ -197,14 +197,14 @@
 </template>
 
 <script setup lang="ts">
-import { BoxIcon, UserIcon } from '@modrinth/assets'
+import { BoxIcon, UserIcon } from '@shroudedit/assets'
 import {
 	buildDependentsSearchFilters,
 	type ButtonSize,
 	DropdownFilterBar,
 	type DropdownFilterBarCategory,
 	type DropdownFilterBarOption,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	type ProjectType,
 	Tabs,
@@ -212,8 +212,8 @@ import {
 	type TabsValue,
 	truncatedTooltip,
 	useVIntl,
-} from '@modrinth/ui'
-import { formatProjectType } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { formatProjectType } from '@shroudedit/utils'
 import { useQuery } from '@tanstack/vue-query'
 import type { ComponentPublicInstance } from 'vue'
 
@@ -233,7 +233,6 @@ import {
 import {
 	analyticsBreakdownMessages,
 	analyticsMessages,
-	analyticsMonetizationMessages,
 	formatAnalyticsDownloadReasonLabel,
 	formatAnalyticsLoaderLabel,
 	formatAnalyticsProjectStatusLabel,
@@ -286,7 +285,7 @@ const props = withDefaults(
 )
 
 const { formatMessage } = useVIntl()
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const { addNotification } = injectNotificationManager()
 const {
 	hasProjectContext,
@@ -662,14 +661,6 @@ const filterCategories = computed<DropdownFilterBarCategory[]>(() => {
 			options: withSelectedOptions('country', countryFilterOptions.value),
 			submenuClass: 'w-fit',
 			previewDropdownWidth: 'fit-content',
-		},
-		{
-			key: 'monetization',
-			label: formatMessage(analyticsBreakdownMessages.monetization),
-			options: withSelectedOptions('monetization', [
-				{ value: 'monetized', label: formatMessage(analyticsMonetizationMessages.monetized) },
-				{ value: 'unmonetized', label: formatMessage(analyticsMonetizationMessages.unmonetized) },
-			]),
 		},
 		{
 			key: 'user_agent',

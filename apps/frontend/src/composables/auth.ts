@@ -1,4 +1,4 @@
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import { useStorage } from '@vueuse/core'
 import type { LocationQueryValue, RouteLocationNormalizedLoaded } from 'vue-router'
 
@@ -12,7 +12,6 @@ type AuthState = {
 
 type QueryValue = LocationQueryValue | LocationQueryValue[] | undefined
 type FullPathRoute = Pick<RouteLocationNormalizedLoaded, 'fullPath'>
-type LauncherRoute = Pick<RouteLocationNormalizedLoaded, 'query'>
 type AuthInitRoute = Pick<RouteLocationNormalizedLoaded, 'fullPath' | 'path' | 'query'>
 
 const normalizeAuthToken = (value: unknown) => {
@@ -208,25 +207,11 @@ export const ADD_ACCOUNT_QUERY_PARAM = 'add_account'
 export const getAuthUrl = (provider: string, redirect?: string) => {
 	const config = useRuntimeConfig()
 	const route = useNativeRoute()
-	const launcher = getQueryString(route.query.launcher)
 	const addingAccount =
 		route.query[ADD_ACCOUNT_QUERY_PARAM] !== undefined || route.path === '/auth/reauthenticate'
 
 	const callbackUrl = new URL('/auth/sign-in', config.public.siteUrl)
-	if (launcher) {
-		callbackUrl.searchParams.set('launcher', launcher)
-
-		const ipver = getQueryString(route.query.ipver)
-		const port = getQueryString(route.query.port)
-
-		if (ipver) {
-			callbackUrl.searchParams.set('ipver', ipver)
-		}
-
-		if (port) {
-			callbackUrl.searchParams.set('port', port)
-		}
-	} else if (redirect) {
+	if (redirect) {
 		callbackUrl.searchParams.set('redirect', redirect)
 	}
 
@@ -268,14 +253,4 @@ export const removeAuthProvider = async (provider: string) => {
 	await useAuth(auth.value.token)
 
 	stopLoading()
-}
-
-export const getLauncherRedirectUrl = (route: LauncherRoute) => {
-	const ipver = getQueryString(route.query.ipver)
-	const port = Number(getQueryString(route.query.port))
-	const usesLocalhostRedirectionScheme = ['4', '6'].includes(ipver ?? '') && port < 65536
-
-	return usesLocalhostRedirectionScheme
-		? `http://${ipver === '4' ? '127.0.0.1' : '[::1]'}:${port}`
-		: 'https://launcher-files.modrinth.com'
 }

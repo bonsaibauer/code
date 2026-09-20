@@ -1,6 +1,6 @@
-import type { Labrinth } from '@modrinth/api-client'
-import { DatabaseIcon } from '@modrinth/assets'
-import { ENVIRONMENTS_COPY, injectProjectPageContext, injectTags } from '@modrinth/ui'
+import type { Labrinth } from '@shroudedit/api-client'
+import { DatabaseIcon } from '@shroudedit/assets'
+import { ENVIRONMENTS_COPY, injectProjectPageContext, injectTags } from '@shroudedit/ui'
 import { computed } from 'vue'
 
 import {
@@ -49,7 +49,7 @@ export default function () {
 			)
 			.icon(DatabaseIcon)
 			.navigate('/versions')
-			.shown(computed(() => !project.value?.minecraft_server))
+			.shown(computed(() => !project.value?.enshrouded_server))
 			.children(
 				() => {
 					const env = project.value.environment ?? []
@@ -121,7 +121,7 @@ export default function () {
 					toggle('game-versions', 'Game Versions').suggestedStatus('flagged').message(),
 					toggle('loaders', 'Loaders')
 						.suggestedStatus('rejected')
-						.shown(!project.value.minecraft_server)
+						.shown(!project.value.enshrouded_server)
 						.message(),
 					// toggle('loader', 'Loaders (WIP)')
 					// 	.suggestedStatus('flagged')

@@ -1,4 +1,4 @@
-import { createContext } from '@modrinth/ui'
+import { createContext } from '@shroudedit/ui'
 import type { Ref } from 'vue'
 
 /**

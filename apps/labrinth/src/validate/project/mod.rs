@@ -41,7 +41,7 @@ pub enum ProjectNagKind {
     ProjectNameProfanity,
     ProjectNameNonStandardText,
     ProjectNameVersion,
-    MinecraftTitleClause,
+    EnshroudedTitleClause,
 
     // Project summary
     ProjectSummarySlur,

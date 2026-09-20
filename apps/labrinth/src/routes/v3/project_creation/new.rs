@@ -276,7 +276,7 @@ pub async fn create(
     let mut monetization_status = MonetizationStatus::Monetized;
     let mut version_builder = None::<VersionBuilder>;
 
-    if components.minecraft_server.is_some() {
+    if components.enshrouded_server.is_some() {
         let version_limits = UserLimits::get_for_versions_per_project(
             &user,
             project_id.into(),
@@ -405,10 +405,9 @@ mod tests {
                 organization_id: None,
             },
             components: exp::ProjectEdit {
-                minecraft_mod: None,
-                minecraft_server: None,
-                minecraft_java_server: None,
-                minecraft_bedrock_server: None,
+                enshrouded_mod: None,
+                enshrouded_server: None,
+                schematic: None,
             },
         }
     }

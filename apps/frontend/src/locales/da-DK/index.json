@@ -9,7 +9,7 @@
     "message": "Tillad alle"
   },
   "ads-consent.body": {
-    "message": "Reklamer gør Modrinth muligt og finansiere skaber udbetalinger. Vores partnere må gemme og tilgå cookies på hjemmesiden for at personliggøre."
+    "message": "Reklamer gør ShroudEdit muligt og finansiere skaber udbetalinger. Vores partnere må gemme og tilgå cookies på hjemmesiden for at personliggøre."
   },
   "ads-consent.manage": {
     "message": "Administrer præferencer"
@@ -18,7 +18,7 @@
     "message": "Afvis alle"
   },
   "ads-consent.title": {
-    "message": "Dit privatliv og hvordan reklamer hjælper Modrinth"
+    "message": "Dit privatliv og hvordan reklamer hjælper ShroudEdit"
   },
   "analytics.action.add": {
     "message": "Tilføj"
@@ -86,11 +86,11 @@
   "analytics.chart.controls.display": {
     "message": "Visning"
   },
-  "analytics.chart.controls.modrinth-events": {
-    "message": "Modrinth begivenheder"
+  "analytics.chart.controls.shroudedit-events": {
+    "message": "ShroudEdit begivenheder"
   },
-  "analytics.chart.controls.no-modrinth-events": {
-    "message": "Ingen Modrinth-begivenheder i grafen."
+  "analytics.chart.controls.no-shroudedit-events": {
+    "message": "Ingen ShroudEdit-begivenheder i grafen."
   },
   "analytics.chart.controls.previous-period": {
     "message": "Tidligere periode"
@@ -135,10 +135,10 @@
     "message": "Opdatering"
   },
   "analytics.download-source.app": {
-    "message": "Modrinth App"
+    "message": "ShroudEdit App"
   },
   "analytics.download-source.website": {
-    "message": "Modrinth-hjemmeside"
+    "message": "ShroudEdit-hjemmeside"
   },
   "analytics.downloads.suffix": {
     "message": "downloads"
@@ -372,7 +372,7 @@
     "message": "Linux"
   },
   "app-marketing.download.linux-disclaimer": {
-    "message": "Linux versionerne af Modrinth er <issues-link>kendt for at have fejl</issues-link> på bestemte systemer og konfigurationer. Hvis Modrinth er ustabil på dit system, vi opfordre dig til at prøve andre apps så som <prism-link>Prism Launcher</prism-link> for at nemt installere Modrinth indhold."
+    "message": "Linux versionerne af ShroudEdit er <issues-link>kendt for at have fejl</issues-link> på bestemte systemer og konfigurationer. Hvis ShroudEdit er ustabil på dit system, vi opfordre dig til at prøve andre apps så som <prism-link>Prism Launcher</prism-link> for at nemt installere ShroudEdit indhold."
   },
   "app-marketing.download.mac": {
     "message": "Mac"
@@ -381,10 +381,10 @@
     "message": "Download muligheder"
   },
   "app-marketing.download.terms": {
-    "message": "Ved at download Modrinth App, acceptere du vores <terms-link>servicevilkår</terms-link> og <privacy-link>privatlivspolitik</privacy-link>."
+    "message": "Ved at download ShroudEdit App, acceptere du vores <terms-link>servicevilkår</terms-link> og <privacy-link>privatlivspolitik</privacy-link>."
   },
   "app-marketing.download.title": {
-    "message": "Download Modrinth (Beta)"
+    "message": "Download ShroudEdit (Beta)"
   },
   "app-marketing.download.windows": {
     "message": "Windows"
@@ -402,7 +402,7 @@
     "message": "af {author}"
   },
   "app-marketing.features.mod-management.description": {
-    "message": "Modrinth gør det nemt at håndtere alle dine mods i et sted. Du kan installere, afinstallere, og opdatere mods med et enkelt klik."
+    "message": "ShroudEdit gør det nemt at håndtere alle dine mods i et sted. Du kan installere, afinstallere, og opdatere mods med et enkelt klik."
   },
   "app-marketing.features.mod-management.installed-mods": {
     "message": "Installerede mods"
@@ -437,8 +437,8 @@
   "app-marketing.features.performance.google-chrome": {
     "message": "Google Chrome"
   },
-  "app-marketing.features.performance.modrinth-app": {
-    "message": "Modrinth"
+  "app-marketing.features.performance.shroudedit-app": {
+    "message": "ShroudEdit"
   },
   "app-marketing.features.performance.one-billion-percent": {
     "message": "1 billion %"
@@ -456,13 +456,13 @@
     "message": "Effektiv"
   },
   "app-marketing.features.play.description": {
-    "message": "Brug Modrinth App til at hente og spille med dine foretrukne mods og modpakker."
+    "message": "Brug ShroudEdit App til at hente og spille med dine foretrukne mods og modpakker."
   },
   "app-marketing.features.play.title": {
     "message": "Spil med dine yndlingsmods"
   },
   "app-marketing.features.sharing.description": {
-    "message": "Opret, del og spil modpakker med tusindvis af mods og modpakker, der er vært her på Modrinth."
+    "message": "Opret, del og spil modpakker med tusindvis af mods og modpakker, der er vært her på ShroudEdit."
   },
   "app-marketing.features.sharing.modpack": {
     "message": "Modpack"
@@ -477,7 +477,7 @@
     "message": "Som ingen anden launcher"
   },
   "app-marketing.features.website.description": {
-    "message": "Modrinth App er fuldt integreret med hjemmesiden, så du kan få adgang til alle dine yndlingsprojekter direkte fra appen!"
+    "message": "ShroudEdit App er fuldt integreret med hjemmesiden, så du kan få adgang til alle dine yndlingsprojekter direkte fra appen!"
   },
   "app-marketing.features.website.title": {
     "message": "Integration med hjemmesiden"
@@ -486,21 +486,21 @@
     "message": "du har brugt før"
   },
   "app-marketing.hero.app-screenshot-alt": {
-    "message": "Skærmbillede af Modrinth App med en Cobblemon-instans åbnet på siden 'Indhold'."
+    "message": "Skærmbillede af ShroudEdit App med en Cobblemon-instans åbnet på siden 'Indhold'."
   },
   "app-marketing.hero.description": {
-    "message": "Modrinth App er en unik, open source-launcher, der giver dig mulighed for at spille dine yndlingsmods og holde dem opdateret – alt samlet i én praktisk pakke."
+    "message": "ShroudEdit App er en unik, open source-launcher, der giver dig mulighed for at spille dine yndlingsmods og holde dem opdateret – alt samlet i én praktisk pakke."
   },
   "app-marketing.hero.download-button": {
-    "message": "Hent Modrinth Appen"
+    "message": "Hent ShroudEdit Appen"
   },
-  "app-marketing.hero.download-modrinth-app": {
-    "message": "Hent Modrinth Appen"
+  "app-marketing.hero.download-shroudedit-app": {
+    "message": "Hent ShroudEdit Appen"
   },
-  "app-marketing.hero.download-modrinth-app-for-os": {
-    "message": "Hent Modrinth Appen til {os}"
+  "app-marketing.hero.download-shroudedit-app-for-os": {
+    "message": "Hent ShroudEdit Appen til {os}"
   },
-  "app-marketing.hero.minecraft-screenshot-alt": {
+  "app-marketing.hero.enshrouded-screenshot-alt": {
     "message": "Skærmbilleder af Cobblemon instance'ens primære menu skærm."
   },
   "app-marketing.hero.more-download-options": {
@@ -627,7 +627,7 @@
     "message": "Sidst brugt"
   },
   "auth.sign-in.launcher.complete.return-button": {
-    "message": "Åbn Modrinth-appen"
+    "message": "Åbn ShroudEdit-appen"
   },
   "auth.sign-in.launcher.complete.title": {
     "message": "Du er logget ind"
@@ -636,7 +636,7 @@
     "message": "Har du ikke en konto?"
   },
   "auth.sign-in.sign-in-with": {
-    "message": "Log ind på Modrinth"
+    "message": "Log ind på ShroudEdit"
   },
   "auth.sign-in.title": {
     "message": "Log ind"
@@ -648,7 +648,7 @@
     "message": "Fortsæt med email"
   },
   "auth.sign-up.legal-dislaimer": {
-    "message": "Ved at oprette en konto, accepterer du Modrinth's <terms-link>Vilkår</terms-link> og <privacy-policy-link>Privatlivspolitik</privacy-policy-link>."
+    "message": "Ved at oprette en konto, accepterer du ShroudEdit's <terms-link>Vilkår</terms-link> og <privacy-policy-link>Privatlivspolitik</privacy-policy-link>."
   },
   "auth.sign-up.show-fewer-options": {
     "message": "Vis færre muligheder"
@@ -735,7 +735,7 @@
     "message": "Er du sikker på, at du vil slette denne samling?"
   },
   "collection.description": {
-    "message": "{description} - Se samlingen {name} af {username} på Modrinth"
+    "message": "{description} - Se samlingen {name} af {username} på ShroudEdit"
   },
   "collection.description.following": {
     "message": "Auto-genererede samling af alle de projekter, du følger."
@@ -1077,7 +1077,7 @@
     "message": "Skatteformular"
   },
   "dashboard.creator-tax-form-modal.security.description": {
-    "message": "Modrinth bruger tredjepartsudbyder Track1099 til sikkert at indsamle og opbevare dine skatteformularer. <security-link>Læs mere her.</security-link>"
+    "message": "ShroudEdit bruger tredjepartsudbyder Track1099 til sikkert at indsamle og opbevare dine skatteformularer. <security-link>Læs mere her.</security-link>"
   },
   "dashboard.creator-tax-form-modal.security.header": {
     "message": "Sikkerhedspraksisser"
@@ -1338,7 +1338,7 @@
     "message": "Saldo"
   },
   "dashboard.revenue.estimated-tooltip.msg2": {
-    "message": "Klik for at læse hvordan Modrinth håndtere din omsætning."
+    "message": "Klik for at læse hvordan ShroudEdit håndtere din omsætning."
   },
   "dashboard.revenue.estimated-with-date": {
     "message": "Anslået {date}"
@@ -1503,7 +1503,7 @@
     "message": "Samlingen er måske privat."
   },
   "error.collection.404.list_item.3": {
-    "message": "Samlingen er måske blevet taget ned af Modrinth's moderatorteam for at være i strid imod vores <tou-link>Vilkår for brug</tou-link>."
+    "message": "Samlingen er måske blevet taget ned af ShroudEdit's moderatorteam for at være i strid imod vores <tou-link>Vilkår for brug</tou-link>."
   },
   "error.collection.404.list_title": {
     "message": "Hvorfor?"
@@ -1524,10 +1524,10 @@
     "message": "Indholdet er ikke tilgængeligt af lovmæssige årsager"
   },
   "error.generic.default.list_item.1": {
-    "message": "Tjek om Modrinth er nede på vores <status-link>Status side</status-link>."
+    "message": "Tjek om ShroudEdit er nede på vores <status-link>Status side</status-link>."
   },
   "error.generic.default.list_item.2": {
-    "message": "Hvis der bliver ved med at ske, kan du dele det Modrinth Team ved at join vores <discord-link>Discord server</discord-link>."
+    "message": "Hvis der bliver ved med at ske, kan du dele det ShroudEdit Team ved at join vores <discord-link>Discord server</discord-link>."
   },
   "error.generic.default.list_title": {
     "message": "Venligst prøv igen om nogle minutter."
@@ -1545,7 +1545,7 @@
     "message": "Organisationens ejer har måske ændret URL'en eller slettet den."
   },
   "error.organization.404.list_item.3": {
-    "message": "Organisationen er måske blevet taget ned af Modrinth's moderatorteam for at være i strid imod vores <tou-link>Vilkår for brug</tou-link>."
+    "message": "Organisationen er måske blevet taget ned af ShroudEdit's moderatorteam for at være i strid imod vores <tou-link>Vilkår for brug</tou-link>."
   },
   "error.organization.404.list_title": {
     "message": "Hvorfor?"
@@ -1560,7 +1560,7 @@
     "message": "Projektets ejer har måske ændret URL'en, lavet projektet privat, eller slettet den."
   },
   "error.project.404.list_item.3": {
-    "message": "Projektet er måske blevet taget ned af Modrinth's moderatorteam for at være i strid imod vores <tou-link>Vilkår for brug</tou-link>."
+    "message": "Projektet er måske blevet taget ned af ShroudEdit's moderatorteam for at være i strid imod vores <tou-link>Vilkår for brug</tou-link>."
   },
   "error.project.404.list_title": {
     "message": "Hvorfor?"
@@ -1575,7 +1575,7 @@
     "message": "Brugeren har måske ændret deres brugernavn eller slettet deres konto."
   },
   "error.user.404.list_item.3": {
-    "message": "Brugeren's konto er måske blevet slettet for at gå i strid imod Modrinth's <tou-link>Brugsbetingelser</tou-link>."
+    "message": "Brugeren's konto er måske blevet slettet for at gå i strid imod ShroudEdit's <tou-link>Brugsbetingelser</tou-link>."
   },
   "error.user.404.list_title": {
     "message": "Hvorfor?"
@@ -1614,7 +1614,7 @@
     "message": "Når din server er under ekstremt pres, giver vi den midlertidig adgang til flere CPU-tråde til at hjælpe med mitigere lag spikes og ustabilitet. Dette hjælper med at hindre TPSen fra at gå under 20, for at spøge for den bedste oplevelse muligt. Siden de ekstra CPU-tråde er kun kort tilgængelig under perioder med ekstremt pres, de vil måske ikke blive vist i en Spark rapporter eller andre analyseredskaber."
   },
   "hosting-marketing.faq.cpu-kind": {
-    "message": "Hvilken form for CPU'er køre Modrinth Hosting servere på?"
+    "message": "Hvilken form for CPU'er køre ShroudEdit Hosting servere på?"
   },
   "hosting-marketing.faq.currency": {
     "message": "Hvilken valuta er priser i?"
@@ -1623,19 +1623,19 @@
     "message": "Alle priser er vist i amerikanske dollars (USD)."
   },
   "hosting-marketing.faq.ddos-protection": {
-    "message": "Har Modrinth Hosting servere DDoS beskyttelse?"
+    "message": "Har ShroudEdit Hosting servere DDoS beskyttelse?"
   },
   "hosting-marketing.faq.ddos-protection.answer": {
-    "message": "Ja. Alle Modrinth servere kommer med DDoS beskyttelse, med op til 17 Tbps kapacitet i nogle lokationer."
+    "message": "Ja. Alle ShroudEdit servere kommer med DDoS beskyttelse, med op til 17 Tbps kapacitet i nogle lokationer."
   },
   "hosting-marketing.faq.heading": {
     "message": "Ofte Spurgt Spørgsmål"
   },
   "hosting-marketing.faq.how-fast": {
-    "message": "Hvor hurtige er Modrinth Hosting servere?"
+    "message": "Hvor hurtige er ShroudEdit Hosting servere?"
   },
   "hosting-marketing.faq.how-fast.answer.one": {
-    "message": "Modrinth Hosting servere er hosted på meget moderne hardware med høj ydeevne, men det er svært at sige hvordan det lige præcis vil oversætte til hvor hurtig din server vil køre fordi der er så mange faktorer der er i effekt, så som mods, datapakker, eller plugins du køre på din server, og endda bruger adfærd."
+    "message": "ShroudEdit Hosting servere er hosted på meget moderne hardware med høj ydeevne, men det er svært at sige hvordan det lige præcis vil oversætte til hvor hurtig din server vil køre fordi der er så mange faktorer der er i effekt, så som mods, datapakker, eller plugins du køre på din server, og endda bruger adfærd."
   },
   "hosting-marketing.faq.how-fast.answer.two": {
     "message": "De fleste problemer med ydeevne sker ofte på grund af en ikke optimeret modpack, mod, datapakke, eller plugin som er grunden til serveren lagger. Siden vores servere har meget høj ydeevne, du burde ikke komme i problemer så længe du vælger den passende plan til det indhold du kører på din server."
@@ -1644,19 +1644,19 @@
     "message": "Kan jeg øge lagerpladsen på min server?"
   },
   "hosting-marketing.faq.increase-storage.answer": {
-    "message": "Ja, lagerplads kan blive øget på din server uden nogen ekstra omkostninger. Hvis du har behov for mere plads, ræk ud til Modrinth Support."
+    "message": "Ja, lagerplads kan blive øget på din server uden nogen ekstra omkostninger. Hvis du har behov for mere plads, ræk ud til ShroudEdit Support."
   },
   "hosting-marketing.faq.location": {
-    "message": "Hvor er Modrinth Hosting servere placeret? Kan jeg vælge et område?"
+    "message": "Hvor er ShroudEdit Hosting servere placeret? Kan jeg vælge et område?"
   },
   "hosting-marketing.faq.versions-loaders": {
-    "message": "Hvilken Minecraft version og loaders kan blive brugt?"
+    "message": "Hvilken Enshrouded version og loaders kan blive brugt?"
   },
   "hosting-marketing.faq.versions-loaders.answer.one": {
-    "message": "Modrinth Hosting servere kan køre enhver version af Minecraft: Java Edition helt tilbage til version 1.2.5, inkludere også snapshot versioner."
+    "message": "ShroudEdit Hosting servere kan køre enhver version af Enshrouded: Java Edition helt tilbage til version 1.2.5, inkludere også snapshot versioner."
   },
   "hosting-marketing.faq.versions-loaders.answer.two": {
-    "message": "Vi understøtter også en bred række af mods og plugin loaders, inkludere Fabric, Quilt, Forge, og NeoForge til mods, og Paper og Purpur til plugins. Tilgængelighed variere på baggrund af om mod eller plugin loaderen undersøtter den valgte Minecraft version."
+    "message": "Vi understøtter også en bred række af mods og plugin loaders, inkludere Fabric, Quilt, Forge, og NeoForge til mods, og Paper og Purpur til plugins. Tilgængelighed variere på baggrund af om mod eller plugin loaderen undersøtter den valgte Enshrouded version."
   },
   "hosting-marketing.get-started": {
     "message": "Kom i gang"
@@ -1670,11 +1670,11 @@
   "hosting-marketing.hero.button.start-your-server": {
     "message": "Start din server"
   },
-  "hosting-marketing.hero.host-with-modrinth": {
-    "message": "Host din næste server med Modrinth Hosting"
+  "hosting-marketing.hero.host-with-shroudedit": {
+    "message": "Host din næste server med ShroudEdit Hosting"
   },
   "hosting-marketing.hero.hosting-description": {
-    "message": "Modrinth Hosting er den nemmeste måde at hoste din egen Minecraft: Java Edition server. Nemt installer og spil dine favorit mods og modpacks, alt sammen inde på Modrinth platformen."
+    "message": "ShroudEdit Hosting er den nemmeste måde at hoste din egen Enshrouded: Java Edition server. Nemt installer og spil dine favorit mods og modpacks, alt sammen inde på ShroudEdit platformen."
   },
   "hosting-marketing.included.advanced-networking": {
     "message": "Avanceret netværksstyring"
@@ -1692,10 +1692,10 @@
     "message": "Brugerdefineret URL"
   },
   "hosting-marketing.included.custom-url.description": {
-    "message": "Del din server med et brugerdefineret <contrast>modrinth.gg</contrast> URL."
+    "message": "Del din server med et brugerdefineret <contrast>shroudedit.gg</contrast> URL."
   },
   "hosting-marketing.included.description": {
-    "message": "Inkluderet med alle servere er en række af funktioner designed til at give en hosting oplevelse som kun Modrinth kan give."
+    "message": "Inkluderet med alle servere er en række af funktioner designed til at give en hosting oplevelse som kun ShroudEdit kan give."
   },
   "hosting-marketing.included.file-manager": {
     "message": "Nem filhåndtering"
@@ -1710,19 +1710,19 @@
     "message": "Hjælp når du har behov for det"
   },
   "hosting-marketing.included.help.description": {
-    "message": "Ræk ud til Modrinth holdet for hjælp med din server på hvert et tidspunkt."
+    "message": "Ræk ud til ShroudEdit holdet for hjælp med din server på hvert et tidspunkt."
   },
   "hosting-marketing.included.powerful-console": {
     "message": "En kraftfuld konsol, administrering af serveregenskaber, og meget mere"
   },
   "hosting-marketing.included.powerful-console.description": {
-    "message": "Modrinth Hosting kommer med kraftfulde værktøjer til at styre din server."
+    "message": "ShroudEdit Hosting kommer med kraftfulde værktøjer til at styre din server."
   },
   "hosting-marketing.included.sftp-access": {
     "message": "SFTP adgang"
   },
   "hosting-marketing.included.sftp-access.description": {
-    "message": "Få adgang til dine servers filer direkte med SFTP bygget ind i Modrinth Hosting."
+    "message": "Få adgang til dine servers filer direkte med SFTP bygget ind i ShroudEdit Hosting."
   },
   "hosting-marketing.included.with-your-server": {
     "message": "Inkluderet med din server"
@@ -1745,20 +1745,20 @@
   "hosting-marketing.server-for-everyone": {
     "message": "Der er en server for alle"
   },
-  "hosting-marketing.why.all-on-modrinth": {
-    "message": "Styr det hele på Modrinth"
+  "hosting-marketing.why.all-on-shroudedit": {
+    "message": "Styr det hele på ShroudEdit"
   },
-  "hosting-marketing.why.all-on-modrinth.description": {
-    "message": "Din server, mods, spillere, og mere er alle på Modrinth. Ingen grund til at skifte imellem platforme."
+  "hosting-marketing.why.all-on-shroudedit.description": {
+    "message": "Din server, mods, spillere, og mere er alle på ShroudEdit. Ingen grund til at skifte imellem platforme."
   },
   "hosting-marketing.why.consistently-fast": {
     "message": "Hele tiden hurtig"
   },
   "hosting-marketing.why.consistently-fast.description": {
-    "message": "Vores infrastruktur er aldrig overbelastet, hvilket betyder at alle servere hosted med Modrinth altid kører med fuld ydeevne."
+    "message": "Vores infrastruktur er aldrig overbelastet, hvilket betyder at alle servere hosted med ShroudEdit altid kører med fuld ydeevne."
   },
   "hosting-marketing.why.description": {
-    "message": "Vælg imellem tusinder af modpacks på Modrinth eller lav din egen. Inviter dine venner når du klar til at spille."
+    "message": "Vælg imellem tusinder af modpacks på ShroudEdit eller lav din egen. Inviter dine venner når du klar til at spille."
   },
   "hosting-marketing.why.heading": {
     "message": "Find en modpack. Nu er det en server."
@@ -1767,22 +1767,22 @@
     "message": "Oplev moderne, pålidelig hosting"
   },
   "hosting-marketing.why.modern-reliable-hosting.description": {
-    "message": "Modrinth Hosting servere er hosted på <contrast>AMD CPUer med høj ydeevne med DDR5 RAM</contrast>, køre på specialudviklet software for at sikre din server køre uden problemer."
+    "message": "ShroudEdit Hosting servere er hosted på <contrast>AMD CPUer med høj ydeevne med DDR5 RAM</contrast>, køre på specialudviklet software for at sikre din server køre uden problemer."
   },
   "hosting-marketing.why.where-mods-are": {
     "message": "Spil hvor dine mods er"
   },
   "hosting-marketing.why.where-mods-are.description": {
-    "message": "Modrinth Hosting gør installering af mods og modpacks problemfrit til din server."
+    "message": "ShroudEdit Hosting gør installering af mods og modpacks problemfrit til din server."
   },
-  "hosting-marketing.why.why-modrinth-hosting": {
-    "message": "Hvorfor Modrinth Hosting?"
+  "hosting-marketing.why.why-shroudedit-hosting": {
+    "message": "Hvorfor ShroudEdit Hosting?"
   },
   "hosting-marketing.why.your-favorite-mods": {
     "message": "Alle dine favorit mods"
   },
   "hosting-marketing.why.your-favorite-mods.description": {
-    "message": "Vælg imellem Vanilla, Fabric, Forge, Quilt og NeoForge. Hvis det er på Modrinth, det kan køre på din server."
+    "message": "Vælg imellem Vanilla, Fabric, Forge, Quilt og NeoForge. Hvis det er på ShroudEdit, det kan køre på din server."
   },
   "hosting.plan.out-of-stock": {
     "message": "Ikke på lager"
@@ -1797,7 +1797,7 @@
     "message": "Gå til kontrolpanel"
   },
   "landing.creator.feature.constantly-evolving.description": {
-    "message": "Få den bedste modding oplevelse muligt med konstante opdateringer fra Modrinth holdet"
+    "message": "Få den bedste modding oplevelse muligt med konstante opdateringer fra ShroudEdit holdet"
   },
   "landing.creator.feature.constantly-evolving.title": {
     "message": "Konstant Udvikling"
@@ -1842,49 +1842,49 @@
     "message": "Følg projekter du elsker"
   },
   "landing.feature.launcher.description": {
-    "message": "Modrinths open source API lader launchers tilføje dyb integration med Modrinth. Du kan bruge Modrinth gennem <link>vores egen app</link> og nogle af de mest poplære launchers så som ATLauncher, MultiMC, og Prism Launcher."
+    "message": "ShroudEdits open source API lader launchers tilføje dyb integration med ShroudEdit. Du kan bruge ShroudEdit gennem <link>vores egen app</link> og nogle af de mest poplære launchers så som ATLauncher, MultiMC, og Prism Launcher."
   },
   "landing.feature.launcher.heading": {
     "message": "Spil med din yndlings launcher"
   },
   "landing.feature.search.description": {
-    "message": "Modrinths lyn hurtige søg og kraftfulde filtre lader dig finde hvad du vil have imens du skriver."
+    "message": "ShroudEdits lyn hurtige søg og kraftfulde filtre lader dig finde hvad du vil have imens du skriver."
   },
   "landing.feature.search.heading": {
     "message": "Find hvad du vil have, hurtigt og nemt"
   },
-  "landing.heading.the-place-for-minecraft": {
-    "message": "Stedet til Minecraft {content}"
+  "landing.heading.the-place-for-enshrouded": {
+    "message": "Stedet til Enshrouded {content}"
   },
-  "landing.heading.the-place-for-minecraft.data-packs": {
+  "landing.heading.the-place-for-enshrouded.data-packs": {
     "message": "datapakker"
   },
-  "landing.heading.the-place-for-minecraft.modpacks": {
+  "landing.heading.the-place-for-enshrouded.modpacks": {
     "message": "modpacks"
   },
-  "landing.heading.the-place-for-minecraft.mods": {
+  "landing.heading.the-place-for-enshrouded.mods": {
     "message": "mods"
   },
-  "landing.heading.the-place-for-minecraft.plugins": {
+  "landing.heading.the-place-for-enshrouded.plugins": {
     "message": "plugins"
   },
-  "landing.heading.the-place-for-minecraft.resource-packs": {
+  "landing.heading.the-place-for-enshrouded.resource-packs": {
     "message": "ressourcepakke"
   },
-  "landing.heading.the-place-for-minecraft.servers": {
+  "landing.heading.the-place-for-enshrouded.servers": {
     "message": "servere"
   },
-  "landing.heading.the-place-for-minecraft.shaders": {
+  "landing.heading.the-place-for-enshrouded.shaders": {
     "message": "shaders"
   },
   "landing.launcher.atlauncher-label": {
     "message": "ATLauncher"
   },
   "landing.launcher.graphic-alt": {
-    "message": "En simplificeretrepræsentation af et Minecraft vindue, med Mojang Studio logoet i Modrinth grøn."
+    "message": "En simplificeretrepræsentation af et Enshrouded vindue, med Mojang Studio logoet i ShroudEdit grøn."
   },
-  "landing.launcher.modrinth-app-label": {
-    "message": "Modrinth App"
+  "landing.launcher.shroudedit-app-label": {
+    "message": "ShroudEdit App"
   },
   "landing.launcher.prism-launcher-label": {
     "message": "Prism Launcher"
@@ -1917,7 +1917,7 @@
     "message": "Til Spillere"
   },
   "landing.subheading": {
-    "message": "Udforsk, spil, og del Minecraft indhold gennem vores open souce platform bygget for fællesskabet."
+    "message": "Udforsk, spil, og del Enshrouded indhold gennem vores open souce platform bygget for fællesskabet."
   },
   "layout.action.change-theme": {
     "message": "Skift tema"
@@ -1962,7 +1962,7 @@
     "message": "Gå til kontoindstillinger"
   },
   "layout.banner.staging.title": {
-    "message": "Du ser Modrinth's test miljø"
+    "message": "Du ser ShroudEdit's test miljø"
   },
   "layout.banner.subscription-payment-failed.button": {
     "message": "Opdater betalingsoplysninger"
@@ -1974,7 +1974,7 @@
     "message": "Send bekræftelsesmail igen"
   },
   "layout.banner.verify-email.description": {
-    "message": "For sikkerhedsgrunde kræver Modrinth at du bekræfter den e-mail adresse tilknyttet til din konto."
+    "message": "For sikkerhedsgrunde kræver ShroudEdit at du bekræfter den e-mail adresse tilknyttet til din konto."
   },
   "layout.footer.about": {
     "message": "Om"
@@ -1998,7 +1998,7 @@
     "message": "Juridisk"
   },
   "layout.footer.legal-disclaimer": {
-    "message": "IKKE EN OFFICIEL MINECRAFT-TJENESTE. IKKE GODKENDT AF ELLER FORBUNDET MED MOJANG ELLER MICROSOFT."
+    "message": "IKKE EN OFFICIEL ENSHROUDED-TJENESTE. IKKE GODKENDT AF ELLER FORBUNDET MED MOJANG ELLER MICROSOFT."
   },
   "layout.footer.legal.copyright-policy": {
     "message": "Ophavsretspolitik og DMCA"
@@ -2012,23 +2012,23 @@
   "layout.footer.legal.terms-of-use": {
     "message": "Brugsvilkår"
   },
-  "layout.footer.modrinth-information": {
-    "message": "Modrinth information"
+  "layout.footer.shroudedit-information": {
+    "message": "ShroudEdit information"
   },
   "layout.footer.open-source": {
-    "message": "Modrinth er <github-link>open source</github-link>."
+    "message": "ShroudEdit er <github-link>open source</github-link>."
   },
   "layout.footer.products": {
     "message": "Produkter"
   },
   "layout.footer.products.app": {
-    "message": "Modrinth App"
+    "message": "ShroudEdit App"
   },
   "layout.footer.products.plus": {
-    "message": "Modrinth+"
+    "message": "ShroudEdit+"
   },
   "layout.footer.products.servers": {
-    "message": "Modrinth Hosting"
+    "message": "ShroudEdit Hosting"
   },
   "layout.footer.resources": {
     "message": "Ressourcer"
@@ -2064,10 +2064,10 @@
     "message": "Vis/skjul menu"
   },
   "layout.meta.description": {
-    "message": "Download Minecraft mods, plugins, datapakker, shaders, ressourcepakker, og modpacks på Modrinth. Opdag og udgiv projekter på Modrinth med et moderne, en brugervenligt hjemmeside og API."
+    "message": "Download Enshrouded mods, plugins, datapakker, shaders, ressourcepakker, og modpacks på ShroudEdit. Opdag og udgiv projekter på ShroudEdit med et moderne, en brugervenligt hjemmeside og API."
   },
   "layout.meta.og-description": {
-    "message": "Opdag og udgiv Minecraft indhold!"
+    "message": "Opdag og udgiv Enshrouded indhold!"
   },
   "layout.mobile.close-menu": {
     "message": "Luk menu"
@@ -2081,8 +2081,8 @@
   "layout.nav.discover": {
     "message": "Opdag"
   },
-  "layout.nav.get-modrinth-app": {
-    "message": "Hent Modrinth-app"
+  "layout.nav.get-shroudedit-app": {
+    "message": "Hent ShroudEdit-app"
   },
   "layout.nav.home": {
     "message": "Hjem"
@@ -2090,11 +2090,11 @@
   "layout.nav.host-a-server": {
     "message": "Host en server"
   },
-  "layout.nav.modrinth-app": {
-    "message": "Modrinth App"
+  "layout.nav.shroudedit-app": {
+    "message": "ShroudEdit App"
   },
-  "layout.nav.modrinth-home-page": {
-    "message": "Modrinth forside"
+  "layout.nav.shroudedit-home-page": {
+    "message": "ShroudEdit forside"
   },
   "layout.nav.my-servers": {
     "message": "Mine servere"
@@ -2117,17 +2117,17 @@
   "layout.nav.search": {
     "message": "Søg"
   },
-  "layout.nav.upgrade-to-modrinth-plus": {
-    "message": "Opgrader til Modrinth+"
+  "layout.nav.upgrade-to-shroudedit-plus": {
+    "message": "Opgrader til ShroudEdit+"
   },
   "layout.publish.email-verification-required.title": {
     "message": "E-mailbekræftelse påkrævet"
   },
   "modal.shared-instance.open-in-app.get-app": {
-    "message": "Hent Modrinth App"
+    "message": "Hent ShroudEdit App"
   },
   "modal.shared-instance.open-in-app.title": {
-    "message": "Åbner Modrinth App"
+    "message": "Åbner ShroudEdit App"
   },
   "moderation.page.external-projects": {
     "message": "Eksterne projekter"
@@ -2301,7 +2301,7 @@
     "message": "Genindsende til godkendelse"
   },
   "project-moderation-nags.resubmit-for-review-desc": {
-    "message": "Dit projekt er blevet {status, select, rejected {afvist} withheld {tilbageholdt} other {{status}}} af Modrinth's personale. I de fleste tilfælde kan du genindsende til godkendelse, når du har fulgt personalets instruktioner."
+    "message": "Dit projekt er blevet {status, select, rejected {afvist} withheld {tilbageholdt} other {{status}}} af ShroudEdit's personale. I de fleste tilfælde kan du genindsende til godkendelse, når du har fulgt personalets instruktioner."
   },
   "project-moderation-nags.submit-checklist-tooltip": {
     "message": "Du skal gennemføre de nødvendige trin i tjeklisten for udgivelse!"
@@ -2336,7 +2336,7 @@
   "project-type.datapack.singular": {
     "message": "Datapakke"
   },
-  "project-type.minecraft_java_server.singular": {
+  "project-type.enshrouded_java_server.singular": {
     "message": "Server"
   },
   "project-type.mod.plural": {
@@ -2394,7 +2394,7 @@
     "message": "Rediger projekt"
   },
   "project.actions.servers-promo.description": {
-    "message": "Modrinth Hosting er den nemmeste måde at spille med dine venner uden problemer!"
+    "message": "ShroudEdit Hosting er den nemmeste måde at spille med dine venner uden problemer!"
   },
   "project.actions.servers-promo.pricing": {
     "message": "Starter ved {price}<small> / måned</small>"
@@ -2433,7 +2433,7 @@
     "message": "Download manuelt"
   },
   "project.download.no-app": {
-    "message": "Har ikke Modrinth App?"
+    "message": "Har ikke ShroudEdit App?"
   },
   "project.download.no-game-versions-found": {
     "message": "Ingen spil versioner fundet"
@@ -2472,10 +2472,10 @@
     "message": "Tilbage til udforsk"
   },
   "project.moderation.admonition.under-review.body.1": {
-    "message": "Dit projekt er i kø til at blive gennemgået af Modrinth's moderatorteam."
+    "message": "Dit projekt er i kø til at blive gennemgået af ShroudEdit's moderatorteam."
   },
   "project.moderation.admonition.under-review.body.2": {
-    "message": "Dit projekt vil blive skannet og efterfølgende gennemgået af menneskelige moderators, for at sikre sig at det opretholder Modrinth's <rules-link>Indholsregler</rules-link> og <terms-link>Vilkår for brug</terms-link>."
+    "message": "Dit projekt vil blive skannet og efterfølgende gennemgået af menneskelige moderators, for at sikre sig at det opretholder ShroudEdit's <rules-link>Indholsregler</rules-link> og <terms-link>Vilkår for brug</terms-link>."
   },
   "project.moderation.admonition.under-review.header": {
     "message": "Projekt under gennemgang"
@@ -2841,13 +2841,13 @@
     "message": "Generere eksport..."
   },
   "settings.account.data-export.description": {
-    "message": "Anmod om en kopi af alt dit personlige data du har uploaded til Modrinth. Dette kan tage flere minutter at færdiggøre. "
+    "message": "Anmod om en kopi af alt dit personlige data du har uploaded til ShroudEdit. Dette kan tage flere minutter at færdiggøre. "
   },
   "settings.account.data-export.title": {
     "message": "Data eksport"
   },
   "settings.account.delete.confirm.description": {
-    "message": "Dette vil **med det samme slette alt dit bruger data og følgere**. Dine projekter vil ikke blive slettet. Sletning af din konto kan ikke blive fortrudt.<br><br>Hvis du har brug for hjælp med din konto, kan du få support på [Modrinth Discord'en](https://discord.modrinth.com)."
+    "message": "Dette vil **med det samme slette alt dit bruger data og følgere**. Dine projekter vil ikke blive slettet. Sletning af din konto kan ikke blive fortrudt.<br><br>Hvis du har brug for hjælp med din konto, kan du få support på [ShroudEdit Discord'en](https://discord.shroudedit.com)."
   },
   "settings.account.delete.confirm.proceed": {
     "message": "Slet denne konto"
@@ -3069,10 +3069,10 @@
     "message": "Omkring denne app"
   },
   "settings.billing.charges.product.midas": {
-    "message": "Modrinth Plus"
+    "message": "ShroudEdit Plus"
   },
   "settings.billing.charges.product.pyro": {
-    "message": "Modrinth Hosting"
+    "message": "ShroudEdit Hosting"
   },
   "settings.billing.charges.title": {
     "message": "Tidligere opkrævninger"
@@ -3090,13 +3090,13 @@
     "message": "år"
   },
   "settings.billing.midas.benefits.ad-free": {
-    "message": "Reklamefri browsing på modrinth.com og Modrinth App"
+    "message": "Reklamefri browsing på shroudedit.com og ShroudEdit App"
   },
   "settings.billing.midas.benefits.badge": {
-    "message": "Modrinth+ emblem på din profil"
+    "message": "ShroudEdit+ emblem på din profil"
   },
   "settings.billing.midas.benefits.support": {
-    "message": "Støt Modrinth og skabere direkte"
+    "message": "Støt ShroudEdit og skabere direkte"
   },
   "settings.billing.midas.benefits.title": {
     "message": "Fordele"
@@ -3108,7 +3108,7 @@
     "message": "Du har opsagt dit abonnement."
   },
   "settings.billing.midas.upsell": {
-    "message": "Bliv en abonnent til Modrinth Plus!"
+    "message": "Bliv en abonnent til ShroudEdit Plus!"
   },
   "settings.billing.modal.cancel.action": {
     "message": "Opsig abonnement"
@@ -3168,10 +3168,10 @@
     "message": "{gb} GB SSD"
   },
   "settings.billing.pyro_subscription.description": {
-    "message": "Administrer dine Modrinth Server abonnementer."
+    "message": "Administrer dine ShroudEdit Server abonnementer."
   },
   "settings.billing.pyro_subscription.title": {
-    "message": "Modrinth Server abonnomenter"
+    "message": "ShroudEdit Server abonnomenter"
   },
   "settings.billing.renews": {
     "message": "Fornyer {date}"
@@ -3183,7 +3183,7 @@
     "message": "Abonner"
   },
   "settings.billing.subscription.description": {
-    "message": "Administrer dine Modrinth abonnementer."
+    "message": "Administrer dine ShroudEdit abonnementer."
   },
   "settings.billing.subscription.title": {
     "message": "Abonnementer"
@@ -3240,7 +3240,7 @@
     "message": "Nuværende session"
   },
   "settings.sessions.description": {
-    "message": "Her er alle enheder, der i øjeblikket er logget ind med din Modrinth-konto. Du kan logge ud af hver enhed individuelt.\n\nHvis du ser en enhed, du ikke genkender, bør du straks logge ud af den og ændre adgangskoden til din Modrinth-konto."
+    "message": "Her er alle enheder, der i øjeblikket er logget ind med din ShroudEdit-konto. Du kan logge ud af hver enhed individuelt.\n\nHvis du ser en enhed, du ikke genkender, bør du straks logge ud af den og ændre adgangskoden til din ShroudEdit-konto."
   },
   "settings.sessions.last-accessed-ago": {
     "message": "Sidst tilgået {ago}"
@@ -3261,7 +3261,7 @@
     "message": "Accepter invitation"
   },
   "shared-instance.invite.inviter.unknown": {
-    "message": "En Modrinth bruger"
+    "message": "En ShroudEdit bruger"
   },
   "shared-instance.invite.joined-count": {
     "message": "{count, plural, one {# person har} other {# personer har}} allerede tilsluttet sig"
@@ -3279,7 +3279,7 @@
     "message": "Denne invitation er ikke tilgængelig"
   },
   "ui.latest-news-row.latest-news": {
-    "message": "Seneste nyheder fra Modrinth"
+    "message": "Seneste nyheder fra ShroudEdit"
   },
   "ui.latest-news-row.view-all": {
     "message": "Vis alle nyheder"
@@ -3291,7 +3291,7 @@
     "message": "Abonneret!"
   },
   "ui.newsletter-button.tooltip": {
-    "message": "Abonner på Modrinth nyhedsbrevet"
+    "message": "Abonner på ShroudEdit nyhedsbrevet"
   },
   "version.all-versions": {
     "message": "Alle versioner"

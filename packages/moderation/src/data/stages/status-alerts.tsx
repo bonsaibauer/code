@@ -1,5 +1,5 @@
-import { MegaphoneIcon } from '@modrinth/assets'
-import { injectProjectPageContext } from '@modrinth/ui'
+import { MegaphoneIcon } from '@shroudedit/assets'
+import { injectProjectPageContext } from '@shroudedit/ui'
 import type { Ref } from 'vue'
 import { computed } from 'vue'
 
@@ -76,10 +76,7 @@ export default function (
 					.rawMessage(async (state) => {
 						let msg
 
-						if (
-							project.value.minecraft_java_server &&
-							project.value.minecraft_java_server.content?.kind === 'modpack'
-						) {
+						if (project.value.enshrouded_server) {
 							msg =
 								(await md('checklist/messages/status-alerts/private-use/server')(state)) +
 								'\n' +
@@ -102,11 +99,11 @@ export default function (
 
 				toggle('temporary-server', 'Temporary server')
 					.shown(
-						!!project.value.minecraft_java_server &&
-							!!project.value.minecraft_java_server.address &&
-							(project.value.minecraft_java_server.address.includes('aternos') ||
-								project.value.minecraft_java_server.address.includes('minekeep') ||
-								project.value.minecraft_java_server.address.includes('minehut')),
+						!!project.value.enshrouded_server &&
+							!!project.value.enshrouded_server.address &&
+							(project.value.enshrouded_server.address.includes('aternos') ||
+								project.value.enshrouded_server.address.includes('minekeep') ||
+								project.value.enshrouded_server.address.includes('minehut')),
 					)
 					.suggestedStatus('flagged')
 					.priority(Priorities.alerts)
@@ -116,7 +113,7 @@ export default function (
 					.shown(
 						computed(
 							() =>
-								project.value.project_types.includes('modpack') && !project.value.minecraft_server,
+								project.value.project_types.includes('modpack') && !project.value.enshrouded_server,
 						),
 					)
 					.message(),
@@ -129,7 +126,7 @@ export default function (
 							() =>
 								project.value.monetization_status === 'force-demonetized' &&
 								!project.value.project_types.includes('modpack') &&
-								!project.value.minecraft_server,
+								!project.value.enshrouded_server,
 						),
 					)
 					.message()
@@ -141,7 +138,7 @@ export default function (
 							() =>
 								project.value.monetization_status === 'force-demonetized' &&
 								project.value.project_types.includes('modpack') &&
-								!project.value.minecraft_server,
+								!project.value.enshrouded_server,
 						),
 					)
 					.message()

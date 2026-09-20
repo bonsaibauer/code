@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineMessages, useVIntl } from '@modrinth/ui'
+import { defineMessages, useVIntl } from '@shroudedit/ui'
 
 const vintl = useVIntl()
 const { formatMessage } = vintl
@@ -28,7 +28,7 @@ useSeoMeta({
 	<div class="card">
 		<h1>{{ formatMessage(messages.frogTitle) }}</h1>
 		<p>{{ formatMessage(messages.frogDescription) }}</p>
-		<img src="https://cdn.modrinth.com/frog.png" :alt="formatMessage(messages.frogAltText)" />
+		<img src="https://cdn.shroudedit.com/frog.png" :alt="formatMessage(messages.frogAltText)" />
 	</div>
 </template>
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	ArrowLeftRightIcon,
 	CircleAlertIcon,
@@ -12,7 +12,7 @@ import {
 	SpinnerIcon,
 	UnlinkIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import { computed, nextTick, onBeforeUnmount, onMounted, onUpdated, ref, watch } from 'vue'
 import { onBeforeRouteLeave } from 'vue-router'
 
@@ -460,7 +460,7 @@ const messages = defineMessages({
 	unlinkDescription: {
 		id: 'installation-settings.unlink.description',
 		defaultMessage:
-			"Unlinking permanently disconnects this {type} from the {projectType} project, allowing you to change the loader and Minecraft version, but you won't receive future updates.",
+			"Unlinking permanently disconnects this {type} from the {projectType} project, allowing you to change the loader and Enshrouded version, but you won't receive future updates.",
 	},
 	repairInstanceTitle: {
 		id: 'installation-settings.repair.instance-title',
@@ -469,7 +469,7 @@ const messages = defineMessages({
 	repairInstanceDescription: {
 		id: 'installation-settings.repair.instance-description',
 		defaultMessage:
-			'Reinstalls Minecraft dependencies and checks for corruption. This may resolve issues if your game is not launching due to launcher-related errors.',
+			'Reinstalls Enshrouded dependencies and checks for corruption. This may resolve issues if your game is not launching due to launcher-related errors.',
 	},
 	repairServerTitle: {
 		id: 'installation-settings.repair.server-title',
@@ -478,7 +478,7 @@ const messages = defineMessages({
 	repairServerDescription: {
 		id: 'installation-settings.repair.server-description',
 		defaultMessage:
-			'Reinstalls the loader and Minecraft dependencies without deleting your content. This may resolve issues if your server is not starting correctly.',
+			'Reinstalls the loader and Enshrouded dependencies without deleting your content. This may resolve issues if your server is not starting correctly.',
 	},
 	editWarningInstance: {
 		id: 'installation-settings.edit.warning-instance',

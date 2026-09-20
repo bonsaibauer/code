@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	CheckIcon,
 	DropdownIcon,
@@ -9,21 +9,21 @@ import {
 	ShieldCheckIcon,
 	SpinnerIcon,
 	XIcon,
-} from '@modrinth/assets'
-import { type TechReviewContext, techReviewQuickReplies } from '@modrinth/moderation'
+} from '@shroudedit/assets'
+import { type TechReviewContext, techReviewQuickReplies } from '@shroudedit/moderation'
 import {
 	Button,
 	type ButtonMenuOption,
 	CollapsibleRegion,
 	commonMessages,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	TeleportOverflowMenu,
 	useFormatBytes,
 	useFormatDateTime,
 	useVIntl,
-} from '@modrinth/ui'
-import { capitalizeString, type ThreadMessage, type User } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { capitalizeString, type ThreadMessage, type User } from '@shroudedit/utils'
 import dayjs from 'dayjs'
 import { computed, ref } from 'vue'
 
@@ -55,7 +55,7 @@ const auth = useAuthState()
 const featureFlags = useFeatureFlags()
 const { formatMessage } = useVIntl()
 const { addNotification } = injectNotificationManager()
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const { getDetailDecision } = injectTechReviewDecisions()
 const formatBytes = useFormatBytes()
 

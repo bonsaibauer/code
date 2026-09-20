@@ -1,10 +1,10 @@
-import { provideNotificationManager, setupUserPreferencesProvider } from '@modrinth/ui'
+import { provideNotificationManager, setupUserPreferencesProvider } from '@shroudedit/ui'
 
 import { FrontendNotificationManager } from './frontend-notifications'
 import { setupAuthProvider } from './setup/auth'
 import { setupFilePickerProvider } from './setup/file-picker'
 import { setupLoadingStateProvider } from './setup/loading-state'
-import { setupModrinthClientProvider } from './setup/modrinth-client'
+import { setupShroudEditClientProvider } from './setup/modrinth-client'
 import { setupPageContextProvider } from './setup/page-context'
 import { setupTagsProvider } from './setup/tags'
 import { setupUserCountryProvider } from './setup/user-country'
@@ -14,7 +14,7 @@ export function setupProviders(auth: Awaited<ReturnType<typeof useAuth>>) {
 	provideNotificationManager(notificationManager)
 
 	const authProvider = setupAuthProvider(auth)
-	const client = setupModrinthClientProvider(auth)
+	const client = setupShroudEditClientProvider(auth)
 	const userPreferences = setupUserPreferencesProvider({
 		auth: authProvider,
 		getPreferences: (userId) => client.labrinth.users_v3.getPreferences(userId),

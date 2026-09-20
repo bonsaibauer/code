@@ -10,77 +10,6 @@
 			:proceed-label="formatMessage(messages.proceedDeletion)"
 			@proceed="deleteVersion()"
 		/>
-		<NewModal
-			v-if="auth.user && currentMember"
-			ref="packageModal"
-			:header="formatMessage(messages.packageDataPackHeader)"
-		>
-			<div class="flex max-w-[35rem] flex-col">
-				<p class="m-0 mb-6">
-					{{ formatMessage(messages.packageDataPackDescription) }}
-				</p>
-				<div for="package-mod-loaders" class="mb-2 flex flex-col gap-2.5">
-					<span class="text-lg font-semibold text-contrast">{{
-						formatMessage(messages.modLoadersLabel)
-					}}</span>
-					<MultiSelect
-						id="package-mod-loaders"
-						v-model="packageLoaders"
-						:options="packageLoaderOptions"
-						:searchable="false"
-						:placeholder="formatMessage(messages.modLoadersPlaceholder)"
-					>
-						<template #input-content="{ selectedOptions, isOpen, openDirection }">
-							<div class="flex min-h-8 min-w-0 flex-1 flex-wrap items-center gap-1.5 pr-1">
-								<template v-if="selectedOptions.length > 0">
-									<span
-										v-for="{ value: loader, label } in selectedOptions"
-										:key="`package-loader-tag-${loader}`"
-										class="inline-flex cursor-pointer items-center gap-1 rounded-full border border-solid bg-surface-4 px-2 py-1 text-sm font-medium transition-all hover:brightness-[110%]"
-										:style="`color: var(--color-platform-${loader})`"
-										@click.stop="packageLoaders = packageLoaders.filter((x) => x !== loader)"
-									>
-										<component
-											:is="getLoaderIcon(loader)"
-											v-if="getLoaderIcon(loader)"
-											class="size-3.5 shrink-0"
-										/>
-										{{ label }}
-										<XIcon aria-hidden="true" class="size-3.5 shrink-0" />
-									</span>
-								</template>
-								<span v-else class="text-base font-medium text-primary opacity-50">
-									{{ formatMessage(messages.modLoadersPlaceholder) }}
-								</span>
-							</div>
-							<ChevronLeftIcon
-								class="ml-2 size-5 shrink-0 text-secondary transition-transform duration-150"
-								:class="
-									isOpen ? (openDirection === 'down' ? 'rotate-90' : '-rotate-90') : '-rotate-90'
-								"
-							/>
-						</template>
-					</MultiSelect>
-					<span>{{ formatMessage(messages.modLoadersDescription) }}</span>
-				</div>
-
-				<div class="ml-auto mt-4 flex items-center gap-2">
-					<Button type="outlined" @click="packageModal?.hide()">
-						<XIcon aria-hidden="true" />
-						{{ formatMessage(commonMessages.cancelButton) }}
-					</Button>
-					<Button
-						type="colored"
-						color="brand"
-						:disabled="packageLoaders.length === 0"
-						@click="createDataPackVersionHandler"
-					>
-						{{ formatMessage(messages.packageDataPack) }}
-						<RightArrowIcon aria-hidden="true" />
-					</Button>
-				</div>
-			</div>
-		</NewModal>
 		<ProjectDownloadModal
 			ref="dependencyDownloadModal"
 			download-reason="dependency"
@@ -183,15 +112,6 @@
 							</template>
 						</ButtonLink>
 						<template v-if="currentMember">
-							<Button
-								v-if="
-									version.loaders.some((x: string) => tags.loaderData.dataPackLoaders.includes(x))
-								"
-								@click="packageModal?.show()"
-							>
-								<PackageClosedIcon aria-hidden="true" />
-								{{ formatMessage(messages.packageAsMod) }}
-							</Button>
 							<TeleportOverflowMenu
 								:label="formatMessage(messages.edit)"
 								:tooltip="formatMessage(messages.edit)"
@@ -262,8 +182,8 @@
 									id: 'copy-permalink',
 									label: formatMessage(commonMessages.copyPermalinkButton),
 									action: () =>
-										copyToClipboard(
-											`https://modrinth.com/project/${project.id}/version/${version!.id}`,
+									copyToClipboard(
+										`${config.public.siteUrl}/project/${project.id}/version/${version!.id}`,
 										),
 									shown: flags.developerMode,
 								},
@@ -393,70 +313,68 @@
 					</template>
 				</VersionPage>
 				<section
-					v-if="
-						flags.alwaysShowVersionDevInfo ||
-						projectV3.project_types.includes('mod') ||
-						projectV3.project_types.includes('plugin')
-					"
-					class="mb-4 flex flex-col overflow-hidden rounded-2xl border-[1px] border-solid border-surface-4 bg-surface-2 p-0"
+					v-if="isSchematic"
+					class="mb-4 flex flex-col gap-4 rounded-2xl border border-solid border-surface-4 bg-surface-2 p-4"
 				>
-					<button
-						class="group m-0 flex w-full min-w-0 appearance-none items-center gap-3 rounded-2xl rounded-b-none bg-surface-3 p-4 text-left outline-offset-[-3px]"
-						@click="devInfoCollapsed = !devInfoCollapsed"
-					>
-						<DropdownIcon
-							aria-hidden="true"
-							class="size-5 text-contrast transition-transform"
-							:class="{ 'rotate-180': !devInfoCollapsed }"
-						/>
-						<h3 class="m-0 flex items-center gap-2 text-base font-semibold">
-							{{ formatMessage(messages.devInfo) }}
-						</h3>
-					</button>
-					<Collapsible
-						:collapsed="devInfoCollapsed"
-						class="rounded-b-2xl border-0 border-t border-solid border-surface-4"
-					>
-						<div class="flex flex-col p-4">
-							<p class="mb-3 mt-0 leading-normal">
-								<IntlFormatted :message-id="messages.mavenDescription">
-									<template #gradle-link="{ children }">
-										<a href="https://gradle.org/" class="text-link" target="_blank" rel="noopener">
-											<component :is="() => children" />
-										</a>
-									</template>
-									<template #article-link="{ children }">
-										<a
-											href="https://support.modrinth.com/en/articles/8801191-modrinth-maven"
-											class="text-link"
-											target="_blank"
-											rel="noopener"
-										>
-											<component :is="() => children" />
-										</a>
-									</template>
-								</IntlFormatted>
-							</p>
-							<p class="mb-4 mt-0 leading-normal">
-								{{ formatMessage(messages.mavenNote) }}
-							</p>
-							<h4 class="mb-2 mt-0 font-medium text-contrast">
-								{{ formatMessage(messages.mavenCoordinates) }}
-							</h4>
-							<CopyCode :text="coordinatesSnippet" />
-							<h4 class="mb-2 mt-4 font-medium text-contrast">
-								{{ formatMessage(messages.versionId) }}
-							</h4>
-							<CopyCode :text="version.id" />
-							<h4 class="mb-2 mt-4 font-medium text-contrast">
-								{{ formatMessage(messages.gradleSnippet) }}
-							</h4>
-							<pre
-								class="m-0 overflow-x-auto rounded-xl border border-solid border-surface-4 bg-surface-3 text-sm"
-								>{{ gradleSnippet }}</pre
+					<h2 class="m-0 text-xl font-semibold text-contrast">
+						{{ formatMessage(messages.schematicDetails) }}
+					</h2>
+					<div class="grid gap-4 lg:grid-cols-[minmax(0,1.4fr)_minmax(18rem,1fr)]">
+						<div class="overflow-hidden rounded-xl border border-solid border-surface-4 bg-surface-3">
+							<img
+								v-if="schematicPreview"
+								:src="schematicPreview"
+								:alt="formatMessage(messages.schematicPreviewAlt, { title: project.title })"
+								class="aspect-video h-full w-full object-cover"
+								loading="lazy"
+							/>
+							<div
+								v-else
+								class="flex aspect-video items-center justify-center p-6 text-center text-secondary"
 							>
+								{{ formatMessage(messages.noSchematicPreview) }}
+							</div>
 						</div>
-					</Collapsible>
+						<dl class="m-0 grid content-start gap-3 rounded-xl bg-surface-3 p-4">
+							<div>
+								<dt class="text-sm text-secondary">{{ formatMessage(messages.worldEditorVersion) }}</dt>
+								<dd class="m-0 font-semibold text-contrast">
+									{{ version.world_editor_version }}
+								</dd>
+							</div>
+							<div>
+								<dt class="text-sm text-secondary">{{ formatMessage(messages.schematicDimensions) }}</dt>
+								<dd class="m-0 font-semibold text-contrast">{{ schematicDimensions }}</dd>
+							</div>
+							<div>
+								<dt class="text-sm text-secondary">{{ formatMessage(messages.schematicFormatVersion) }}</dt>
+								<dd class="m-0 font-semibold text-contrast">
+									{{ version.schematic_format_version }}
+								</dd>
+							</div>
+							<div v-if="primaryFile">
+								<dt class="text-sm text-secondary">{{ formatMessage(messages.schematicFile) }}</dt>
+								<dd class="m-0 font-semibold text-contrast">
+									{{ primaryFile.filename }} · {{ formatBytes(primaryFile.size) }}
+								</dd>
+							</div>
+						</dl>
+					</div>
+					<div v-if="primaryFile" class="rounded-xl bg-surface-3 p-4">
+						<div class="mb-2 font-semibold text-contrast">{{ formatMessage(messages.checksum) }}</div>
+						<code class="block break-all text-xs">SHA-512: {{ primaryFile.hashes.sha512 }}</code>
+					</div>
+					<div class="rounded-xl bg-surface-3 p-4">
+						<div class="mb-2 font-semibold text-contrast">
+							{{ formatMessage(messages.installationInstructions) }}
+						</div>
+						<p class="m-0 whitespace-pre-wrap">
+							{{
+								version.schematic_installation ||
+								formatMessage(messages.defaultSchematicInstallation)
+							}}
+						</p>
+					</div>
 				</section>
 			</template>
 			<template v-else-if="versionError">
@@ -489,53 +407,42 @@
 	</div>
 </template>
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	BoxIcon,
-	ChevronLeftIcon,
 	ClipboardCopyIcon,
 	CopyIcon,
 	DownloadIcon,
-	DropdownIcon,
 	ExternalIcon,
 	FileIcon,
-	getLoaderIcon,
 	InfoIcon,
 	MoreVerticalIcon,
-	PackageClosedIcon,
 	ReportIcon,
 	RightArrowIcon,
 	SettingsIcon,
 	TrashIcon,
-	XIcon,
-} from '@modrinth/assets'
-import { moderationSettings } from '@modrinth/moderation'
+} from '@shroudedit/assets'
+import { moderationSettings } from '@shroudedit/moderation'
 import {
 	Admonition,
 	BackToParentLink,
 	Button,
 	ButtonLink,
-	Collapsible,
 	commonMessages,
 	commonProjectSettingsMessages,
 	ConfirmModal,
-	CopyCode,
 	defineMessages,
-	formatLoader,
 	IconButton,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	injectProjectPageContext,
-	IntlFormatted,
-	MultiSelect,
-	NewModal,
 	TeleportOverflowMenu,
 	useFormatBytes,
 	useFormatDateTime,
 	useVIntl,
 	VersionPage,
-} from '@modrinth/ui'
-import { isStaff } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { isStaff } from '@shroudedit/utils'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { onServerPrefetch } from 'vue'
 
@@ -544,7 +451,6 @@ import ProjectDownloadModal from '~/components/ui/ProjectDownloadModal/index.vue
 import { getSignInRouteObj } from '~/composables/auth.ts'
 import { projectQueryOptions, STALE_TIME } from '~/composables/queries/project'
 import { versionQueryOptions } from '~/composables/queries/version'
-import { createDataPackVersion } from '~/helpers/package.js'
 import { reportVersion } from '~/utils/report-helpers.ts'
 
 const emit = defineEmits<{
@@ -552,12 +458,13 @@ const emit = defineEmits<{
 }>()
 
 const data = useNuxtApp()
+const config = useRuntimeConfig()
 const route = useNativeRoute()
 const router = useRouter()
 const modSettings = useModerationSettings()
 const auth = await useAuth()
 const tags = useGeneratedState()
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const queryClient = useQueryClient()
 const { addNotification } = injectNotificationManager()
 const { createProjectDownloadUrl } = useCdnDownloadContext()
@@ -584,13 +491,6 @@ loadVersions()
 loadDependencies()
 
 const flags = useFeatureFlags()
-const devInfoCollapsed = computed({
-	get: () => flags.value.versionDevInfoCollapsed,
-	set: (value) => {
-		flags.value.versionDevInfoCollapsed = value
-		saveFeatureFlags()
-	},
-})
 
 const signInRouteObj = computed(() => getSignInRouteObj(route))
 
@@ -714,7 +614,7 @@ const projectOnlyDependencyProjectIds = computed(() => {
 const dependencyResolutionLoaders = computed(() => {
 	if (!version.value) return []
 	if (version.value.loaders.includes('mrpack')) {
-		return (version.value.mrpack_loaders ?? []).filter((loader) => loader !== 'minecraft')
+		return (version.value.mrpack_loaders ?? []).filter((loader) => loader !== 'enshrouded')
 	}
 	return version.value.loaders
 })
@@ -774,6 +674,20 @@ const { data: projectOnlyDependencyVersions } = useQuery({
 const primaryFile = computed(
 	() => version.value?.files?.find((file) => file.primary) ?? version.value?.files?.[0],
 )
+const isSchematic = computed(
+	() => project.value.project_type === 'schematic' || project.value.actualProjectType === 'schematic',
+)
+const schematicPreview = computed(
+	() =>
+		project.value.gallery?.find((image) => image.featured)?.url ??
+		project.value.gallery?.[0]?.url,
+)
+const schematicDimensions = computed(() => {
+	if (!version.value) return '—'
+	const { schematic_width: width, schematic_height: height, schematic_depth: depth } =
+		version.value
+	return width && height && depth ? `${width} × ${height} × ${depth}` : '—'
+})
 
 const title = computed(() =>
 	version.value ? ` ${version.value.version_number} - ${project.value.title}` : undefined,
@@ -784,7 +698,7 @@ const description = computed(() => {
 
 	return `Download ${project.value.title} ${
 		version.value.version_number
-	} on Modrinth. Supports ${(data as any).$formatVersion(version.value.game_versions)} ${(
+	} on ShroudEdit. Supports ${(data as any).$formatVersion(version.value.game_versions)} ${(
 		version.value.loaders ?? []
 	)
 		.map((x: string) => x.charAt(0).toUpperCase() + x.slice(1))
@@ -802,16 +716,7 @@ useSeoMeta({
 
 const editModal = useTemplateRef('editModal')
 const confirmModal = useTemplateRef('confirmModal')
-const packageModal = useTemplateRef('packageModal')
 const dependencyDownloadModal = useTemplateRef('dependencyDownloadModal')
-
-const packageLoaders = ref(['forge', 'fabric', 'quilt', 'neoforge'])
-const packageLoaderOptions = [
-	{ value: 'fabric', label: formatLoader(formatMessage, 'fabric') },
-	{ value: 'forge', label: formatLoader(formatMessage, 'forge') },
-	{ value: 'quilt', label: formatLoader(formatMessage, 'quilt') },
-	{ value: 'neoforge', label: formatLoader(formatMessage, 'neoforge') },
-]
 
 async function handleVersionSaved() {
 	await Promise.all([
@@ -871,73 +776,6 @@ async function deleteVersion() {
 	}
 }
 
-const createDataPackVersionMutation = useMutation({
-	mutationFn: async () => {
-		if (!version.value || !primaryFile.value) {
-			throw new Error('Version data is not available')
-		}
-
-		const blob = await createDataPackVersion(
-			project.value,
-			version.value,
-			primaryFile.value,
-			members.value ?? [],
-			tags.value.gameVersions,
-			packageLoaders.value,
-		)
-
-		const file = new File([blob], `${project.value.slug}-${version.value.version_number}.jar`)
-
-		const draftVersion: Labrinth.Versions.v3.DraftVersion = {
-			project_id: project.value.id,
-			name: version.value.name ?? version.value.version_number,
-			version_number: `${version.value.version_number}+mod`,
-			changelog: version.value.changelog ?? '',
-			version_type: version.value.version_type,
-			dependencies: version.value.dependencies ?? [],
-			game_versions: version.value.game_versions,
-			loaders: packageLoaders.value,
-			featured: version.value.featured,
-			environment: 'server_only',
-		}
-
-		const uploadHandle = client.labrinth.versions_v3.createVersion(draftVersion, [{ file }], 'mod')
-		return uploadHandle.promise
-	},
-	onSuccess: async (newVersion) => {
-		packageModal.value?.hide()
-
-		addNotification({
-			title: formatMessage(messages.packagingSuccessTitle),
-			text: formatMessage(messages.packagingSuccessText),
-			type: 'success',
-		})
-
-		await invalidate()
-		await router.push(
-			`/${project.value.project_type}/${project.value.slug ? project.value.slug : project.value.id}/version/${newVersion.id}`,
-		)
-	},
-	onError: (err: { data?: { description?: string } }) => {
-		addNotification({
-			title: formatMessage(commonMessages.errorNotificationTitle),
-			text: err.data?.description ?? String(err),
-			type: 'error',
-		})
-	},
-})
-
-async function createDataPackVersionHandler() {
-	if (packageLoaders.value.length === 0) return
-
-	startLoading()
-	try {
-		await createDataPackVersionMutation.mutateAsync()
-	} finally {
-		stopLoading()
-	}
-}
-
 const decoratedPrimaryFileUrl = computed(() => {
 	const url = primaryFile.value?.url
 	if (!url) return undefined
@@ -961,15 +799,6 @@ const messages = defineMessages({
 		id: 'version.notification.deleted-text',
 		defaultMessage: 'The version has been successfully deleted.',
 	},
-	packagingSuccessTitle: {
-		id: 'version.notification.packaging-success-title',
-		defaultMessage: 'Packaging Success',
-	},
-	packagingSuccessText: {
-		id: 'version.notification.packaging-success-text',
-		defaultMessage:
-			'Your data pack was successfully packaged as a mod! Make sure to playtest to check for errors.',
-	},
 	downloadVersion: {
 		id: 'version.download.version',
 		defaultMessage: 'Download {version} ({size})',
@@ -990,10 +819,6 @@ const messages = defineMessages({
 		id: 'version.edit.files',
 		defaultMessage: 'Edit files',
 	},
-	packageAsMod: {
-		id: 'version.package-as-mod.button',
-		defaultMessage: 'Package as mod',
-	},
 	copySha1: {
 		id: 'version.supplementary-resources.copy-hash-sha1',
 		defaultMessage: 'Copy SHA-1',
@@ -1005,6 +830,47 @@ const messages = defineMessages({
 	allVersions: {
 		id: 'version.all-versions',
 		defaultMessage: 'All versions',
+	},
+	schematicDetails: {
+		id: 'version.schematic.details',
+		defaultMessage: 'Schematic details',
+	},
+	schematicPreviewAlt: {
+		id: 'version.schematic.preview-alt',
+		defaultMessage: 'Preview of {title}',
+	},
+	noSchematicPreview: {
+		id: 'version.schematic.no-preview',
+		defaultMessage: 'No gallery preview has been published for this schematic.',
+	},
+	worldEditorVersion: {
+		id: 'version.schematic.world-editor-version',
+		defaultMessage: 'World Editor version',
+	},
+	schematicDimensions: {
+		id: 'version.schematic.dimensions',
+		defaultMessage: 'Saved world area',
+	},
+	schematicFormatVersion: {
+		id: 'version.schematic.format-version',
+		defaultMessage: 'Schematic format',
+	},
+	schematicFile: {
+		id: 'version.schematic.file',
+		defaultMessage: 'File',
+	},
+	checksum: {
+		id: 'version.schematic.checksum',
+		defaultMessage: 'File integrity',
+	},
+	installationInstructions: {
+		id: 'version.schematic.installation',
+		defaultMessage: 'Installation',
+	},
+	defaultSchematicInstallation: {
+		id: 'version.schematic.installation-default',
+		defaultMessage:
+			'Download the .schematic file, open the Enshrouded World Editor, choose Import schematic, and select the downloaded file.',
 	},
 	unknownEmbeddedContent: {
 		id: 'version.unknown-embedded-content.title',
@@ -1034,31 +900,6 @@ const messages = defineMessages({
 		id: 'version.download.optional-resource-pack',
 		defaultMessage: 'Optional resource pack',
 	},
-	packageDataPack: {
-		id: 'version.package-as-mod.submit-button',
-		defaultMessage: 'Package data pack',
-	},
-	packageDataPackHeader: {
-		id: 'version.package-as-mod.header',
-		defaultMessage: 'Package data pack as mod',
-	},
-	packageDataPackDescription: {
-		id: 'version.package-as-mod.description',
-		defaultMessage:
-			'This will create a new version with support for the selected mod loaders. You will be redirected to the new version and can edit it to your liking.',
-	},
-	modLoadersLabel: {
-		id: 'version.package-as-mod.mod-loaders',
-		defaultMessage: 'Mod loaders',
-	},
-	modLoadersDescription: {
-		id: 'version.package-as-mod.mod-loaders.description',
-		defaultMessage: 'The mod loaders you would like to package your data pack for.',
-	},
-	modLoadersPlaceholder: {
-		id: 'version.package-as-mod.mod-loaders.placeholder',
-		defaultMessage: 'Choose mod loaders...',
-	},
 	confirmTitle: {
 		id: 'version.confirm-delete.title',
 		defaultMessage: 'Are you sure you want to delete this version?',
@@ -1070,31 +911,6 @@ const messages = defineMessages({
 	proceedDeletion: {
 		id: 'version.confirm-delete.proceed',
 		defaultMessage: 'Delete version',
-	},
-	devInfo: {
-		id: 'version.section.content.dev-info',
-		defaultMessage: 'Developer information',
-	},
-	mavenDescription: {
-		id: 'version.section.content.dev-info.maven-description',
-		defaultMessage:
-			'Projects on Modrinth are automatically available through a Maven repository for use with JVM build tools such as <gradle-link>Gradle</gradle-link>. To learn more about the Modrinth Maven API, <article-link>click here</article-link>.',
-	},
-	mavenNote: {
-		id: 'version.section.content.dev-info.maven-note',
-		defaultMessage: `Note: When available, you should use the creator's maven repo instead as it will have transitive dependency information that the Modrinth Maven API does not. You may also end up with duplicate dependencies if you use a mix of Modrinth and non-Modrinth Maven repositories for your dependencies, because the group identifier will be different when served through the Modrinth Maven API.`,
-	},
-	mavenCoordinates: {
-		id: 'version.section.content.dev-info.maven-coordinates',
-		defaultMessage: `Maven coordinates:`,
-	},
-	versionId: {
-		id: 'version.section.content.dev-info.version-id',
-		defaultMessage: `Version ID:`,
-	},
-	gradleSnippet: {
-		id: 'version.section.content.dev-info.gradle-snippet',
-		defaultMessage: `build.gradle:`,
 	},
 })
 
@@ -1197,34 +1013,6 @@ function createDependencyLink(context: {
 			})
 		: undefined
 }
-
-const coordinatesSnippet = computed(() => `maven.modrinth:${project.value.id}:${version.value?.id}`)
-const gradleSnippet = computed(
-	() => `repositories {
-    exclusiveContent {
-        forRepository {
-            maven {
-                name = "Modrinth"
-                url = "https://api.modrinth.com/maven"
-            }
-        }
-        // forRepositories(fg.repository) // Uncomment when using ForgeGradle
-        filter {
-            includeGroup "maven.modrinth"
-        }
-    }
-}
-
-// Standard Gradle dependency
-dependencies {
-    implementation "${coordinatesSnippet.value}"
-}
-
-// Legacy Loom dependency
-dependencies {
-    modImplementation "${coordinatesSnippet.value}"
-}`,
-)
 
 const moderator = computed(() => isStaff(auth.value?.user))
 </script>

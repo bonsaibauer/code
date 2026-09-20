@@ -1,5 +1,5 @@
-import { LibraryIcon } from '@modrinth/assets'
-import { injectProjectPageContext } from '@modrinth/ui'
+import { LibraryIcon } from '@shroudedit/assets'
+import { injectProjectPageContext } from '@shroudedit/ui'
 import { computed } from 'vue'
 
 import { group, markdown, md, stage, toggle } from '../../types/node'
@@ -40,7 +40,7 @@ export default function () {
 						)
 						.collect(
 							() =>
-								`insufficient/default/${project.value?.minecraft_java_server ? 'servers' : project.value?.project_types?.includes('modpack') ? 'packs' : 'projects'}`,
+								`insufficient/default/${project.value?.enshrouded_server ? 'servers' : project.value?.project_types?.includes('modpack') ? 'packs' : 'projects'}`,
 						)
 						.rawMessage(async (state) => {
 							return SHOW_SPOILER_ADVICE.some((reason) => state?.[reason] === true)
@@ -50,12 +50,12 @@ export default function () {
 
 					toggle('non-english', 'Non-English')
 						.suggestedStatus('flagged')
-						.message(() => `non-english${project.value.minecraft_java_server ? '-server' : ''}`)
+						.message(() => `non-english${project.value.enshrouded_server ? '-server' : ''}`)
 						.shown(
 							computed(() => {
 								return !(
-									!!project.value?.minecraft_java_server &&
-									!project.value.minecraft_server?.languages?.includes('en')
+									!!project.value?.enshrouded_server &&
+									!project.value.enshrouded_server?.languages?.includes('en')
 								)
 							}),
 						),

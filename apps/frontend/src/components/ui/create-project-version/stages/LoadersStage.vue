@@ -2,7 +2,7 @@
 	<div class="space-y-6">
 		<LoaderPicker
 			v-model="draftVersion.loaders"
-			:loaders="generatedState.loaders"
+			:loaders="availableLoaders"
 			:toggle-loader="toggleLoader"
 			:include-geyser="includeGeyser"
 		/>
@@ -40,8 +40,8 @@
 </template>
 
 <script lang="ts" setup>
-import { getLoaderIcon, XIcon } from '@modrinth/assets'
-import { Button, FormattedTag, TagItem } from '@modrinth/ui'
+import { getLoaderIcon, XIcon } from '@shroudedit/assets'
+import { Button, FormattedTag, TagItem } from '@shroudedit/ui'
 
 import { injectManageVersionContext } from '~/providers/version/manage-version-modal'
 
@@ -51,7 +51,15 @@ const generatedState = useGeneratedState()
 
 const loaders = computed(() => generatedState.value.loaders)
 
-const { draftVersion, inferredVersionData } = injectManageVersionContext()
+const { draftVersion, inferredVersionData, projectType } = injectManageVersionContext()
+
+const availableLoaders = computed(() =>
+	projectType.value === 'schematic'
+		? generatedState.value.loaders.filter((loader) =>
+				['shroudtopia', 'shroudforge', 'eml'].includes(loader.name),
+			)
+		: generatedState.value.loaders,
+)
 
 const includeGeyser = computed(() => inferredVersionData.value?.loaders?.includes('geyser'))
 

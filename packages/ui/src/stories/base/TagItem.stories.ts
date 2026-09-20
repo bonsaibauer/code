@@ -32,7 +32,7 @@ export const MultipleTags: Story = {
 		components: { TagItem },
 		template: /*html*/ `
 			<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-				<TagItem>Minecraft</TagItem>
+				<TagItem>Enshrouded</TagItem>
 				<TagItem>Fabric</TagItem>
 				<TagItem>Adventure</TagItem>
 				<TagItem>Technology</TagItem>

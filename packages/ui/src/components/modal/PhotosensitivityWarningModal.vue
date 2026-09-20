@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { CheckCircleIcon } from '@modrinth/assets'
+import { CheckCircleIcon } from '@shroudedit/assets'
 import { ref, useTemplateRef } from 'vue'
 
 import { Button } from '#ui/components/base/buttons'
@@ -58,16 +58,16 @@ const messages = defineMessages({
 	body1: {
 		id: 'search.photosensitivity-warning-modal.body.1',
 		defaultMessage:
-			'We cannot guarantee that all content on Modrinth has been labeled appropriately.',
+			'We cannot guarantee that all content on ShroudEdit has been labeled appropriately.',
 	},
 	body2: {
 		id: 'search.photosensitivity-warning-modal.body.2',
 		defaultMessage:
-			'Content labels for photosensitivity triggers are self-assigned by the creators who upload their content to Modrinth. These projects have not gone through any safety testing.',
+			'Content labels for photosensitivity triggers are self-assigned by the creators who upload their content to ShroudEdit. These projects have not gone through any safety testing.',
 	},
 	body3: {
 		id: 'search.photosensitivity-warning-modal.body.3',
-		defaultMessage: 'Using any content on Modrinth is at your own risk. Please stay safe! 💚',
+		defaultMessage: 'Using any content on ShroudEdit is at your own risk. Please stay safe! 💚',
 	},
 	dontShowAgain: {
 		id: 'search.photosensitivity-warning-modal.dont-show-again',

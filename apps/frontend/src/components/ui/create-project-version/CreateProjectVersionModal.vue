@@ -15,15 +15,15 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	DropArea,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	injectProjectPageContext,
 	MultiStageModal,
-} from '@modrinth/ui'
-import { acceptFileFromProjectType } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { acceptFileFromProjectType } from '@shroudedit/utils'
 import type { ComponentExposed } from 'vue-component-type-helpers'
 
 import {
@@ -45,7 +45,7 @@ const { newDraftVersion, editingVersion, handleNewFiles } = ctx
 
 const { projectV2 } = injectProjectPageContext()
 const { addNotification } = injectNotificationManager()
-const { labrinth } = injectModrinthClient()
+const { labrinth } = injectShroudEditClient()
 
 async function openEditVersionModal(versionId: string, projectId: string, stageId?: string | null) {
 	try {
@@ -64,6 +64,12 @@ async function openEditVersionModal(versionId: string, projectId: string, stageI
 			existing_files: versionData.files ?? [],
 			environment: versionData.environment,
 			mrpack_loaders: versionData.mrpack_loaders,
+			schematic_format_version: versionData.schematic_format_version,
+			world_editor_version: versionData.world_editor_version,
+			schematic_width: versionData.schematic_width,
+			schematic_height: versionData.schematic_height,
+			schematic_depth: versionData.schematic_depth,
+			schematic_installation: versionData.schematic_installation,
 		}
 
 		openCreateVersionModal(draftVersionData, stageId)

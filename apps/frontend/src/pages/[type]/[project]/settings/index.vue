@@ -51,7 +51,7 @@
 					>
 						<template #prefix>
 							<span class="whitespace-nowrap">
-								<span class="hidden sm:inline">https://modrinth.com</span>/{{ projectTypeForUrl }}/
+								<span class="hidden sm:inline">{{ config.public.siteUrl }}</span>/{{ projectTypeForUrl }}/
 							</span>
 						</template>
 					</Input>
@@ -224,62 +224,6 @@
 			<h2 class="m-0 text-2xl font-semibold">
 				{{ formatMessage(messages.dangerZone) }}
 			</h2>
-			<SettingsToggleCard
-				v-if="!isServerProject"
-				v-model="monetizationEnabled"
-				:disabled="monetizationToggleDisabled"
-				:title="formatMessage(messages.monetizationTitle)"
-			>
-				<p>
-					<IntlFormatted :message-id="messages.monetizationDescription">
-						<template #rewards-program-link="{ children }">
-							<nuxt-link
-								to="/legal/cmp-info"
-								target="_blank"
-								class="smart-clickable:allow-pointer-events text-link"
-							>
-								<component :is="() => normalizeChildren(children)" />
-							</nuxt-link>
-						</template>
-					</IntlFormatted>
-				</p>
-				<div v-if="isForceDemonetized" class="mt-2">
-					<SettingsInlineWarning>
-						<IntlFormatted :message-id="messages.monetizationDisabledDescription">
-							<template #contact-support-link="{ children }">
-								<a
-									class="smart-clickable:allow-pointer-events text-orange underline hover:brightness-110"
-									href="https://support.modrinth.com"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									<component :is="() => normalizeChildren(children)" />
-								</a>
-							</template>
-						</IntlFormatted>
-					</SettingsInlineWarning>
-				</div>
-				<div v-if="isStaff" class="smart-clickable:allow-pointer-events mt-2">
-					<Button
-						v-if="!isForceDemonetized"
-						type="colored"
-						color="orange"
-						:disabled="loadingModeratorMonetization"
-						@click="updateMonetizationStatus('force-demonetized')"
-					>
-						<ScaleIcon aria-hidden="true" />
-						Disable monetization
-					</Button>
-					<Button
-						v-else
-						:disabled="loadingModeratorMonetization"
-						@click="updateMonetizationStatus('monetized')"
-					>
-						<ScaleIcon aria-hidden="true" />
-						Allow monetization
-					</Button>
-				</div>
-			</SettingsToggleCard>
 			<SettingsOptionCard :title="formatMessage(messages.deleteProjectTitle)">
 				<p>
 					<IntlFormatted :message-id="messages.deleteProjectDescription1">
@@ -319,7 +263,7 @@
 </template>
 
 <script setup>
-import { ImageIcon, ScaleIcon, TrashIcon, UploadIcon } from '@modrinth/assets'
+import { ImageIcon, TrashIcon, UploadIcon } from '@shroudedit/assets'
 import {
 	Avatar,
 	Button,
@@ -329,27 +273,24 @@ import {
 	ConfirmModal,
 	defineMessages,
 	FileButton,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	injectProjectPageContext,
 	Input,
 	IntlFormatted,
 	normalizeChildren,
-	SettingsInlineWarning,
 	SettingsOptionCard,
-	SettingsToggleCard,
 	Textarea,
 	UnsavedChangesPopup,
 	useFormatBytes,
 	usePageLeaveSafety,
 	useVIntl,
-} from '@modrinth/ui'
-import { fileIsValid, formatProjectStatus, isAdmin } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { fileIsValid, formatProjectStatus, isAdmin } from '@shroudedit/utils'
 
 import AiImageWarningModal from '~/components/ui/AiImageWarningModal.vue'
 import SlugSuggestions from '~/components/ui/SlugSuggestions.vue'
 import ValidationMessage from '~/components/ValidationMessage.vue'
-import { useAuth } from '~/composables/auth.js'
 import { useProjectNagMessages } from '~/composables/project-nag-validation'
 import {
 	useProjectSlugSuggestions,
@@ -358,7 +299,7 @@ import {
 import { fileDeclaresAi } from '~/helpers/c2pa'
 import { getProjectTypeForUrl } from '~/helpers/projects.js'
 
-const auth = await useAuth()
+const config = useRuntimeConfig()
 const { formatMessage } = useVIntl()
 
 const { addNotification } = injectNotificationManager()
@@ -370,7 +311,7 @@ const {
 	patchIcon,
 	invalidate,
 } = injectProjectPageContext()
-const { labrinth } = injectModrinthClient()
+const { labrinth } = injectShroudEditClient()
 const aiImageWarningModal = useTemplateRef('aiImageWarningModal')
 
 useProjectSettingsHeadTitle(commonProjectSettingsMessages.general)
@@ -406,25 +347,9 @@ const visibility = ref(
 		: project.value.requested_status,
 )
 
-const monetizationEnabled = ref(project.value.monetization_status === 'monetized')
-const loadingModeratorMonetization = ref(false)
-
-watch(
-	() => project.value.monetization_status,
-	() => {
-		monetizationEnabled.value = project.value.monetization_status === 'monetized'
-	},
-)
-
-const isStaff = computed(
-	() => !!auth.value.user && tags.value.staffRoles.includes(auth.value.user.role),
-)
-
-const isForceDemonetized = computed(() => project.value.monetization_status === 'force-demonetized')
-
 // Server project specific refs
 const MC_SERVER_BANNER_NAME = '__mc_server_banner__'
-const isServerProject = computed(() => project.value?.minecraft_server != null)
+const isServerProject = computed(() => project.value?.enshrouded_server != null)
 const projectTypeForUrl = computed(() => {
 	if (isServerProject.value) return 'server'
 	const type = project.value.project_types?.[0] ?? 'mod'
@@ -448,8 +373,6 @@ const nameValidation = useProjectNagMessages('name')
 const summaryValidation = useProjectNagMessages('summary')
 const iconValidation = useProjectNagMessages('icon')
 const canSave = computed(() => hasPermission.value)
-
-const monetizationToggleDisabled = computed(() => !hasPermission.value || isForceDemonetized.value)
 
 const hasDeletePermission = computed(() => {
 	const DELETE_PROJECT = 1 << 7
@@ -500,13 +423,6 @@ const basePatchData = computed(() => {
 		data.requested_status = visibility.value
 	}
 
-	if (project.value.monetization_status !== 'force-demonetized') {
-		const wasMonetized = project.value.monetization_status === 'monetized'
-		if (monetizationEnabled.value !== wasMonetized) {
-			data.monetization_status = monetizationEnabled.value ? 'monetized' : 'demonetized'
-		}
-	}
-
 	return data
 })
 
@@ -523,7 +439,6 @@ const original = computed(() => ({
 	deletedIcon: false,
 	bannerFile: null,
 	deletedBanner: false,
-	monetizationEnabled: project.value.monetization_status === 'monetized',
 }))
 
 const modified = computed(() => ({
@@ -535,7 +450,6 @@ const modified = computed(() => ({
 	deletedIcon: deletedIcon.value,
 	bannerFile: bannerFile.value,
 	deletedBanner: deletedBanner.value,
-	monetizationEnabled: monetizationEnabled.value,
 }))
 
 const hasChanges = computed(() =>
@@ -557,16 +471,6 @@ function resetChanges() {
 	bannerFile.value = null
 	bannerPreview.value = null
 	deletedBanner.value = false
-	monetizationEnabled.value = project.value.monetization_status === 'monetized'
-}
-
-async function updateMonetizationStatus(status) {
-	loadingModeratorMonetization.value = true
-	try {
-		await patchProjectV3({ monetization_status: status })
-	} finally {
-		loadingModeratorMonetization.value = false
-	}
 }
 
 async function handleSave() {
@@ -723,18 +627,6 @@ const messages = defineMessages({
 		id: 'project.settings.danger-zone',
 		defaultMessage: 'Danger zone',
 	},
-	monetizationTitle: {
-		id: 'project.settings.monetization.title',
-		defaultMessage: 'Monetization',
-	},
-	monetizationDescription: {
-		id: 'project.settings.monetization.description',
-		defaultMessage: `Projects on Modrinth are automatically enrolled in the <rewards-program-link>Rewards Program</rewards-program-link>. If you don't want to (or can't for legal reasons) earn revenue from this project, you can turn it off here.`,
-	},
-	monetizationDisabledDescription: {
-		id: 'project.settings.monetization.disabled-description',
-		defaultMessage: `This project is not eligible for monetization. If you think this is a mistake, please <contact-support-link>contact support</contact-support-link>.`,
-	},
 	deleteProjectTitle: {
 		id: 'project.settings.delete-project.title',
 		defaultMessage: 'Delete project',
@@ -746,12 +638,12 @@ const messages = defineMessages({
 	deleteProjectDescription1: {
 		id: 'project.settings.delete-project.description.1',
 		defaultMessage:
-			'Permanently deletes this project from Modrinth. Deleted projects <emphasis>cannot be recovered</emphasis> by Modrinth staff or support.',
+			'Permanently deletes this project from ShroudEdit. Deleted projects <emphasis>cannot be recovered</emphasis> by ShroudEdit staff or support.',
 	},
 	deleteProjectDescription2: {
 		id: 'project.settings.delete-project.description.2',
 		defaultMessage:
-			'Files uploaded to this project that are actively used in Modpacks hosted on Modrinth may continue to exist.',
+			'Files uploaded to this project that are actively used in Modpacks hosted on ShroudEdit may continue to exist.',
 	},
 	deleteConfirmationTitle: {
 		id: 'project.settings.delete-project.confirmation.title',

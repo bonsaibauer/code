@@ -657,42 +657,32 @@ impl SearchField {
                 optional: true,
                 token_separators: &["-"],
             },
-            SearchField::MinecraftServerRegion => TypesenseFieldSpec {
-                path: "minecraft_server.region",
+            SearchField::EnshroudedServerRegion => TypesenseFieldSpec {
+                path: "enshrouded_server.region",
                 ty: "string",
                 facet: true,
                 sort: false,
                 optional: true,
                 token_separators: &["-"],
             },
-            SearchField::MinecraftServerLanguages => TypesenseFieldSpec {
-                path: "minecraft_server.languages",
+            SearchField::EnshroudedServerLanguages => TypesenseFieldSpec {
+                path: "enshrouded_server.languages",
                 ty: "string[]",
                 facet: true,
                 sort: false,
                 optional: true,
                 token_separators: &["-"],
             },
-            SearchField::MinecraftJavaServerContentKind => TypesenseFieldSpec {
-                path: "minecraft_java_server.content.kind",
+            SearchField::EnshroudedServerGameVersion => TypesenseFieldSpec {
+                path: "enshrouded_server.ping.data.game_version",
                 ty: "string",
                 facet: true,
                 sort: false,
                 optional: true,
-                token_separators: &["-"],
+                token_separators: &["-", "."],
             },
-            SearchField::MinecraftJavaServerContentSupportedGameVersions => {
-                TypesenseFieldSpec {
-                    path: "minecraft_java_server.content.supported_game_versions",
-                    ty: "string[]",
-                    facet: true,
-                    sort: false,
-                    optional: true,
-                    token_separators: &["-", "."],
-                }
-            }
-            SearchField::MinecraftJavaServerPingData => TypesenseFieldSpec {
-                path: "minecraft_java_server.ping.data",
+            SearchField::EnshroudedServerPingData => TypesenseFieldSpec {
+                path: "enshrouded_server.ping.data",
                 ty: "object",
                 facet: true,
                 sort: false,
@@ -816,9 +806,8 @@ impl Typesense {
             json!({"name": "created_timestamp", "type": "int64", "sort": true}),
             json!({"name": "modified_timestamp", "type": "int64", "sort": true}),
             json!({"name": "version_published_timestamp", "type": "int64", "sort": true, "optional": true}),
-            json!({"name": "minecraft_java_server.verified_plays_2w", "type": "int64", "sort": true, "optional": true}),
-            json!({"name": "minecraft_java_server.is_online", "type": "bool", "sort": true, "optional": true}),
-            json!({"name": "minecraft_java_server.ping.data.players_online", "type": "int32", "sort": true, "optional": true}),
+            json!({"name": "enshrouded_server.is_online", "type": "bool", "sort": true, "optional": true}),
+            json!({"name": "enshrouded_server.ping.data.players_online", "type": "int32", "sort": true, "optional": true}),
             json!({"name": "dependencies", "type": "object[]", "optional": true}),
             json!({"name": "project_categories", "type": "string[]", "facet": true, "optional": true}),
         ];
@@ -913,11 +902,8 @@ impl Typesense {
                 "created_timestamp:desc,version_published_timestamp:desc"
                     .to_string()
             }
-            SearchIndex::MinecraftJavaServerVerifiedPlays2w => format!(
-                "{text_match},minecraft_java_server.verified_plays_2w:desc,minecraft_java_server.is_online:desc"
-            ),
-            SearchIndex::MinecraftJavaServerPlayersOnline => format!(
-                "{text_match},minecraft_java_server.is_online:desc,minecraft_java_server.ping.data.players_online:desc"
+            SearchIndex::EnshroudedServerPlayersOnline => format!(
+                "{text_match},enshrouded_server.is_online:desc,enshrouded_server.ping.data.players_online:desc"
             ),
         }
     }
@@ -1505,7 +1491,7 @@ fn documents_to_jsonl(uploads: &[UploadSearchProject]) -> Result<String> {
             obj.insert("id".to_string(), Value::String(id));
 
             if let Some(server) = obj
-                .get_mut("minecraft_java_server")
+                .get_mut("enshrouded_server")
                 .and_then(Value::as_object_mut)
             {
                 let is_online = server

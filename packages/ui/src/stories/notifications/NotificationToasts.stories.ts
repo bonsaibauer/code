@@ -1,11 +1,11 @@
-import { CopyIcon, MinecraftServerIcon, UpdatedIcon } from '@modrinth/assets'
+import { CopyIcon, EnshroudedServerIcon, UpdatedIcon } from '@shroudedit/assets'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 import { NotificationToast } from '../../components/notifications'
 import type { PopupNotificationButton } from '../../providers'
 
 const avatarUrl =
-	'https://cdn.modrinth.com/user/6Qo4A5QT/9d81be1a9fb1afd163b7f2f05a791955e7693c90.png'
+	'https://cdn.shroudedit.com/user/6Qo4A5QT/9d81be1a9fb1afd163b7f2f05a791955e7693c90.png'
 
 const meta = {
 	title: 'Notifications/Toasts',
@@ -32,7 +32,7 @@ export const FigmaExamples: Story = {
 		setup() {
 			return {
 				avatarUrl,
-				instanceIconUrl: MinecraftServerIcon,
+				instanceIconUrl: EnshroudedServerIcon,
 				noop,
 			}
 		},
@@ -50,7 +50,7 @@ export const FigmaExamples: Story = {
 					type="server-invite"
 					actor-name="Fetch"
 					:actor-avatar-url="avatarUrl"
-					entity-name="Modrinth SMP"
+					entity-name="ShroudEdit SMP"
 					@accept="noop"
 					@decline="noop"
 					@dismiss="noop"
@@ -71,7 +71,7 @@ export const FigmaExamples: Story = {
 					type="instance-download"
 					entity-name="New Creation"
 					:entity-icon-url="instanceIconUrl"
-					status-text="Downloading Minecraft..."
+					status-text="Downloading Enshrouded..."
 					:progress="0.5"
 					progress-type="percentage"
 					@dismiss="noop"
@@ -96,7 +96,7 @@ export const ServerInvite: Story = {
 		setup() {
 			return {
 				avatarUrl,
-				instanceIconUrl: MinecraftServerIcon,
+				instanceIconUrl: EnshroudedServerIcon,
 				noop,
 			}
 		},
@@ -105,7 +105,7 @@ export const ServerInvite: Story = {
 				type="server-invite"
 				actor-name="Fetch"
 				:actor-avatar-url="avatarUrl"
-				entity-name="Modrinth SMP"
+				entity-name="ShroudEdit SMP"
 				@accept="noop"
 				@decline="noop"
 				@dismiss="noop"
@@ -120,7 +120,7 @@ export const MissingAvatarFallback: Story = {
 		components: { NotificationToast },
 		setup() {
 			return {
-				instanceIconUrl: MinecraftServerIcon,
+				instanceIconUrl: EnshroudedServerIcon,
 				noop,
 			}
 		},
@@ -128,7 +128,7 @@ export const MissingAvatarFallback: Story = {
 			<NotificationToast
 				type="server-invite"
 				actor-name="Fetch"
-				entity-name="Modrinth SMP"
+				entity-name="ShroudEdit SMP"
 				@accept="noop"
 				@decline="noop"
 				@dismiss="noop"
@@ -143,7 +143,7 @@ export const WaitingDownload: Story = {
 		components: { NotificationToast },
 		setup() {
 			return {
-				instanceIconUrl: MinecraftServerIcon,
+				instanceIconUrl: EnshroudedServerIcon,
 				noop,
 			}
 		},
@@ -165,7 +165,7 @@ export const DownloadProgressLabels: Story = {
 		components: { NotificationToast },
 		setup() {
 			return {
-				instanceIconUrl: MinecraftServerIcon,
+				instanceIconUrl: EnshroudedServerIcon,
 				noop,
 			}
 		},
@@ -197,7 +197,7 @@ export const DownloadProgressLabels: Story = {
 					type="instance-download"
 					entity-name="New Creation"
 					:entity-icon-url="instanceIconUrl"
-					status-text="Downloading Minecraft"
+					status-text="Downloading Enshrouded"
 					progress-type="percentage"
 					:progress="0.63"
 					@dismiss="noop"
@@ -212,7 +212,7 @@ export const FailedDownloadActions: Story = {
 		components: { NotificationToast },
 		setup() {
 			return {
-				instanceIconUrl: MinecraftServerIcon,
+				instanceIconUrl: EnshroudedServerIcon,
 				actions: [
 					{
 						label: 'Retry',

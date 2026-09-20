@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { CalendarIcon, HistoryIcon } from '@modrinth/assets'
-import { capitalizeString } from '@modrinth/utils'
+import { CalendarIcon, HistoryIcon } from '@shroudedit/assets'
+import { capitalizeString } from '@shroudedit/utils'
 import { computed } from 'vue'
 
 import { defineMessage, useFormatDateTime, useRelativeTime, useVIntl } from '../../../composables'

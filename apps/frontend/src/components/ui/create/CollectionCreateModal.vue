@@ -50,7 +50,7 @@
 	</NewModal>
 </template>
 <script setup>
-import { PlusIcon, XIcon } from '@modrinth/assets'
+import { PlusIcon, XIcon } from '@shroudedit/assets'
 import {
 	Button,
 	commonMessages,
@@ -60,7 +60,7 @@ import {
 	NewModal,
 	Textarea,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 
 import CreateLimitAlert from './CreateLimitAlert.vue'
 

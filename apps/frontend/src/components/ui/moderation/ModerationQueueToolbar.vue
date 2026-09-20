@@ -46,8 +46,8 @@
 </template>
 
 <script setup lang="ts">
-import { SearchIcon } from '@modrinth/assets'
-import { commonMessages, Input, Pagination, useVIntl } from '@modrinth/ui'
+import { SearchIcon } from '@shroudedit/assets'
+import { commonMessages, Input, Pagination, useVIntl } from '@shroudedit/ui'
 
 const query = defineModel<string>({ required: true })
 

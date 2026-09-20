@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { GitGraphIcon, RssIcon } from '@modrinth/assets'
-import { articles as rawArticles } from '@modrinth/blog'
+import { GitGraphIcon, RssIcon } from '@shroudedit/assets'
+import { articles as rawArticles } from '@shroudedit/blog'
 import {
 	ArticleBody,
 	Avatar,
 	ButtonLink,
-	injectModrinthClient,
+	injectShroudEditClient,
 	useFormatDateTime,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { useQuery } from '@tanstack/vue-query'
 import dayjs from 'dayjs'
 import { computed, onMounted } from 'vue'
@@ -15,7 +15,7 @@ import { computed, onMounted } from 'vue'
 import NewsletterButton from '~/components/ui/NewsletterButton.vue'
 import ShareArticleButtons from '~/components/ui/ShareArticleButtons.vue'
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const config = useRuntimeConfig()
 const route = useRoute()
 
@@ -60,7 +60,7 @@ const article = computed(() => ({
 const authorCount = computed(() => authors?.value?.length ?? 0)
 
 const articleTitle = computed(() => article.value.title)
-const articleUrl = computed(() => `https://modrinth.com/news/article/${route.params.slug}`)
+const articleUrl = computed(() => `https://shroudedit.com/news/article/${route.params.slug}`)
 
 const thumbnailPath = computed(() =>
 	article.value.thumbnail
@@ -71,7 +71,7 @@ const thumbnailPath = computed(() =>
 const dayjsDate = computed(() => dayjs(article.value.date))
 
 useSeoMeta({
-	title: () => `${articleTitle.value} - Modrinth News`,
+	title: () => `${articleTitle.value} - ShroudEdit News`,
 	ogTitle: () => articleTitle.value,
 	description: () => article.value.summary,
 	ogDescription: () => article.value.summary,
@@ -157,11 +157,11 @@ onMounted(() => {
 				</template>
 				<template v-if="!authors || authorCount === 0">
 					<nuxt-link
-						to="/organization/modrinth"
+						to="/organization/shroudedit"
 						class="inline-flex items-center gap-1 font-semibold hover:underline hover:brightness-[--hover-brightness]"
 					>
-						<Avatar src="https://cdn.modrinth.com/modrinth-icon-96.webp" size="24px" />
-						Modrinth Team
+						<Avatar src="/shroudedit-logo.png" size="24px" />
+						ShroudEdit Team
 					</nuxt-link>
 				</template>
 				<span class="hidden md:block">•</span>

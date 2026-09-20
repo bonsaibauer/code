@@ -81,7 +81,7 @@
 </template>
 
 <script setup lang="ts">
-import { SpinnerIcon, UnknownIcon } from '@modrinth/assets'
+import { SpinnerIcon, UnknownIcon } from '@shroudedit/assets'
 import {
 	Admonition,
 	Button,
@@ -93,7 +93,7 @@ import {
 	useDebugLogger,
 	useFormatMoney,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { useGeolocation } from '@vueuse/core'
 
 import { useCountries, useFormattedCountries, useUserCountry } from '@/composables/country.ts'

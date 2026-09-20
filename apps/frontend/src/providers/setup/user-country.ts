@@ -1,4 +1,4 @@
-import { provideUserCountry } from '@modrinth/ui'
+import { provideUserCountry } from '@shroudedit/ui'
 import { onMounted } from 'vue'
 
 import { useRequestHeaders, useState } from '#imports'

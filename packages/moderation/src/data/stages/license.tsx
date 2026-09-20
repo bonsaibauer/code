@@ -1,5 +1,5 @@
-import { BookTextIcon } from '@modrinth/assets'
-import { injectProjectPageContext } from '@modrinth/ui'
+import { BookTextIcon } from '@shroudedit/assets'
+import { injectProjectPageContext } from '@shroudedit/ui'
 import { computed } from 'vue'
 
 import { check, group, md, type MessageFn, stage, toggle } from '../../types/node'
@@ -20,7 +20,7 @@ export default function () {
 		)
 		.icon(BookTextIcon)
 		.navigate('/settings/license')
-		.shown(computed(() => !project.value?.minecraft_server))
+		.shown(computed(() => !project.value?.enshrouded_server))
 		.children(
 			() => (
 				<div class="markdown-body w-full">

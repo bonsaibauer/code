@@ -25,9 +25,9 @@ import {
 	ReportIcon,
 	SettingsIcon,
 	ShieldCheckIcon,
-} from '@modrinth/assets'
-import { getMarginTarget } from '@modrinth/moderation'
-import { Chips, defineMessages, NavTabs, useVIntl } from '@modrinth/ui'
+} from '@shroudedit/assets'
+import { getMarginTarget } from '@shroudedit/moderation'
+import { Chips, defineMessages, NavTabs, useVIntl } from '@shroudedit/ui'
 
 definePageMeta({
 	middleware: ['auth', 'staff'],

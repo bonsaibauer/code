@@ -1,6 +1,6 @@
 ---
 name: cross-platform-pages
-description: Convert a page to the shared Modrinth page system for the website and desktop app. Use for shared layouts, wrapped layouts, or platform dependency-injection contracts.
+description: Convert a page to the shared ShroudEdit page system for the website and desktop app. Use for shared layouts, wrapped layouts, or platform dependency-injection contracts.
 ---
 
 # Convert a Cross-Platform Page

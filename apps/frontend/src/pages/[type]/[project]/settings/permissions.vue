@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	ArrowDown10Icon,
 	ArrowDownWideNarrowIcon,
@@ -12,8 +12,8 @@ import {
 	TrashIcon,
 	UnfoldVerticalIcon,
 	XCircleIcon,
-} from '@modrinth/assets'
-import { Button } from '@modrinth/ui'
+} from '@shroudedit/assets'
+import { Button } from '@shroudedit/ui'
 import {
 	Admonition,
 	Combobox,
@@ -26,14 +26,14 @@ import {
 	defineMessages,
 	EmptyState,
 	ExternalProjectPermissionsCard,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	injectProjectPageContext,
 	Input,
 	IntlFormatted,
 	useVIntl,
-} from '@modrinth/ui'
-import { isStaff } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { isStaff } from '@shroudedit/utils'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, ref, useTemplateRef, watch } from 'vue'
 
@@ -53,7 +53,7 @@ const isModerator = computed(() => {
 const { formatMessage } = useVIntl()
 const { projectV2: project, refreshProjectValidation } = injectProjectPageContext()
 const permissionsValidation = useProjectNagMessages('permissions')
-const { labrinth } = injectModrinthClient()
+const { labrinth } = injectShroudEditClient()
 const { addNotification } = injectNotificationManager()
 const queryClient = useQueryClient()
 const deleteAllGroupsModalRef =
@@ -310,7 +310,7 @@ const messages = defineMessages({
 	},
 	infoBannerDescription: {
 		id: 'project.settings.permissions.info-banner.description',
-		defaultMessage: `If you include content that isn’t hosted on Modrinth, you need to let us know where it’s from and verify that you have permission to distribute the files. Check out <link>our announcement of this new system</link> to learn more!`,
+		defaultMessage: `If you include content that isn’t hosted on ShroudEdit, you need to let us know where it’s from and verify that you have permission to distribute the files. Check out <link>our announcement of this new system</link> to learn more!`,
 	},
 	learnMore: {
 		id: 'project.settings.permissions.learn-more',
@@ -339,11 +339,11 @@ const messages = defineMessages({
 	},
 	failDescription: {
 		id: 'project.settings.permissions.fail.description',
-		defaultMessage: `You may not have permission to redistribute some of the external content in your project. In order to publish on Modrinth, please remove this content or provide proof that you do have permission to use it.`,
+		defaultMessage: `You may not have permission to redistribute some of the external content in your project. In order to publish on ShroudEdit, please remove this content or provide proof that you do have permission to use it.`,
 	},
 	notAllowedDescription: {
 		id: 'project.settings.permissions.not-allowed.description',
-		defaultMessage: `Some of the external content included cannot be distributed on Modrinth because it violates our Content Rules and must be removed.`,
+		defaultMessage: `Some of the external content included cannot be distributed on ShroudEdit because it violates our Content Rules and must be removed.`,
 	},
 	badProofTitle: {
 		id: 'project.settings.permissions.bad-proof.title',
@@ -351,7 +351,7 @@ const messages = defineMessages({
 	},
 	badProofDescription: {
 		id: 'project.settings.permissions.bad-proof.description',
-		defaultMessage: `Modrinth's moderation team has rejected the permission information you provided for some external content. Please review the rejected items below and provide acceptable proof or remove the content.`,
+		defaultMessage: `ShroudEdit's moderation team has rejected the permission information you provided for some external content. Please review the rejected items below and provide acceptable proof or remove the content.`,
 	},
 	attentionNeededTitle: {
 		id: 'project.settings.permissions.attention-needed.title',

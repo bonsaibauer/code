@@ -3,7 +3,8 @@
 use crate::models::exp::ProjectSerial;
 
 const MODPACK: &str = "modpack";
-const MINECRAFT_JAVA_SERVER: &str = "minecraft_java_server";
+const SCHEMATIC: &str = "schematic";
+const ENSHROUDED_SERVER: &str = "server";
 
 /// Adjusts V3 project types based on a project's components.
 ///
@@ -15,48 +16,24 @@ pub fn correct_project_types(
     components: &ProjectSerial,
     project_types: &mut Vec<String>,
 ) {
-    if components.minecraft_server.is_some() {
-        // remove modpack type to reduce burden on frontend
-        project_types.retain(|t| t != MODPACK);
-        project_types.push(MINECRAFT_JAVA_SERVER.into());
+    if components.schematic.is_some() {
+        project_types.retain(|project_type| project_type != "mod");
+        project_types.push(SCHEMATIC.into());
+    }
+
+    if components.enshrouded_server.is_some() {
+        project_types.retain(|project_type| project_type != MODPACK);
+        project_types.push(ENSHROUDED_SERVER.into());
     }
 }
 
 #[cfg(test)]
 mod tests {
-    use super::{MINECRAFT_JAVA_SERVER, MODPACK, correct_project_types};
-    use crate::models::exp::{ProjectSerial, minecraft::ServerProject};
-
-    fn server_components() -> ProjectSerial {
-        ProjectSerial {
-            minecraft_server: Some(ServerProject {
-                max_players: None,
-                country: None,
-                region: None,
-                languages: vec![],
-                active_version: None,
-            }),
-            ..ProjectSerial::default()
-        }
-    }
-
-    #[test]
-    fn adds_java_server_type_and_removes_modpack_for_server_projects() {
-        let components = server_components();
-        let mut project_types =
-            vec!["mod".to_string(), MODPACK.to_string(), "plugin".to_string()];
-
-        correct_project_types(&components, &mut project_types);
-
-        assert_eq!(
-            project_types,
-            vec![
-                "mod".to_string(),
-                "plugin".to_string(),
-                MINECRAFT_JAVA_SERVER.to_string()
-            ]
-        );
-    }
+    use super::{ENSHROUDED_SERVER, MODPACK, correct_project_types};
+    use crate::models::exp::{
+        ProjectSerial,
+        enshrouded::{EnshroudedServerProject, SchematicProject},
+    };
 
     #[test]
     fn leaves_project_types_unchanged_without_server_component() {
@@ -67,5 +44,40 @@ mod tests {
         correct_project_types(&components, &mut project_types);
 
         assert_eq!(project_types, expected);
+    }
+
+    #[test]
+    fn replaces_mod_type_for_schematic_projects() {
+        let components = ProjectSerial {
+            schematic: Some(SchematicProject {}),
+            ..ProjectSerial::default()
+        };
+        let mut project_types = vec!["mod".to_string()];
+
+        correct_project_types(&components, &mut project_types);
+
+        assert_eq!(project_types, vec!["schematic".to_string()]);
+    }
+
+    #[test]
+    fn replaces_modpack_type_for_enshrouded_server_projects() {
+        let components = ProjectSerial {
+            enshrouded_server: Some(EnshroudedServerProject {
+                address: "server.shroudedit.com".to_string(),
+                query_port: 15637,
+                region: Some("europe".to_string()),
+                languages: vec!["de".to_string()],
+                voice_chat_enabled: false,
+                voice_chat_mode: Default::default(),
+                text_chat_enabled: false,
+                user_groups: Vec::new(),
+            }),
+            ..ProjectSerial::default()
+        };
+        let mut project_types = vec![MODPACK.to_string()];
+
+        correct_project_types(&components, &mut project_types);
+
+        assert_eq!(project_types, vec![ENSHROUDED_SERVER.to_string()]);
     }
 }

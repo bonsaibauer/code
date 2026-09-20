@@ -6,14 +6,14 @@ import {
 	CopyIcon,
 	ExternalIcon,
 	LoaderCircleIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	ButtonLink,
 	IconButton,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
-} from '@modrinth/ui'
-import { capitalizeString, highlightCodeLines } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { capitalizeString, highlightCodeLines } from '@shroudedit/utils'
 import { computed, reactive, ref } from 'vue'
 
 import { getSeverityBadgeColor, truncateMiddle } from './helpers'
@@ -36,7 +36,7 @@ const emit = defineEmits<{
 	verdict: [event: TraceVerdictEvent]
 }>()
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const { addNotification } = injectNotificationManager()
 const { isPreReviewed, getMarkedFlagsCount } = injectTechReviewDecisions()
 

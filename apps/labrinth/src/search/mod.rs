@@ -1,5 +1,5 @@
 use crate::models::exp;
-use crate::models::exp::minecraft::JavaServerPing;
+use crate::models::exp::enshrouded::EnshroudedServerPing;
 use crate::models::ids::{ProjectId, VersionId};
 use crate::models::projects::DependencyType;
 use crate::queue::server_ping;
@@ -134,49 +134,39 @@ async fn hydrate_search_results(
     hits: &mut [ResultSearchProject],
     redis_pool: &RedisPool,
 ) -> eyre::Result<()> {
-    // Minecraft Java servers should fetch the latest player count that we have
-    // from Redis, rather than the (pretty stale) data from search backend
-    // TODO: this block should be made generic over the component type,
-    // for now we can hardcode MC java servers tho
-
-    let project_ids = hits
+    let enshrouded_project_ids = hits
         .iter()
-        .filter(|hit| hit.components.minecraft_java_server.is_some())
+        .filter(|hit| hit.components.enshrouded_server.is_some())
         .filter_map(|hit| parse_base62(&hit.project_id).ok().map(ProjectId))
         .collect::<Vec<_>>();
-
-    let pings_by_project_id = if project_ids.is_empty() {
+    let enshrouded_pings = if enshrouded_project_ids.is_empty() {
         HashMap::new()
     } else {
         let mut redis = redis_pool.connect().await?;
-        let ping_keys = project_ids
+        let keys = enshrouded_project_ids
             .iter()
             .map(|project_id| {
                 redis_pool
                     .key()
-                    .entity(server_ping::REDIS_NAMESPACE, project_id)
+                    .entity(server_ping::ENSHROUDED_REDIS_NAMESPACE, project_id)
             })
             .collect::<Vec<_>>();
-        let ping_results = redis
-            .get_many_deserialized::<JavaServerPing>(&ping_keys)
-            .await?;
-
-        ping_results
+        redis
+            .get_many_deserialized::<EnshroudedServerPing>(&keys)
+            .await?
             .into_iter()
             .enumerate()
-            .filter_map(|(idx, ping)| ping.map(|ping| (project_ids[idx], ping)))
+            .filter_map(|(index, ping)| {
+                ping.map(|ping| (enshrouded_project_ids[index], ping))
+            })
             .collect::<HashMap<_, _>>()
     };
 
     for hit in hits {
-        let Some(java_server) = hit.components.minecraft_java_server.as_mut()
-        else {
-            continue;
-        };
-        if let Ok(project_id) = parse_base62(&hit.project_id).map(ProjectId) {
-            java_server.ping = pings_by_project_id.get(&project_id).cloned();
-        } else {
-            java_server.ping = None;
+        if let Some(server) = hit.components.enshrouded_server.as_mut() {
+            server.ping = parse_base62(&hit.project_id)
+                .ok()
+                .and_then(|id| enshrouded_pings.get(&ProjectId(id)).cloned());
         }
     }
 
@@ -211,11 +201,10 @@ pub enum SearchField {
     GameVersions,
     ClientSide,
     ServerSide,
-    MinecraftServerRegion,
-    MinecraftServerLanguages,
-    MinecraftJavaServerContentKind,
-    MinecraftJavaServerContentSupportedGameVersions,
-    MinecraftJavaServerPingData,
+    EnshroudedServerRegion,
+    EnshroudedServerLanguages,
+    EnshroudedServerGameVersion,
+    EnshroudedServerPingData,
     DependencyProjectIds,
     CompatibleDependencyProjectIds,
     DisclosureTypes,

@@ -12,7 +12,7 @@ import {
 	usePageLeaveSafety,
 	useSavable,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 
 import SlugSuggestions from '~/components/ui/SlugSuggestions.vue'
 import ValidationMessage from '~/components/ValidationMessage.vue'
@@ -23,6 +23,7 @@ import {
 } from '~/composables/project-slug-suggestions'
 
 const { formatMessage } = useVIntl()
+const config = useRuntimeConfig()
 
 const { allMembers, projectV2: project, patchProject } = injectProjectPageContext()
 
@@ -240,7 +241,7 @@ const placeholder = computed(() => placeholders[placeholderIndex.value] ?? place
 					wrapper-class="w-full"
 				>
 					<template #prefix>
-						<span class="whitespace-nowrap">https://modrinth.com/project/</span>
+						<span class="whitespace-nowrap">{{ config.public.siteUrl }}/project/</span>
 					</template>
 				</Input>
 				<SlugSuggestions

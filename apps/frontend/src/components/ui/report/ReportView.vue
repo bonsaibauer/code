@@ -35,7 +35,7 @@
 	</div>
 </template>
 <script setup>
-import { injectModrinthClient } from '@modrinth/ui'
+import { injectShroudEditClient } from '@shroudedit/ui'
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed } from 'vue'
 
@@ -59,7 +59,7 @@ const props = defineProps({
 	},
 })
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const queryClient = useQueryClient()
 
 // Fetch raw report

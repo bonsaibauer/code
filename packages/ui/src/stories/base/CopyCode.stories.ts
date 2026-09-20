@@ -12,12 +12,12 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
 	args: {
-		text: 'npm install @modrinth/ui',
+		text: 'npm install @shroudedit/ui',
 	},
 }
 
 export const LongText: Story = {
 	args: {
-		text: 'curl -X GET "https://api.modrinth.com/v2/project/sodium" -H "Accept: application/json"',
+		text: 'curl -X GET "https://api.shroudedit.com/v2/project/sodium" -H "Accept: application/json"',
 	},
 }

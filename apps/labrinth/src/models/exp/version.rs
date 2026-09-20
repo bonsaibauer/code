@@ -1,7 +1,6 @@
 use crate::models::exp::{
     base,
     component::{Component, ComponentKind},
-    minecraft,
 };
 
 use serde::{Deserialize, Serialize};
@@ -93,6 +92,4 @@ macro_rules! define_version_components {
 type Edit<T> = <T as Component>::Edit;
 type Query<T> = <T as Component>::Query;
 
-define_version_components![
-    (minecraft_java_server, MinecraftJavaServer): minecraft::JavaServerVersion,
-];
+define_version_components![];

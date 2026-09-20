@@ -1,5 +1,5 @@
-import { ModrinthApiError } from '@modrinth/api-client'
-import { injectModrinthClient } from '@modrinth/ui'
+import { ShroudEditApiError } from '@shroudedit/api-client'
+import { injectShroudEditClient } from '@shroudedit/ui'
 import { useQueryClient } from '@tanstack/vue-query'
 import { type MaybeRefOrGetter, onScopeDispose, ref, toValue, watch } from 'vue'
 
@@ -74,7 +74,7 @@ export function useProjectSlugSuggestions({
 	currentProjectId,
 	enabled = true,
 }: ProjectSlugSuggestionOptions) {
-	const client = injectModrinthClient()
+	const client = injectShroudEditClient()
 	const queryClient = useQueryClient()
 	const suggestions = ref<string[]>([])
 	const checking = ref(false)
@@ -89,7 +89,7 @@ export function useProjectSlugSuggestions({
 					const result = await client.labrinth.projects_v2.check(slug)
 					return result.id === projectId
 				} catch (error) {
-					if (error instanceof ModrinthApiError && error.statusCode === 404) return true
+					if (error instanceof ShroudEditApiError && error.statusCode === 404) return true
 					throw error
 				}
 			},

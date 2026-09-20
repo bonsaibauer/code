@@ -1,4 +1,4 @@
-import { defineMessages, getLoaderMessage, type VIntlFormatters } from '@modrinth/ui'
+import { defineMessages, getLoaderMessage, type VIntlFormatters } from '@shroudedit/ui'
 
 import type {
 	AnalyticsBreakdownPreset,
@@ -258,19 +258,6 @@ export const analyticsGraphTitleMessages = defineMessages({
 })
 
 export const analyticsStatCardMessages = defineMessages({
-	monetizationBannerTitle: {
-		id: 'analytics.stat.monetization-banner.title',
-		defaultMessage: 'How does monetization work?',
-	},
-	monetizationBannerBody: {
-		id: 'analytics.stat.monetization-banner.body',
-		defaultMessage:
-			'Only views and downloads made through Modrinth are eligible for monetization and must pass fraud-prevention filtering. Modrinth App downloads also require the user to be logged in. Because all projects have a similar ratio of monetized downloads, your revenue would not meaningfully change if all downloads were counted.',
-	},
-	monetizationBannerLearnMore: {
-		id: 'analytics.stat.monetization-banner.learn-more',
-		defaultMessage: 'Learn more',
-	},
 	revenueValue: {
 		id: 'analytics.stat.revenue-value',
 		defaultMessage: '${value}',
@@ -444,11 +431,11 @@ export const analyticsDownloadReasonMessages = defineMessages({
 export const analyticsDownloadSourceMessages = defineMessages({
 	website: {
 		id: 'analytics.download-source.website',
-		defaultMessage: 'Modrinth Website',
+		defaultMessage: 'ShroudEdit website',
 	},
 	app: {
 		id: 'analytics.download-source.app',
-		defaultMessage: 'Modrinth App',
+		defaultMessage: 'Legacy app',
 	},
 })
 
@@ -526,7 +513,7 @@ export const analyticsTableMessages = defineMessages({
 	},
 	csvFilename: {
 		id: 'analytics.table.csv.filename',
-		defaultMessage: 'Modrinth Analytics {breakdown} Breakdown - {dateRange}',
+		defaultMessage: 'ShroudEdit Analytics {breakdown} Breakdown - {dateRange}',
 	},
 	durationDays: {
 		id: 'analytics.table.duration.days',
@@ -635,17 +622,17 @@ export const analyticsChartMessages = defineMessages({
 		id: 'analytics.chart.controls.project-events',
 		defaultMessage: 'Project events',
 	},
-	modrinthEvents: {
-		id: 'analytics.chart.controls.modrinth-events',
-		defaultMessage: 'Modrinth events',
+	shroudeditEvents: {
+		id: 'analytics.chart.controls.shroudedit-events',
+		defaultMessage: 'ShroudEdit events',
 	},
 	noProjectEvents: {
 		id: 'analytics.chart.controls.no-project-events',
 		defaultMessage: 'No project events in graph.',
 	},
-	noModrinthEvents: {
-		id: 'analytics.chart.controls.no-modrinth-events',
-		defaultMessage: 'No Modrinth events in graph.',
+	noShroudEditEvents: {
+		id: 'analytics.chart.controls.no-shroudedit-events',
+		defaultMessage: 'No ShroudEdit events in graph.',
 	},
 	viewMonetizedAnalyticsDetails: {
 		id: 'analytics.chart.legend.monetization-details.aria',
@@ -658,7 +645,7 @@ export const analyticsChartMessages = defineMessages({
 	monetizedAnalyticsDetailsDescription: {
 		id: 'analytics.chart.legend.monetization-details.description',
 		defaultMessage:
-			'Only views and downloads made through Modrinth count toward monetization, and downloads require users to be logged in.',
+			'Only views and downloads made through ShroudEdit count toward monetization, and downloads require users to be logged in.',
 	},
 	previousPeriodSuffix: {
 		id: 'analytics.chart.legend.previous-period-suffix',
@@ -936,7 +923,7 @@ export function formatAnalyticsDownloadSourceLabel(
 	if (normalizedLowercase === 'website') {
 		return formatMessage(analyticsDownloadSourceMessages.website)
 	}
-	if (normalizedLowercase === 'modrinth_app') {
+	if (normalizedLowercase === 'shroudedit_app') {
 		return formatMessage(analyticsDownloadSourceMessages.app)
 	}
 	if (!normalized.includes('_')) {

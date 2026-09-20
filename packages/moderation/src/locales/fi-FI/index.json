@@ -62,10 +62,10 @@
   "nags.long-headers.title": {
     "defaultMessage": "Lyhennä otsikoita"
   },
-  "nags.minecraft-title-clause.description": {
-    "defaultMessage": "Projektit eivät saa käyttää Minecraftin brändäystä tai sisältää \"Minecraft\" sanaa suurena osana nimeä."
+  "nags.enshrouded-title-clause.description": {
+    "defaultMessage": "Projektit eivät saa käyttää Enshroudedin brändäystä tai sisältää \"Enshrouded\" sanaa suurena osana nimeä."
   },
-  "nags.minecraft-title-clause.title": {
+  "nags.enshrouded-title-clause.title": {
     "defaultMessage": "Vältä tuotemerkin loukkauksia"
   },
   "nags.missing-alt-text.description": {

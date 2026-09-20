@@ -24,10 +24,10 @@ export type ApiErrorData = {
 }
 
 /**
- * Modrinth V1 error response format
+ * ShroudEdit V1 error response format
  * Used by kyros + archon APIs
  */
-export type ModrinthErrorResponse = {
+export type ShroudEditErrorResponse = {
 	/**
 	 * Error code/identifier
 	 */
@@ -50,9 +50,9 @@ export type ModrinthErrorResponse = {
 }
 
 /**
- * Type guard to check if an object is a ModrinthErrorResponse
+ * Type guard to check if an object is a ShroudEditErrorResponse
  */
-export function isModrinthErrorResponse(obj: unknown): obj is ModrinthErrorResponse {
+export function isShroudEditErrorResponse(obj: unknown): obj is ShroudEditErrorResponse {
 	if (typeof obj !== 'object' || obj === null) {
 		return false
 	}

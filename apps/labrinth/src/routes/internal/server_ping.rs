@@ -14,29 +14,33 @@ use crate::{
 };
 
 pub fn config(cfg: &mut actix_web::web::ServiceConfig) {
-    cfg.service(ping_minecraft_java);
+    cfg.service(ping_enshrouded);
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, utoipa::ToSchema)]
-pub struct PingRequest {
+pub struct EnshroudedPingRequest {
     pub address: String,
+    pub query_port: Option<u16>,
     pub timeout_ms: Option<u64>,
 }
 
-/// Ping Minecraft server.  
+/// Ping an Enshrouded dedicated server through its UDP query port.
 #[utoipa::path(
-	context_path = "/server-ping",
-	tag = "server ping",
-	responses((status = NO_CONTENT))
+    context_path = "/server-ping",
+    tag = "server ping",
+    responses((status = OK, body = crate::models::exp::enshrouded::EnshroudedServerPingData))
 )]
-#[post("/minecraft-java")]
-pub async fn ping_minecraft_java(
+#[post("/enshrouded")]
+pub async fn ping_enshrouded(
     req: HttpRequest,
-    web::Json(request): web::Json<PingRequest>,
+    web::Json(request): web::Json<EnshroudedPingRequest>,
     pool: web::Data<PgPool>,
     redis: web::Data<RedisPool>,
     session_queue: web::Data<AuthQueue>,
-) -> Result<(), ApiError> {
+) -> Result<
+    web::Json<crate::models::exp::enshrouded::EnshroudedServerPingData>,
+    ApiError,
+> {
     let (_, _user) = get_user_from_headers(
         &req,
         &**pool,
@@ -47,10 +51,19 @@ pub async fn ping_minecraft_java(
     .await
     .wrap_auth_err("authenticating API request")?;
 
+    let query_port = request.query_port.unwrap_or(15637);
+    if query_port == 0 {
+        return Err(ApiError::Request(eyre::eyre!(
+            "`query_port` must not be zero"
+        )));
+    }
     let timeout = request.timeout_ms.map(Duration::from_millis);
-    server_ping::ping_server(&request.address, timeout)
-        .await
-        .wrap_request_err("failed to ping server")?;
+    let data = server_ping::ping_enshrouded_server(
+        (request.address.as_str(), query_port),
+        timeout,
+    )
+    .await
+    .wrap_request_err("failed to ping Enshrouded server")?;
 
-    Ok(())
+    Ok(web::Json(data))
 }

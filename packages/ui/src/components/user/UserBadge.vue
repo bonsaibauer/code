@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ExternalIcon } from '@modrinth/assets'
+import { ExternalIcon } from '@shroudedit/assets'
 import type { Component } from 'vue'
 
 import { Tooltip } from '#ui/components/floating'

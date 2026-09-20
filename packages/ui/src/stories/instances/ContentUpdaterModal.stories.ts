@@ -1,4 +1,4 @@
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { fn } from 'storybook/test'
 import { ref } from 'vue'
@@ -6,7 +6,7 @@ import { ref } from 'vue'
 import { Button } from '../../components/base/buttons'
 import ContentUpdaterModal from '../../layouts/shared/content-tab/components/modals/content-updater-modal/index.vue'
 
-// Real version data from Modrinth API - Sodium (mod)
+// Real version data from ShroudEdit API - Sodium (mod)
 const sodiumVersions: Labrinth.Versions.v2.Version[] = [
 	{
 		id: '59wygFUQ',
@@ -71,7 +71,7 @@ const sodiumVersions: Labrinth.Versions.v2.Version[] = [
 		version_number: 'mc1.21.11-0.8.0-fabric',
 		version_type: 'beta',
 		changelog:
-			'This release brings many bug fixes, a brand new configuration screen, and support for Minecraft 1.21.11.\n\n## New Features\n- Completely redesigned configuration screen\n- Support for Minecraft 1.21.11\n\n## Bug Fixes\n- Fixed various rendering issues\n- Improved memory usage',
+			'This release brings many bug fixes, a brand new configuration screen, and support for Enshrouded 1.21.11.\n\n## New Features\n- Completely redesigned configuration screen\n- Support for Enshrouded 1.21.11\n\n## Bug Fixes\n- Fixed various rendering issues\n- Improved memory usage',
 		date_published: '2025-12-09T17:11:11.360476Z',
 		downloads: 180000,
 		status: 'listed',
@@ -117,7 +117,7 @@ const sodiumVersions: Labrinth.Versions.v2.Version[] = [
 	},
 ]
 
-// Real version data from Modrinth API - Cobblemon modpack
+// Real version data from ShroudEdit API - Cobblemon modpack
 const cobblemonVersions: Labrinth.Versions.v2.Version[] = [
 	{
 		id: 'DbQNxSJ0',

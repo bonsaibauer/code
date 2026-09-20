@@ -1,6 +1,6 @@
 use crate::auth::checks::{is_visible_project, is_visible_version};
 use crate::database::PgPool;
-use crate::database::models::legacy_loader_fields::MinecraftGameVersion;
+use crate::database::models::legacy_loader_fields::EnshroudedGameVersion;
 use crate::database::models::loader_fields::Loader;
 use crate::database::models::project_item::ProjectQueryResult;
 use crate::database::models::version_item::{
@@ -77,7 +77,7 @@ pub struct MavenPom {
 	params(("id" = String, Path)),
 	responses((status = OK, body = String, content_type = "text/xml"))
 )]
-#[get("/maven/modrinth/{id}/maven-metadata.xml")]
+#[get("/maven/shroudedit/{id}/maven-metadata.xml")]
 pub async fn maven_metadata(
     req: HttpRequest,
     params: web::Path<(String,)>,
@@ -151,7 +151,7 @@ pub async fn maven_metadata(
     let project_id: ProjectId = project.inner.id.into();
 
     let respdata = Metadata {
-        group_id: "maven.modrinth".to_string(),
+        group_id: "maven.shroudedit".to_string(),
         artifact_id: project_id.to_string(),
         versioning: Versioning {
             latest: new_versions
@@ -230,11 +230,11 @@ async fn find_version(
                 bool &= x.loaders.iter().any(|y| loaders.contains(y));
             }
 
-            // For maven in particular, we will hardcode it to use GameVersions rather than generic loader fields, as this is minecraft-java exclusive
+            // This legacy compatibility endpoint exposes game versions directly rather than generic loader fields.
             if !game_versions.is_empty() {
                 let version_game_versions =
                     x.version_fields.clone().into_iter().find_map(|v| {
-                        MinecraftGameVersion::try_from_version_field(&v).ok()
+                        EnshroudedGameVersion::try_from_version_field(&v).ok()
                     });
                 if let Some(version_game_versions) = version_game_versions {
                     bool &= version_game_versions
@@ -312,7 +312,7 @@ fn find_file<'a>(
 	)
 )]
 #[route(
-    "/maven/modrinth/{id}/{versionnum}/{file}",
+    "/maven/shroudedit/{id}/{versionnum}/{file}",
     method = "GET",
     method = "HEAD"
 )]
@@ -371,7 +371,7 @@ pub async fn version_file(
                     .to_string(),
             xsi: "http://www.w3.org/2001/XMLSchema-instance".to_string(),
             model_version: "4.0.0".to_string(),
-            group_id: "maven.modrinth".to_string(),
+            group_id: "maven.shroudedit".to_string(),
             artifact_id: project_id,
             version: vnum,
             name: project.inner.name,
@@ -402,7 +402,7 @@ pub async fn version_file(
 	),
 	responses((status = OK, body = String))
 )]
-#[get("/maven/modrinth/{id}/{versionnum}/{file}.sha1")]
+#[get("/maven/shroudedit/{id}/{versionnum}/{file}.sha1")]
 pub async fn version_file_sha1(
     req: HttpRequest,
     params: web::Path<(String, String, String)>,
@@ -468,7 +468,7 @@ pub async fn version_file_sha1(
 	),
 	responses((status = OK, body = String))
 )]
-#[get("/maven/modrinth/{id}/{versionnum}/{file}.sha512")]
+#[get("/maven/shroudedit/{id}/{versionnum}/{file}.sha512")]
 pub async fn version_file_sha512(
     req: HttpRequest,
     params: web::Path<(String, String, String)>,

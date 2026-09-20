@@ -1,15 +1,15 @@
-import { defineMessages } from '@modrinth/ui'
+import { defineMessages } from '@shroudedit/ui'
 
 import type { NagDefinitions } from './types.ts'
 
 const messages = defineMessages({
-	minecraftTitleClauseTitle: {
-		id: 'nags.minecraft-title-clause.title',
+	enshroudedTitleClauseTitle: {
+		id: 'nags.enshrouded-title-clause.title',
 		defaultMessage: 'Avoid brand infringement',
 	},
-	minecraftTitleClauseDescription: {
-		id: 'nags.minecraft-title-clause.description',
-		defaultMessage: `Projects must not use Minecraft's branding or include "Minecraft" as a significant part of the name.`,
+	enshroudedTitleClauseDescription: {
+		id: 'nags.enshrouded-title-clause.description',
+		defaultMessage: `Projects must not use Enshrouded's branding or include "Enshrouded" as a significant part of the name.`,
 	},
 	fixNameTitle: { id: 'nags.invalid-project-name.title', defaultMessage: 'Modify project name' },
 	fixVersionTitle: {
@@ -37,9 +37,9 @@ const messages = defineMessages({
 })
 
 export const nameNags = {
-	'minecraft-title-clause': {
-		title: messages.minecraftTitleClauseTitle,
-		description: messages.minecraftTitleClauseDescription,
+	'enshrouded-title-clause': {
+		title: messages.enshroudedTitleClauseTitle,
+		description: messages.enshroudedTitleClauseDescription,
 		destination: 'general',
 		linkTitle: messages.editName,
 	},

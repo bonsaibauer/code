@@ -1,5 +1,5 @@
-import type { Labrinth } from '@modrinth/api-client'
-import { type Nag, nagDefinitions, toProjectNag } from '@modrinth/moderation'
+import type { Labrinth } from '@shroudedit/api-client'
+import { type Nag, nagDefinitions, toProjectNag } from '@shroudedit/moderation'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
 
@@ -55,7 +55,7 @@ function createProjectV3(status: Labrinth.Projects.v2.ProjectStatus): Labrinth.P
 		id: 'storybook-publishing-checklist',
 		slug: 'storybook-publishing-checklist',
 		project_types: ['mod'],
-		games: ['minecraft:java-edition'],
+		games: ['enshrouded:java-edition'],
 		team_id: 'storybook-team',
 		name: 'Publishing Checklist Preview',
 		summary: 'A short summary.',
@@ -147,7 +147,7 @@ const everyNag: Nag[] = [
 		id: 'resubmit-for-review-preview',
 		title: 'Resubmit for review',
 		description: () =>
-			"Your project has been rejected by Modrinth's staff. Address the moderation team's feedback before resubmitting.",
+			"Your project has been rejected by ShroudEdit's staff. Address the moderation team's feedback before resubmitting.",
 		status: 'special-submit-action',
 		shouldShow: () => true,
 		link: {

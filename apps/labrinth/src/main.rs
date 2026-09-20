@@ -60,7 +60,7 @@ struct Args {
 
 fn main() -> std::io::Result<()> {
     color_eyre::install().expect("failed to install `color-eyre`");
-    modrinth_util::log::init().expect("failed to initialize logging");
+    shroudedit_util::log::init().expect("failed to initialize logging");
     env::init().expect("failed to initialize environment variables");
 
     // Sentry must be set up before the async runtime is started
@@ -318,10 +318,10 @@ async fn app() -> std::io::Result<()> {
             "telemetry": false,
 
             "metaData": {
-                "title": "Modrinth API Documentation",
-                "description": "Reference documentation for the Modrinth API.",
-                "ogTitle": "Modrinth API Documentation",
-                "ogDescription": "Reference documentation for the Modrinth API."
+                "title": "ShroudEdit API Documentation",
+                "description": "Reference documentation for the ShroudEdit API.",
+                "ogTitle": "ShroudEdit API Documentation",
+                "ogDescription": "Reference documentation for the ShroudEdit API."
             },
 
             "modelsSectionLabel": "Schemas",

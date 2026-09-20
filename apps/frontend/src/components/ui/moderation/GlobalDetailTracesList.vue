@@ -118,23 +118,23 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { HashIcon, ListIcon, SearchIcon, TrashIcon } from '@modrinth/assets'
+import type { Labrinth } from '@shroudedit/api-client'
+import { HashIcon, ListIcon, SearchIcon, TrashIcon } from '@shroudedit/assets'
 import {
 	Badge,
 	Button,
 	ButtonLink,
 	EmptyState,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	Input,
 	Pagination,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 
 import GlobalDetailLocalTraceCard from '~/components/ui/moderation/GlobalDetailLocalTraceCard.vue'
 import IssueDetailPath from '~/components/ui/moderation/IssueDetailPath.vue'
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const { addNotification } = injectNotificationManager()
 const query = ref('')
 const activeQuery = ref<string | null>(null)

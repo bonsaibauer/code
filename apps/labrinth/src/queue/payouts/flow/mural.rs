@@ -1,9 +1,9 @@
 use ariadne::ids::UserId;
 use chrono::Utc;
 use eyre::eyre;
-use modrinth_util::decimal::Decimal2dp;
 use muralpay::FiatAndRailCode;
 use rust_decimal::{Decimal, RoundingStrategy, dec};
+use shroudedit_util::decimal::Decimal2dp;
 use tracing::error;
 
 use crate::{

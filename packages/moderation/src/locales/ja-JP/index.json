@@ -80,10 +80,10 @@
   "nags.long-headers.title": {
     "defaultMessage": "ヘッダーを短縮"
   },
-  "nags.minecraft-title-clause.description": {
-    "defaultMessage": "プロジェクトは、Minecraftのブランドを使用したり、「Minecraft」を名称の重要な部分として含めてはなりません。"
+  "nags.enshrouded-title-clause.description": {
+    "defaultMessage": "プロジェクトは、Enshroudedのブランドを使用したり、「Enshrouded」を名称の重要な部分として含めてはなりません。"
   },
-  "nags.minecraft-title-clause.title": {
+  "nags.enshrouded-title-clause.title": {
     "defaultMessage": "ブランド侵害を回避"
   },
   "nags.missing-alt-text.description": {

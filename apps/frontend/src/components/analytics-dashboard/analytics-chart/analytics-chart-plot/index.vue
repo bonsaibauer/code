@@ -82,8 +82,8 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { useFormatNumber, useVIntl } from '@modrinth/ui'
+import type { Labrinth } from '@shroudedit/api-client'
+import { useFormatNumber, useVIntl } from '@shroudedit/ui'
 
 import type {
 	AnalyticsDashboardStat,

@@ -99,7 +99,7 @@ import {
 	InputFrame,
 	type InputSize,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { computed, nextTick, onMounted, ref, useAttrs, useId, watch } from 'vue'
 
 defineOptions({ inheritAttrs: false })

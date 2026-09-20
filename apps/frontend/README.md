@@ -1,10 +1,10 @@
 # ![Frontend Cover](/.github/assets/web_cover.png)
 
-# Modrinth Web Interface
+# ShroudEdit Web Interface
 
-Welcome to the Modrinth Web Interface! This web-based platform is designed for discovering, downloading, and managing Minecraft mods.
+Welcome to the ShroudEdit Web Interface! This web-based platform is designed for discovering, downloading, and managing Enshrouded mods.
 
-If you're not a developer and you've stumbled upon this repository, you can access the web interface on the [Modrinth website](https://modrinth.com).
+If you're not a developer and you've stumbled upon this repository, you can access the web interface on the [ShroudEdit website](https://shroudedit.com).
 
 ## Development
 

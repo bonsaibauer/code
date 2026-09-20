@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SparklesIcon } from '@modrinth/assets'
+import { SparklesIcon } from '@shroudedit/assets'
 import {
 	Checkbox,
 	commonMessages,
@@ -10,7 +10,7 @@ import {
 	SettingsFormGroup,
 	Textarea,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 
 import DisclosureToggleCard from './DisclosureToggleCard.vue'
 import type { AiDisclosure, AiUsage, DisclosureCardMetaProps, DisclosureLockStatus } from './types'
@@ -43,7 +43,7 @@ const messages = defineMessages({
 	stillUnsure: {
 		id: 'project.settings.disclosures.ai.still-unsure',
 		defaultMessage:
-			"Still unsure? Refer to our guide to <faq-link>Disclosure and Usage of AI</faq-link> and section 6 of <rules>Modrinth's Content Rules</rules> for more information.",
+			"Still unsure? Refer to our guide to <faq-link>Disclosure and Usage of AI</faq-link> and section 6 of <rules>ShroudEdit's Content Rules</rules> for more information.",
 	},
 	typesDescription: {
 		id: 'project.settings.disclosures.ai.types-description',
@@ -77,7 +77,7 @@ function setUse(use: AiUsage, enabled: boolean) {
 		:icon="SparklesIcon"
 		:title="formatMessage(messages.title)"
 		:description="formatMessage(messages.description)"
-		info-link="https://support.modrinth.com/en/articles/16567675#h_ec72dfca13"
+		info-link="https://support.shroudedit.com/en/articles/16567675#h_ec72dfca13"
 		@set-lock-status="emit('setLockStatus', $event)"
 	>
 		<p>
@@ -87,7 +87,7 @@ function setUse(use: AiUsage, enabled: boolean) {
 			<IntlFormatted :message-id="messages.stillUnsure">
 				<template #faq-link="{ children }">
 					<a
-						href="https://support.modrinth.com/en/articles/16551575"
+						href="https://support.shroudedit.com/en/articles/16551575"
 						target="_blank"
 						class="smart-clickable:allow-pointer-events underline hover:text-primary"
 					>

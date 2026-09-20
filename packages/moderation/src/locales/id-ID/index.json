@@ -77,10 +77,10 @@
   "nags.long-headers.title": {
     "defaultMessage": "Tajuk hendaklah singkat"
   },
-  "nags.minecraft-title-clause.description": {
-    "defaultMessage": "Proyek tidak diperbolehkan menggunakan permerekan Minecraft atau menyertakan \"Minecraft\" sebagai bagian penting pada nama tersebut."
+  "nags.enshrouded-title-clause.description": {
+    "defaultMessage": "Proyek tidak diperbolehkan menggunakan permerekan Enshrouded atau menyertakan \"Enshrouded\" sebagai bagian penting pada nama tersebut."
   },
-  "nags.minecraft-title-clause.title": {
+  "nags.enshrouded-title-clause.title": {
     "defaultMessage": "Hindari pelanggaran merek"
   },
   "nags.missing-alt-text.description": {

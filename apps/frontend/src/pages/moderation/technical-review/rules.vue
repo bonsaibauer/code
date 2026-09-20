@@ -62,11 +62,11 @@
 					id="rule-expression"
 					:value="form.rule"
 					lang="javascript"
-					theme="modrinth"
+					theme="shroudedit"
 					:print-margin="false"
 					:options="RULE_EDITOR_OPTIONS"
 					:style="{ height: '16rem', fontSize: '0.875rem' }"
-					class="ace-modrinth rounded-[20px]"
+					class="ace-shroudedit rounded-[20px]"
 					@init="onRuleEditorInit"
 					@update:value="handleRuleInput"
 				/>
@@ -567,7 +567,7 @@ IS_MATCH ? "low" : null</code></pre>
 </template>
 
 <script setup lang="ts">
-import { type Labrinth, ModrinthServerError, SseParser } from '@modrinth/api-client'
+import { type Labrinth, ShroudEditServerError, SseParser } from '@shroudedit/api-client'
 import {
 	ArrowLeftIcon,
 	BookOpenIcon,
@@ -579,14 +579,14 @@ import {
 	PlusIcon,
 	TrashIcon,
 	TriangleAlertIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	Avatar,
 	Button,
 	ButtonLink,
 	ConfirmModal,
 	EmptyState,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	Input,
 	MultiSelect,
@@ -597,7 +597,7 @@ import {
 	type TabsTab,
 	TagItem,
 	Textarea,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { useQuery } from '@tanstack/vue-query'
 import { useDebounceFn } from '@vueuse/core'
 import type { Ace } from 'ace-builds'
@@ -764,9 +764,9 @@ function createTestTraceForm(): TestTraceForm {
 	}
 }
 
-useHead({ title: 'Delphi rules - Modrinth' })
+useHead({ title: 'Delphi rules - ShroudEdit' })
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const { addNotification } = injectNotificationManager()
 const ruleModal = useTemplateRef<InstanceType<typeof NewModal>>('ruleModal')
 const deleteModal = useTemplateRef<InstanceType<typeof ConfirmModal>>('deleteModal')
@@ -817,7 +817,7 @@ let scanAbortController: AbortController | null = null
 onMounted(async () => {
 	const [{ VAceEditor }] = await Promise.all([
 		import('vue3-ace-editor'),
-		import('@modrinth/ui/src/utils/ace-theme'),
+		import('@shroudedit/ui/src/utils/ace-theme'),
 	])
 	await import('ace-builds/src-noconflict/ext-language_tools')
 	editorComponent.value = VAceEditor
@@ -1197,7 +1197,7 @@ async function testRule() {
 		if (requestId !== ruleTestRequestId) return
 
 		const details =
-			error instanceof ModrinthServerError && Array.isArray(error.v1Error?.details)
+			error instanceof ShroudEditServerError && Array.isArray(error.v1Error?.details)
 				? error.v1Error.details.filter((detail): detail is string => typeof detail === 'string')
 				: []
 		ruleTestError.value = {

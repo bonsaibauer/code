@@ -11,6 +11,7 @@ export namespace Labrinth {
 				| 'resourcepack'
 				| 'shader'
 				| 'modpack'
+				| 'schematic'
 
 			export type ResolutionPreferences = {
 				game_versions?: string[]
@@ -930,6 +931,8 @@ export namespace Labrinth {
 			export type ProjectType =
 				| 'mod'
 				| 'modpack'
+				| 'schematic'
+				| 'server'
 				| 'resourcepack'
 				| 'shader'
 				| 'plugin'
@@ -953,7 +956,7 @@ export namespace Labrinth {
 
 			export interface CreateProjectBase {
 				title: string
-				project_type: 'mod'
+				project_type: 'mod' | 'schematic'
 				slug: string
 				description: string
 				body: string
@@ -1085,6 +1088,7 @@ export namespace Labrinth {
 			export type ProjectType =
 				| 'mod'
 				| 'modpack'
+				| 'schematic'
 				| 'resourcepack'
 				| 'shader'
 				| 'plugin'
@@ -1119,7 +1123,7 @@ export namespace Labrinth {
 			}
 
 			export type NormalizedProjectNagKind =
-				| 'minecraft-title-clause'
+				| 'enshrouded-title-clause'
 				| 'project-name-non-standard-text'
 				| 'project-name-profanity'
 				| 'project-name-slur'
@@ -1236,10 +1240,8 @@ export namespace Labrinth {
 				side_types_migration_review_status: 'reviewed' | 'pending'
 				environment?: Environment[]
 
-				minecraft_server?: MinecraftServer | null
-				minecraft_java_server?: MinecraftJavaServer | null
-				minecraft_bedrock_server?: MinecraftBedrockServer | null
-				minecraft_mod?: unknown | null
+				enshrouded_mod?: unknown | null
+				enshrouded_server?: EnshroudedServer | null
 
 				/**
 				 * @deprecated Not recommended to use.
@@ -1256,64 +1258,59 @@ export namespace Labrinth {
 				organization_id?: string // automatically transfer the project to this organization
 			}
 
-			export interface MinecraftJavaServerPing {
-				address: string
-				data?: {
-					description: string
-					latency: {
-						nanos: number
-						secs: number
-					}
-					players_max: number
-					players_online: number
-					version_name: string
-					version_protocol: number
+			export interface EnshroudedServerPingData {
+				latency: {
+					nanos: number
+					secs: number
 				}
-				port: number
-				when: string
+				name: string
+				game_version: string
+				map: string
+				players_online: number
+				players_max: number
+				password_protected: boolean
 			}
 
-			export interface MinecraftServer {
-				max_players?: number
-				region?: string
-				active_version?: string | null
-				languages?: string[]
-				/**
-				 * deprecated, use region instead
-				 */
-				country?: string
+			export interface EnshroudedServer {
+				address: string
+				query_port: number
+				region?: string | null
+				languages: string[]
+				voice_chat_enabled: boolean
+				voice_chat_mode: 'proximity' | 'global'
+				text_chat_enabled: boolean
+				user_groups: EnshroudedUserGroup[]
+				ping?: {
+					when: string
+					address: string
+					query_port: number
+					data?: EnshroudedServerPingData | null
+				} | null
 			}
 
-			export interface ModpackContent {
-				kind: 'modpack'
-				version_id: string
-				project_id?: string
-				project_name?: string
-				project_icon?: string
-			}
-			export interface VanillaContent {
-				kind: 'vanilla'
-				supported_game_versions: string[]
-				recommended_game_version?: string
+			export type EnshroudedServerRole = 'admin' | 'friend' | 'guest' | 'visitor' | 'custom'
+			export type EnshroudedPasswordVisibility = 'none' | 'required' | 'contact_owner' | 'public'
+
+			export interface EnshroudedUserGroup {
+				name: string
+				role: EnshroudedServerRole
+				can_kick_ban: boolean
+				can_access_inventories: boolean
+				can_edit_world: boolean
+				can_edit_base: boolean
+				can_extend_base: boolean
+				reserved_slots: number
+				password_visibility: EnshroudedPasswordVisibility
 			}
 
-			export interface MinecraftJavaServer {
-				address?: string
-				content?: ModpackContent | VanillaContent
-				verified_plays_4w?: number | null
-				verified_plays_2w?: number | null
-				ping: Projects.v3.MinecraftJavaServerPing | null
-			}
-
-			export interface MinecraftBedrockServer {
-				address?: string
+			export interface PublicServerPassword {
+				group_name: string
+				password: string
 			}
 
 			export interface CreateServerProjectRequest {
 				base: CreateProjectBase
-				minecraft_server?: MinecraftServer
-				minecraft_java_server?: Omit<MinecraftJavaServer, 'ping'>
-				minecraft_bedrock_server?: MinecraftBedrockServer
+				enshrouded_server?: Omit<EnshroudedServer, 'ping'>
 			}
 
 			export type EditProjectRequest = {
@@ -1334,9 +1331,7 @@ export namespace Labrinth {
 				side_types_migration_review_status?: 'reviewed' | 'pending'
 				environment?: Environment
 
-				minecraft_server?: MinecraftServer
-				minecraft_java_server?: MinecraftJavaServer
-				minecraft_bedrock_server?: MinecraftBedrockServer
+				enshrouded_server?: Partial<Omit<EnshroudedServer, 'ping'>>
 				[key: string]: unknown
 			}
 
@@ -1656,13 +1651,6 @@ export namespace Labrinth {
 				file_type?: FileType
 			}
 
-			interface JavaServerVersion {
-				/**
-				 * The version id of the modpack
-				 */
-				modpack: string
-			}
-
 			export interface Version {
 				name: string
 				version_number: string
@@ -1682,8 +1670,12 @@ export namespace Labrinth {
 				files_missing_attribution?: string[]
 				environment?: Labrinth.Projects.v3.Environment
 				mrpack_loaders?: string[]
-
-				minecraft_java_server?: JavaServerVersion
+				schematic_format_version?: number
+				world_editor_version?: string
+				schematic_width?: number
+				schematic_height?: number
+				schematic_depth?: number
+				schematic_installation?: string
 			}
 
 			export interface DraftVersionFile {
@@ -1722,6 +1714,12 @@ export namespace Labrinth {
 				file_types?: Record<string, Labrinth.Versions.v3.FileType | null>
 				environment?: Labrinth.Projects.v3.Environment
 				mrpack_loaders?: string[]
+				schematic_format_version?: number
+				world_editor_version?: string
+				schematic_width?: number
+				schematic_height?: number
+				schematic_depth?: number
+				schematic_installation?: string
 			}
 
 			export type ModifyVersionRequest = Partial<
@@ -1942,8 +1940,9 @@ export namespace Labrinth {
 
 	export namespace ServerPing {
 		export namespace Internal {
-			export type MinecraftJavaPingRequest = {
+			export type EnshroudedPingRequest = {
 				address: string
+				query_port?: number
 				timeout_ms?: number
 			}
 		}
@@ -2086,10 +2085,8 @@ export namespace Labrinth {
 				project_loader_fields?: Record<string, unknown[]> & {
 					environment?: Projects.v3.Environment[]
 				}
-				minecraft_server?: Projects.v3.MinecraftServer | null
-				minecraft_java_server?: Projects.v3.MinecraftJavaServer | null
-				minecraft_bedrock_server?: Projects.v3.MinecraftBedrockServer | null
-				minecraft_mod?: unknown | null
+				enshrouded_mod?: unknown | null
+				enshrouded_server?: Projects.v3.EnshroudedServer | null
 				disclosure_types: string[]
 			}
 

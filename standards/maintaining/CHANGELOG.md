@@ -81,8 +81,8 @@ Historical entries do not always use periods. Use periods in all new entries.
 
 ## Product and UI Names
 
-- Use the public names `Modrinth App`, `Modrinth Hosting`, and `Modrinth`.
-- Do not use deprecated names, such as `Modrinth Servers`.
+- Use the public names `ShroudEdit App`, `ShroudEdit Hosting`, and `ShroudEdit`.
+- Do not use deprecated names, such as `ShroudEdit Servers`.
 - Use the labels that appear in the UI.
 - Capitalize a tab or page name when you refer to its label.
 - Use lowercase when you refer to a generic action, such as `browse content`.
@@ -111,7 +111,7 @@ Replace `Fixed an issue with misaligned buttons` with `Fixed misaligned buttons.
 | ---------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | `Fixed a bug.`                                             | `Fixed excessive brightness on project icons during hover.`                           |
 | `Various improvements to the server panel.`                | Divide it into specific bullets, or remove it.                                        |
-| `Refactored the logs page to use a new component.`         | `Redesigned the Logs page to match the Modrinth Hosting server panel.`                |
+| `Refactored the logs page to use a new component.`         | `Redesigned the Logs page to match the ShroudEdit Hosting server panel.`                |
 | `Fixed an issue where the server address was not copyable.` | `The server address in the panel header now copies to the clipboard when selected.`  |
 | `Made some changes to the Content tab.`                    | List each user-visible change, or remove the bullet.                                  |
 | `Fixed UX issues.`                                         | Name the specific user-experience problem.                                            |

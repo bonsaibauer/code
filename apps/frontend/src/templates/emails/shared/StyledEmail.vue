@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Column, Container, Img, Link as VLink, Row, Section, Text } from '@vue-email/components'
+import { Column, Container, Link as VLink, Row, Section, Text } from '@vue-email/components'
 
 import StyledTemplate from '../../shared/StyledTemplate.vue'
 
@@ -9,49 +9,6 @@ defineProps<{
 	supportInfo?: string[]
 }>()
 
-interface SocialLink {
-	href: string
-	alt: string
-	src: string
-}
-
-const socialLinks = Object.freeze<readonly SocialLink[]>([
-	{
-		href: 'https://discord.modrinth.com',
-		alt: 'Discord',
-		src: 'https://cdn.modrinth.com/email/discord.png',
-	},
-	{
-		href: 'https://bsky.app/profile/modrinth.com',
-		alt: 'Bluesky',
-		src: 'https://cdn.modrinth.com/email/bluesky.png',
-	},
-	{
-		href: 'https://floss.social/@modrinth',
-		alt: 'Mastodon',
-		src: 'https://cdn.modrinth.com/email/mastodon.png',
-	},
-	{
-		href: 'https://x.com/modrinth',
-		alt: 'X (Twitter)',
-		src: 'https://cdn.modrinth.com/email/x.png',
-	},
-	{
-		href: 'https://www.instagram.com/modrinth/',
-		alt: 'Instagram',
-		src: 'https://cdn.modrinth.com/email/instagram.png',
-	},
-	{
-		href: 'https://www.youtube.com/@modrinth',
-		alt: 'YouTube',
-		src: 'https://cdn.modrinth.com/email/youtube.png',
-	},
-	{
-		href: 'https://github.com/modrinth',
-		alt: 'GitHub',
-		src: 'https://cdn.modrinth.com/email/github.png',
-	},
-])
 </script>
 
 <template>
@@ -60,12 +17,9 @@ const socialLinks = Object.freeze<readonly SocialLink[]>([
 			<Container class="max-w-[600px]">
 				<Row>
 					<Column>
-						<Img
-							src="https://cdn.modrinth.com/email/f740e2decee8764a4629bff677a284f9.png"
-							width="29"
-							alt=""
-							class="block h-auto"
-						/>
+						<VLink href="https://shroudedit.com" class="text-xl font-bold text-green">
+							ShroudEdit
+						</VLink>
 					</Column>
 				</Row>
 			</Container>
@@ -81,34 +35,12 @@ const socialLinks = Object.freeze<readonly SocialLink[]>([
 			<Container class="max-w-[600px]">
 				<Row>
 					<Column class="align-middle">
-						<VLink href="https://modrinth.com" aria-label="Modrinth">
-							<Img
-								src="https://cdn.modrinth.com/email/bd3357dfae4b1d266250372db3a0988f.png"
-								width="175"
-								alt="modrinth logo"
-								class="block h-auto"
-							/>
+						<VLink href="https://shroudedit.com" aria-label="ShroudEdit" class="font-bold text-green">
+							ShroudEdit
 						</VLink>
-
-						<Row class="text-right align-middle">
-							<Section class="m-0 inline-block pb-0 pl-0 pr-0 pt-0">
-								<template v-for="(item, index) in socialLinks" :key="item.href">
-									<VLink
-										:href="item.href"
-										:class="['inline-block', index !== socialLinks.length - 1 ? 'mr-4' : '']"
-									>
-										<Img width="20" height="20" :alt="item.alt" :src="item.src" />
-									</VLink>
-								</template>
-							</Section>
-						</Row>
-
-						<Text class="mb-0 mt-2 text-xs" :style="{ color: '#4d4d4d' }"> Rinth, Inc. </Text>
-						<Section class="m-0 pb-0 pl-0 pr-0 pt-0">
-							<Text class="m-0 text-xs text-secondary">800 N King St</Text>
-							<Text class="m-0 text-xs text-secondary">Suite 304 #3133</Text>
-							<Text class="m-0 text-xs text-secondary">Wilmington, DE 19801</Text>
-						</Section>
+						<Text class="mb-0 mt-2 text-xs" :style="{ color: '#4d4d4d' }">
+							Enshrouded mods, schematics, modpacks and servers.
+						</Text>
 					</Column>
 				</Row>
 			</Container>
@@ -117,9 +49,9 @@ const socialLinks = Object.freeze<readonly SocialLink[]>([
 		<!-- <Text
 			class="text-footerText text-2xs mb-4 mt-0 pb-0 pl-4 pr-4 pt-0 text-center font-sans"
 		>
-			This email was sent to you as a registered user of Modrinth. You can customize the
+			This email was sent to you as a registered user of ShroudEdit. You can customize the
 			emails you recieve in your
-			<VLink href="https://modrinth.com/settings/notifications" class="text-green underline"
+			<VLink href="https://shroudedit.com/settings/notifications" class="text-green underline"
 				>notification settings</VLink
 			>. Some emails are required to keep your account secure and cannot be disabled.
 		</Text> -->
@@ -153,7 +85,7 @@ const socialLinks = Object.freeze<readonly SocialLink[]>([
 				</span>
 				<!-- <span class="block break-words">
 					<span> <b>Notification settings:</b><br /> </span>
-					https://modrinth.com/settings/notifications
+					https://shroudedit.com/settings/notifications
 				</span> -->
 			</Text>
 		</Section>

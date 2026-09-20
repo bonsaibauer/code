@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { HammerIcon, XIcon } from '@modrinth/assets'
+import { HammerIcon, XIcon } from '@shroudedit/assets'
 import { ref } from 'vue'
 
 import { Button } from '#ui/components/base/buttons'
@@ -52,12 +52,12 @@ const messages = defineMessages({
 	instanceBody: {
 		id: 'instance.confirm-repair.body.instance',
 		defaultMessage:
-			'Repairing reinstalls the loader and Minecraft dependencies without deleting your content. This may resolve issues if your game is not launching due to launcher-related errors.',
+			'Repairing reinstalls the loader and Enshrouded dependencies without deleting your content. This may resolve issues if your game is not launching due to launcher-related errors.',
 	},
 	serverBody: {
 		id: 'instance.confirm-repair.body.server',
 		defaultMessage:
-			'Repairing reinstalls the loader and Minecraft dependencies without deleting your content. This may resolve issues if your server is not starting correctly.',
+			'Repairing reinstalls the loader and Enshrouded dependencies without deleting your content. This may resolve issues if your server is not starting correctly.',
 	},
 	repairButton: {
 		id: 'instance.confirm-repair.repair-button',

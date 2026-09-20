@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 import UserAvatar from '../../components/user/UserAvatar.vue'
 
-const src = 'https://cdn.modrinth.com/data/AANobbMI/icon.png'
+const src = 'https://cdn.shroudedit.com/data/AANobbMI/icon.png'
 
 const meta = {
 	title: 'User/User Avatar',

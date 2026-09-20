@@ -1,4 +1,4 @@
-use crate::database::models::legacy_loader_fields::MinecraftGameVersion;
+use crate::database::models::legacy_loader_fields::EnshroudedGameVersion;
 use crate::models::ids::ProjectId;
 use crate::routes::ApiError;
 use crate::util::error::ApiContext as _;
@@ -110,10 +110,10 @@ async fn get_webhook_metadata(
         };
 
         let all_game_versions =
-            MinecraftGameVersion::list(None, None, pool, redis)
+            EnshroudedGameVersion::list(None, None, pool, redis)
                 .await
                 .wrap_internal_err(
-                    "fetching minecraft game version from Redis",
+                    "fetching enshrouded game version from Redis",
                 )?;
 
         let versions = project
@@ -121,7 +121,7 @@ async fn get_webhook_metadata(
             .clone()
             .into_iter()
             .find_map(|vf| {
-                MinecraftGameVersion::try_from_version_field(&vf).ok()
+                EnshroudedGameVersion::try_from_version_field(&vf).ok()
             })
             .unwrap_or_default();
 
@@ -353,12 +353,12 @@ pub async fn send_slack_project_webhook(
                 "elements": [
                     {
                         "type": "image",
-                        "image_url": "https://cdn.modrinth.com/modrinth-new.png",
+                        "image_url": "https://cdn.shroudedit.com/shroudedit-new.png",
                         "alt_text": "Author"
                     },
                     {
                         "type": "mrkdwn",
-                        "text": format!("{} on Modrinth • <!date^{}^{{date_short_pretty}} at {{time}}|Unknown date>", metadata.display_project_type, Utc::now().timestamp())
+                        "text": format!("{} on ShroudEdit • <!date^{}^{{date_short_pretty}} at {{time}}|Unknown date>", metadata.display_project_type, Utc::now().timestamp())
                     }
                 ]
             })
@@ -490,9 +490,9 @@ pub async fn send_discord_webhook(
                 .gallery_image
                 .map(|x| DiscordEmbedImage { url: Some(x) }),
             footer: Some(DiscordEmbedFooter {
-                text: format!("{} on Modrinth", project.display_project_type),
+                text: format!("{} on ShroudEdit", project.display_project_type),
                 icon_url: Some(
-                    "https://cdn.modrinth.com/modrinth-new.png".to_string(),
+                    "https://cdn.shroudedit.com/shroudedit-new.png".to_string(),
                 ),
             }),
         };
@@ -503,10 +503,10 @@ pub async fn send_discord_webhook(
             .post(webhook_url)
             .json(&DiscordWebhook {
                 avatar_url: Some(
-                    "https://cdn.modrinth.com/Modrinth_Dark_Logo.png"
+                    "https://cdn.shroudedit.com/ShroudEdit_Dark_Logo.png"
                         .to_string(),
                 ),
-                username: Some("Modrinth Release".to_string()),
+                username: Some("ShroudEdit Release".to_string()),
                 embeds: vec![embed],
                 content: message,
             })
@@ -522,8 +522,8 @@ pub async fn send_discord_webhook(
 }
 
 fn get_gv_range(
-    mut game_versions: Vec<MinecraftGameVersion>,
-    mut all_game_versions: Vec<MinecraftGameVersion>,
+    mut game_versions: Vec<EnshroudedGameVersion>,
+    mut all_game_versions: Vec<EnshroudedGameVersion>,
 ) -> Vec<String> {
     // both -> least to greatest
     game_versions.sort_by_key(|a| a.created);
@@ -664,7 +664,7 @@ fn get_gv_range(
 
 // Converted from knossos
 // See: packages/utils/utils.ts
-// https://github.com/modrinth/code/blob/47af459f24e541a844b42b1c8427af6a7b86381e/packages/utils/utils.ts#L147-L196
+// https://github.com/shroudedit/code/blob/47af459f24e541a844b42b1c8427af6a7b86381e/packages/utils/utils.ts#L147-L196
 fn format_category_or_loader(mut x: String) -> String {
     match &*x {
         "modloader" => "Risugami's ModLoader".to_string(),
@@ -688,7 +688,7 @@ fn format_category_or_loader(mut x: String) -> String {
         "java-agent" => "Java Agent".to_string(),
         "nilloader" => "NilLoader".to_string(),
         "mrpack" => "Modpack".to_string(),
-        "minecraft" => "Resource Pack".to_string(),
+        "enshrouded" => "Resource Pack".to_string(),
         "vanilla" => "Vanilla Shader".to_string(),
         _ => format!("{}{x}", x.remove(0).to_uppercase()),
     }

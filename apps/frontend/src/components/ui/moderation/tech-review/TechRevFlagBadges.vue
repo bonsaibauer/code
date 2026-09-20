@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { ShieldAlertIcon } from '@modrinth/assets'
-import { capitalizeString } from '@modrinth/utils'
+import type { Labrinth } from '@shroudedit/api-client'
+import { ShieldAlertIcon } from '@shroudedit/assets'
+import { capitalizeString } from '@shroudedit/utils'
 import { computed } from 'vue'
 
 import { getHighestSeverity, getSeverityBadgeColor } from './helpers'

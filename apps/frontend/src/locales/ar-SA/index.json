@@ -9,7 +9,7 @@
     "message": "قبول الكل"
   },
   "ads-consent.body": {
-    "message": "تساعد الإعلانات في استمرار Modrinth وتمويل مدفوعات المبدعين. قد يقوم شركاؤنا بتخزين ملفات تعريف الارتباط Cookies على الموقع أو الوصول إليها لتخصيص الإعلانات وقياس أدائها."
+    "message": "تساعد الإعلانات في استمرار ShroudEdit وتمويل مدفوعات المبدعين. قد يقوم شركاؤنا بتخزين ملفات تعريف الارتباط Cookies على الموقع أو الوصول إليها لتخصيص الإعلانات وقياس أدائها."
   },
   "ads-consent.manage": {
     "message": "إدارة التفضيلات"
@@ -18,7 +18,7 @@
     "message": "رفض الكل"
   },
   "ads-consent.title": {
-    "message": "خصوصيتك وكيف تساهم الإعلانات في دعم Modrinth"
+    "message": "خصوصيتك وكيف تساهم الإعلانات في دعم ShroudEdit"
   },
   "analytics.action.add": {
     "message": "إضافة"
@@ -110,11 +110,11 @@
   "analytics.chart.controls.display": {
     "message": "عرض"
   },
-  "analytics.chart.controls.modrinth-events": {
-    "message": "فعاليات Modrinth"
+  "analytics.chart.controls.shroudedit-events": {
+    "message": "فعاليات ShroudEdit"
   },
-  "analytics.chart.controls.no-modrinth-events": {
-    "message": "لا توجد حالات Modrinth في الرسوم البيانية."
+  "analytics.chart.controls.no-shroudedit-events": {
+    "message": "لا توجد حالات ShroudEdit في الرسوم البيانية."
   },
   "analytics.chart.controls.no-project-events": {
     "message": "لا توجد أحداث للمشروع في الرسم البياني."
@@ -144,7 +144,7 @@
     "message": "عرض تفاصيل التحليلات المتعلقة بتحقيق الدخل"
   },
   "analytics.chart.legend.monetization-details.description": {
-    "message": "لا تُحتسب في عملية تحقيق الدخل سوى المشاهدات وعمليات التنزيل التي تتم عبر Modrinth، ويجب على المستخدمين تسجيل الدخول لإجراء عمليات التنزيل."
+    "message": "لا تُحتسب في عملية تحقيق الدخل سوى المشاهدات وعمليات التنزيل التي تتم عبر ShroudEdit، ويجب على المستخدمين تسجيل الدخول لإجراء عمليات التنزيل."
   },
   "analytics.chart.legend.monetization-details.title": {
     "message": "تفاصيل التحليلات المُدرة للدخل"
@@ -228,10 +228,10 @@
     "message": "تحديث"
   },
   "analytics.download-source.app": {
-    "message": "تطبيق Modrinth"
+    "message": "تطبيق ShroudEdit"
   },
   "analytics.download-source.website": {
-    "message": "موقع Modrinth الإلكتروني"
+    "message": "موقع ShroudEdit الإلكتروني"
   },
   "analytics.downloads.suffix": {
     "message": "التنزيلات"
@@ -417,7 +417,7 @@
     "message": "التنزيلات"
   },
   "analytics.stat.monetization-banner.body": {
-    "message": "المشاهدات وعمليات التنزيل التي تتم عبر Modrinth فقط هي المؤهلة لتحقيق الأرباح، ويجب أن تجتاز عملية تصفية لمنع الاحتيال. كما تتطلب عمليات التنزيل من تطبيق Modrinth تسجيل دخول المستخدم. ونظرًا لأن جميع المشاريع لديها نسبة متشابهة من التنزيلات القابلة لتحقيق الأرباح، فلن يتغير إيرادك بشكل ملحوظ إذا تم احتساب جميع عمليات التنزيل."
+    "message": "المشاهدات وعمليات التنزيل التي تتم عبر ShroudEdit فقط هي المؤهلة لتحقيق الأرباح، ويجب أن تجتاز عملية تصفية لمنع الاحتيال. كما تتطلب عمليات التنزيل من تطبيق ShroudEdit تسجيل دخول المستخدم. ونظرًا لأن جميع المشاريع لديها نسبة متشابهة من التنزيلات القابلة لتحقيق الأرباح، فلن يتغير إيرادك بشكل ملحوظ إذا تم احتساب جميع عمليات التنزيل."
   },
   "analytics.stat.monetization-banner.learn-more": {
     "message": "معرفة المزيد"
@@ -456,7 +456,7 @@
     "message": "من {start} إلى {end}"
   },
   "analytics.table.csv.filename": {
-    "message": "تحليلات Modrinth — تفصيل {breakdown} — {dateRange}"
+    "message": "تحليلات ShroudEdit — تفصيل {breakdown} — {dateRange}"
   },
   "analytics.table.csv.header.playtime-seconds": {
     "message": "وقت اللعب (بالثواني)"
@@ -564,7 +564,7 @@
     "message": "لينكس"
   },
   "app-marketing.download.linux-disclaimer": {
-    "message": "الإصدارات الخاصة بـ Linux من Modrinth App <issues-link>معروفة بوجود مشاكل</issues-link> على بعض الأنظمة والتكوينات. إذا كان Modrinth App غير مستقر على نظامك، فننصحك بتجربة تطبيقات أخرى مثل <prism-link>Prism Launcher</prism-link> لتثبيت محتوى Modrinth بسهولة."
+    "message": "الإصدارات الخاصة بـ Linux من ShroudEdit App <issues-link>معروفة بوجود مشاكل</issues-link> على بعض الأنظمة والتكوينات. إذا كان ShroudEdit App غير مستقر على نظامك، فننصحك بتجربة تطبيقات أخرى مثل <prism-link>Prism Launcher</prism-link> لتثبيت محتوى ShroudEdit بسهولة."
   },
   "app-marketing.download.mac": {
     "message": "ماك"
@@ -573,10 +573,10 @@
     "message": "خيارات التنزيل"
   },
   "app-marketing.download.terms": {
-    "message": "بتنزيلك Modrinth App فإنك توافق على <terms-link>الشروط</terms-link> و <privacy-link>سياسة الخصوصية</privacy-link>."
+    "message": "بتنزيلك ShroudEdit App فإنك توافق على <terms-link>الشروط</terms-link> و <privacy-link>سياسة الخصوصية</privacy-link>."
   },
   "app-marketing.download.title": {
-    "message": "تنزيل Modrinth App (النسخة التجريبية)"
+    "message": "تنزيل ShroudEdit App (النسخة التجريبية)"
   },
   "app-marketing.download.windows": {
     "message": "ويندوز"
@@ -629,7 +629,7 @@
   "app-marketing.features.performance.google-chrome": {
     "message": "جوجل كروم"
   },
-  "app-marketing.features.performance.modrinth-app": {
+  "app-marketing.features.performance.shroudedit-app": {
     "message": "تطبيق مودرينث"
   },
   "app-marketing.features.performance.one-billion-percent": {
@@ -648,13 +648,13 @@
     "message": "أداء قوي"
   },
   "app-marketing.features.play.description": {
-    "message": "استخدم Modrinth App لتنزيل ولعب موداتك والمودباك المفضلة لديك."
+    "message": "استخدم ShroudEdit App لتنزيل ولعب موداتك والمودباك المفضلة لديك."
   },
   "app-marketing.features.play.title": {
     "message": "العب مع موداتك المفضلة"
   },
   "app-marketing.features.sharing.description": {
-    "message": "أنشئ وشارك والعب المودباكات باستخدام أي من آلاف المودات والمودباكات المستضافة هنا على Modrinth."
+    "message": "أنشئ وشارك والعب المودباكات باستخدام أي من آلاف المودات والمودباكات المستضافة هنا على ShroudEdit."
   },
   "app-marketing.features.sharing.modpack": {
     "message": "مودباك"
@@ -669,7 +669,7 @@
     "message": "مختلف عن أي مشغل آخر"
   },
   "app-marketing.features.website.description": {
-    "message": "تم دمج Modrinth App بالكامل مع الموقع، بحيث يمكنك الوصول إلى جميع مشاريعك المفضلة بواسطة التطبيق!"
+    "message": "تم دمج ShroudEdit App بالكامل مع الموقع، بحيث يمكنك الوصول إلى جميع مشاريعك المفضلة بواسطة التطبيق!"
   },
   "app-marketing.features.website.title": {
     "message": "تكامل مع الموقع"
@@ -678,21 +678,21 @@
     "message": "الذي استخدمته من قبل"
   },
   "app-marketing.hero.app-screenshot-alt": {
-    "message": "لقطة شاشة لـ Modrinth App مع نسخة Cobblemon مفتوحة في صفحة \"المحتوى\"."
+    "message": "لقطة شاشة لـ ShroudEdit App مع نسخة Cobblemon مفتوحة في صفحة \"المحتوى\"."
   },
   "app-marketing.hero.description": {
-    "message": "Modrinth App هو لانشر فريد ومفتوح المصدر، يتيح لك تشغيل موداتك المفضلة والحفاظ عليها محدثة، كل ذلك في تطبيق واحد سهل الاستخدام."
+    "message": "ShroudEdit App هو لانشر فريد ومفتوح المصدر، يتيح لك تشغيل موداتك المفضلة والحفاظ عليها محدثة، كل ذلك في تطبيق واحد سهل الاستخدام."
   },
   "app-marketing.hero.download-button": {
-    "message": "تنزيل Modrinth App"
+    "message": "تنزيل ShroudEdit App"
   },
-  "app-marketing.hero.download-modrinth-app": {
-    "message": "تنزيل Modrinth App"
+  "app-marketing.hero.download-shroudedit-app": {
+    "message": "تنزيل ShroudEdit App"
   },
-  "app-marketing.hero.download-modrinth-app-for-os": {
-    "message": "تنزيل Modrinth App لـ {os}"
+  "app-marketing.hero.download-shroudedit-app-for-os": {
+    "message": "تنزيل ShroudEdit App لـ {os}"
   },
-  "app-marketing.hero.minecraft-screenshot-alt": {
+  "app-marketing.hero.enshrouded-screenshot-alt": {
     "message": "لقطة شاشة لقائمة Cobblemon الرئيسية."
   },
   "app-marketing.hero.more-download-options": {
@@ -771,7 +771,7 @@
     "message": "فحص الأمان"
   },
   "auth.create-account.subscribe.label": {
-    "message": "أبقني على اطلاع بأحدث الأشياء الرائعة التي تعمل عليها Modrinth عبر البريد الإلكتروني"
+    "message": "أبقني على اطلاع بأحدث الأشياء الرائعة التي تعمل عليها ShroudEdit عبر البريد الإلكتروني"
   },
   "auth.create-account.title": {
     "message": "إنشاء حساب"
@@ -840,7 +840,7 @@
     "message": "ليس لديك حساب؟"
   },
   "auth.sign-in.sign-in-with": {
-    "message": "تسجيل الدخول إلى Modrinth"
+    "message": "تسجيل الدخول إلى ShroudEdit"
   },
   "auth.sign-in.title": {
     "message": "تسجيل الدخول"
@@ -1062,7 +1062,7 @@
     "message": "الرد على الموضوع"
   },
   "conversation-thread.reply-modal.help-center-note": {
-    "message": "إذا كنت بحاجة إلى التواصل مع فريق الإشراف، يُرجى استخدام <help-center-link>مركز مساعدة Modrinth</help-center-link> والنقر على الفقاعة الزرقاء في الزاوية السفلية اليمنى للتواصل مع الدعم."
+    "message": "إذا كنت بحاجة إلى التواصل مع فريق الإشراف، يُرجى استخدام <help-center-link>مركز مساعدة ShroudEdit</help-center-link> والنقر على الفقاعة الزرقاء في الزاوية السفلية اليمنى للتواصل مع الدعم."
   },
   "conversation-thread.resubmit-modal.confirmation.description": {
     "message": "تأكيد أنني قد عالجت رسائل المشرفين"
@@ -1470,7 +1470,7 @@
     "message": "نموذج الضرائب غير مكتمل"
   },
   "dashboard.creator-tax-form-modal.security.description": {
-    "message": "تستخدم Modrinth المزود الخارجي Track1099 لجمع وتخزين نماذج الضرائب الخاصة بك بأمان. <security-link>تعرف على المزيد هنا.</security-link>"
+    "message": "تستخدم ShroudEdit المزود الخارجي Track1099 لجمع وتخزين نماذج الضرائب الخاصة بك بأمان. <security-link>تعرف على المزيد هنا.</security-link>"
   },
   "dashboard.creator-tax-form-modal.security.header": {
     "message": "ممارسات الأمن"
@@ -1644,7 +1644,7 @@
     "message": "لسحب رصيدك المتاح بالكامل <b>{available}</b> يرجى تعبئة النموذج أدناه. هذا النموذج مطلوب لأغراض الإبلاغ الضريبي، ولا يلزم تعبئته إلا مرة واحدة."
   },
   "dashboard.creator-withdraw-modal.tax-form-required.body-with-limit": {
-    "message": "يجب عليك إكمال نموذج W-9 أو W-8 لسجلات الضرائب الخاصة بشركة Modrinth حتى نبقى ملتزمين باللوائح الضريبية."
+    "message": "يجب عليك إكمال نموذج W-9 أو W-8 لسجلات الضرائب الخاصة بشركة ShroudEdit حتى نبقى ملتزمين باللوائح الضريبية."
   },
   "dashboard.creator-withdraw-modal.tax-form-required.header": {
     "message": "نموذج ضريبي مطلوب"
@@ -1707,7 +1707,7 @@
     "message": "ايميل غير مؤكد"
   },
   "dashboard.creator-withdraw-modal.tremendous-details.unverified-email-message": {
-    "message": "البريد الإلكتروني الذي أدخلته لا يرتبط بحسابك في Modrinth. لا يمكن Modrinth استرداد المكافآت المرسلة إلى عنوان بريد إلكتروني غير صحيح."
+    "message": "البريد الإلكتروني الذي أدخلته لا يرتبط بحسابك في ShroudEdit. لا يمكن ShroudEdit استرداد المكافآت المرسلة إلى عنوان بريد إلكتروني غير صحيح."
   },
   "dashboard.creator-withdraw-modal.tremendous-details.usd-paypal-warning-header": {
     "message": "تتوفر أقساط مخفضة"
@@ -1731,7 +1731,7 @@
     "message": "لقد استنفدت رصيدك <b>{withdrawLimit}</b> حد السحب. يجب عليك تعبئة نموذج ضريبي لسحب مبلغ أكبر."
   },
   "dashboard.discord-roles.banner.body": {
-    "message": "أنت مؤهل للحصول على {roles}. اربط حساب Discord الخاص بك عبر Modrinth وسنزامنها تلقائيًا."
+    "message": "أنت مؤهل للحصول على {roles}. اربط حساب Discord الخاص بك عبر ShroudEdit وسنزامنها تلقائيًا."
   },
   "dashboard.discord-roles.banner.cta": {
     "message": "ربط Discord"
@@ -1914,7 +1914,7 @@
     "message": "قد تخضع الإيرادات المقدرة للتغيير حتى يتم توفيرها. "
   },
   "dashboard.revenue.estimated-tooltip.msg2": {
-    "message": "اضغط لكي تعرف كيف Modrinth يستحمل إيراداتك"
+    "message": "اضغط لكي تعرف كيف ShroudEdit يستحمل إيراداتك"
   },
   "dashboard.revenue.estimated-with-date": {
     "message": "مقدر {date}"
@@ -2121,7 +2121,7 @@
     "message": "اختيار المودباك لتثبيته بعد إعادة التعيين"
   },
   "discover.seo.description": {
-    "message": "ابحث وتصفح آلاف {projectType} لماينكرافت على Modrinth مع نتائج بحث فورية ودقيقة. تساعدك عوامل التصفية لدينا في العثور بسرعة على أفضل {projectType} لماينكرافت."
+    "message": "ابحث وتصفح آلاف {projectType} لماينكرافت على ShroudEdit مع نتائج بحث فورية ودقيقة. تساعدك عوامل التصفية لدينا في العثور بسرعة على أفضل {projectType} لماينكرافت."
   },
   "discover.seo.title": {
     "message": "البحث عن {projectType}"
@@ -2256,7 +2256,7 @@
     "message": "عندما يكون الخادم لديك تحت ضغطٍ عالٍ، نقوم مؤقتًا بمنحه وصولًا إلى خيوط معالجة إضافية (CPU threads) للمساعدة في تقليل التقطّعات وعدم الاستقرار. يساعد ذلك على منع انخفاض معدل النبضات في الثانية (TPS) إلى أقل من 20، مما يضمن تجربة سلسة قدر الإمكان. ونظرًا لأن خيوط المعالجة الإضافية هذه تكون متاحة لفترة قصيرة فقط أثناء فترات الضغط العالي، فقد لا تظهر في تقارير Spark أو أدوات تحليل الأداء الأخرى.\n"
   },
   "hosting-marketing.faq.cpu-kind": {
-    "message": "ما نوع وحدات المعالجة المركزية التي تعمل بها خوادم Modrinth Hosting؟"
+    "message": "ما نوع وحدات المعالجة المركزية التي تعمل بها خوادم ShroudEdit Hosting؟"
   },
   "hosting-marketing.faq.currency": {
     "message": "ما العملة التي تُعرض بها الأسعار؟"
@@ -2265,19 +2265,19 @@
     "message": "جميع الأسعار مُدرجة بالدولار الأمريكي (USD)."
   },
   "hosting-marketing.faq.ddos-protection": {
-    "message": "هل تتمتع خوادم Modrinth Hosting بحماية من هجمات حجب الخدمة الموزعة DDoS؟"
+    "message": "هل تتمتع خوادم ShroudEdit Hosting بحماية من هجمات حجب الخدمة الموزعة DDoS؟"
   },
   "hosting-marketing.faq.ddos-protection.answer": {
-    "message": "نعم. جميع خوادم Modrinth Hosting مزودة بحماية من هجمات حجب الخدمة الموزعة DDoS، بسعة تصل إلى 17 تيرابت في الثانية في بعض المواقع."
+    "message": "نعم. جميع خوادم ShroudEdit Hosting مزودة بحماية من هجمات حجب الخدمة الموزعة DDoS، بسعة تصل إلى 17 تيرابت في الثانية في بعض المواقع."
   },
   "hosting-marketing.faq.heading": {
     "message": "الأسئلة شائعه"
   },
   "hosting-marketing.faq.how-fast": {
-    "message": "ما سرعه خوادم modrinth؟"
+    "message": "ما سرعه خوادم shroudedit؟"
   },
   "hosting-marketing.faq.how-fast.answer.one": {
-    "message": "تُستضاف خوادم Modrinth Hosting على أجهزة حديثة جدًا وعالية الأداء، ولكن من الصعب تحديد مدى تأثير ذلك على سرعة تشغيل خادمك بدقة، لأن هناك العديد من العوامل التي تؤثر في ذلك، مثل المودات أو الداتاباكات أو البلوقنات التي تشغّلها على خادمك، وحتى سلوك المستخدمين."
+    "message": "تُستضاف خوادم ShroudEdit Hosting على أجهزة حديثة جدًا وعالية الأداء، ولكن من الصعب تحديد مدى تأثير ذلك على سرعة تشغيل خادمك بدقة، لأن هناك العديد من العوامل التي تؤثر في ذلك، مثل المودات أو الداتاباكات أو البلوقنات التي تشغّلها على خادمك، وحتى سلوك المستخدمين."
   },
   "hosting-marketing.faq.how-fast.answer.two": {
     "message": "غالبًا ما تكون معظم مشاكل الأداء الناتجة عن مودباك أو مود أو حزمة بيانات أو إضافة غير محسّنة، مما يتسبب في حدوث تأخير في الخادم. وبما أن خوادمنا عالية الأداء، فلن تواجه غالبًا مشاكل تُذكر، ما دمت تختار خطة مناسبة للمحتوى الذي تشغّله على الخادم."
@@ -2286,22 +2286,22 @@
     "message": "هل يمكنني زيادة مساحة التخزين على خادمي؟"
   },
   "hosting-marketing.faq.increase-storage.answer": {
-    "message": "نعم، يمكن زيادة مساحة التخزين على خادمك دون أي تكلفة إضافية. إذا كنت بحاجة إلى مساحة تخزين أكبر، فتواصل مع دعم Modrinth."
+    "message": "نعم، يمكن زيادة مساحة التخزين على خادمك دون أي تكلفة إضافية. إذا كنت بحاجة إلى مساحة تخزين أكبر، فتواصل مع دعم ShroudEdit."
   },
   "hosting-marketing.faq.location": {
-    "message": "أين تقع استضافة خوادم Modrinth؟ هل يمكنني اختيار منطقة؟"
+    "message": "أين تقع استضافة خوادم ShroudEdit؟ هل يمكنني اختيار منطقة؟"
   },
   "hosting-marketing.faq.location.answer": {
     "message": "لدينا حاليًا خوادم متاحة في أمريكا الشمالية وأوروبا وجنوب شرق آسيا وأستراليا، ويمكنك اختيار المنطقة عند الشراء. سنضيف المزيد من المناطق مستقبلًا! إذا كنت ترغب في تغيير منطقتك، فتواصل مع الدعم."
   },
   "hosting-marketing.faq.versions-loaders": {
-    "message": "ما إصدارات Minecraft ومحملات التعديلات التي يمكن استخدامها؟"
+    "message": "ما إصدارات Enshrouded ومحملات التعديلات التي يمكن استخدامها؟"
   },
   "hosting-marketing.faq.versions-loaders.answer.one": {
-    "message": "يمكن لخوادم Modrinth Hosting تشغيل أي إصدار من Minecraft: Java Edition، بدءًا من الإصدار 1.2.5 وحتى الإصدارات الأحدث، بما في ذلك إصدارات اللقطات التجريبية."
+    "message": "يمكن لخوادم ShroudEdit Hosting تشغيل أي إصدار من Enshrouded: Java Edition، بدءًا من الإصدار 1.2.5 وحتى الإصدارات الأحدث، بما في ذلك إصدارات اللقطات التجريبية."
   },
   "hosting-marketing.faq.versions-loaders.answer.two": {
-    "message": "ندعم أيضًا مجموعة واسعة من محمّلات المودات والبلوقنات، بما في ذلك Fabric وQuilt وForge وNeoForge للمودات، بالإضافة إلى Paper وPurpur للبلوقنات. يعتمد توفرها على ما إذا كان محمّل المودات أو البلوقنات يدعم إصدار Minecraft المحدد."
+    "message": "ندعم أيضًا مجموعة واسعة من محمّلات المودات والبلوقنات، بما في ذلك Fabric وQuilt وForge وNeoForge للمودات، بالإضافة إلى Paper وPurpur للبلوقنات. يعتمد توفرها على ما إذا كان محمّل المودات أو البلوقنات يدعم إصدار Enshrouded المحدد."
   },
   "hosting-marketing.get-started": {
     "message": "ابدأ"
@@ -2315,11 +2315,11 @@
   "hosting-marketing.hero.button.start-your-server": {
     "message": "أنشئ خادمك"
   },
-  "hosting-marketing.hero.host-with-modrinth": {
-    "message": "أدر خادمك التالي مع Modrinth Hosting"
+  "hosting-marketing.hero.host-with-shroudedit": {
+    "message": "أدر خادمك التالي مع ShroudEdit Hosting"
   },
   "hosting-marketing.hero.hosting-description": {
-    "message": "Modrinth Hosting هي أسهل طريقة لاستضافة خادم Minecraft: Java Edition الخاص بك. ثبّت والعب موداتك ومودباكاتك المفضلة بسهولة، كل ذلك من داخل منصة Modrinth."
+    "message": "ShroudEdit Hosting هي أسهل طريقة لاستضافة خادم Enshrouded: Java Edition الخاص بك. ثبّت والعب موداتك ومودباكاتك المفضلة بسهولة، كل ذلك من داخل منصة ShroudEdit."
   },
   "hosting-marketing.included.advanced-networking": {
     "message": "إدارة متقدمة للشبكة"
@@ -2337,7 +2337,7 @@
     "message": "رابط مخصص"
   },
   "hosting-marketing.included.custom-url.description": {
-    "message": "شارك خادمك باستخدام عنوان URL مخصص على <contrast>modrinth.gg</contrast>."
+    "message": "شارك خادمك باستخدام عنوان URL مخصص على <contrast>shroudedit.gg</contrast>."
   },
   "hosting-marketing.included.description": {
     "message": "."
@@ -2355,19 +2355,19 @@
     "message": "مساعدة عندما تحتاج إليها"
   },
   "hosting-marketing.included.help.description": {
-    "message": "تواصل مع فريق Modrinth للحصول على المساعدة بشأن خادمك في أي وقت."
+    "message": "تواصل مع فريق ShroudEdit للحصول على المساعدة بشأن خادمك في أي وقت."
   },
   "hosting-marketing.included.powerful-console": {
     "message": "وحدة تحكم قوية، ومدير لخصائص الخادم، والمزيد"
   },
   "hosting-marketing.included.powerful-console.description": {
-    "message": "يأتي Modrinth Hosting مع أدوات قوية لإدارة خادمك."
+    "message": "يأتي ShroudEdit Hosting مع أدوات قوية لإدارة خادمك."
   },
   "hosting-marketing.included.sftp-access": {
     "message": "الوصول عبر SFTP"
   },
   "hosting-marketing.included.sftp-access.description": {
-    "message": "يمكنك الوصول إلى ملفات خادمك مباشرةً عبر SFTP المدمج في Modrinth Hosting."
+    "message": "يمكنك الوصول إلى ملفات خادمك مباشرةً عبر SFTP المدمج في ShroudEdit Hosting."
   },
   "hosting-marketing.included.with-your-server": {
     "message": "مرفق مع خادمك"
@@ -2408,20 +2408,20 @@
   "hosting-marketing.server-for-everyone": {
     "message": "يوجد خادم يناسب الجميع"
   },
-  "hosting-marketing.why.all-on-modrinth": {
+  "hosting-marketing.why.all-on-shroudedit": {
     "message": "يمكنك إدارة كل شيء على مودرينث"
   },
-  "hosting-marketing.why.all-on-modrinth.description": {
-    "message": "خادمك، وتعديلاتك، ولاعبوك، وغير ذلك الكثير موجود جميعها على Modrinth. لا حاجة للتبديل بين المنصات."
+  "hosting-marketing.why.all-on-shroudedit.description": {
+    "message": "خادمك، وتعديلاتك، ولاعبوك، وغير ذلك الكثير موجود جميعها على ShroudEdit. لا حاجة للتبديل بين المنصات."
   },
   "hosting-marketing.why.consistently-fast": {
     "message": "سريع باستمرار"
   },
   "hosting-marketing.why.consistently-fast.description": {
-    "message": "لا يتم تحميل بنيتنا التحتية بشكل زائد أبدًا، مما يعني أن كل خادم مستضاف مع Modrinth يعمل دائمًا بكامل طاقته."
+    "message": "لا يتم تحميل بنيتنا التحتية بشكل زائد أبدًا، مما يعني أن كل خادم مستضاف مع ShroudEdit يعمل دائمًا بكامل طاقته."
   },
   "hosting-marketing.why.description": {
-    "message": "اختر من بين آلاف المودباكات على Modrinth أو أنشئ مودباكك الخاص. ادعُ أصدقاءك عندما تكون مستعدًا للعب."
+    "message": "اختر من بين آلاف المودباكات على ShroudEdit أو أنشئ مودباكك الخاص. ادعُ أصدقاءك عندما تكون مستعدًا للعب."
   },
   "hosting-marketing.why.heading": {
     "message": "اعثر على مودباك. والآن أصبح خادمًا."
@@ -2430,22 +2430,22 @@
     "message": "استمتع بتجربة استضافة عصرية وموثوقة"
   },
   "hosting-marketing.why.modern-reliable-hosting.description": {
-    "message": "يتم استضافة خوادم Modrinth Hosting على <contrast>high-performance AMD CPUs with DDR5 RAM</contrast>، وتعمل على برمجيات مخصّصة لضمان تشغيل خادمك بسلاسة."
+    "message": "يتم استضافة خوادم ShroudEdit Hosting على <contrast>high-performance AMD CPUs with DDR5 RAM</contrast>، وتعمل على برمجيات مخصّصة لضمان تشغيل خادمك بسلاسة."
   },
   "hosting-marketing.why.where-mods-are": {
     "message": "العب حيث توجد تعديلاتك"
   },
   "hosting-marketing.why.where-mods-are.description": {
-    "message": "تدمج Modrinth Hosting عملية تثبيت المودات والمودباكات في خادمك بسلاسة."
+    "message": "تدمج ShroudEdit Hosting عملية تثبيت المودات والمودباكات في خادمك بسلاسة."
   },
-  "hosting-marketing.why.why-modrinth-hosting": {
-    "message": "لماذا استضافة Modrinth؟"
+  "hosting-marketing.why.why-shroudedit-hosting": {
+    "message": "لماذا استضافة ShroudEdit؟"
   },
   "hosting-marketing.why.your-favorite-mods": {
     "message": "جميع التعديلات المفضلة لديك"
   },
   "hosting-marketing.why.your-favorite-mods.description": {
-    "message": "اختر بين Vanilla و Fabric و Forge و Quilt و NeoForge. إذا كان البرنامج موجودًا على Modrinth، فيمكن تشغيله على خادمك."
+    "message": "اختر بين Vanilla و Fabric و Forge و Quilt و NeoForge. إذا كان البرنامج موجودًا على ShroudEdit، فيمكن تشغيله على خادمك."
   },
   "hosting.plan.out-of-stock": {
     "message": "إنتهى من المخزن"
@@ -2516,28 +2516,28 @@
   "landing.feature.search.heading": {
     "message": "اعثر على ما تريد، بسرعة وسهولة"
   },
-  "landing.heading.the-place-for-minecraft": {
-    "message": "المكان المناسب لمحتوى Minecraft {content}"
+  "landing.heading.the-place-for-enshrouded": {
+    "message": "المكان المناسب لمحتوى Enshrouded {content}"
   },
-  "landing.heading.the-place-for-minecraft.data-packs": {
+  "landing.heading.the-place-for-enshrouded.data-packs": {
     "message": "داتاباك"
   },
-  "landing.heading.the-place-for-minecraft.modpacks": {
+  "landing.heading.the-place-for-enshrouded.modpacks": {
     "message": "مودباكات"
   },
-  "landing.heading.the-place-for-minecraft.mods": {
+  "landing.heading.the-place-for-enshrouded.mods": {
     "message": "مودات"
   },
-  "landing.heading.the-place-for-minecraft.plugins": {
+  "landing.heading.the-place-for-enshrouded.plugins": {
     "message": "بلوقن"
   },
-  "landing.heading.the-place-for-minecraft.resource-packs": {
+  "landing.heading.the-place-for-enshrouded.resource-packs": {
     "message": "ريسورس باك"
   },
-  "landing.heading.the-place-for-minecraft.servers": {
+  "landing.heading.the-place-for-enshrouded.servers": {
     "message": "سيرفرات"
   },
-  "landing.heading.the-place-for-minecraft.shaders": {
+  "landing.heading.the-place-for-enshrouded.shaders": {
     "message": "شادرز"
   },
   "landing.launcher.atlauncher-label": {
@@ -2546,8 +2546,8 @@
   "landing.launcher.graphic-alt": {
     "message": "تمثيل مبسط لنافذة ماين كرافت، مع شعار Mojang Studios باللون الأخضر الخاص بمودرنث."
   },
-  "landing.launcher.modrinth-app-label": {
-    "message": "Modrinth App"
+  "landing.launcher.shroudedit-app-label": {
+    "message": "ShroudEdit App"
   },
   "landing.launcher.prism-launcher-label": {
     "message": "Prism Launcher"
@@ -2583,7 +2583,7 @@
     "message": "اكتشف أكثر من {count, number} إبداع"
   },
   "landing.subheading": {
-    "message": "اكتشف محتوى Minecraft والعب وشاركه من خلال منصتنا مفتوحة المصدر المصممة خصيصًا للمجتمع."
+    "message": "اكتشف محتوى Enshrouded والعب وشاركه من خلال منصتنا مفتوحة المصدر المصممة خصيصًا للمجتمع."
   },
   "layout.action.analytics-events": {
     "message": "أحداث التحليلات"
@@ -2652,10 +2652,10 @@
     "message": "حدث خطأ أثناء إنشاء الحالة من واجهة برمجة التطبيقات API عند الإنشاء."
   },
   "layout.banner.preview.description": {
-    "message": "إذا كنت تقصد الوصول إلى موقع Modrinth الرسمي، فتفضل بزيارة {url}. تم إعداد هذا الإصدار التجريبي لاستخدامه من قِبل موظفي Modrinth لأغراض الاختبار. وقد تم إنشاؤه باستخدام {ref}."
+    "message": "إذا كنت تقصد الوصول إلى موقع ShroudEdit الرسمي، فتفضل بزيارة {url}. تم إعداد هذا الإصدار التجريبي لاستخدامه من قِبل موظفي ShroudEdit لأغراض الاختبار. وقد تم إنشاؤه باستخدام {ref}."
   },
   "layout.banner.preview.title": {
-    "message": "هذا إصدار تجريبي من موقع Modrinth."
+    "message": "هذا إصدار تجريبي من موقع ShroudEdit."
   },
   "layout.banner.staging.description": {
     "message": "بيئة الاختبار منفصلة تمامًا عن قاعدة بيانات مودرنث الإنتاجية. تُستخدم هذه البيئة للاختبار وتصحيح الأخطاء، وقد تعمل بإصدارات تطويرية من واجهة مودرنث الأمامية أو الخلفية أحدث من النسخة الإنتاجية."
@@ -2676,7 +2676,7 @@
     "message": "إكمال النموذج الضريبي"
   },
   "layout.banner.tax.description": {
-    "message": "لقد سحبت بالفعل أكثر من {threshold} من Modrinth هذا العام. للامتثال للوائح الضريبية، يتعين عليك إكمال نموذج ضريبي. تم إيقاف عمليات السحب مؤقتًا حتى يتم تقديم هذا النموذج."
+    "message": "لقد سحبت بالفعل أكثر من {threshold} من ShroudEdit هذا العام. للامتثال للوائح الضريبية، يتعين عليك إكمال نموذج ضريبي. تم إيقاف عمليات السحب مؤقتًا حتى يتم تقديم هذا النموذج."
   },
   "layout.banner.tax.title": {
     "message": "يلزم تقديم نموذج ضريبي"
@@ -2733,7 +2733,7 @@
     "message": "قانوني"
   },
   "layout.footer.legal-disclaimer": {
-    "message": "ليست خدمة رسمية من خدمات MINECRAFT. غير معتمدة من قبل MOJANG أو MICROSOFT، وليست مرتبطة بهما."
+    "message": "ليست خدمة رسمية من خدمات ENSHROUDED. غير معتمدة من قبل MOJANG أو MICROSOFT، وليست مرتبطة بهما."
   },
   "layout.footer.legal.copyright-policy": {
     "message": "سياسة حقوق النشر و DMCA"
@@ -2750,23 +2750,23 @@
   "layout.footer.legal.terms-of-use": {
     "message": "شروط الاستخدام"
   },
-  "layout.footer.modrinth-information": {
-    "message": "معلومات Modrinth"
+  "layout.footer.shroudedit-information": {
+    "message": "معلومات ShroudEdit"
   },
   "layout.footer.open-source": {
-    "message": "Modrinth <github-link>مفتوح المصدر</github-link>."
+    "message": "ShroudEdit <github-link>مفتوح المصدر</github-link>."
   },
   "layout.footer.products": {
     "message": "منتجات"
   },
   "layout.footer.products.app": {
-    "message": "Modrinth App"
+    "message": "ShroudEdit App"
   },
   "layout.footer.products.plus": {
-    "message": "Modrinth+"
+    "message": "ShroudEdit+"
   },
   "layout.footer.products.servers": {
-    "message": "استضافة Modrinth"
+    "message": "استضافة ShroudEdit"
   },
   "layout.footer.resources": {
     "message": "موارد"
@@ -2808,10 +2808,10 @@
     "message": "تبديل القائمة"
   },
   "layout.meta.description": {
-    "message": "نزّل مودات وبلوقنات وداتاباكات وشيدرز وريسورسباكات ومودباكات لماينكرافت على Modrinth. اكتشف المشاريع وانشرها على Modrinth من خلال واجهة حديثة وسهلة الاستخدام وواجهة API."
+    "message": "نزّل مودات وبلوقنات وداتاباكات وشيدرز وريسورسباكات ومودباكات لماينكرافت على ShroudEdit. اكتشف المشاريع وانشرها على ShroudEdit من خلال واجهة حديثة وسهلة الاستخدام وواجهة API."
   },
   "layout.meta.og-description": {
-    "message": "اكتشف محتوى Minecraft وانشره!"
+    "message": "اكتشف محتوى Enshrouded وانشره!"
   },
   "layout.mobile.close-menu": {
     "message": "إغلاق القائمة"
@@ -2825,8 +2825,8 @@
   "layout.nav.discover": {
     "message": "استكشاف"
   },
-  "layout.nav.get-modrinth-app": {
-    "message": "احصل على Modrinth App"
+  "layout.nav.get-shroudedit-app": {
+    "message": "احصل على ShroudEdit App"
   },
   "layout.nav.home": {
     "message": "الصفحة الرئيسية"
@@ -2834,10 +2834,10 @@
   "layout.nav.host-a-server": {
     "message": "استضف خادمًا"
   },
-  "layout.nav.modrinth-app": {
-    "message": "Modrinth App"
+  "layout.nav.shroudedit-app": {
+    "message": "ShroudEdit App"
   },
-  "layout.nav.modrinth-home-page": {
+  "layout.nav.shroudedit-home-page": {
     "message": "الصفحة الرئيسة لمودرينث"
   },
   "layout.nav.my-servers": {
@@ -2861,11 +2861,11 @@
   "layout.nav.search": {
     "message": "البحث"
   },
-  "layout.nav.upgrade-to-modrinth-plus": {
-    "message": "الترقية إلى Modrinth+"
+  "layout.nav.upgrade-to-shroudedit-plus": {
+    "message": "الترقية إلى ShroudEdit+"
   },
   "layout.publish.email-verification-required.description": {
-    "message": "يجب عليك التحقق من بريدك الإلكتروني قبل النشر على Modrinth."
+    "message": "يجب عليك التحقق من بريدك الإلكتروني قبل النشر على ShroudEdit."
   },
   "layout.publish.email-verification-required.title": {
     "message": "يلزم التحقق من البريد الإلكتروني"
@@ -2880,19 +2880,19 @@
     "message": "حافظ على تحديث المحتوى المشترك مع تغيّره"
   },
   "modal.shared-instance.open-in-app.get-app": {
-    "message": "احصل على Modrinth App"
+    "message": "احصل على ShroudEdit App"
   },
   "modal.shared-instance.open-in-app.managed-by": {
     "message": "تتم إدارته بواسطة"
   },
   "modal.shared-instance.open-in-app.opening-automatically": {
-    "message": "سيتم فتح Modrinth App تلقائيًا..."
+    "message": "سيتم فتح ShroudEdit App تلقائيًا..."
   },
   "modal.shared-instance.open-in-app.title": {
-    "message": "جارٍ فتح Modrinth App"
+    "message": "جارٍ فتح ShroudEdit App"
   },
   "modal.shared-instance.open-in-app.why-use": {
-    "message": "لماذا تستخدم Modrinth App"
+    "message": "لماذا تستخدم ShroudEdit App"
   },
   "moderation.exclude-technical-review": {
     "message": "استثناء TR"
@@ -3308,10 +3308,10 @@
   "project-type.collection.singular": {
     "message": "مجموعة"
   },
-  "project-type.minecraft_java_server.plural": {
+  "project-type.enshrouded_java_server.plural": {
     "message": "سيرفرات"
   },
-  "project-type.minecraft_java_server.singular": {
+  "project-type.enshrouded_java_server.singular": {
     "message": "سيرفر"
   },
   "project-type.mod.plural": {
@@ -3390,13 +3390,13 @@
     "message": "تحميل {version}"
   },
   "project.download.install-with-app": {
-    "message": "تثبيت مع تطبيق Modrinth"
+    "message": "تثبيت مع تطبيق ShroudEdit"
   },
   "project.download.manually": {
     "message": "التنزيل يدويًا"
   },
   "project.download.no-app": {
-    "message": "ليس لديك تطبيق Modrinth؟"
+    "message": "ليس لديك تطبيق ShroudEdit؟"
   },
   "project.download.no-game-versions-found": {
     "message": "لم يتم العثور على أي إصدارات"
@@ -3615,6 +3615,6 @@
     "message": "كتابة إلى بيانات الإصدار"
   },
   "settings.authorizations.unofficial-disclosure": {
-    "message": "هذا التطبيق غير تابع لـ Modrinth بأي شكل من الأشكال، رغم اسمه."
+    "message": "هذا التطبيق غير تابع لـ ShroudEdit بأي شكل من الأشكال، رغم اسمه."
   }
 }

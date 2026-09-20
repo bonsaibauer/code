@@ -24,9 +24,9 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { ExternalIcon } from '@modrinth/assets'
-import { Badge, ButtonLink } from '@modrinth/ui'
+import type { Labrinth } from '@shroudedit/api-client'
+import { ExternalIcon } from '@shroudedit/assets'
+import { Badge, ButtonLink } from '@shroudedit/ui'
 
 import IssueDetailPath from '~/components/ui/moderation/IssueDetailPath.vue'
 

@@ -62,24 +62,6 @@
 				</p>
 			</div>
 
-			<div class="flex flex-col gap-2.5">
-				<h2 class="m-0 text-lg font-semibold text-contrast">
-					{{ formatMessage(messages.hostingAccessTitle) }}
-				</h2>
-				<Chips
-					:model-value="hostingAccessPrivacy"
-					:items="invitePrivacyOptions"
-					:format-label="formatInteractionSource"
-					:disabled-items="preferenceControlsDisabled ? invitePrivacyOptions : undefined"
-					:disabled-tooltip="preferenceControlsTooltip"
-					:capitalize="false"
-					:aria-label="formatMessage(messages.hostingAccessTitle)"
-					@update:model-value="setHostingAccessPrivacy"
-				/>
-				<p class="m-0 text-secondary">
-					{{ formatMessage(messages.hostingAccessDescription) }}
-				</p>
-			</div>
 		</section>
 
 		<section class="flex flex-col gap-4">
@@ -93,7 +75,6 @@
 				<ul class="m-0 flex list-disc flex-col gap-1 pl-5 text-secondary">
 					<li>{{ formatMessage(messages.friendRequestsRestriction) }}</li>
 					<li>{{ formatMessage(messages.sharedInstancesRestriction) }}</li>
-					<li>{{ formatMessage(messages.hostingRestriction) }}</li>
 				</ul>
 			</div>
 
@@ -205,8 +186,8 @@
 
 <script setup lang="ts">
 // TODO this will be moved in with the rest of the xplat settings.
-import type { Labrinth } from '@modrinth/api-client'
-import { LogInIcon, SpinnerIcon, ThinkingRinthbot } from '@modrinth/assets'
+import type { Labrinth } from '@shroudedit/api-client'
+import { LogInIcon, SpinnerIcon, ThinkingRinthbot } from '@shroudedit/assets'
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, ref, watch } from 'vue'
 
@@ -228,7 +209,6 @@ type InvitePrivacy = Labrinth.Users.v3.InvitePrivacy
 type SocialSettingsState = {
 	friendPrivacy: FriendPrivacy
 	sharedInstancesPrivacy: InvitePrivacy
-	hostingAccessPrivacy: InvitePrivacy
 }
 
 const props = defineProps<{
@@ -253,7 +233,6 @@ const saving = ref(false)
 const preferencesInitialized = ref(false)
 const friendPrivacy = ref<FriendPrivacy>('everyone')
 const sharedInstancesPrivacy = ref<InvitePrivacy>('everyone')
-const hostingAccessPrivacy = ref<InvitePrivacy>('everyone')
 const friendPrivacyOptions: FriendPrivacy[] = ['everyone', 'mutual', 'none']
 const invitePrivacyOptions: InvitePrivacy[] = ['everyone', 'friends', 'none']
 const preferenceControlsDisabled = computed(
@@ -269,7 +248,6 @@ const { showTopFade, showBottomFade, checkScrollState } = useScrollIndicator(blo
 const originalState = computed<SocialSettingsState>(() => ({
 	friendPrivacy: preferences.value?.social.friend_privacy ?? 'everyone',
 	sharedInstancesPrivacy: preferences.value?.social.shared_instances_privacy ?? 'everyone',
-	hostingAccessPrivacy: preferences.value?.social.hosting_access_privacy ?? 'everyone',
 }))
 const modifiedState = computed<Partial<SocialSettingsState>>(() => ({
 	...(friendPrivacy.value !== originalState.value.friendPrivacy
@@ -277,9 +255,6 @@ const modifiedState = computed<Partial<SocialSettingsState>>(() => ({
 		: {}),
 	...(sharedInstancesPrivacy.value !== originalState.value.sharedInstancesPrivacy
 		? { sharedInstancesPrivacy: sharedInstancesPrivacy.value }
-		: {}),
-	...(hostingAccessPrivacy.value !== originalState.value.hostingAccessPrivacy
-		? { hostingAccessPrivacy: hostingAccessPrivacy.value }
 		: {}),
 }))
 const hasChanges = computed(() => Object.keys(modifiedState.value).length > 0)
@@ -305,7 +280,6 @@ watch(
 
 		friendPrivacy.value = value.social.friend_privacy
 		sharedInstancesPrivacy.value = value.social.shared_instances_privacy
-		hostingAccessPrivacy.value = value.social.hosting_access_privacy
 		preferencesInitialized.value = true
 	},
 	{ immediate: true, flush: 'sync' },
@@ -321,15 +295,9 @@ function setSharedInstancesPrivacy(value: InvitePrivacy | null): void {
 	sharedInstancesPrivacy.value = value
 }
 
-function setHostingAccessPrivacy(value: InvitePrivacy | null): void {
-	if (!value) return
-	hostingAccessPrivacy.value = value
-}
-
 function reset(): void {
 	friendPrivacy.value = originalState.value.friendPrivacy
 	sharedInstancesPrivacy.value = originalState.value.sharedInstancesPrivacy
-	hostingAccessPrivacy.value = originalState.value.hostingAccessPrivacy
 }
 
 async function save(): Promise<void> {
@@ -341,7 +309,8 @@ async function save(): Promise<void> {
 			social: {
 				friend_privacy: friendPrivacy.value,
 				shared_instances_privacy: sharedInstancesPrivacy.value,
-				hosting_access_privacy: hostingAccessPrivacy.value,
+				hosting_access_privacy:
+					preferences.value?.social.hosting_access_privacy ?? 'none',
 			},
 		})
 	} catch {
@@ -451,7 +420,7 @@ const messages = defineMessages({
 	},
 	friendRequestsDescription: {
 		id: 'settings.social.friend-requests.description',
-		defaultMessage: 'Control who can send you friend requests on Modrinth.',
+		defaultMessage: 'Control who can send you friend requests on ShroudEdit.',
 	},
 	sharedInstanceInvitesTitle: {
 		id: 'settings.social.shared-instance-invites.title',
@@ -460,14 +429,6 @@ const messages = defineMessages({
 	sharedInstanceInvitesDescription: {
 		id: 'settings.social.shared-instance-invites.description',
 		defaultMessage: 'Control who can send you invites to shared instances.',
-	},
-	hostingAccessTitle: {
-		id: 'settings.social.hosting-access.title',
-		defaultMessage: 'Hosting access invites',
-	},
-	hostingAccessDescription: {
-		id: 'settings.social.hosting-access.description',
-		defaultMessage: 'Control who can invite you to manage a Modrinth Hosting server.',
 	},
 	everyone: {
 		id: 'settings.social.interaction-source.everyone',
@@ -503,7 +464,7 @@ const messages = defineMessages({
 	},
 	blockedUsersDescription: {
 		id: 'settings.social.blocked-users.description',
-		defaultMessage: 'These are the users you have blocked on Modrinth. They cannot:',
+		defaultMessage: 'These are the users you have blocked on ShroudEdit. They cannot:',
 	},
 	friendRequestsRestriction: {
 		id: 'settings.social.blocked-users.restriction.friend-requests',
@@ -512,10 +473,6 @@ const messages = defineMessages({
 	sharedInstancesRestriction: {
 		id: 'settings.social.blocked-users.restriction.shared-instances',
 		defaultMessage: 'Invite you to shared instances',
-	},
-	hostingRestriction: {
-		id: 'settings.social.blocked-users.restriction.hosting',
-		defaultMessage: 'Invite you to manage a Modrinth Hosting server.',
 	},
 	userColumn: {
 		id: 'settings.social.blocked-users.column.user',
@@ -543,12 +500,12 @@ const messages = defineMessages({
 	},
 	signInRequiredTitle: {
 		id: 'settings.social.sign-in-required.title',
-		defaultMessage: 'Modrinth account required',
+		defaultMessage: 'ShroudEdit account required',
 	},
 	signInRequiredDescription: {
 		id: 'settings.social.sign-in-required.description',
 		defaultMessage:
-			'You can control who can interact with you, and manage blocked users with a Modrinth Account',
+			'You can control who can interact with you and manage blocked users with a ShroudEdit account.',
 	},
 	loadError: {
 		id: 'settings.social.blocked-users.load-error',

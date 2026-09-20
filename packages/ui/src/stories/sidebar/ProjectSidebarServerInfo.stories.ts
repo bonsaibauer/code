@@ -1,24 +1,85 @@
-import type { Labrinth } from '@modrinth/api-client'
-import type { GameVersionTag, PlatformTag } from '@modrinth/utils'
+import type { Labrinth } from '@shroudedit/api-client'
+import type { GameVersionTag, PlatformTag } from '@shroudedit/utils'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 import ProjectSidebarServerInfo from '../../components/project/ProjectSidebarServerInfo.vue'
 
-const gameVersions: GameVersionTag[] = [
-	{ version: '1.21.4', version_type: 'release', date: '2024-12-03', major: true },
-	{ version: '1.21.3', version_type: 'release', date: '2024-10-23', major: false },
-	{ version: '1.21.1', version_type: 'release', date: '2024-08-08', major: true },
-	{ version: '1.21', version_type: 'release', date: '2024-06-13', major: true },
-	{ version: '1.20.4', version_type: 'release', date: '2023-12-07', major: true },
-	{ version: '1.20.1', version_type: 'release', date: '2023-06-12', major: true },
-]
+const tags = {
+	gameVersions: [
+		{ version: '0.8.1.0', version_type: 'release', date: '2026-08-18', major: true },
+	] as GameVersionTag[],
+	loaders: [] as PlatformTag[],
+}
 
-const loaders: PlatformTag[] = [
-	{ icon: '', name: 'fabric', supported_project_types: ['mod'] },
-	{ icon: '', name: 'forge', supported_project_types: ['mod'] },
-]
-
-const tags = { gameVersions, loaders }
+const server: Labrinth.Projects.v3.EnshroudedServer = {
+	address: 'play.example.com',
+	query_port: 15637,
+	region: 'europe',
+	languages: ['en', 'de'],
+	voice_chat_enabled: true,
+	voice_chat_mode: 'proximity',
+	text_chat_enabled: true,
+	user_groups: [
+		{
+			name: 'Admin',
+			role: 'admin',
+			can_kick_ban: true,
+			can_access_inventories: true,
+			can_edit_world: true,
+			can_edit_base: true,
+			can_extend_base: true,
+			reserved_slots: 4,
+			password_visibility: 'contact_owner',
+		},
+		{
+			name: 'Friend',
+			role: 'friend',
+			can_kick_ban: false,
+			can_access_inventories: true,
+			can_edit_world: true,
+			can_edit_base: true,
+			can_extend_base: true,
+			reserved_slots: 0,
+			password_visibility: 'public',
+		},
+		{
+			name: 'Visitor',
+			role: 'visitor',
+			can_kick_ban: false,
+			can_access_inventories: false,
+			can_edit_world: false,
+			can_edit_base: false,
+			can_extend_base: false,
+			reserved_slots: 0,
+			password_visibility: 'none',
+		},
+		{
+			name: 'Guest',
+			role: 'guest',
+			can_kick_ban: false,
+			can_access_inventories: false,
+			can_edit_world: true,
+			can_edit_base: false,
+			can_extend_base: false,
+			reserved_slots: 0,
+			password_visibility: 'required',
+		},
+	],
+	ping: {
+		when: '2026-09-20T10:00:00Z',
+		address: 'play.example.com',
+		query_port: 15637,
+		data: {
+			latency: { nanos: 42000000, secs: 0 },
+			name: 'Shroudlands',
+			game_version: '0.8.1.0',
+			map: 'Main',
+			players_online: 5,
+			players_max: 16,
+			password_protected: true,
+		},
+	},
+}
 
 type Project = Labrinth.Projects.v3.Project
 
@@ -28,7 +89,7 @@ const meta = {
 	decorators: [
 		(story) => ({
 			components: { story },
-			template: '<div style="max-width: 300px"><story /></div>',
+			template: '<div style="max-width: 320px"><story /></div>',
 		}),
 	],
 } satisfies Meta<typeof ProjectSidebarServerInfo>
@@ -36,176 +97,29 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
+export const AccessAndCommunication: Story = {
 	args: {
-		projectV3: {
-			minecraft_java_server: {
-				address: 'play.example.com',
-				content: {
-					kind: 'vanilla',
-					recommended_game_version: '1.21.4',
-					supported_game_versions: ['1.21.4', '1.21.3', '1.21.1'],
-				},
-				ping: null,
-			},
-			minecraft_server: {
-				country: 'US',
-				languages: ['English'],
-			},
-		} as unknown as Project,
+		projectV3: { enshrouded_server: server } as unknown as Project,
 		tags,
+		publicPasswords: [{ group_name: 'Friend', password: 'friends-only' }],
 		ping: 42,
-	},
-}
-
-export const WithRequiredContent: Story = {
-	args: {
-		projectV3: {
-			minecraft_java_server: {
-				address: 'mc.modrinth.com',
-				content: {
-					kind: 'modpack',
-					version_id: 'abc123',
-				},
-				ping: null,
-			},
-			minecraft_server: {
-				country: 'DE',
-				languages: ['English', 'German'],
-			},
-		} as unknown as Project,
-		tags,
-		requiredContent: {
-			name: 'Better MC [FABRIC] - BMC4',
-			versionNumber: 'v32.1',
-			icon: 'https://cdn.modrinth.com/data/shrsKXYP/f68f3d07878e3cd26e33c1e379b85cdfc0e85a6d_96.webp',
-			onclickName: () => {
-				alert('Go to modpack project')
-			},
-			onclickVersion: () => {
-				alert('Go to modpack version')
-			},
-			onclickDownload: () => {
-				alert('Download content')
-			},
-		},
-		recommendedVersion: '1.21.4',
-		supportedVersions: ['1.21.4', '1.21.1', '1.20.4'],
-		ping: 85,
-	},
-}
-
-export const WithRequiredContentDownload: Story = {
-	args: {
-		projectV3: {
-			minecraft_java_server: {
-				address: 'mc.modrinth.com',
-				content: {
-					kind: 'modpack',
-					version_id: 'abc123',
-				},
-				ping: null,
-			},
-			minecraft_server: {
-				country: 'DE',
-				languages: ['English', 'German'],
-			},
-		} as unknown as Project,
-		tags,
-		requiredContent: {
-			name: 'Better MC [FABRIC] - BMC4',
-			versionNumber: 'v32.1',
-			icon: 'https://cdn.modrinth.com/data/shrsKXYP/f68f3d07878e3cd26e33c1e379b85cdfc0e85a6d_96.webp',
-			onclickName: () => {
-				alert('Go to modpack project')
-			},
-			onclickVersion: () => {
-				alert('Go to modpack version')
-			},
-			onclickDownload: () => {
-				alert('Download content')
-			},
-		},
-		recommendedVersion: '1.21.4',
-		supportedVersions: ['1.21.4', '1.21.1', '1.20.4'],
-		ping: 85,
-	},
-}
-
-export const IPOnly: Story = {
-	args: {
-		projectV3: {
-			minecraft_java_server: {
-				address: 'play.hypixel.net',
-				content: {
-					kind: 'vanilla',
-					supported_game_versions: [],
-				},
-				ping: null,
-			},
-		} as unknown as Project,
-		tags,
+		statusOnline: true,
 	},
 }
 
 export const OfflineServer: Story = {
 	args: {
 		projectV3: {
-			minecraft_java_server: {
+			enshrouded_server: {
+				...server,
 				address: 'offline.example.com',
-				content: {
-					kind: 'vanilla',
-					recommended_game_version: '1.21.4',
-					supported_game_versions: ['1.21.4'],
-				},
+				voice_chat_enabled: false,
+				text_chat_enabled: false,
 				ping: null,
 			},
 		} as unknown as Project,
 		tags,
 		ping: 0,
-	},
-}
-
-export const HighLatency: Story = {
-	args: {
-		projectV3: {
-			minecraft_java_server: {
-				address: 'faraway.example.com',
-				content: {
-					kind: 'vanilla',
-					recommended_game_version: '1.21.4',
-					supported_game_versions: ['1.21.4', '1.21.1'],
-				},
-				ping: null,
-			},
-			minecraft_server: {
-				country: 'JP',
-				languages: ['Japanese', 'English'],
-			},
-		} as unknown as Project,
-		tags,
-		ping: 350,
-	},
-}
-
-export const WithLanguages: Story = {
-	args: {
-		projectV3: {
-			minecraft_java_server: {
-				address: 'eu.example.com',
-				content: {
-					kind: 'vanilla',
-					recommended_game_version: '1.21.4',
-					supported_game_versions: ['1.21.4'],
-				},
-				ping: null,
-			},
-			minecraft_server: {
-				country: 'FR',
-				languages: ['French', 'English', 'Spanish', 'German', 'Portuguese'],
-			},
-		} as unknown as Project,
-		tags,
-		ping: 28,
+		statusOnline: false,
 	},
 }

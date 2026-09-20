@@ -31,7 +31,7 @@
 								? previewImage
 								: filteredGallery[editIndex] && filteredGallery[editIndex].url
 									? filteredGallery[editIndex].url
-									: 'https://cdn.modrinth.com/placeholder-banner.svg'
+									: 'https://cdn.shroudedit.com/placeholder-banner.svg'
 						"
 						alt="gallery-preview"
 					/>
@@ -143,7 +143,7 @@
 					:src="
 						expandedGalleryItem.raw_url
 							? expandedGalleryItem.raw_url
-							: 'https://cdn.modrinth.com/placeholder-banner.svg'
+							: 'https://cdn.shroudedit.com/placeholder-banner.svg'
 					"
 					:alt="expandedGalleryItem.title ? expandedGalleryItem.title : 'gallery-image'"
 					@click.stop
@@ -169,7 +169,7 @@
 								:href="
 									expandedGalleryItem.raw_url
 										? expandedGalleryItem.raw_url
-										: 'https://cdn.modrinth.com/placeholder-banner.svg'
+										: 'https://cdn.shroudedit.com/placeholder-banner.svg'
 								"
 							>
 								<ExternalIcon aria-hidden="true" />
@@ -226,7 +226,7 @@
 			<div v-for="(item, index) in filteredGallery" :key="index" class="card gallery-item">
 				<a class="gallery-thumbnail" @click="expandImage(item, index)">
 					<img
-						:src="item.url ? item.url : 'https://cdn.modrinth.com/placeholder-banner.svg'"
+						:src="item.url ? item.url : 'https://cdn.shroudedit.com/placeholder-banner.svg'"
 						:alt="item.title ? item.title : 'gallery-image'"
 						@contextmenu="onFullImageContextMenu($event, item.raw_url)"
 					/>
@@ -299,7 +299,7 @@ import {
 	TrashIcon,
 	UploadIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	Button,
 	ButtonLink,
@@ -314,7 +314,7 @@ import {
 	Textarea,
 	useFormatDateTime,
 	useFullImageContextMenu,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 
 import AiImageWarningModal from '~/components/ui/AiImageWarningModal.vue'
 import ValidationMessage from '~/components/ValidationMessage.vue'

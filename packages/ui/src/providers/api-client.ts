@@ -1,8 +1,8 @@
-import type { AbstractModrinthClient } from '@modrinth/api-client'
+import type { AbstractShroudEditClient } from '@shroudedit/api-client'
 
 import { createContext } from './create-context'
 
-export const [injectModrinthClient, provideModrinthClient] = createContext<AbstractModrinthClient>(
+export const [injectShroudEditClient, provideShroudEditClient] = createContext<AbstractShroudEditClient>(
 	'root',
-	'modrinthClient',
+	'shroudeditClient',
 )

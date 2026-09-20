@@ -1,5 +1,5 @@
 use crate::database::PgPool;
-use crate::database::models::legacy_loader_fields::MinecraftGameVersion;
+use crate::database::models::legacy_loader_fields::EnshroudedGameVersion;
 use crate::database::models::loader_fields::Loader;
 use crate::routes::ApiError;
 use crate::util::error::Context;
@@ -58,7 +58,7 @@ pub async fn valid_download_tags(
         .into_iter()
         .map(|loader| loader.loader)
         .collect();
-    let game_versions = MinecraftGameVersion::list(None, None, pool, redis)
+    let game_versions = EnshroudedGameVersion::list(None, None, pool, redis)
         .await
         .wrap_internal_err("failed to fetch game versions")?
         .into_iter()

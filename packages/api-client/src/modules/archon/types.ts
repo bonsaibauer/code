@@ -368,8 +368,8 @@ export namespace Archon {
 				| 'purpur'
 				| 'vanilla'
 
-			export type ModpackSpecModrinth = {
-				platform: 'modrinth'
+			export type ModpackSpecShroudEdit = {
+				platform: 'shroudedit'
 				project_id: string
 				version_id: string
 			}
@@ -381,7 +381,7 @@ export namespace Archon {
 				description: string | null
 			}
 
-			export type ModpackSpec = ModpackSpecModrinth | ModpackSpecLocalFile
+			export type ModpackSpec = ModpackSpecShroudEdit | ModpackSpecLocalFile
 
 			export type ModpackOwner = {
 				id: string
@@ -618,7 +618,7 @@ export namespace Archon {
 				| 'Vanilla'
 				| 'Paper'
 
-			export type Game = 'Minecraft'
+			export type Game = 'Enshrouded'
 
 			export type UpstreamKind = 'modpack' | 'none'
 
@@ -698,7 +698,7 @@ export namespace Archon {
 			}
 
 			export type JWTAuth = {
-				url: string // e.g., "node-xyz.modrinth.com/modrinth/v0/fs"
+				url: string // e.g., "node-xyz.shroudedit.com/shroudedit/v0/fs"
 				token: string // JWT token for filesystem access
 			}
 
@@ -1050,7 +1050,7 @@ export namespace Archon {
 			export type WorldContentModpackSource =
 				| 'CurseForge'
 				| {
-						Modrinth: {
+						ShroudEdit: {
 							version_id: string
 							project_id: string
 							mrpack_sha1: string | null
@@ -1240,8 +1240,8 @@ export namespace Archon {
 				target_filename?: string | null
 			}
 
-			export type InstallProgressModrinthModpackKey = {
-				type: 'modrinth_modpack'
+			export type InstallProgressShroudEditModpackKey = {
+				type: 'shroudedit_modpack'
 				project_id: string
 				version_id: string
 			}
@@ -1260,7 +1260,7 @@ export namespace Archon {
 
 			export type InstallProgressKey =
 				| InstallProgressFileKey
-				| InstallProgressModrinthModpackKey
+				| InstallProgressShroudEditModpackKey
 				| InstallProgressLocalModpackKey
 				| InstallProgressPlatformKey
 

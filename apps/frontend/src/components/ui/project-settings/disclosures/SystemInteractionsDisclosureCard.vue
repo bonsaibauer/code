@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { MonitorCogIcon } from '@modrinth/assets'
-import { defineMessages, SettingsFormGroup, Textarea, useVIntl } from '@modrinth/ui'
+import { MonitorCogIcon } from '@shroudedit/assets'
+import { defineMessages, SettingsFormGroup, Textarea, useVIntl } from '@shroudedit/ui'
 
 import DisclosureToggleCard from './DisclosureToggleCard.vue'
 import type {
@@ -47,7 +47,7 @@ const messages = defineMessages({
 		:icon="MonitorCogIcon"
 		:title="formatMessage(messages.title)"
 		:description="formatMessage(messages.description)"
-		info-link="https://support.modrinth.com/en/articles/16567675#h_ec72dfca13"
+		info-link="https://support.shroudedit.com/en/articles/16567675#h_ec72dfca13"
 		@set-lock-status="emit('setLockStatus', $event)"
 	>
 		<template #expanded>

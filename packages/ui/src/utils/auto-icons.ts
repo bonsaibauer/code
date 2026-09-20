@@ -28,13 +28,14 @@ import {
 	PolygonIcon,
 	ScaleIcon,
 	ServerIcon,
+	TagCategoryWorldgenIcon as WorldgenIcon,
 	UnknownIcon,
 	UpdatedIcon,
 	USDCColorIcon,
 	XCircleIcon,
 	XIcon,
-} from '@modrinth/assets'
-import type { ProjectStatus, ProjectType } from '@modrinth/utils'
+} from '@shroudedit/assets'
+import type { ProjectStatus, ProjectType } from '@shroudedit/utils'
 import type { Component } from 'vue'
 
 import {
@@ -47,12 +48,13 @@ import {
 export const PROJECT_TYPE_ICONS: Record<ProjectType, Component> = {
 	mod: BoxIcon,
 	modpack: PackageOpenIcon,
+	schematic: WorldgenIcon,
 	resourcepack: PaintbrushIcon,
 	shader: GlassesIcon,
 	plugin: PlugIcon,
 	datapack: BracesIcon,
 	project: BoxIcon,
-	minecraft_java_server: ServerIcon,
+	server: ServerIcon,
 }
 
 export const PAYMENT_METHOD_ICONS: Record<string, Component> = {

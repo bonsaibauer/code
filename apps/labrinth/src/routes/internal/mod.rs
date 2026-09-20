@@ -152,7 +152,7 @@ pub fn config(cfg: &mut web::ServiceConfig) {
 		search::tasks,
 		search::tasks_cancel,
 		globals::get_globals,
-		server_ping::ping_minecraft_java,
+		server_ping::ping_enshrouded,
 		attribution::scan,
 		attribution::list,
 		attribution::update_group,

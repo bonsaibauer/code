@@ -396,7 +396,7 @@
 <script setup lang="ts" generic="T">
 import 'overlayscrollbars/overlayscrollbars.css'
 
-import { CheckIcon, ChevronLeftIcon, MinusIcon, SearchIcon, XIcon } from '@modrinth/assets'
+import { CheckIcon, ChevronLeftIcon, MinusIcon, SearchIcon, XIcon } from '@shroudedit/assets'
 import { onClickOutside } from '@vueuse/core'
 import Fuse from 'fuse.js'
 import { OverlayScrollbars, type PartialOptions } from 'overlayscrollbars'
@@ -473,7 +473,7 @@ const OPTIONS_OVERLAY_SCROLLBARS_OPTIONS = Object.freeze<PartialOptions>({
 		y: 'scroll',
 	},
 	scrollbars: {
-		theme: 'os-theme-modrinth',
+		theme: 'os-theme-shroudedit',
 		autoHide: 'leave',
 		autoHideSuspend: true,
 	},
@@ -1476,7 +1476,7 @@ watch(
 	box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.08);
 }
 
-.multi-select-options-scrollbar :deep(.os-theme-modrinth) {
+.multi-select-options-scrollbar :deep(.os-theme-shroudedit) {
 	--os-size: 8px;
 	--os-padding-perpendicular: 0px;
 	--os-padding-axis: 0px;

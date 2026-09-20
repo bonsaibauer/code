@@ -45,7 +45,7 @@
     "message": "Linux"
   },
   "app-marketing.download.linux-disclaimer": {
-    "message": "Modrinth Appin Linux versioilla <issues-link>tunnetaan olevan ongelmia</issues-link> tietyillä järjestelmillä ja asetuksilla. Jos Modrinth App on epävakaa järjestelmälläsi, kannustamme sinua kokeilemaan toisia sovelluksia kuten <prism-link>Prism Launcher</prism-link> asentaaksesi helposti Modrinth sisältöä."
+    "message": "ShroudEdit Appin Linux versioilla <issues-link>tunnetaan olevan ongelmia</issues-link> tietyillä järjestelmillä ja asetuksilla. Jos ShroudEdit App on epävakaa järjestelmälläsi, kannustamme sinua kokeilemaan toisia sovelluksia kuten <prism-link>Prism Launcher</prism-link> asentaaksesi helposti ShroudEdit sisältöä."
   },
   "app-marketing.download.mac": {
     "message": "Mac"
@@ -57,7 +57,7 @@
     "message": "Lataamalla Modrint sovelluksen, sinä hyväksyt meidän <terms-link>Ehdot</terms-link> Ja <privacy-link>Tietosuojakäytännöt</privacy-link>."
   },
   "app-marketing.download.title": {
-    "message": "Lataa Modrinth App (Beta)"
+    "message": "Lataa ShroudEdit App (Beta)"
   },
   "app-marketing.download.windows": {
     "message": "Windows"
@@ -75,7 +75,7 @@
     "message": "käyttäjältä {author}"
   },
   "app-marketing.features.mod-management.description": {
-    "message": "Modrinth tekee helpoksi hallita kaikkia modejasi yhdessä paikassa. Voit asentaa, poistaa ja päivittää modeja yhdellä klikkauksella."
+    "message": "ShroudEdit tekee helpoksi hallita kaikkia modejasi yhdessä paikassa. Voit asentaa, poistaa ja päivittää modeja yhdellä klikkauksella."
   },
   "app-marketing.features.mod-management.installed-mods": {
     "message": "Asennetut modit"
@@ -110,8 +110,8 @@
   "app-marketing.features.performance.google-chrome": {
     "message": "Google Chrome"
   },
-  "app-marketing.features.performance.modrinth-app": {
-    "message": "Modrinth App"
+  "app-marketing.features.performance.shroudedit-app": {
+    "message": "ShroudEdit App"
   },
   "app-marketing.features.performance.one-billion-percent": {
     "message": "1 miljardi %"
@@ -129,13 +129,13 @@
     "message": "Suorituskykyinen"
   },
   "app-marketing.features.play.description": {
-    "message": "Käytä Modrinth sovellusta asentaaksesi ja pelataksesi sinun suosikki modeliila ja modpackeilla."
+    "message": "Käytä ShroudEdit sovellusta asentaaksesi ja pelataksesi sinun suosikki modeliila ja modpackeilla."
   },
   "app-marketing.features.play.title": {
     "message": "Pelaa lempi modeillasi"
   },
   "app-marketing.features.sharing.description": {
-    "message": "Rakenna, jaa, ja pelaa modipaketteja millä tahansa tuhansista modeista ja modipaketeista Modrinthissa."
+    "message": "Rakenna, jaa, ja pelaa modipaketteja millä tahansa tuhansista modeista ja modipaketeista ShroudEditissa."
   },
   "app-marketing.features.sharing.modpack": {
     "message": "Modipaketti"
@@ -150,7 +150,7 @@
     "message": "Erilainen kuin mikään muu launcheri"
   },
   "app-marketing.features.website.description": {
-    "message": "Modrinth App on täysin integroitu sivuston kanssa, jotta saat pääsyn kaikkiin lempi projekteihisi appin kautta!"
+    "message": "ShroudEdit App on täysin integroitu sivuston kanssa, jotta saat pääsyn kaikkiin lempi projekteihisi appin kautta!"
   },
   "app-marketing.features.website.title": {
     "message": "Nettisivu integraatio"
@@ -159,21 +159,21 @@
     "message": "jota olet käyttänyt ennen"
   },
   "app-marketing.hero.app-screenshot-alt": {
-    "message": "Kuvakaappaus Modrinth Appista jossa on Cobblemon instanssi auki sisältö sivulle."
+    "message": "Kuvakaappaus ShroudEdit Appista jossa on Cobblemon instanssi auki sisältö sivulle."
   },
   "app-marketing.hero.description": {
-    "message": "Modrinth App on uniikki, avoimen lähdekoodin launcheri joka antaa sinun pelata lempi modeillasi, ja pitää ne ajantasalla, kaikki yhdessä siistissä pakkauksessa."
+    "message": "ShroudEdit App on uniikki, avoimen lähdekoodin launcheri joka antaa sinun pelata lempi modeillasi, ja pitää ne ajantasalla, kaikki yhdessä siistissä pakkauksessa."
   },
   "app-marketing.hero.download-button": {
-    "message": "Lataa Modrinth App"
+    "message": "Lataa ShroudEdit App"
   },
-  "app-marketing.hero.download-modrinth-app": {
-    "message": "Lataa Modrinth App"
+  "app-marketing.hero.download-shroudedit-app": {
+    "message": "Lataa ShroudEdit App"
   },
-  "app-marketing.hero.download-modrinth-app-for-os": {
-    "message": "Lataa Modrinth App alustalle {os}"
+  "app-marketing.hero.download-shroudedit-app-for-os": {
+    "message": "Lataa ShroudEdit App alustalle {os}"
   },
-  "app-marketing.hero.minecraft-screenshot-alt": {
+  "app-marketing.hero.enshrouded-screenshot-alt": {
     "message": "Kuvakaappaus Cobblemon instanssin pää valikko näytöstä."
   },
   "app-marketing.hero.more-download-options": {
@@ -243,7 +243,7 @@
     "message": "Kirjaudu sisään"
   },
   "auth.sign-up.legal-dislaimer": {
-    "message": "Luomalla tilin, hyväksyt Modrinthin <terms-link>-käyttöoikeussopimuksen</terms-link> ja <privacy-policy-link>Tietosuojakäytännön</privacy-policy-link>."
+    "message": "Luomalla tilin, hyväksyt ShroudEditin <terms-link>-käyttöoikeussopimuksen</terms-link> ja <privacy-policy-link>Tietosuojakäytännön</privacy-policy-link>."
   },
   "auth.sign-up.sign-in-option.title": {
     "message": "Onko sinulla jo käyttäjätili?"
@@ -306,7 +306,7 @@
     "message": "Oletko varma että haluat poistaa tämän kokoelman?"
   },
   "collection.description": {
-    "message": "{description} - Katso kokoelma {name}, jonka on luonut {username}, Modrinthissa"
+    "message": "{description} - Katso kokoelma {name}, jonka on luonut {username}, ShroudEditissa"
   },
   "collection.description.following": {
     "message": "Automattisesti luotu kokoelma kaikista projekteista joita seuraat."
@@ -609,7 +609,7 @@
     "message": "Tämä kokelma saattaa olla yksityinen."
   },
   "error.collection.404.list_item.3": {
-    "message": "Tämä kokoelma on saatettu poistaa Modrinthin moderaatio tiimin toimesta koska se on <tou-link>Käyttöehtojamme</tou-link> vastaan."
+    "message": "Tämä kokoelma on saatettu poistaa ShroudEditin moderaatio tiimin toimesta koska se on <tou-link>Käyttöehtojamme</tou-link> vastaan."
   },
   "error.collection.404.list_title": {
     "message": "Miksi?"
@@ -663,7 +663,7 @@
     "message": "Apua kun sitä tarvitset"
   },
   "hosting-marketing.included.help.description": {
-    "message": "Ota yhteyttä Modrinthin tiimiin milloin tahansa palvelinasioissa."
+    "message": "Ota yhteyttä ShroudEditin tiimiin milloin tahansa palvelinasioissa."
   },
   "hosting-marketing.included.sftp-access": {
     "message": "SFTP pääsy"
@@ -713,35 +713,35 @@
   "landing.feature.search.heading": {
     "message": "Löydä mitä haluat nopeasti ja helposti"
   },
-  "landing.heading.the-place-for-minecraft": {
-    "message": "Paikka Minecraft {content}"
+  "landing.heading.the-place-for-enshrouded": {
+    "message": "Paikka Enshrouded {content}"
   },
-  "landing.heading.the-place-for-minecraft.data-packs": {
+  "landing.heading.the-place-for-enshrouded.data-packs": {
     "message": "datapaketeille"
   },
-  "landing.heading.the-place-for-minecraft.modpacks": {
+  "landing.heading.the-place-for-enshrouded.modpacks": {
     "message": "modipaketeille"
   },
-  "landing.heading.the-place-for-minecraft.mods": {
+  "landing.heading.the-place-for-enshrouded.mods": {
     "message": "modeille"
   },
-  "landing.heading.the-place-for-minecraft.plugins": {
+  "landing.heading.the-place-for-enshrouded.plugins": {
     "message": "plugineille"
   },
-  "landing.heading.the-place-for-minecraft.resource-packs": {
+  "landing.heading.the-place-for-enshrouded.resource-packs": {
     "message": "resurssipaketeille"
   },
-  "landing.heading.the-place-for-minecraft.servers": {
+  "landing.heading.the-place-for-enshrouded.servers": {
     "message": "palvelimille"
   },
-  "landing.heading.the-place-for-minecraft.shaders": {
+  "landing.heading.the-place-for-enshrouded.shaders": {
     "message": "shadereille"
   },
   "landing.launcher.atlauncher-label": {
     "message": "ATLauncher"
   },
-  "landing.launcher.modrinth-app-label": {
-    "message": "Modrinth App"
+  "landing.launcher.shroudedit-app-label": {
+    "message": "ShroudEdit App"
   },
   "landing.launcher.prism-launcher-label": {
     "message": "Prism Launcher"
@@ -801,10 +801,10 @@
     "message": "Tuotteet"
   },
   "layout.footer.products.app": {
-    "message": "Modrinth App"
+    "message": "ShroudEdit App"
   },
   "layout.footer.products.plus": {
-    "message": "Modrinth+"
+    "message": "ShroudEdit+"
   },
   "layout.footer.resources": {
     "message": "Resurssit"
@@ -839,8 +839,8 @@
   "layout.nav.host-a-server": {
     "message": "Hostaa palvelin"
   },
-  "layout.nav.modrinth-app": {
-    "message": "Modrinth App"
+  "layout.nav.shroudedit-app": {
+    "message": "ShroudEdit App"
   },
   "layout.nav.organizations": {
     "message": "Organisaatiot"

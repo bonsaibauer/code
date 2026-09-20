@@ -1,4 +1,4 @@
-import type { ModrinthApiError } from '../core/errors'
+import type { ShroudEditApiError } from '../core/errors'
 import type { ClientConfig } from '../types/client'
 import type { RequestOptions } from '../types/request'
 import { appendRequestParams, parseResponseErrorData, toFetchBody } from '../utils/fetch'
@@ -29,8 +29,8 @@ interface HttpError extends Error {
  * ```typescript
  * import { getVersion } from '@tauri-apps/api/app'
  *
- * const client = new TauriModrinthClient({
- *   userAgent: async () => `modrinth/theseus/${await getVersion()} (support@modrinth.com)`,
+ * const client = new TauriShroudEditClient({
+ *   userAgent: async () => `shroudedit/theseus/${await getVersion()} (support@shroudedit.com)`,
  *   features: [
  *     new AuthFeature({ token: async () => getOAuthToken() })
  *   ]
@@ -39,7 +39,7 @@ interface HttpError extends Error {
  * const project = await client.request('/project/sodium', { api: 'labrinth', version: 2 })
  * ```
  */
-export class TauriModrinthClient extends XHRUploadClient {
+export class TauriShroudEditClient extends XHRUploadClient {
 	declare protected config: TauriClientConfig
 
 	constructor(config: TauriClientConfig) {
@@ -162,7 +162,7 @@ export class TauriModrinthClient extends XHRUploadClient {
 		}
 	}
 
-	protected normalizeError(error: unknown): ModrinthApiError {
+	protected normalizeError(error: unknown): ShroudEditApiError {
 		if (error instanceof Error) {
 			const httpError = error as HttpError
 			const statusCode = httpError.statusCode

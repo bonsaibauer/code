@@ -4,7 +4,7 @@ use crate::models::v2::projects::LegacyProject;
 const INAPPROPRIATE_LICENSE_DOMAINS: &[&str] = &[
     "youtube.com",
     "youtu.be",
-    "modrinth.com",
+    "shroudedit.com",
     "curseforge.com",
     "twitter.com",
     "x.com",
@@ -60,7 +60,7 @@ pub(super) fn validate(
     project: &crate::models::projects::Project,
 ) -> Vec<super::ProjectNag> {
     let mut nags = Vec::new();
-    let is_minecraft_server = project.components.minecraft_server.is_some();
+    let is_enshrouded_server = project.components.enshrouded_server.is_some();
     let (project_type, _) =
         LegacyProject::get_project_type(&project.project_types);
     let license = &project.license;
@@ -69,7 +69,7 @@ pub(super) fn validate(
         "LicenseRef-Unknown" | "NOASSERTION" | "LicenseRef-NOASSERTION"
     );
 
-    if has_unknown_license && !is_minecraft_server {
+    if has_unknown_license && !is_enshrouded_server {
         nags.push(
             ProjectNag::new(
                 ProjectNagKind::SelectLicense,
@@ -85,8 +85,9 @@ pub(super) fn validate(
         || (license.id.starts_with("LicenseRef-")
             && !has_license_url
             && license.id != "LicenseRef-Unknown"
-            && license.id != "LicenseRef-All-Rights-Reserved");
-    if missing_custom_license_details && !is_minecraft_server {
+            && license.id != "LicenseRef-All-Rights-Reserved"
+            && license.id != "LicenseRef-Open-Source");
+    if missing_custom_license_details && !is_enshrouded_server {
         nags.push(ProjectNag::new(
             ProjectNagKind::AddCustomLicenseDetails,
             ProjectNagSeverity::Required,

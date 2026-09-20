@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-// i18n symbols that should be imported from @modrinth/ui
+// i18n symbols that should be imported from @shroudedit/ui
 const I18N_SYMBOLS = ['useVIntl', 'defineMessage', 'defineMessages', 'IntlFormatted'] as const
 type I18nSymbol = (typeof I18N_SYMBOLS)[number]
 
@@ -16,7 +16,7 @@ type I18nSymbol = (typeof I18N_SYMBOLS)[number]
 const FORMAT_MESSAGE = 'formatMessage'
 
 // Valid import sources for i18n symbols
-const VALID_IMPORT_SOURCES = ['@modrinth/ui']
+const VALID_IMPORT_SOURCES = ['@shroudedit/ui']
 
 // Directories to exclude from scanning
 const EXCLUDED_DIRS = new Set(['node_modules', '.output', '.nuxt', 'dist', '.git', '.turbo'])
@@ -230,7 +230,7 @@ function findUsages(ast: TSESTree.Program): Usage[] {
  * Check if import source is valid for i18n symbols
  */
 function isValidImportSource(source: string, filePath: string): boolean {
-	// Direct import from @modrinth/ui
+	// Direct import from @shroudedit/ui
 	if (VALID_IMPORT_SOURCES.includes(source)) {
 		return true
 	}
@@ -318,7 +318,6 @@ function main() {
 
 	const dirsToScan = [
 		path.join(rootDir, 'apps/frontend/src'),
-		path.join(rootDir, 'apps/app-frontend/src'),
 		path.join(rootDir, 'packages'),
 	]
 
@@ -370,8 +369,8 @@ function main() {
 	console.log()
 
 	if (verbose) {
-		console.log(theme.muted('  Tip: Import these symbols from @modrinth/ui'))
-		console.log(theme.muted('  Example: import { useVIntl, defineMessages } from \'@modrinth/ui\''))
+		console.log(theme.muted('  Tip: Import these symbols from @shroudedit/ui'))
+		console.log(theme.muted('  Example: import { useVIntl, defineMessages } from \'@shroudedit/ui\''))
 		console.log()
 	}
 

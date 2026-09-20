@@ -14,7 +14,7 @@ on:
 
 jobs:
   metadata:
-    if: github.repository_owner == 'modrinth' && github.event.pull_request.head.repo.full_name == github.repository
+    if: github.repository_owner == 'shroudedit' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     outputs:
       branch-alias: ${{ steps.meta.outputs.branch_alias }}
@@ -24,7 +24,7 @@ jobs:
         run: echo "branch_alias=pr-${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
 
   deploy:
-    if: github.repository_owner == 'modrinth' && github.event.pull_request.head.repo.full_name == github.repository
+    if: github.repository_owner == 'shroudedit' && github.event.pull_request.head.repo.full_name == github.repository
     needs: metadata
     uses: ./.github/workflows/frontend-deploy.yml
     secrets: inherit
@@ -38,9 +38,9 @@ jobs:
       branch_alias: ${{ needs.metadata.outputs.branch-alias }}
 
   deploy-storybook:
-    if: github.repository_owner == 'modrinth' && github.event.pull_request.head.repo.full_name == github.repository
+    if: github.repository_owner == 'shroudedit' && github.event.pull_request.head.repo.full_name == github.repository
     needs: metadata
-    runs-on: namespace-profile-modrinth-frontend
+    runs-on: namespace-profile-shroudedit-frontend
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}-storybook
       cancel-in-progress: true
@@ -112,7 +112,7 @@ jobs:
   comment:
     if: |
       !cancelled()
-      && github.repository_owner == 'modrinth'
+      && github.repository_owner == 'shroudedit'
       && github.event.pull_request.head.repo.full_name == github.repository
       && needs.deploy.result == 'success'
     runs-on: ubuntu-latest
@@ -136,12 +136,12 @@ jobs:
         run: |
           STAGING_SHA_URL=$(cat deployment-url-staging.txt)
           PRODUCTION_SHA_URL=$(cat deployment-url-production.txt)
-          STAGING_BRANCH_URL="https://$BRANCH_ALIAS-staging-frontend.modrinth.workers.dev"
-          PRODUCTION_BRANCH_URL="https://$BRANCH_ALIAS-frontend.modrinth.workers.dev"
+          STAGING_BRANCH_URL="https://$BRANCH_ALIAS-staging-frontend.shroudedit.workers.dev"
+          PRODUCTION_BRANCH_URL="https://$BRANCH_ALIAS-frontend.shroudedit.workers.dev"
 
           if [ "$STORYBOOK_RESULT" = "success" ]; then
-            STORYBOOK_SHA_URL="https://git-${HEAD_SHA::8}-storybook.modrinth.workers.dev"
-            STORYBOOK_BRANCH_URL="https://$BRANCH_ALIAS-storybook.modrinth.workers.dev"
+            STORYBOOK_SHA_URL="https://git-${HEAD_SHA::8}-storybook.shroudedit.workers.dev"
+            STORYBOOK_BRANCH_URL="https://$BRANCH_ALIAS-storybook.shroudedit.workers.dev"
           else
             STORYBOOK_SHA_URL="⚠️ Deployment $STORYBOOK_RESULT ([logs]($RUN_URL))"
             STORYBOOK_BRANCH_URL="⚠️ Deployment $STORYBOOK_RESULT ([logs]($RUN_URL))"

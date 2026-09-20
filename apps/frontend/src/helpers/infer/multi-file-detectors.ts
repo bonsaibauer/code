@@ -65,7 +65,7 @@ export function createMultiFileDetectors(
 				name: versionNum ? `${project.title} ${versionNum}` : undefined,
 				version_number: versionNum || undefined,
 				version_type: versionType(versionNum),
-				loaders: ['minecraft'],
+				loaders: ['enshrouded'],
 				game_versions: legacyVersions,
 			}
 		},

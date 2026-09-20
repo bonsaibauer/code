@@ -1,10 +1,26 @@
-import { LeftArrowIcon, PlusIcon, SaveIcon, SpinnerIcon, XIcon } from '@modrinth/assets'
-import type { StageConfigInput } from '@modrinth/ui'
+import { LeftArrowIcon, PlusIcon, SaveIcon, SpinnerIcon, XIcon } from '@shroudedit/assets'
+import type { StageConfigInput } from '@shroudedit/ui'
 import { markRaw } from 'vue'
 
 import DetailsStage from '~/components/ui/create-project-version/stages/DetailsStage.vue'
 
 import type { ManageVersionContextValue } from '../manage-version-modal'
+
+function hasValidSchematicMetadata(ctx: ManageVersionContextValue) {
+	if (ctx.projectType.value !== 'schematic') return true
+
+	const version = ctx.draftVersion.value
+	const formatVersion = Number(version.schematic_format_version)
+	return Boolean(
+		Number.isInteger(formatVersion) &&
+			formatVersion >= 1 &&
+			formatVersion <= 2147483647 &&
+			version.world_editor_version?.trim() &&
+			version.schematic_width &&
+			version.schematic_height &&
+			version.schematic_depth,
+	)
+}
 
 export const stageConfig: StageConfigInput<ManageVersionContextValue> = {
 	id: 'add-details',
@@ -37,7 +53,7 @@ export const stageConfig: StageConfigInput<ManageVersionContextValue> = {
 		iconPosition: 'before',
 		iconClass: ctx.isSubmitting.value ? 'animate-spin' : undefined,
 		color: 'green',
-		disabled: ctx.isSubmitting.value,
+		disabled: ctx.isSubmitting.value || !hasValidSchematicMetadata(ctx),
 		onClick: () =>
 			ctx.editingVersion.value ? ctx.handleSaveVersionEdits() : ctx.handleCreateVersion(),
 	}),

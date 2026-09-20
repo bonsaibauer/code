@@ -2,182 +2,181 @@
 	<div>
 		<ConfirmLeaveModal ref="confirmLeaveModal" />
 		<section class="universal-card">
-			<div class="flex flex-col gap-6">
-				<div class="text-2xl font-semibold text-contrast">
-					{{ formatMessage(messages.serverDetailsHeading) }}
-				</div>
-
-				<!-- Region -->
-				<div class="max-w-[600px]">
-					<label for="server-region">
-						<span class="label__title">{{ formatMessage(messages.regionLabel) }}</span>
+			<div class="flex max-w-[600px] flex-col gap-6">
+				<h2 class="m-0 text-2xl font-semibold text-contrast">
+					{{ formatMessage(messages.heading) }}
+				</h2>
+				<div class="grid gap-4 sm:grid-cols-[1fr_10rem]">
+					<label>
+						<span class="label__title">{{ formatMessage(messages.address) }}</span>
+						<Input
+							v-model="address"
+							:placeholder="formatMessage(messages.addressPlaceholder)"
+							:disabled="!hasPermission"
+							autocomplete="off"
+						/>
 					</label>
+					<label>
+						<span class="label__title">{{ formatMessage(messages.queryPort) }}</span>
+						<Input
+							v-model="queryPort"
+							type="number"
+							min="1"
+							max="65535"
+							:disabled="!hasPermission"
+						/>
+					</label>
+				</div>
+				<div v-if="address" class="flex items-center gap-2 text-sm">
+					<IconButton
+						:label="formatMessage(messages.refresh)"
+						:disabled="pingLoading"
+						type="quiet"
+						color="orange"
+						size="xs"
+						@click="pingServer"
+					>
+						<SpinnerIcon v-if="pingLoading" class="animate-spin" />
+						<RefreshCwIcon v-else />
+					</IconButton>
+					<span v-if="pingResult?.online" class="text-green">
+						{{ formatMessage(messages.online) }}
+						<template v-if="pingResult.data?.game_version">
+							· {{ pingResult.data.game_version }} · {{ pingResult.data.players_online }}/{{
+								pingResult.data.players_max
+							}}
+						</template>
+					</span>
+					<span v-else-if="pingResult && !pingLoading" class="text-orange">
+						{{ formatMessage(messages.offline) }}
+					</span>
+				</div>
+				<p class="m-0 text-sm text-secondary">{{ formatMessage(messages.portHint) }}</p>
+				<label>
+					<span class="label__title">{{ formatMessage(messages.region) }}</span>
 					<Combobox
-						id="server-region"
 						v-model="region"
 						:options="regionOptions"
 						searchable
-						:placeholder="formatMessage(messages.selectRegionPlaceholder)"
 						:disabled="!hasPermission"
 					/>
-					<ValidationMessage
-						:check="regionValidation"
-						:project-field="projectV3?.minecraft_server?.region ?? ''"
-						:current-field="region"
-						class="mt-2"
-					/>
-				</div>
-
-				<!-- Language -->
-				<div class="max-w-[600px]">
-					<label for="server-language">
-						<span class="label__title"
-							>{{ formatMessage(messages.languagesLabel) }}
-							<span class="font-normal text-secondary"
-								>({{ formatMessage(messages.optionalLabel) }})</span
-							></span
-						>
-					</label>
+				</label>
+				<label>
+					<span class="label__title">{{ formatMessage(messages.languages) }}</span>
 					<MultiSelect
-						id="server-language"
 						v-model="languages"
 						:options="languageOptions"
 						searchable
 						include-select-all-option
 						:max-tag-rows="2"
-						:placeholder="formatMessage(messages.selectLanguagesPlaceholder)"
 						:disabled="!hasPermission"
 					/>
-					<ValidationMessage
-						:check="languageValidation"
-						:project-field="
-							JSON.stringify([...(projectV3?.minecraft_server?.languages ?? [])].sort())
-						"
-						:current-field="JSON.stringify([...languages].sort())"
-						class="mt-2"
-					/>
-				</div>
-
-				<!-- Java Address -->
-				<div class="max-w-[600px]">
-					<div class="flex items-center justify-between">
-						<label for="java-address">
-							<span class="label__title !m-0 !text-contrast">{{
-								formatMessage(messages.javaAddressLabel)
-							}}</span>
-						</label>
+				</label>
+				<div class="flex flex-col gap-3 border-0 border-t border-solid border-surface-4 pt-5">
+					<h3 class="m-0 text-lg text-contrast">{{ formatMessage(messages.communication) }}</h3>
+					<div class="flex items-center justify-between gap-4">
+						<span>{{ formatMessage(messages.textChat) }}</span>
+						<Toggle v-model="textChatEnabled" :disabled="!hasPermission" />
 					</div>
-					<div
-						class="mt-2 flex items-center gap-2 text-sm"
-						@focusout="
-							() => {
-								if (!lastPingAddressChanged && javaPingResult) return
-								pingJavaServer()
-							}
-						"
-					>
-						<Input
-							id="java-address"
-							v-model="javaAddress"
-							:placeholder="formatMessage(messages.enterAddressPlaceholder)"
+					<div class="flex items-center justify-between gap-4">
+						<span>{{ formatMessage(messages.voiceChat) }}</span>
+						<Toggle v-model="voiceChatEnabled" :disabled="!hasPermission" />
+					</div>
+					<label v-if="voiceChatEnabled">
+						<span class="label__title">{{ formatMessage(messages.voiceChatMode) }}</span>
+						<Combobox
+							v-model="voiceChatMode"
+							:options="voiceChatModeOptions"
 							:disabled="!hasPermission"
-							wrapper-class="flex-grow"
-							autocomplete="off"
 						/>
-					</div>
-					<div
-						v-if="javaAddress"
-						class="mt-2 flex gap-1.5"
-						:class="{
-							'items-center': javaPingResult?.online,
-							'items-start': javaPingResult && !javaPingResult.online,
-						}"
-					>
-						<IconButton
-							v-if="(javaAddress && javaPingResult) || javaPingLoading"
-							v-tooltip="formatMessage(messages.refreshPingTooltip)"
-							class="!size-6"
-							type="quiet"
-							color="orange"
-							size="xs"
-							:label="formatMessage(messages.refreshPingTooltip)"
-							:disabled="javaPingLoading"
-							@click="pingJavaServer"
-						>
-							<SpinnerIcon v-if="javaPingLoading" class="animate-spin" />
-							<RefreshCwIcon v-else />
-						</IconButton>
-						<div
-							v-if="javaPingResult !== null && !javaPingLoading && javaPingResult.online"
-							class="mt-0.5 flex items-center gap-1.5 text-green"
-						>
-							{{ formatMessage(messages.serverOnline) }}
-							<template v-if="javaPingResult.latency">
-								{{ formatMessage(messages.latencyLabel, { latency: javaPingResult.latency }) }}
-							</template>
-						</div>
-						<div v-else-if="javaPingResult !== null && !javaPingLoading" class="mt-0.5 text-orange">
-							<IntlFormatted :message-id="messages.pingFailedMessage">
-								<template #support-link="{ children }">
-									<a
-										class="inline underline"
-										href="https://support.modrinth.com"
-										target="_blank"
-										rel="noopener noreferrer"
-										><component :is="() => normalizeChildren(children)"
-									/></a>
-								</template>
-							</IntlFormatted>
-						</div>
-					</div>
-					<div v-else class="mt-2 text-sm">
-						<IntlFormatted :message-id="messages.srvRecordsHint">
-							<template #srv-tooltip="{ children }"
-								><component :is="() => normalizeChildren(children)" /><InfoIcon
-									v-tooltip="{
-										content: formatMessage(messages.srvRecordsTooltip),
-										popperClass: 'max-w-xs',
-									}"
-							/></template>
-						</IntlFormatted>
-					</div>
-					<ValidationMessage
-						:check="javaAddressValidation"
-						:project-field="projectV3?.minecraft_java_server?.address ?? ''"
-						:current-field="javaAddress.trim()"
-						class="mt-2"
-					/>
-				</div>
-
-				<!-- Bedrock Address -->
-				<div class="max-w-[600px]">
-					<label for="bedrock-address">
-						<span class="label__title !text-contrast"
-							>{{ formatMessage(messages.bedrockAddressLabel) }}
-							<span class="font-normal text-secondary"
-								>({{ formatMessage(messages.optionalLabel) }})</span
-							>
-						</span>
 					</label>
-					<div class="mt-2 flex items-center gap-2">
-						<Input
-							id="bedrock-address"
-							v-model="bedrockAddress"
-							:placeholder="formatMessage(messages.enterAddressPlaceholder)"
-							:disabled="!hasPermission"
-							wrapper-class="flex-grow"
-							autocomplete="off"
-						/>
-					</div>
 				</div>
 
-				<div>
-					<CompatibilityCard />
-					<ValidationMessage :check="compatibilityValidation" class="mt-2" />
+				<div class="flex flex-col gap-3 border-0 border-t border-solid border-surface-4 pt-5">
+					<div>
+						<h3 class="m-0 text-lg text-contrast">{{ formatMessage(messages.accessGroups) }}</h3>
+						<p class="mb-0 mt-1 text-sm text-secondary">
+							{{ formatMessage(messages.accessGroupsHint) }}
+						</p>
+					</div>
+					<details
+						v-for="group in userGroups"
+						:key="group.name"
+						class="rounded-xl border border-solid border-surface-4 bg-surface-2 p-3"
+					>
+						<summary class="cursor-pointer font-semibold text-contrast">
+							{{ group.name }}
+							<span class="ml-2 text-sm font-normal text-secondary">
+								{{ formatGroupSummary(group) }}
+							</span>
+						</summary>
+						<div class="mt-4 flex flex-col gap-3">
+							<div class="grid gap-2 sm:grid-cols-2">
+								<Checkbox
+									v-model="group.can_kick_ban"
+									:disabled="!hasPermission"
+									:label="formatMessage(messages.kickBan)"
+								/>
+								<Checkbox
+									v-model="group.can_access_inventories"
+									:disabled="!hasPermission"
+									:label="formatMessage(messages.inventories)"
+								/>
+								<Checkbox
+									v-model="group.can_edit_world"
+									:disabled="!hasPermission"
+									:label="formatMessage(messages.editWorld)"
+								/>
+								<Checkbox
+									v-model="group.can_edit_base"
+									:disabled="!hasPermission"
+									:label="formatMessage(messages.editBase)"
+								/>
+								<Checkbox
+									v-model="group.can_extend_base"
+									:disabled="!hasPermission"
+									:label="formatMessage(messages.extendBase)"
+								/>
+							</div>
+							<label>
+								<span class="label__title">{{ formatMessage(messages.reservedSlots) }}</span>
+								<Input
+									v-model="group.reserved_slots"
+									type="number"
+									min="0"
+									max="16"
+									:disabled="!hasPermission"
+								/>
+							</label>
+							<label>
+								<span class="label__title">{{ formatMessage(messages.passwordVisibility) }}</span>
+								<Combobox
+									v-model="group.password_visibility"
+									:options="passwordVisibilityOptions(group)"
+									:disabled="!hasPermission"
+								/>
+							</label>
+							<label v-if="group.password_visibility === 'public'">
+								<span class="label__title">{{ formatMessage(messages.publicPassword) }}</span>
+								<Input
+									v-model="publicPasswords[group.name]"
+									type="password"
+									maxlength="128"
+									:disabled="!hasPermission"
+									autocomplete="new-password"
+								/>
+								<p v-if="group.role === 'friend'" class="mb-0 mt-1 text-sm text-orange">
+									{{ formatMessage(messages.friendWarning) }}
+								</p>
+							</label>
+							<p v-else-if="group.password_visibility === 'none'" class="m-0 text-sm text-orange">
+								{{ formatMessage(messages.noPasswordWarning) }}
+							</p>
+						</div>
+					</details>
 				</div>
 			</div>
 		</section>
-
 		<UnsavedChangesPopup
 			:original="original"
 			:modified="modified"
@@ -189,344 +188,424 @@
 </template>
 
 <script setup>
-import { InfoIcon, RefreshCwIcon, SpinnerIcon } from '@modrinth/assets'
+import { RefreshCwIcon, SpinnerIcon } from '@shroudedit/assets'
 import {
 	Combobox,
+	Checkbox,
 	commonProjectSettingsMessages,
 	ConfirmLeaveModal,
 	defineMessages,
 	IconButton,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	injectProjectPageContext,
 	Input,
-	IntlFormatted,
 	MultiSelect,
-	normalizeChildren,
 	SERVER_LANGUAGES,
 	SERVER_REGIONS,
+	Toggle,
 	UnsavedChangesPopup,
 	usePageLeaveSafety,
 	useVIntl,
-} from '@modrinth/ui'
-import { isAdmin } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { isAdmin } from '@shroudedit/utils'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 
-import CompatibilityCard from '~/components/ui/project-settings/CompatibilityCard.vue'
-import ValidationMessage from '~/components/ValidationMessage.vue'
-import { useProjectNagMessages } from '~/composables/project-nag-validation'
-
+const DEFAULT_QUERY_PORT = 15637
 const PING_TIMEOUT_MS = 5000
-
 const { formatMessage, locale } = useVIntl()
-
 const messages = defineMessages({
-	serverDetailsHeading: {
-		id: 'project.settings.server.details-heading',
-		defaultMessage: 'Server details',
+	heading: {
+		id: 'project.settings.server.enshrouded-heading',
+		defaultMessage: 'Enshrouded server details',
 	},
-	regionLabel: {
-		id: 'project.settings.server.region-label',
-		defaultMessage: 'Region',
+	address: {
+		id: 'project.settings.server.enshrouded-address',
+		defaultMessage: 'Server address',
 	},
-	selectRegionPlaceholder: {
-		id: 'project.settings.server.select-region-placeholder',
-		defaultMessage: 'Select region',
+	addressPlaceholder: {
+		id: 'project.settings.server.enshrouded-address-placeholder',
+		defaultMessage: 'play.example.com or 203.0.113.10',
 	},
-	languagesLabel: {
-		id: 'project.settings.server.languages-label',
-		defaultMessage: 'Languages',
-	},
-	optionalLabel: {
-		id: 'project.settings.server.optional-label',
-		defaultMessage: 'optional',
-	},
-	selectLanguagesPlaceholder: {
-		id: 'project.settings.server.select-languages-placeholder',
-		defaultMessage: 'Select languages',
-	},
-	javaAddressLabel: {
-		id: 'project.settings.server.java-address-label',
-		defaultMessage: 'Java address',
-	},
-	enterAddressPlaceholder: {
-		id: 'project.settings.server.enter-address-placeholder',
-		defaultMessage: 'Enter address',
-	},
-	refreshPingTooltip: {
-		id: 'project.settings.server.refresh-ping-tooltip',
-		defaultMessage: 'Refresh ping',
-	},
-	serverOnline: {
-		id: 'project.settings.server.server-online',
-		defaultMessage: 'Server is online!',
-	},
-	latencyLabel: {
-		id: 'project.settings.server.latency-label',
-		defaultMessage: 'Latency: {latency}ms',
-	},
-	pingFailedMessage: {
-		id: 'project.settings.server.ping-failed-message',
+	queryPort: { id: 'project.settings.server.query-port', defaultMessage: 'Query port' },
+	portHint: {
+		id: 'project.settings.server.query-port-hint',
 		defaultMessage:
-			"We couldn't ping this server. It may be blocked by your host so try refreshing a few times. If it still doesn't respond please <support-link>contact support</support-link>.",
+			'Use the UDP queryPort from enshrouded_server.json. The Enshrouded default is 15637.',
 	},
-	srvRecordsHint: {
-		id: 'project.settings.server.srv-records-hint',
+	refresh: { id: 'project.settings.server.refresh-status', defaultMessage: 'Refresh status' },
+	online: { id: 'project.settings.server.online', defaultMessage: 'Server is online' },
+	offline: {
+		id: 'project.settings.server.enshrouded-offline',
+		defaultMessage: 'The server did not answer on this UDP query port.',
+	},
+	region: { id: 'project.settings.server.region', defaultMessage: 'Region' },
+	languages: {
+		id: 'project.settings.server.languages',
+		defaultMessage: 'Community languages',
+	},
+	communication: { id: 'project.settings.server.communication', defaultMessage: 'Communication' },
+	textChat: { id: 'project.settings.server.text-chat', defaultMessage: 'Text chat' },
+	voiceChat: { id: 'project.settings.server.voice-chat', defaultMessage: 'Voice chat' },
+	voiceChatMode: {
+		id: 'project.settings.server.voice-chat-mode',
+		defaultMessage: 'Voice chat mode',
+	},
+	proximity: { id: 'project.settings.server.voice-chat-proximity', defaultMessage: 'Proximity' },
+	global: { id: 'project.settings.server.voice-chat-global', defaultMessage: 'Global' },
+	accessGroups: { id: 'project.settings.server.access-groups', defaultMessage: 'Access groups' },
+	accessGroupsHint: {
+		id: 'project.settings.server.access-groups-hint',
 		defaultMessage:
-			"If you have <srv-tooltip>[SRV records]</srv-tooltip>, you do not need to add a port. Otherwise if you have a port which isn't 25565, you can include it as :12345",
+			'These settings are provided by the server owner and should match enshrouded_server.json.',
 	},
-	srvRecordsTooltip: {
-		id: 'project.settings.server.srv-records-tooltip',
+	kickBan: {
+		id: 'project.settings.server.permission-kick-ban',
+		defaultMessage: 'Kick and ban players',
+	},
+	inventories: {
+		id: 'project.settings.server.permission-inventories',
+		defaultMessage: 'Access inventories',
+	},
+	editWorld: { id: 'project.settings.server.permission-edit-world', defaultMessage: 'Edit world' },
+	editBase: { id: 'project.settings.server.permission-edit-base', defaultMessage: 'Edit bases' },
+	extendBase: {
+		id: 'project.settings.server.permission-extend-base',
+		defaultMessage: 'Extend bases',
+	},
+	reservedSlots: { id: 'project.settings.server.reserved-slots', defaultMessage: 'Reserved slots' },
+	passwordVisibility: {
+		id: 'project.settings.server.password-visibility',
+		defaultMessage: 'Password access',
+	},
+	passwordNone: { id: 'project.settings.server.password-none', defaultMessage: 'No password' },
+	passwordRequired: {
+		id: 'project.settings.server.password-required',
+		defaultMessage: 'Password required',
+	},
+	passwordContact: {
+		id: 'project.settings.server.password-contact',
+		defaultMessage: 'Ask the server owner',
+	},
+	passwordPublic: {
+		id: 'project.settings.server.password-public',
+		defaultMessage: 'Show public password',
+	},
+	publicPassword: {
+		id: 'project.settings.server.public-password',
+		defaultMessage: 'Public join password',
+	},
+	friendWarning: {
+		id: 'project.settings.server.friend-password-warning',
 		defaultMessage:
-			'The address you enter here may have DNS SRV records _minecraft._tcp.(your domain) which point to your Minecraft server address and port.',
+			'Friend access can modify inventories and bases. Publish this password only if that is intended.',
 	},
-	bedrockAddressLabel: {
-		id: 'project.settings.server.bedrock-address-label',
-		defaultMessage: 'Bedrock address',
+	publicPasswordMissing: {
+		id: 'project.settings.server.public-password-missing',
+		defaultMessage: 'Every group configured with a public password needs a password value.',
 	},
-	cannotSaveTitle: {
-		id: 'project.settings.server.cannot-save-title',
-		defaultMessage: 'Cannot save',
-	},
-	cannotSaveText: {
-		id: 'project.settings.server.cannot-save-text',
+	accessSaveFailed: {
+		id: 'project.settings.server.access-save-failed',
 		defaultMessage:
-			'The Java server must be reachable before saving. Please ensure the ping succeeds.',
+			'The server details were saved, but the public access passwords could not be saved.',
+	},
+	noPasswordWarning: {
+		id: 'project.settings.server.no-password-warning',
+		defaultMessage: 'Anyone can join this access group without entering a password.',
+	},
+	cannotSave: {
+		id: 'project.settings.server.enshrouded-cannot-save',
+		defaultMessage: 'The Enshrouded server must answer before saving.',
 	},
 })
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
+const queryClient = useQueryClient()
 const { addNotification } = injectNotificationManager()
 const { projectV3, currentMember, patchProjectV3 } = injectProjectPageContext()
-
-const regionValidation = useProjectNagMessages('server-region')
-const languageValidation = useProjectNagMessages('server-languages')
-const javaAddressValidation = useProjectNagMessages('java-address')
-const compatibilityValidation = useProjectNagMessages('server-compatibility')
-
 useProjectSettingsHeadTitle(commonProjectSettingsMessages.server)
 
-const javaAddress = ref('')
-const bedrockAddress = ref('')
-const bedrockPort = ref(19132)
+const address = ref('')
+const queryPort = ref(DEFAULT_QUERY_PORT)
 const region = ref('')
 const languages = ref([])
+const voiceChatEnabled = ref(false)
+const voiceChatMode = ref('proximity')
+const textChatEnabled = ref(false)
+const userGroups = ref([])
+const publicPasswords = ref({})
+const originalState = ref(null)
+const initializedProjectId = ref(null)
+const pingLoading = ref(false)
+const pingResult = ref(null)
+const saving = ref(false)
+let pingTimer
 
-const javaPingLoading = ref(false)
-const javaPingResult = ref(null)
-
-const lastPingedAddress = ref('')
-
-const lastPingAddressChanged = computed(() => {
-	return javaAddress.value.trim() !== lastPingedAddress.value
-})
-
-let pingDebounceTimer = null
-
-watch(javaAddress, () => {
-	clearTimeout(pingDebounceTimer)
-	pingDebounceTimer = setTimeout(() => {
-		pingJavaServer()
-	}, 500)
-})
-
-const isAdminUser = computed(() => isAdmin(currentMember.value?.user))
 const hasPermission = computed(() => {
 	const EDIT_DETAILS = 1 << 2
 	return (
-		isAdminUser.value || ((currentMember.value?.permissions ?? 0) & EDIT_DETAILS) === EDIT_DETAILS
+		isAdmin(currentMember.value?.user) ||
+		((currentMember.value?.permissions ?? 0) & EDIT_DETAILS) === EDIT_DETAILS
 	)
 })
 
-async function pingJavaServer() {
-	const address = javaAddress.value?.trim()
-	if (!address) {
-		javaPingResult.value = null
+async function pingServer() {
+	const port = Number(queryPort.value)
+	if (!address.value.trim() || !Number.isInteger(port) || port < 1 || port > 65535) {
+		pingResult.value = null
 		return
 	}
-
-	javaPingLoading.value = true
-	javaPingResult.value = null
-
+	pingLoading.value = true
 	try {
-		await Promise.race([
-			client.labrinth.server_ping_internal.pingMinecraftJava({
-				address,
-				timeout_ms: PING_TIMEOUT_MS,
-			}),
-			new Promise((_, reject) =>
-				setTimeout(() => reject(new Error('Ping timed out')), PING_TIMEOUT_MS),
-			),
-		])
-		javaPingResult.value = { online: true, latency: null }
+		const data = await client.labrinth.server_ping_internal.pingEnshrouded({
+			address: address.value.trim(),
+			query_port: port,
+			timeout_ms: PING_TIMEOUT_MS,
+		})
+		pingResult.value = { online: true, data }
 	} catch {
-		javaPingResult.value = { online: false, latency: null }
+		pingResult.value = { online: false, data: null }
 	} finally {
-		javaPingLoading.value = false
-		lastPingedAddress.value = address
+		pingLoading.value = false
 	}
 }
 
-function initFromProjectV3(v3) {
-	if (!v3) return
-	javaAddress.value = v3.minecraft_java_server?.address ?? ''
-	bedrockAddress.value = v3.minecraft_bedrock_server?.address ?? ''
-	bedrockPort.value = v3.minecraft_bedrock_server?.port ?? 19132
-	region.value = v3.minecraft_server?.region ?? ''
-	languages.value = v3.minecraft_server?.languages ?? []
+watch([address, queryPort], () => {
+	clearTimeout(pingTimer)
+	pingTimer = setTimeout(pingServer, 500)
+})
 
-	pingJavaServer()
-}
-
-// initialize projectV3 values once
-if (projectV3.value) {
-	initFromProjectV3(projectV3.value)
-} else {
-	const stop = watch(
-		() => projectV3.value,
-		(v3) => {
-			if (!v3) return
-			initFromProjectV3(v3)
-			stop()
+function defaultUserGroups() {
+	return [
+		{
+			name: 'Admin',
+			role: 'admin',
+			can_kick_ban: true,
+			can_access_inventories: true,
+			can_edit_world: true,
+			can_edit_base: true,
+			can_extend_base: true,
+			reserved_slots: 4,
+			password_visibility: 'contact_owner',
 		},
-	)
+		{
+			name: 'Friend',
+			role: 'friend',
+			can_kick_ban: false,
+			can_access_inventories: true,
+			can_edit_world: true,
+			can_edit_base: true,
+			can_extend_base: true,
+			reserved_slots: 0,
+			password_visibility: 'contact_owner',
+		},
+		{
+			name: 'Guest',
+			role: 'guest',
+			can_kick_ban: false,
+			can_access_inventories: false,
+			can_edit_world: true,
+			can_edit_base: false,
+			can_extend_base: false,
+			reserved_slots: 0,
+			password_visibility: 'required',
+		},
+		{
+			name: 'Visitor',
+			role: 'visitor',
+			can_kick_ban: false,
+			can_access_inventories: false,
+			can_edit_world: false,
+			can_edit_base: false,
+			can_extend_base: false,
+			reserved_slots: 0,
+			password_visibility: 'required',
+		},
+	]
 }
+
+function init(v3, entries = []) {
+	if (!v3) return
+	const server = v3.enshrouded_server
+	address.value = server?.address ?? ''
+	queryPort.value = server?.query_port ?? DEFAULT_QUERY_PORT
+	region.value = server?.region ?? ''
+	languages.value = server?.languages ?? []
+	voiceChatEnabled.value = server?.voice_chat_enabled ?? false
+	voiceChatMode.value = server?.voice_chat_mode ?? 'proximity'
+	textChatEnabled.value = server?.text_chat_enabled ?? false
+	userGroups.value = structuredClone(
+		server?.user_groups?.length ? server.user_groups : defaultUserGroups(),
+	)
+	publicPasswords.value = Object.fromEntries(
+		entries.map((entry) => [entry.group_name, entry.password]),
+	)
+	originalState.value = structuredClone(currentState())
+	initializedProjectId.value = v3.id
+	if (address.value) pingServer()
+}
+
+const { data: serverAccessEntries, isFetched: serverAccessFetched } = useQuery({
+	queryKey: computed(() => ['project', projectV3.value?.id, 'server-access']),
+	queryFn: () => client.labrinth.projects_v3.getServerAccess(projectV3.value.id),
+	enabled: computed(() => !!projectV3.value?.id && !!projectV3.value?.enshrouded_server),
+})
+
+watch(
+	[projectV3, serverAccessEntries, serverAccessFetched],
+	([project, entries, accessFetched]) => {
+		if (!project || !accessFetched || initializedProjectId.value === project.id) return
+		init(project, entries ?? [])
+	},
+	{ immediate: true },
+)
 
 const regionOptions = computed(() =>
 	Object.entries(SERVER_REGIONS)
-		.sort(([_, a], [__, b]) => {
-			const aFormatted = formatMessage(a)
-			const bFormatted = formatMessage(b)
-			return aFormatted.localeCompare(bFormatted, locale.value)
-		})
-		.map(([code, name]) => ({
-			value: code,
-			label: formatMessage(name),
-		})),
+		.sort(([, a], [, b]) => formatMessage(a).localeCompare(formatMessage(b), locale.value))
+		.map(([value, name]) => ({ value, label: formatMessage(name) })),
 )
-
 const languageOptions = computed(() =>
 	Object.entries(SERVER_LANGUAGES)
-		.sort(([_, a], [__, b]) => {
-			const aFormatted = formatMessage(a)
-			const bFormatted = formatMessage(b)
-			return aFormatted.localeCompare(bFormatted, locale.value)
-		})
-		.map(([code, name]) => ({
-			value: code,
-			label: formatMessage(name),
+		.sort(([, a], [, b]) => formatMessage(a).localeCompare(formatMessage(b), locale.value))
+		.map(([value, name]) => ({ value, label: formatMessage(name) })),
+)
+const voiceChatModeOptions = computed(() => [
+	{ value: 'proximity', label: formatMessage(messages.proximity) },
+	{ value: 'global', label: formatMessage(messages.global) },
+])
+function passwordVisibilityOptions(group) {
+	const options = [
+		{ value: 'none', label: formatMessage(messages.passwordNone) },
+		{ value: 'required', label: formatMessage(messages.passwordRequired) },
+		{ value: 'contact_owner', label: formatMessage(messages.passwordContact) },
+	]
+	if (group.role !== 'admin' && !group.can_kick_ban) {
+		options.push({ value: 'public', label: formatMessage(messages.passwordPublic) })
+	}
+	return options
+}
+
+watch(
+	userGroups,
+	(groups) => {
+		for (const group of groups) {
+			if (
+				(group.role === 'admin' || group.can_kick_ban) &&
+				group.password_visibility === 'public'
+			) {
+				group.password_visibility = 'contact_owner'
+			}
+		}
+	},
+	{ deep: true },
+)
+function formatGroupSummary(group) {
+	const slots = Number(group.reserved_slots) || 0
+	return slots > 0 ? `${slots} ${formatMessage(messages.reservedSlots).toLowerCase()}` : ''
+}
+function currentState() {
+	return {
+		address: address.value.trim(),
+		queryPort: Number(queryPort.value),
+		region: region.value,
+		languages: languages.value,
+		voiceChatEnabled: voiceChatEnabled.value,
+		voiceChatMode: voiceChatMode.value,
+		textChatEnabled: textChatEnabled.value,
+		userGroups: userGroups.value.map((group) => ({
+			...group,
+			reserved_slots: Number(group.reserved_slots) || 0,
 		})),
+		publicPasswords: publicPasswords.value,
+	}
+}
+
+const original = computed(() => originalState.value ?? currentState())
+const modified = computed(currentState)
+const hasChanges = computed(
+	() =>
+		initializedProjectId.value !== null &&
+		JSON.stringify(original.value) !== JSON.stringify(modified.value),
 )
-
-const javaServerPatchData = computed(() => {
-	const addressChanged =
-		javaAddress.value.trim() !== (projectV3.value?.minecraft_java_server?.address ?? '')
-	if (addressChanged) {
-		return {
-			address: javaAddress.value.trim(),
-		}
-	}
-
-	return {}
-})
-
-const bedrockServerPatchData = computed(() => {
-	const origBedrock = projectV3.value?.minecraft_bedrock_server
-	if (bedrockAddress.value !== (origBedrock?.address ?? '')) {
-		return {
-			address: bedrockAddress.value.trim(),
-		}
-	}
-
-	return {}
-})
-
-const serverPatchData = computed(() => {
-	const origServer = projectV3.value?.minecraft_server
-	const regionChanged = region.value && region.value !== origServer?.region
-	const languagesChanged =
-		JSON.stringify([...languages.value].sort()) !==
-		JSON.stringify([...(origServer?.languages ?? [])].sort())
-
-	if (regionChanged || languagesChanged) {
-		return {
-			...origServer,
-			...(regionChanged ? { region: region.value } : {}),
-			...(languagesChanged ? { languages: languages.value } : {}),
-		}
-	}
-
-	return {}
-})
-
-const v3PatchData = computed(() => {
-	const data = {}
-	if (Object.keys(serverPatchData.value).length > 0) {
-		data.minecraft_server = serverPatchData.value
-	}
-	if (Object.keys(javaServerPatchData.value).length > 0) {
-		data.minecraft_java_server = javaServerPatchData.value
-	}
-	if (Object.keys(bedrockServerPatchData.value).length > 0) {
-		data.minecraft_bedrock_server = bedrockServerPatchData.value
-	}
-	return data
-})
-
-const saving = ref(false)
-
-const original = computed(() => ({
-	javaAddress: projectV3.value?.minecraft_java_server?.address ?? '',
-	bedrockAddress: projectV3.value?.minecraft_bedrock_server?.address ?? '',
-	bedrockPort: projectV3.value?.minecraft_bedrock_server?.port ?? 19132,
-	region: projectV3.value?.minecraft_server?.region ?? '',
-	languages: projectV3.value?.minecraft_server?.languages ?? [],
-}))
-
-const modified = computed(() => ({
-	javaAddress: javaAddress.value,
-	bedrockAddress: bedrockAddress.value,
-	bedrockPort: bedrockPort.value,
-	region: region.value,
-	languages: languages.value,
-}))
-
-const hasChanges = computed(() =>
-	Object.keys(original.value).some((key) => {
-		const a = original.value[key]
-		const b = modified.value[key]
-		if (Array.isArray(a) && Array.isArray(b)) {
-			return a.length !== b.length || a.some((v, i) => v !== b[i])
-		}
-		return a !== b
-	}),
-)
-
 const { confirmLeaveModal } = usePageLeaveSafety(hasChanges)
 
 function resetChanges() {
-	javaAddress.value = projectV3.value?.minecraft_java_server?.address ?? ''
-	bedrockAddress.value = projectV3.value?.minecraft_bedrock_server?.address ?? ''
-	bedrockPort.value = projectV3.value?.minecraft_bedrock_server?.port ?? 19132
-	region.value = projectV3.value?.minecraft_server?.region ?? ''
-	languages.value = projectV3.value?.minecraft_server?.languages ?? []
+	if (!originalState.value) return
+	const state = structuredClone(originalState.value)
+	address.value = state.address
+	queryPort.value = state.queryPort
+	region.value = state.region
+	languages.value = state.languages
+	voiceChatEnabled.value = state.voiceChatEnabled
+	voiceChatMode.value = state.voiceChatMode
+	textChatEnabled.value = state.textChatEnabled
+	userGroups.value = state.userGroups
+	publicPasswords.value = state.publicPasswords
 }
 
+const serverAccessMutation = useMutation({
+	mutationFn: ({ projectId, passwords }) =>
+		client.labrinth.projects_v3.setServerAccess(projectId, passwords),
+	onSuccess: (_data, { projectId, passwords }) => {
+		queryClient.setQueryData(['project', projectId, 'server-access'], passwords)
+	},
+})
+
 async function handleSave() {
-	if (!isAdminUser.value && javaAddress.value.trim() && !javaPingResult.value?.online) {
+	if (!isAdmin(currentMember.value?.user) && !pingResult.value?.online) {
 		addNotification({
-			title: formatMessage(messages.cannotSaveTitle),
-			text: formatMessage(messages.cannotSaveText),
+			title: formatMessage(commonProjectSettingsMessages.server),
+			text: formatMessage(messages.cannotSave),
 			type: 'error',
 		})
 		return
 	}
-
+	const missingPublicPassword = userGroups.value.some(
+		(group) => group.password_visibility === 'public' && !publicPasswords.value[group.name]?.trim(),
+	)
+	if (missingPublicPassword) {
+		addNotification({
+			title: formatMessage(commonProjectSettingsMessages.server),
+			text: formatMessage(messages.publicPasswordMissing),
+			type: 'error',
+		})
+		return
+	}
 	saving.value = true
 	try {
-		const hasV3Changes = Object.keys(v3PatchData.value).length > 0
-		if (hasV3Changes) {
-			await patchProjectV3(v3PatchData.value)
+		const projectSaved = await patchProjectV3({
+			enshrouded_server: {
+				address: modified.value.address,
+				query_port: modified.value.queryPort,
+				region: modified.value.region,
+				languages: modified.value.languages,
+				voice_chat_enabled: modified.value.voiceChatEnabled,
+				voice_chat_mode: modified.value.voiceChatMode,
+				text_chat_enabled: modified.value.textChatEnabled,
+				user_groups: modified.value.userGroups,
+			},
+		})
+		if (!projectSaved) return
+		try {
+			await serverAccessMutation.mutateAsync({
+				projectId: projectV3.value.id,
+				passwords: modified.value.userGroups
+					.filter((group) => group.password_visibility === 'public')
+					.map((group) => ({
+						group_name: group.name,
+						password: publicPasswords.value[group.name].trim(),
+					})),
+			})
+		} catch {
+			addNotification({
+				title: formatMessage(commonProjectSettingsMessages.server),
+				text: formatMessage(messages.accessSaveFailed),
+				type: 'error',
+			})
+			return
 		}
+		originalState.value = structuredClone(modified.value)
 	} finally {
 		saving.value = false
 	}

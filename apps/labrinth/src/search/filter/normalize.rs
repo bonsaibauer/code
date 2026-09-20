@@ -79,11 +79,11 @@ fn normalize_predicate(mut predicate: FilterPredicate) -> FilterExpr {
         values.dedup();
     }
 
-    if predicate.field.as_str() == "minecraft_java_server.ping.data"
+    if predicate.field.as_str() == "enshrouded_server.ping.data"
         && let FilterCondition::Exists { negated } = predicate.condition
     {
         return FilterExpr::Predicate(FilterPredicate {
-            field: FilterField::new("minecraft_java_server.is_online"),
+            field: FilterField::new("enshrouded_server.is_online"),
             condition: FilterCondition::Compare {
                 comparison: FilterComparison::Equal,
                 value: FilterLiteral::Bool(!negated),

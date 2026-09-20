@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { CheckIcon, XIcon } from '@modrinth/assets'
-import { Button, NewModal, Textarea } from '@modrinth/ui'
+import { CheckIcon, XIcon } from '@shroudedit/assets'
+import { Button, NewModal, Textarea } from '@shroudedit/ui'
 import { nextTick, ref, useTemplateRef } from 'vue'
 
 const emit = defineEmits<{

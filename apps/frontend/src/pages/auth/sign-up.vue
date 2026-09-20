@@ -25,10 +25,10 @@
 import {
 	commonMessages,
 	defineMessages,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { useQuery } from '@tanstack/vue-query'
 import { useStorage } from '@vueuse/core'
 import type { LocationQueryValue } from 'vue-router'
@@ -77,7 +77,7 @@ const getErrorMessage = (error: unknown): string => {
 	return String(error)
 }
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const { addNotification } = injectNotificationManager()
 const { formatMessage } = useVIntl()
 
@@ -92,12 +92,12 @@ const messages = defineMessages({
 	},
 	under13HelperText: {
 		id: 'auth.create-account.date-of-birth.under13-helper',
-		defaultMessage: 'You cannot create an account at Modrinth unless you are over 13 years old.',
+		defaultMessage: 'You cannot create a ShroudEdit account unless you are over 13 years old.',
 	},
 })
 
 useHead({
-	title: () => `${formatMessage(messages.title)} - Modrinth`,
+	title: () => `${formatMessage(messages.title)} - ShroudEdit`,
 })
 
 const route = useNativeRoute()
@@ -261,11 +261,6 @@ async function createAccount(accountConsent: boolean) {
 		await useUser()
 
 		promotePendingSignInOAuthProvider()
-
-		if (route.query.launcher) {
-			await navigateTo({ path: '/auth/sign-in', query: route.query })
-			return
-		}
 
 		if (route.query.redirect) {
 			await navigateTo(getQueryString(route.query.redirect))

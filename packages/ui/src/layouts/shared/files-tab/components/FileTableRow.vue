@@ -86,7 +86,7 @@ import {
 	PaintbrushIcon,
 	RightArrowIcon,
 	TrashIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import { computed, ref } from 'vue'
 
 import type { ButtonMenuOption } from '#ui/components/base/buttons'

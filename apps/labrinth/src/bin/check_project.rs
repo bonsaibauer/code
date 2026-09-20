@@ -22,12 +22,12 @@ use url::Url;
 #[path = "check_project/profanity.rs"]
 mod profanity;
 
-const API_BASE_URL: &str = "https://api.modrinth.com/v3/";
+const API_BASE_URL: &str = "https://api.shroudedit.com/v3/";
 
 #[derive(Parser)]
 #[command(
     version,
-    about = "Validate a project from the Modrinth API or a project dataset"
+    about = "Validate a project from the ShroudEdit API or a project dataset"
 )]
 struct Args {
     /// The ID of the project to validate
@@ -59,7 +59,7 @@ struct Args {
 	)]
     all_nag_project_ids: bool,
 
-    /// A Modrinth token to send as bearer authentication
+    /// A ShroudEdit token to send as bearer authentication
     #[arg(long, value_name = "TOKEN")]
     token: Option<String>,
 
@@ -380,7 +380,7 @@ fn print_description_profanity_samples(samples: &[DescriptionProfanitySample]) {
         eprintln!("\n--- Sample {} of {} ---", index + 1, samples.len());
         eprintln!("Project: {}", sample.name);
         eprintln!("ID:      {}", sample.id);
-        eprintln!("URL:     https://modrinth.com/project/{}", sample.id);
+        eprintln!("URL:     https://shroudedit.com/project/{}", sample.id);
         eprintln!(
             "\n{}",
             profanity::highlight_text(&sample.description, use_color)

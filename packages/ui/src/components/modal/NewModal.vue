@@ -144,7 +144,7 @@
 </template>
 
 <script setup lang="ts">
-import { XIcon } from '@modrinth/assets'
+import { XIcon } from '@shroudedit/assets'
 import { computed, nextTick, onUnmounted, ref } from 'vue'
 
 import { IconButton } from '#ui/components/base/buttons'
@@ -596,7 +596,7 @@ defineOptions({
 	}
 }
 
-.modrinth-parent__no-modal-blurs {
+.shroudedit-parent__no-modal-blurs {
 	.modal-overlay {
 		backdrop-filter: none;
 	}

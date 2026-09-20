@@ -40,7 +40,7 @@ concurrency:
 
 jobs:
   deploy:
-    runs-on: namespace-profile-modrinth-frontend
+    runs-on: namespace-profile-shroudedit-frontend
     permissions:
       contents: read
       deployments: write
@@ -64,8 +64,8 @@ jobs:
           SHA_SHORT="${DEPLOY_SHA::8}"
 
           if [ "$PREVIEW_INPUT" = "true" ]; then
-            URL="https://git-$SHA_SHORT-frontend.modrinth.workers.dev"
-            STAGING_URL="https://git-$SHA_SHORT-staging-frontend.modrinth.workers.dev"
+            URL="https://git-$SHA_SHORT-frontend.shroudedit.workers.dev"
+            STAGING_URL="https://git-$SHA_SHORT-staging-frontend.shroudedit.workers.dev"
             echo "env=production" >> $GITHUB_OUTPUT
             echo "url=$URL" >> $GITHUB_OUTPUT
             echo "staging_url=$STAGING_URL" >> $GITHUB_OUTPUT
@@ -75,19 +75,19 @@ jobs:
             echo "staging_cmd=versions upload --preview-alias git-$SHA_SHORT-staging ${STAGING_VARS}--var PREVIEW:true --var CF_PAGES_URL:$STAGING_URL" >> $GITHUB_OUTPUT
 
             if [ -n "$BRANCH_ALIAS" ]; then
-              echo "branch_alias_url=https://$BRANCH_ALIAS-frontend.modrinth.workers.dev" >> $GITHUB_OUTPUT
-              echo "staging_branch_alias_url=https://$BRANCH_ALIAS-staging-frontend.modrinth.workers.dev" >> $GITHUB_OUTPUT
-              echo "staging_branch_alias_cmd=versions upload --preview-alias $BRANCH_ALIAS-staging ${STAGING_VARS}--var PREVIEW:true --var CF_PAGES_URL:https://$BRANCH_ALIAS-staging-frontend.modrinth.workers.dev" >> $GITHUB_OUTPUT
+              echo "branch_alias_url=https://$BRANCH_ALIAS-frontend.shroudedit.workers.dev" >> $GITHUB_OUTPUT
+              echo "staging_branch_alias_url=https://$BRANCH_ALIAS-staging-frontend.shroudedit.workers.dev" >> $GITHUB_OUTPUT
+              echo "staging_branch_alias_cmd=versions upload --preview-alias $BRANCH_ALIAS-staging ${STAGING_VARS}--var PREVIEW:true --var CF_PAGES_URL:https://$BRANCH_ALIAS-staging-frontend.shroudedit.workers.dev" >> $GITHUB_OUTPUT
             fi
 
           elif [ "$REF" = "refs/heads/main" ]; then
             echo "env=staging" >> $GITHUB_OUTPUT
-            echo "url=https://staging.modrinth.com" >> $GITHUB_OUTPUT
+            echo "url=https://staging.shroudedit.com" >> $GITHUB_OUTPUT
 
           else
             # Production env (no preview)
             echo "env=production" >> $GITHUB_OUTPUT
-            echo "url=https://modrinth.com" >> $GITHUB_OUTPUT
+            echo "url=https://shroudedit.com" >> $GITHUB_OUTPUT
           fi
 
       - name: Setup Node
@@ -138,7 +138,7 @@ jobs:
         uses: getsentry/action-release@ff07929a6537bac57790c3451cf4d364aca38528 # v3.7.0
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          SENTRY_ORG: modrinth
+          SENTRY_ORG: shroudedit
           SENTRY_PROJECT: knossos-server
         with:
           environment: ${{ steps.meta.outputs.env }}
@@ -199,7 +199,7 @@ jobs:
           curl -X POST \
             -H "Authorization: Bearer ${{ secrets.CF_API_TOKEN }}" \
             -H "Content-Type: application/json" \
-            --data '{"hosts": ["modrinth.com", "www.modrinth.com", "staging.modrinth.com"]}' \
+            --data '{"hosts": ["shroudedit.com", "www.shroudedit.com", "staging.shroudedit.com"]}' \
             https://api.cloudflare.com/client/v4/zones/e39df17b9c4ef44cbce2646346ee6d33/purge_cache
 
       - name: Write deployment URLs to files

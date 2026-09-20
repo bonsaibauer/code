@@ -114,7 +114,7 @@
     "defaultMessage": "Geen resultaten gevonden voor je zoekopdracht!"
   },
   "browse.offline": {
-    "defaultMessage": "Je bent op dit moment offline. Maak verbinding met internet om Modrinth te bekijken!"
+    "defaultMessage": "Je bent op dit moment offline. Maak verbinding met internet om ShroudEdit te bekijken!"
   },
   "browse.search.placeholder": {
     "defaultMessage": "Zoeken naar {projectType}..."
@@ -254,8 +254,8 @@
   "button.open-in-folder": {
     "defaultMessage": "Open in map"
   },
-  "button.open-in-modrinth": {
-    "defaultMessage": "Open in Modrinth"
+  "button.open-in-shroudedit": {
+    "defaultMessage": "Open in ShroudEdit"
   },
   "button.play": {
     "defaultMessage": "Speel"
@@ -555,13 +555,13 @@
     "defaultMessage": "{count} verwijderd (uitgeschakeld)"
   },
   "content.diff-modal.reviewed-files": {
-    "defaultMessage": "Bestanden die niet op Modrinth worden gepubliceerd, worden niet beoordeeld."
+    "defaultMessage": "Bestanden die niet op ShroudEdit worden gepubliceerd, worden niet beoordeeld."
   },
   "content.diff-modal.unknown-content-body": {
     "defaultMessage": "Sommige inhoud op je server kon niet worden geanalyseerd en kan door deze wijziging worden beïnvloed."
   },
   "content.diff-modal.unknown-files-description": {
-    "defaultMessage": "Deze update bevat bestanden die niet op Modrinth zijn gepubliceerd. We raden je ten zeerste aan om alleen bestanden te installeren uit bronnen die je vertrouwt."
+    "defaultMessage": "Deze update bevat bestanden die niet op ShroudEdit zijn gepubliceerd. We raden je ten zeerste aan om alleen bestanden te installeren uit bronnen die je vertrouwt."
   },
   "content.diff-modal.unknown-files-warning": {
     "defaultMessage": "Waarschuwing voor onbekende bestanden"
@@ -1082,11 +1082,11 @@
   "creation-flow.modal.setup-type.option.upload-modpack.title": {
     "defaultMessage": "Modpack uploaden"
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.description": {
-    "defaultMessage": "Klassiek Minecraft zonder mods of plug-ins."
+  "creation-flow.modal.setup-type.option.vanilla-enshrouded.description": {
+    "defaultMessage": "Klassiek Enshrouded zonder mods of plug-ins."
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.title": {
-    "defaultMessage": "Vanilla Minecraft"
+  "creation-flow.modal.setup-type.option.vanilla-enshrouded.title": {
+    "defaultMessage": "Vanilla Enshrouded"
   },
   "creation-flow.modal.setup-type.title.installation": {
     "defaultMessage": "Installatietype selecteren"
@@ -1208,8 +1208,8 @@
   "external-files.permissions-card.editor.link-to-work-url-placeholder": {
     "defaultMessage": "link-naar-werk"
   },
-  "external-files.permissions-card.editor.modrinth-link-to-work": {
-    "defaultMessage": "Dit lijkt een Modrinth-link te zijn. Als deze inhoud op Modrinth beschikbaar is, is je pakket waarschijnlijk niet correct geëxporteerd. Als je het van een andere site hebt gedownload, probeer dan in plaats daarvan de Modrinth-versie te downloaden; soms zijn het geen identieke bestanden."
+  "external-files.permissions-card.editor.shroudedit-link-to-work": {
+    "defaultMessage": "Dit lijkt een ShroudEdit-link te zijn. Als deze inhoud op ShroudEdit beschikbaar is, is je pakket waarschijnlijk niet correct geëxporteerd. Als je het van een andere site hebt gedownload, probeer dan in plaats daarvan de ShroudEdit-versie te downloaden; soms zijn het geen identieke bestanden."
   },
   "external-files.permissions-card.editor.notes-label": {
     "defaultMessage": "Opmerkingen"
@@ -1233,7 +1233,7 @@
     "defaultMessage": "Als blijkt dat je hebt gelogen of de geüploade afbeeldingen hebt gemanipuleerd, kunnen je project en je account worden beëindigd."
   },
   "external-files.permissions-card.editor.proof-warning.title": {
-    "defaultMessage": "Medewerkers van Modrinth kunnen de ingediende bewijsstukken controleren"
+    "defaultMessage": "Medewerkers van ShroudEdit kunnen de ingediende bewijsstukken controleren"
   },
   "external-files.permissions-card.editor.save": {
     "defaultMessage": "Bronvermelding opslaan"
@@ -1320,7 +1320,7 @@
     "defaultMessage": "Automatisch toegewezen"
   },
   "external-files.permissions-card.reason.globally-allowed.description": {
-    "defaultMessage": "We hebben dit bestand al eerder gezien en hebben een bronvermelding voor je opgesteld. Mocht er iets niet kloppen, neem dan contact op met Modrinth Support via de klantenservice"
+    "defaultMessage": "We hebben dit bestand al eerder gezien en hebben een bronvermelding voor je opgesteld. Mocht er iets niet kloppen, neem dan contact op met ShroudEdit Support via de klantenservice"
   },
   "external-files.permissions-card.reason.license": {
     "defaultMessage": "Licentie"
@@ -1937,16 +1937,16 @@
   "header.category.feature": {
     "defaultMessage": "Functie"
   },
-  "header.category.minecraft-server-community": {
+  "header.category.enshrouded-server-community": {
     "defaultMessage": "Community"
   },
-  "header.category.minecraft-server-features": {
+  "header.category.enshrouded-server-features": {
     "defaultMessage": "Kenmerken"
   },
-  "header.category.minecraft-server-gameplay": {
+  "header.category.enshrouded-server-gameplay": {
     "defaultMessage": "Game stijl"
   },
-  "header.category.minecraft-server-meta": {
+  "header.category.enshrouded-server-meta": {
     "defaultMessage": "Meta"
   },
   "header.category.performance-impact": {
@@ -2274,13 +2274,13 @@
     "defaultMessage": "Verwijderd (niet compatibel)"
   },
   "installation-settings.repair.instance-description": {
-    "defaultMessage": "Installeert de afhankelijkheden van Minecraft opnieuw en controleert op beschadigde bestanden. Dit kan problemen verhelpen als je spel niet start vanwege fouten in het opstartprogramma."
+    "defaultMessage": "Installeert de afhankelijkheden van Enshrouded opnieuw en controleert op beschadigde bestanden. Dit kan problemen verhelpen als je spel niet start vanwege fouten in het opstartprogramma."
   },
   "installation-settings.repair.instance-title": {
     "defaultMessage": "Instantie herstellen"
   },
   "installation-settings.repair.server-description": {
-    "defaultMessage": "Hiermee worden de loader en de Minecraft afhankelijkheden opnieuw geïnstalleerd zonder je inhoud te verwijderen. Dit kan problemen verhelpen als je server niet correct opstart."
+    "defaultMessage": "Hiermee worden de loader en de Enshrouded afhankelijkheden opnieuw geïnstalleerd zonder je inhoud te verwijderen. Dit kan problemen verhelpen als je server niet correct opstart."
   },
   "installation-settings.repair.server-title": {
     "defaultMessage": "Server herstellen"
@@ -2307,7 +2307,7 @@
     "defaultMessage": "Koppeling verwijderen"
   },
   "installation-settings.unlink.description": {
-    "defaultMessage": "Door de koppeling ongedaan te maken, wordt dit {type} definitief losgekoppeld van het {projectType} project. Hierdoor kun je de loader en de Minecraft-versie wijzigen, maar ontvang je geen toekomstige updates meer."
+    "defaultMessage": "Door de koppeling ongedaan te maken, wordt dit {type} definitief losgekoppeld van het {projectType} project. Hierdoor kun je de loader en de Enshrouded-versie wijzigen, maar ontvang je geen toekomstige updates meer."
   },
   "installation-settings.verifying": {
     "defaultMessage": "Bezig met controleren..."
@@ -2325,10 +2325,10 @@
     "defaultMessage": "Modpack opnieuw installeren"
   },
   "instance.confirm-repair.body.instance": {
-    "defaultMessage": "Bij het herstellen worden de launcher en de afhankelijkheden van Minecraft opnieuw geïnstalleerd, zonder dat je inhoud wordt verwijderd. Dit kan problemen verhelpen als je spel niet start vanwege fouten die verband houden met de launcher."
+    "defaultMessage": "Bij het herstellen worden de launcher en de afhankelijkheden van Enshrouded opnieuw geïnstalleerd, zonder dat je inhoud wordt verwijderd. Dit kan problemen verhelpen als je spel niet start vanwege fouten die verband houden met de launcher."
   },
   "instance.confirm-repair.body.server": {
-    "defaultMessage": "Bij het herstellen worden de loader en de afhankelijkheden van Minecraft opnieuw geïnstalleerd, zonder dat je inhoud wordt verwijderd. Dit kan problemen verhelpen als je server niet correct opstart."
+    "defaultMessage": "Bij het herstellen worden de loader en de afhankelijkheden van Enshrouded opnieuw geïnstalleerd, zonder dat je inhoud wordt verwijderd. Dit kan problemen verhelpen als je server niet correct opstart."
   },
   "instance.confirm-repair.header": {
     "defaultMessage": "{type} herstellen"
@@ -2424,7 +2424,7 @@
     "defaultMessage": "Extern"
   },
   "instances.managed-content-modal.external-content-description": {
-    "defaultMessage": "Dit bestand is niet gepubliceerd op Modrinth."
+    "defaultMessage": "Dit bestand is niet gepubliceerd op ShroudEdit."
   },
   "instances.managed-content-modal.header": {
     "defaultMessage": "Beheer content"
@@ -3030,16 +3030,16 @@
     "defaultMessage": "Houd de bestanden geupdate wanneer de server verandert"
   },
   "modal.open-in-app.get-app": {
-    "defaultMessage": "Krijg de Modrinth App"
+    "defaultMessage": "Krijg de ShroudEdit App"
   },
   "modal.open-in-app.opening-automatically": {
-    "defaultMessage": "De Modrinth App zal automatisch openen..."
+    "defaultMessage": "De ShroudEdit App zal automatisch openen..."
   },
   "modal.open-in-app.title": {
-    "defaultMessage": "Bezig met de Modrinth App openen"
+    "defaultMessage": "Bezig met de ShroudEdit App openen"
   },
   "modal.open-in-app.why-use": {
-    "defaultMessage": "Waarom de Modrinth App gebruiken"
+    "defaultMessage": "Waarom de ShroudEdit App gebruiken"
   },
   "notification.error.title": {
     "defaultMessage": "Er is een fout opgetreden"
@@ -3104,8 +3104,8 @@
   "omorphia.component.badge.label.moderator": {
     "defaultMessage": "Toezichthouder"
   },
-  "omorphia.component.badge.label.modrinth-team": {
-    "defaultMessage": "Modrinth team"
+  "omorphia.component.badge.label.shroudedit-team": {
+    "defaultMessage": "ShroudEdit team"
   },
   "omorphia.component.badge.label.pending": {
     "defaultMessage": "In behandeling"
@@ -3225,13 +3225,13 @@
     "defaultMessage": "Visa"
   },
   "profile.bio.fallback.creator": {
-    "defaultMessage": "Een maker op Modrinth."
+    "defaultMessage": "Een maker op ShroudEdit."
   },
   "profile.bio.fallback.user": {
-    "defaultMessage": "Een gebruiker van Modrinth."
+    "defaultMessage": "Een gebruiker van ShroudEdit."
   },
   "profile.block-user.admonition-body": {
-    "defaultMessage": "{username} zal je geen vriendschapsverzoeken kunnen sturen, je niet kunnen uitnodigen voor gedeelde instanties en je ook niet kunnen uitnodigen voor Modrinth Hosting-servers."
+    "defaultMessage": "{username} zal je geen vriendschapsverzoeken kunnen sturen, je niet kunnen uitnodigen voor gedeelde instanties en je ook niet kunnen uitnodigen voor ShroudEdit Hosting-servers."
   },
   "profile.block-user.admonition-title": {
     "defaultMessage": "Weet je zeker dat je deze gebruiker wilt blokkeren?"
@@ -3288,7 +3288,7 @@
     "defaultMessage": "{count, plural, one {# project} other {# projecten}}"
   },
   "profile.details.error.github-popup-blocked": {
-    "defaultMessage": "Schakel pop-ups voor Modrinth in en probeer het vervolgens opnieuw."
+    "defaultMessage": "Schakel pop-ups voor ShroudEdit in en probeer het vervolgens opnieuw."
   },
   "profile.details.error.github-profile-message": {
     "defaultMessage": "Het GitHub-profiel kon niet worden opgehaald. Probeer het nog eens."
@@ -3366,10 +3366,10 @@
     "defaultMessage": "{count, plural, one {project} other {projecten}}"
   },
   "profile.official-account": {
-    "defaultMessage": "Officieel Modrinth-account"
+    "defaultMessage": "Officieel ShroudEdit-account"
   },
   "profile.official-account.bio": {
-    "defaultMessage": "Het officiële gebruikersaccount van Modrinth. Neem contact op met het Helpcentrum via <support-link></support-link> of per e-mail via <email></email>"
+    "defaultMessage": "Het officiële gebruikersaccount van ShroudEdit. Neem contact op met het Helpcentrum via <support-link></support-link> of per e-mail via <email></email>"
   },
   "profile.unblock-user.error-description": {
     "defaultMessage": "Er is een fout opgetreden bij het deblokkeren van deze gebruiker. Probeer het nog eens."
@@ -3506,8 +3506,8 @@
   "project.about.compatibility.environments.singleplayer-only": {
     "defaultMessage": "Alleen voor één speler"
   },
-  "project.about.compatibility.game.minecraftJava": {
-    "defaultMessage": "Minecraft: Java Editie"
+  "project.about.compatibility.game.enshroudedJava": {
+    "defaultMessage": "Enshrouded: Java Editie"
   },
   "project.about.compatibility.platforms": {
     "defaultMessage": "Platformen"
@@ -3741,7 +3741,7 @@
     "defaultMessage": "{count} {countPlural, plural, one {recent play} other {recent plays}}"
   },
   "project.recent-plays.tooltip": {
-    "defaultMessage": "{count} {countPlural, plural, one {recent play} other {recent plays}} van Modrinth in de afgelopen twee weken"
+    "defaultMessage": "{count} {countPlural, plural, one {recent play} other {recent plays}} van ShroudEdit in de afgelopen twee weken"
   },
   "project.server.customModpackTooltip": {
     "defaultMessage": "Dit project maakt gebruik van een op maat gemaakt modpack"
@@ -4074,7 +4074,7 @@
     "defaultMessage": "Je project heeft meerdere omgevingen"
   },
   "project.settings.environment.notice.review-options.description": {
-    "defaultMessage": "We hebben het Environments-systeem op Modrinth zojuist grondig herzien en er zijn nu nieuwe opties beschikbaar. Zorg ervoor dat je hieronder de juiste optie selecteert en klik vervolgens op ‘Verifiëren’ als je klaar bent!"
+    "defaultMessage": "We hebben het Environments-systeem op ShroudEdit zojuist grondig herzien en er zijn nu nieuwe opties beschikbaar. Zorg ervoor dat je hieronder de juiste optie selecteert en klik vervolgens op ‘Verifiëren’ als je klaar bent!"
   },
   "project.settings.environment.notice.review-options.title": {
     "defaultMessage": "Beoordeel onderstaande opties"
@@ -4443,13 +4443,13 @@
     "defaultMessage": "Lader"
   },
   "search.photosensitivity-warning-modal.body.1": {
-    "defaultMessage": "We kunnen niet garanderen dat alle inhoud van Modrinth op de juiste manier geëtiketteerd is."
+    "defaultMessage": "We kunnen niet garanderen dat alle inhoud van ShroudEdit op de juiste manier geëtiketteerd is."
   },
   "search.photosensitivity-warning-modal.body.2": {
-    "defaultMessage": "Content labels voor fotosensibiliseringstriggers worden zelf toegewezen door de makers die hun content uploaden naar Modrinth. Deze projecten hebben geen enkele veiligheidstests ondergaan."
+    "defaultMessage": "Content labels voor fotosensibiliseringstriggers worden zelf toegewezen door de makers die hun content uploaden naar ShroudEdit. Deze projecten hebben geen enkele veiligheidstests ondergaan."
   },
   "search.photosensitivity-warning-modal.body.3": {
-    "defaultMessage": "Het gebruiken van inhoud op Modrinth is op eigen risico. Blijf veilig! 💚"
+    "defaultMessage": "Het gebruiken van inhoud op ShroudEdit is op eigen risico. Blijf veilig! 💚"
   },
   "search.photosensitivity-warning-modal.dont-show-again": {
     "defaultMessage": "Laat dit niet meer zien"
@@ -4545,7 +4545,7 @@
     "defaultMessage": "Bestand geüpload"
   },
   "servers.access-page.activity-log-filter.action.game-version-edited": {
-    "defaultMessage": "Minecraft-versie gewijzigd"
+    "defaultMessage": "Enshrouded-versie gewijzigd"
   },
   "servers.access-page.activity-log-filter.action.java-runtime-modified": {
     "defaultMessage": "Java-runtime gewijzigd"
@@ -4875,7 +4875,7 @@
     "defaultMessage": "Bestand <file></file> geüpload"
   },
   "servers.audit-log.event.game-version-changed": {
-    "defaultMessage": "Minecraft-versie is gewijzigd naar <version></version>"
+    "defaultMessage": "Enshrouded-versie is gewijzigd naar <version></version>"
   },
   "servers.audit-log.event.java-runtime-modified": {
     "defaultMessage": "Java-runtime gewijzigd naar <vendor></vendor>"
@@ -5229,16 +5229,16 @@
     "defaultMessage": "Avatar van {username}"
   },
   "servers.grant-access-modal.target.help": {
-    "defaultMessage": "Gebruik hun Minecraft-gebruikersnaam niet."
+    "defaultMessage": "Gebruik hun Enshrouded-gebruikersnaam niet."
   },
   "servers.grant-access-modal.target.label": {
-    "defaultMessage": "Modrinth-gebruikersnaam"
+    "defaultMessage": "ShroudEdit-gebruikersnaam"
   },
   "servers.grant-access-modal.target.no-suggestions": {
     "defaultMessage": "Geen overeenkomende gebruikers gevonden."
   },
   "servers.grant-access-modal.target.placeholder": {
-    "defaultMessage": "Voer Modrinth-gebruikersnaam in"
+    "defaultMessage": "Voer ShroudEdit-gebruikersnaam in"
   },
   "servers.grant-access-modal.target.searching": {
     "defaultMessage": "Bezig met zoeken..."
@@ -5264,14 +5264,14 @@
   "servers.installing-banner.error.header.local-modpack": {
     "defaultMessage": "Het uploaden van {filename} is mislukt"
   },
-  "servers.installing-banner.error.header.minecraft": {
-    "defaultMessage": "Installatie van Minecraft {version} is mislukt"
+  "servers.installing-banner.error.header.enshrouded": {
+    "defaultMessage": "Installatie van Enshrouded {version} is mislukt"
   },
   "servers.installing-banner.error.header.modpack": {
     "defaultMessage": "Het opnieuw installeren van het modpack is mislukt"
   },
   "servers.installing-banner.error.header.platform": {
-    "defaultMessage": "Fout bij het installeren van {loader} {loaderVersion} voor Minecraft {gameVersion}"
+    "defaultMessage": "Fout bij het installeren van {loader} {loaderVersion} voor Enshrouded {gameVersion}"
   },
   "servers.installing-banner.error.unknown": {
     "defaultMessage": "Tijdens de installatie is er een onverwachte fout opgetreden."
@@ -5279,14 +5279,14 @@
   "servers.installing-banner.installing-local-modpack": {
     "defaultMessage": "Installeren {filename}"
   },
-  "servers.installing-banner.installing-minecraft": {
-    "defaultMessage": "Minecraft {version} installeren"
+  "servers.installing-banner.installing-enshrouded": {
+    "defaultMessage": "Enshrouded {version} installeren"
   },
   "servers.installing-banner.installing-modpack": {
     "defaultMessage": "Modpack aan het installeren"
   },
   "servers.installing-banner.installing-platform": {
-    "defaultMessage": "{loader} installeren voor Minecraft {version}"
+    "defaultMessage": "{loader} installeren voor Enshrouded {version}"
   },
   "servers.installing-banner.preparing.header": {
     "defaultMessage": "We zijn je server aan het klaarmaken"
@@ -5297,14 +5297,14 @@
   "servers.list-empty.learn-more-link": {
     "defaultMessage": "Meer informatie"
   },
-  "servers.list-empty.modrinth-hosting-label": {
-    "defaultMessage": "Modrinth Hosting"
+  "servers.list-empty.shroudedit-hosting-label": {
+    "defaultMessage": "ShroudEdit Hosting"
   },
   "servers.list-empty.new-server-button": {
     "defaultMessage": "Nieuwe server"
   },
   "servers.list-empty.no-servers-description": {
-    "defaultMessage": "Installeer mods, nodig vrienden uit en speel samen – allemaal via de Modrinth app."
+    "defaultMessage": "Installeer mods, nodig vrienden uit en speel samen – allemaal via de ShroudEdit app."
   },
   "servers.list-empty.one-click-mod-installs-description": {
     "defaultMessage": "Kies je favoriete mods en wij regelen de rest."
@@ -5313,13 +5313,13 @@
     "defaultMessage": "Mods installeren met één klik"
   },
   "servers.list-empty.play-with-friends-description": {
-    "defaultMessage": "Nodig vrienden uit om je server te spelen met één klik vanuit de Modrinth app."
+    "defaultMessage": "Nodig vrienden uit om je server te spelen met één klik vanuit de ShroudEdit app."
   },
   "servers.list-empty.play-with-friends-title": {
     "defaultMessage": "Speel met vrienden"
   },
   "servers.list-empty.sign-in-button": {
-    "defaultMessage": "Bij Modrinth aanmelden"
+    "defaultMessage": "Bij ShroudEdit aanmelden"
   },
   "servers.list-empty.simple-setup-description": {
     "defaultMessage": "Stel je server in net zoals een eigen wereld."
@@ -5376,7 +5376,7 @@
     "defaultMessage": "Je abonnement wordt op <date>{formattedDate}</date> opgezegd. "
   },
   "servers.listing.notice.suspended": {
-    "defaultMessage": "Je server is opgeschort. Neem contact op met Modrinth-ondersteuning voor meer informatie."
+    "defaultMessage": "Je server is opgeschort. Neem contact op met ShroudEdit-ondersteuning voor meer informatie."
   },
   "servers.listing.notice.upgrading": {
     "defaultMessage": "De hardware van uw server wordt momenteel geüpgraded en zal binnenkort weer online zijn."
@@ -5409,7 +5409,7 @@
     "defaultMessage": "Bezig met uploaden"
   },
   "servers.manage.contact-support-button": {
-    "defaultMessage": "Contact opnemen met Modrinth-ondersteuning"
+    "defaultMessage": "Contact opnemen met ShroudEdit-ondersteuning"
   },
   "servers.manage.error.alert-notice": {
     "defaultMessage": "Onze systemen waarschuwen ons team automatisch wanneer er een probleem is. We zijn al bezig om ze weer online te krijgen."
@@ -5421,10 +5421,10 @@
     "defaultMessage": "Foutdetails:"
   },
   "servers.manage.error.queue-notice": {
-    "defaultMessage": "Als je kort geleden een Modrinth Hosting-server hebt gekocht, staat deze momenteel in de wachtrij en zal hij hier verschijnen zodra hij klaar is. <warning>Probeer geen nieuwe server aan te schaffen.</warning>"
+    "defaultMessage": "Als je kort geleden een ShroudEdit Hosting-server hebt gekocht, staat deze momenteel in de wachtrij en zal hij hier verschijnen zodra hij klaar is. <warning>Probeer geen nieuwe server aan te schaffen.</warning>"
   },
   "servers.manage.error.support-notice": {
-    "defaultMessage": "Als je persoonlijke ondersteuning nodig hebt met de status van je server, neem dan contact op met Modrinth-ondersteuning."
+    "defaultMessage": "Als je persoonlijke ondersteuning nodig hebt met de status van je server, neem dan contact op met ShroudEdit-ondersteuning."
   },
   "servers.manage.error.title": {
     "defaultMessage": "De servers konden niet worden geladen"
@@ -5457,7 +5457,7 @@
     "defaultMessage": "Opnieuw laden"
   },
   "servers.manage.resubscribe-error.text": {
-    "defaultMessage": "Er is een fout opgetreden bij het opnieuw abonneren op jouw Modrinth server."
+    "defaultMessage": "Er is een fout opgetreden bij het opnieuw abonneren op jouw ShroudEdit server."
   },
   "servers.manage.resubscribe-error.title": {
     "defaultMessage": "Fout bij het opnieuw abonneren"
@@ -5478,7 +5478,7 @@
     "defaultMessage": "Zoek {count} {count, plural, one {server} other {servers}}..."
   },
   "servers.manage.servers-title": {
-    "defaultMessage": "Modrinth Hosting"
+    "defaultMessage": "ShroudEdit Hosting"
   },
   "servers.manage.settings-hint.description": {
     "defaultMessage": "Je vindt ze nu hier!"
@@ -5505,10 +5505,10 @@
     "defaultMessage": "De proefperiode van je Medal-server is afgelopen en je server is opgeschort. Voer een upgrade uit om je server te kunnen blijven gebruiken."
   },
   "servers.medal-listing.notice.suspended": {
-    "defaultMessage": "Je server is opgeschort. Werk je factuurgegevens bij of neem contact op met Modrinth-ondersteuning voor meer informatie."
+    "defaultMessage": "Je server is opgeschort. Werk je factuurgegevens bij of neem contact op met ShroudEdit-ondersteuning voor meer informatie."
   },
   "servers.medal-listing.notice.suspended-with-reason": {
-    "defaultMessage": "Je server is opgeschort met de reden: {reason}. Werk je factuurgegevens bij of neem contact op met Modrinth-ondersteuning voor meer informatie."
+    "defaultMessage": "Je server is opgeschort met de reden: {reason}. Werk je factuurgegevens bij of neem contact op met ShroudEdit-ondersteuning voor meer informatie."
   },
   "servers.medal-listing.notice.upgrading": {
     "defaultMessage": "De hardware van je server wordt momenteel geüpgraded en zal binnenkort weer online zijn."
@@ -5556,7 +5556,7 @@
     "defaultMessage": "Niet negeerbaar"
   },
   "servers.purchase.notification.success.text": {
-    "defaultMessage": "Je aankoop bij Modrinth Hosting is succesvol afgerond."
+    "defaultMessage": "Je aankoop bij ShroudEdit Hosting is succesvol afgerond."
   },
   "servers.purchase.notification.success.title": {
     "defaultMessage": "Aankoop geslaagd"
@@ -5646,7 +5646,7 @@
     "defaultMessage": "Uit welk regio wil je een server?"
   },
   "servers.region.region-unsupported": {
-    "defaultMessage": "Staat jouw regio er niet bij? <link>Laat ons weten waar je Modrinth Hosting graag als volgende zou willen zien!</link>"
+    "defaultMessage": "Staat jouw regio er niet bij? <link>Laat ons weten waar je ShroudEdit Hosting graag als volgende zou willen zien!</link>"
   },
   "servers.region.southeast-asia": {
     "defaultMessage": "Southeast Asia"
@@ -5739,7 +5739,7 @@
     "defaultMessage": "Server instellen"
   },
   "servers.setup.onboarding.step.choose.description": {
-    "defaultMessage": "Kies je favoriete modpack van Modrinth, of kies een loader en voeg de mods toe die je wilt."
+    "defaultMessage": "Kies je favoriete modpack van ShroudEdit, of kies een loader en voeg de mods toe die je wilt."
   },
   "servers.setup.onboarding.step.choose.title": {
     "defaultMessage": "Kies wat je wilt spelen"
@@ -5766,7 +5766,7 @@
     "defaultMessage": "Je server staat klaar. Dit is wat je moet doen om te beginnen met spelen!"
   },
   "servers.setup.onboarding.welcome.title": {
-    "defaultMessage": "Welkom bij Modrinth Hosting"
+    "defaultMessage": "Welkom bij ShroudEdit Hosting"
   },
   "servers.setup.rate-limit.text": {
     "defaultMessage": "Er geldt een verwerkingslimiet. Probeer het later nog eens."
@@ -5844,7 +5844,7 @@
     "defaultMessage": "Geavanceerde weergave"
   },
   "settings.display.sidebar.external-links-new-tab.description": {
-    "defaultMessage": "Maak links die buiten Modrinth gaan open in een nieuw tabblad. Ongeacht deze instelling, links op hetzelfde domein en in Markdown beschrijvingen zullen worden geopend in hetzelfde tabblad, en links naar advertenties en bewerken pagina's worden geopend in een nieuw tabblad."
+    "defaultMessage": "Maak links die buiten ShroudEdit gaan open in een nieuw tabblad. Ongeacht deze instelling, links op hetzelfde domein en in Markdown beschrijvingen zullen worden geopend in hetzelfde tabblad, en links naar advertenties en bewerken pagina's worden geopend in een nieuw tabblad."
   },
   "settings.display.sidebar.external-links-new-tab.title": {
     "defaultMessage": "Externe links openen in nieuw tabblad"
@@ -5865,7 +5865,7 @@
     "defaultMessage": "Donker"
   },
   "settings.display.theme.description": {
-    "defaultMessage": "Selecteer je voorkeur kleurenthema voor de Modrinth App."
+    "defaultMessage": "Selecteer je voorkeur kleurenthema voor de ShroudEdit App."
   },
   "settings.display.theme.light": {
     "defaultMessage": "Licht"
@@ -5889,7 +5889,7 @@
     "defaultMessage": "Gebruik dit thema overal waar je bent aangemeld. Schakel dit uit om een apart thema op dit apparaat te houden."
   },
   "settings.display.theme.sync-across-devices.sign-in-tooltip": {
-    "defaultMessage": "Log in op Modrinth om thema te synchroniseren"
+    "defaultMessage": "Log in op ShroudEdit om thema te synchroniseren"
   },
   "settings.display.theme.system": {
     "defaultMessage": "Synchroniseren met systeem"
@@ -5910,13 +5910,13 @@
     "defaultMessage": "Zoekresultaten"
   },
   "settings.language.coverage.app-tooltip": {
-    "defaultMessage": "Ongeveer {percentage}% van de Modrinth App is beschikbaar in deze taal."
+    "defaultMessage": "Ongeveer {percentage}% van de ShroudEdit App is beschikbaar in deze taal."
   },
   "settings.language.coverage.label": {
     "defaultMessage": "{percentage}% ondersteund"
   },
   "settings.language.coverage.website-tooltip": {
-    "defaultMessage": "Ongeveer {percentage}% van de Modrinth App is beschikbaar in deze taal."
+    "defaultMessage": "Ongeveer {percentage}% van de ShroudEdit App is beschikbaar in deze taal."
   },
   "settings.language.description": {
     "defaultMessage": "Kies de taal van je voorkeur voor het/de {platform}. De vertalingen worden aangeleverd door vrijwilligers <crowdin-link>op Crowdin</crowdin-link>."
@@ -5946,7 +5946,7 @@
     "defaultMessage": "Persoonlijke toegangstokens"
   },
   "settings.preferences.update-failed.description": {
-    "defaultMessage": "Je instellingen konden niet worden opgeslagen in je Modrinth account. Probeer het opnieuw."
+    "defaultMessage": "Je instellingen konden niet worden opgeslagen in je ShroudEdit account. Probeer het opnieuw."
   },
   "settings.preferences.update-failed.title": {
     "defaultMessage": "Instellingen synchroniseren mislukt"
@@ -5964,7 +5964,7 @@
     "defaultMessage": "Profielfoto"
   },
   "settings.profile.public-information.description": {
-    "defaultMessage": "Je profielgegevens zijn openbaar <profile-link>te bekijken op Modrinth</profile-link> en via de <docs-link>Modrinth API</docs-link>."
+    "defaultMessage": "Je profielgegevens zijn openbaar <profile-link>te bekijken op ShroudEdit</profile-link> en via de <docs-link>ShroudEdit API</docs-link>."
   },
   "settings.profile.save-error": {
     "defaultMessage": "Het bijwerken van het profiel is mislukt"
@@ -5973,10 +5973,10 @@
     "defaultMessage": "Er is een fout opgetreden bij het bijwerken van je profiel. Probeer het nog eens."
   },
   "settings.profile.sign-in-required.description": {
-    "defaultMessage": "Log in met een Modrinth-account om je openbare profiel aan te passen."
+    "defaultMessage": "Log in met een ShroudEdit-account om je openbare profiel aan te passen."
   },
   "settings.profile.sign-in-required.title": {
-    "defaultMessage": "Modrinth-account vereist"
+    "defaultMessage": "ShroudEdit-account vereist"
   },
   "settings.profile.username.description": {
     "defaultMessage": "Een unieke, hoofdletterongevoelige naam waarmee je profiel wordt geïdentificeerd."
@@ -5991,7 +5991,7 @@
     "defaultMessage": "Gebruiker"
   },
   "settings.social.blocked-users.description": {
-    "defaultMessage": "Dit zijn de gebruikers die je op Modrinth hebt geblokkeerd. Zij kunnen jou niet:"
+    "defaultMessage": "Dit zijn de gebruikers die je op ShroudEdit hebt geblokkeerd. Zij kunnen jou niet:"
   },
   "settings.social.blocked-users.empty": {
     "defaultMessage": "Je hebt niemand geblokkeerd."
@@ -6006,7 +6006,7 @@
     "defaultMessage": "Een vriendschapsverzoek sturen"
   },
   "settings.social.blocked-users.restriction.hosting": {
-    "defaultMessage": "Uitnodigen om een Modrinth Hosting-server te beheren."
+    "defaultMessage": "Uitnodigen om een ShroudEdit Hosting-server te beheren."
   },
   "settings.social.blocked-users.restriction.shared-instances": {
     "defaultMessage": "Uitnodigen voor gedeelde instanties"
@@ -6030,13 +6030,13 @@
     "defaultMessage": "Avatar van {username}"
   },
   "settings.social.friend-requests.description": {
-    "defaultMessage": "Bepaal zelf wie je vriendschapsverzoeken kan sturen op Modrinth."
+    "defaultMessage": "Bepaal zelf wie je vriendschapsverzoeken kan sturen op ShroudEdit."
   },
   "settings.social.friend-requests.title": {
     "defaultMessage": "Vriendschapsverzoeken"
   },
   "settings.social.hosting-access.description": {
-    "defaultMessage": "Uitnodigen om een Modrinth Hosting-server te beheren."
+    "defaultMessage": "Uitnodigen om een ShroudEdit Hosting-server te beheren."
   },
   "settings.social.hosting-access.title": {
     "defaultMessage": "Hosting toegang uitnodigingen"
@@ -6069,10 +6069,10 @@
     "defaultMessage": "Inhoud van de gedeelde instantie"
   },
   "settings.social.sign-in-required.description": {
-    "defaultMessage": "Met een Modrinth-account kun je bepalen wie er contact met je kan opnemen en kun je geblokkeerde gebruikers beheren"
+    "defaultMessage": "Met een ShroudEdit-account kun je bepalen wie er contact met je kan opnemen en kun je geblokkeerde gebruikers beheren"
   },
   "settings.social.sign-in-required.title": {
-    "defaultMessage": "Modrinth-account vereist"
+    "defaultMessage": "ShroudEdit-account vereist"
   },
   "settings.social.title": {
     "defaultMessage": "Sociaal"
@@ -6171,7 +6171,7 @@
     "defaultMessage": "Opslaan"
   },
   "sharing.invite-players-modal.search-placeholder": {
-    "defaultMessage": "Voer Modrinth-gebruikersnaam in"
+    "defaultMessage": "Voer ShroudEdit-gebruikersnaam in"
   },
   "sharing.invite-players-modal.searching": {
     "defaultMessage": "Bezig met zoeken..."
@@ -6572,7 +6572,7 @@
   "tag.loader.liteloader": {
     "defaultMessage": "LiteLoader"
   },
-  "tag.loader.minecraft": {
+  "tag.loader.enshrouded": {
     "defaultMessage": "Bronpakket"
   },
   "tag.loader.modloader": {
@@ -6756,34 +6756,34 @@
     "defaultMessage": "Malware wordt vaak verspreid via mod-bestanden door deze te delen op platforms zoals Discord."
   },
   "unknown-file-warning-modal.mod-warning-body": {
-    "defaultMessage": " is niet gepubliceerd op Modrinth. We raden je ten zeerste aan om alleen bestanden te installeren uit bronnen die je vertrouwt."
+    "defaultMessage": " is niet gepubliceerd op ShroudEdit. We raden je ten zeerste aan om alleen bestanden te installeren uit bronnen die je vertrouwt."
   },
   "unknown-file-warning-modal.mod-warning-title": {
     "defaultMessage": "Waarschuwing: onbekend bestand"
   },
   "unknown-file-warning-modal.modpack-warning-body": {
-    "defaultMessage": " bevat bestanden die niet op Modrinth zijn gepubliceerd. We raden je ten zeerste aan om alleen bestanden te installeren uit bronnen die je vertrouwt."
+    "defaultMessage": " bevat bestanden die niet op ShroudEdit zijn gepubliceerd. We raden je ten zeerste aan om alleen bestanden te installeren uit bronnen die je vertrouwt."
   },
   "unknown-file-warning-modal.modpack-warning-title": {
     "defaultMessage": "Waarschuwing voor onbekende bestanden"
   },
   "unknown-file-warning-modal.reviewed-files": {
-    "defaultMessage": "Bestanden die niet op Modrinth worden gepubliceerd, worden niet beoordeeld."
+    "defaultMessage": "Bestanden die niet op ShroudEdit worden gepubliceerd, worden niet beoordeeld."
   },
   "unknown-file-warning-modal.unrecognized-files": {
     "defaultMessage": "Onbekende bestanden"
   },
   "user.profile.badge.alpha.about.1": {
-    "defaultMessage": "Deze gebruiker is al actief sinds Modrinth Alpha, dat in november 2020 afliep."
+    "defaultMessage": "Deze gebruiker is al actief sinds ShroudEdit Alpha, dat in november 2020 afliep."
   },
   "user.profile.badge.alpha.name": {
     "defaultMessage": "Alpha-tester"
   },
   "user.profile.badge.beta.about.1": {
-    "defaultMessage": "Deze gebruiker is al actief sinds Modrinth Beta, dat in februari 2022 afliep."
+    "defaultMessage": "Deze gebruiker is al actief sinds ShroudEdit Beta, dat in februari 2022 afliep."
   },
   "user.profile.badge.beta.link": {
-    "defaultMessage": "Klik hier om meer te lezen over de lancering van Modrinth Beta."
+    "defaultMessage": "Klik hier om meer te lezen over de lancering van ShroudEdit Beta."
   },
   "user.profile.badge.beta.name": {
     "defaultMessage": "Beta-tester"
@@ -6795,67 +6795,67 @@
     "defaultMessage": "{download_sum} Downloads"
   },
   "user.profile.badge.early-datapack-adopter.about.1": {
-    "defaultMessage": "Deze gebruiker heeft ons geholpen bij het testen van gegevenspakketprojecten op Modrinth voordat we deze in januari 2023 lanceerden."
+    "defaultMessage": "Deze gebruiker heeft ons geholpen bij het testen van gegevenspakketprojecten op ShroudEdit voordat we deze in januari 2023 lanceerden."
   },
   "user.profile.badge.early-datapack-adopter.name": {
     "defaultMessage": "Vroege gebruiker van gegevenspakketten"
   },
   "user.profile.badge.early-modpack-adopter.about.1": {
-    "defaultMessage": "Deze gebruiker heeft ons geholpen bij het testen van modpack-projecten op Modrinth voordat we ze in mei 2022 lanceerden."
+    "defaultMessage": "Deze gebruiker heeft ons geholpen bij het testen van modpack-projecten op ShroudEdit voordat we ze in mei 2022 lanceerden."
   },
   "user.profile.badge.early-modpack-adopter.name": {
     "defaultMessage": "Vroege gebruiker van modpacks"
   },
   "user.profile.badge.early-plugin-adopter.about.1": {
-    "defaultMessage": "Deze gebruiker heeft ons geholpen bij het testen van Plugin-projecten op Modrinth voordat we ze in augustus 2022 lanceerden."
+    "defaultMessage": "Deze gebruiker heeft ons geholpen bij het testen van Plugin-projecten op ShroudEdit voordat we ze in augustus 2022 lanceerden."
   },
   "user.profile.badge.early-plugin-adopter.name": {
     "defaultMessage": "Vroege gebruiker van plug-ins"
   },
   "user.profile.badge.early-resourcepack-adopter.about.1": {
-    "defaultMessage": "Deze gebruiker heeft ons geholpen bij het testen van bronpakketprojecten op Modrinth voordat we deze in augustus 2022 lanceerden."
+    "defaultMessage": "Deze gebruiker heeft ons geholpen bij het testen van bronpakketprojecten op ShroudEdit voordat we deze in augustus 2022 lanceerden."
   },
   "user.profile.badge.early-resourcepack-adopter.name": {
     "defaultMessage": "Vroege gebruiker van bronpakketten"
   },
   "user.profile.badge.early-server-adopter.about.1": {
-    "defaultMessage": "Deze gebruiker heeft ons geholpen bij het testen van server-projecten op Modrinth voordat we ze in maart 2026 lanceerden."
+    "defaultMessage": "Deze gebruiker heeft ons geholpen bij het testen van server-projecten op ShroudEdit voordat we ze in maart 2026 lanceerden."
   },
   "user.profile.badge.early-server-adopter.name": {
     "defaultMessage": "Vroege gebruiker van servers"
   },
   "user.profile.badge.early-shader-adopter.about.1": {
-    "defaultMessage": "Deze gebruiker heeft ons geholpen bij het testen van shader-projecten op Modrinth voordat we deze in januari 2023 lanceerden."
+    "defaultMessage": "Deze gebruiker heeft ons geholpen bij het testen van shader-projecten op ShroudEdit voordat we deze in januari 2023 lanceerden."
   },
   "user.profile.badge.early-shader-adopter.name": {
     "defaultMessage": "Vroege gebruiker van shaders"
   },
   "user.profile.badge.hosting-alpha.about.1": {
-    "defaultMessage": "Deze gebruiker heeft deelgenomen aan een besloten alphatest van Modrinth Hosting voordat we in november 2024 de bètaversie van Modrinth Hosting lanceerden."
+    "defaultMessage": "Deze gebruiker heeft deelgenomen aan een besloten alphatest van ShroudEdit Hosting voordat we in november 2024 de bètaversie van ShroudEdit Hosting lanceerden."
   },
   "user.profile.badge.hosting-alpha.name": {
-    "defaultMessage": "Alpha-tester van Modrinth Hosting"
+    "defaultMessage": "Alpha-tester van ShroudEdit Hosting"
   },
   "user.profile.badge.moderator.about.1": {
-    "defaultMessage": "Deze gebruiker werkt bij Modrinth als inhoudsmoderator."
+    "defaultMessage": "Deze gebruiker werkt bij ShroudEdit als inhoudsmoderator."
   },
   "user.profile.badge.moderator.about.2": {
-    "defaultMessage": "Inhoudsmoderatoren op Modrinth beoordelen projecten, behandelen meldingen en helpen Modrinth veilig te houden."
+    "defaultMessage": "Inhoudsmoderatoren op ShroudEdit beoordelen projecten, behandelen meldingen en helpen ShroudEdit veilig te houden."
   },
   "user.profile.badge.moderator.name": {
     "defaultMessage": "Inhoudsmoderator"
   },
   "user.profile.badge.plus.about.1": {
-    "defaultMessage": "Deze gebruiker doet zijn uiterste best om Modrinth en de makers op het platform te steunen."
+    "defaultMessage": "Deze gebruiker doet zijn uiterste best om ShroudEdit en de makers op het platform te steunen."
   },
   "user.profile.badge.plus.link": {
     "defaultMessage": "Klik hier voor meer informatie over hoe je lid kunt worden."
   },
   "user.profile.badge.plus.name": {
-    "defaultMessage": "Modrinth+ lid"
+    "defaultMessage": "ShroudEdit+ lid"
   },
   "user.profile.badge.pride.about.1": {
-    "defaultMessage": "Deze gebruiker heeft deelgenomen aan minstens één van de Pride-inzamelingsacties van Modrinth voor de LGBTQ+-gemeenschap."
+    "defaultMessage": "Deze gebruiker heeft deelgenomen aan minstens één van de Pride-inzamelingsacties van ShroudEdit voor de LGBTQ+-gemeenschap."
   },
   "user.profile.badge.pride.link": {
     "defaultMessage": "Klik hier om onze nieuwste Pride-inzamelingsactie te bekijken."
@@ -6864,16 +6864,16 @@
     "defaultMessage": "Supporter van de Pride-inzamelingsactie"
   },
   "user.profile.badge.staff.about.1": {
-    "defaultMessage": "Deze gebruiker werkt bij Modrinth."
+    "defaultMessage": "Deze gebruiker werkt bij ShroudEdit."
   },
   "user.profile.badge.staff.name": {
-    "defaultMessage": "Modrinth-team"
+    "defaultMessage": "ShroudEdit-team"
   },
   "user.role.moderator": {
     "defaultMessage": "Inhoudsmoderator"
   },
-  "user.role.modrinth-team": {
-    "defaultMessage": "Modrinth-team"
+  "user.role.shroudedit-team": {
+    "defaultMessage": "ShroudEdit-team"
   },
   "version.content.name": {
     "defaultMessage": "Naam"

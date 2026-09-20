@@ -1,27 +1,27 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	FolderSearchIcon,
 	RotateCounterClockwiseIcon,
 	SpinnerIcon,
 	StarIcon,
 	TrashIcon,
-} from '@modrinth/assets'
-import { Button, IconButton } from '@modrinth/ui'
+} from '@shroudedit/assets'
+import { Button, IconButton } from '@shroudedit/ui'
 import {
 	Combobox,
 	type ComboboxOption,
 	commonMessages,
 	ConfirmModal,
 	defineMessages,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	NewModal,
 	Table,
 	type TableColumn,
 	useVIntl,
-} from '@modrinth/ui'
-import { renderString } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { renderString } from '@shroudedit/utils'
 import { useQueryClient } from '@tanstack/vue-query'
 import { computed, ref, useTemplateRef } from 'vue'
 
@@ -126,7 +126,7 @@ const props = defineProps<{
 	project_id: string
 }>()
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const queryClient = useQueryClient()
 const { addNotification } = injectNotificationManager()
 const modalRef = useTemplateRef<InstanceType<typeof NewModal>>('modalRef')

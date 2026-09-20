@@ -1,5 +1,5 @@
-import type { Labrinth } from '@modrinth/api-client'
-import { injectModrinthClient, useVIntl } from '@modrinth/ui'
+import type { Labrinth } from '@shroudedit/api-client'
+import { injectShroudEditClient, useVIntl } from '@shroudedit/ui'
 import { useQuery } from '@tanstack/vue-query'
 import { computed, type ComputedRef } from 'vue'
 
@@ -31,7 +31,7 @@ export function useAnalyticsChartEvents(
 	selectedProjectEventIdSet: ComputedRef<Set<string>>,
 	visibleProjectEventIdSet: ComputedRef<Set<string>>,
 ) {
-	const client = injectModrinthClient()
+	const client = injectShroudEditClient()
 	const { formatMessage } = useVIntl()
 	const { data: analyticsEvents } = useQuery({
 		queryKey: analyticsEventsQueryKey,
@@ -46,12 +46,12 @@ export function useAnalyticsChartEvents(
 	const hasChartEvents = computed(() =>
 		localAnalyticsChartEvents.value.some(isTimelineEventVisibleInCurrentGraph),
 	)
-	const visibleModrinthChartEvents = computed<AnalyticsChartEvent[]>(() =>
+	const visibleShroudEditChartEvents = computed<AnalyticsChartEvent[]>(() =>
 		context.showChartEvents.value
 			? localAnalyticsChartEvents.value.map((event) => ({
 					...event,
 					markerIcon: 'info' as const,
-					groupKey: 'modrinth',
+					groupKey: 'shroudedit',
 				}))
 			: [],
 	)
@@ -84,11 +84,11 @@ export function useAnalyticsChartEvents(
 			: [],
 	)
 	const visibleTimelineEvents = computed(() => [
-		...visibleModrinthChartEvents.value,
+		...visibleShroudEditChartEvents.value,
 		...visibleProjectChartEvents.value,
 	])
 	const hasVisibleTimelineEvents = computed(
-		() => visibleModrinthChartEvents.value.length > 0 || visibleProjectChartEvents.value.length > 0,
+		() => visibleShroudEditChartEvents.value.length > 0 || visibleProjectChartEvents.value.length > 0,
 	)
 
 	function isTimelineEventVisibleInCurrentGraph(event: AnalyticsChartEvent) {
@@ -116,7 +116,7 @@ export function useAnalyticsChartEvents(
 	return {
 		localAnalyticsChartEvents,
 		hasChartEvents,
-		visibleModrinthChartEvents,
+		visibleShroudEditChartEvents,
 		localProjectChartEvents,
 		hasProjectEvents,
 		visibleProjectChartEvents,

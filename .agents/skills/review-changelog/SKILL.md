@@ -1,6 +1,6 @@
 ---
 name: review-changelog
-description: Review the latest packages/blog/changelog.ts entry against the Modrinth changelog standard. Use before a pull request or when asked to review or lint a changelog entry.
+description: Review the latest packages/blog/changelog.ts entry against the ShroudEdit changelog standard. Use before a pull request or when asked to review or lint a changelog entry.
 ---
 
 # Review a Changelog Entry

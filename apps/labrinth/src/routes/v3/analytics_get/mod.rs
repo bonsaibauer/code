@@ -965,8 +965,8 @@ mod tests {
                 Some(DownloadSource::Named("Prism Launcher".into())),
             ),
             (
-                "modrinth/theseus/0.8.6 (support@modrinth.com)",
-                Some(DownloadSource::ModrinthApp),
+                "shroudedit/theseus/0.8.6 (support@shroudedit.com)",
+                Some(DownloadSource::ShroudEditApp),
             ),
             (
                 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15",
@@ -992,8 +992,8 @@ mod tests {
             json!("website")
         );
         assert_eq!(
-            serde_json::to_value(DownloadSource::ModrinthApp).unwrap(),
-            json!("modrinth_app")
+            serde_json::to_value(DownloadSource::ShroudEditApp).unwrap(),
+            json!("shroudedit_app")
         );
         assert_eq!(
             serde_json::to_value(DownloadSource::Other).unwrap(),

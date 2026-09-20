@@ -10,7 +10,7 @@ import type {
 	ProjectTypeMetadata,
 } from './analytics-types'
 
-const MINECRAFT_JAVA_SERVER_PROJECT_TYPE = 'minecraft_java_server'
+const SERVER_PROJECT_TYPE = 'server'
 const PLUGIN_PROJECT_TYPE = 'plugin'
 
 export const UNKNOWN_ORGANIZATION_NAME = 'Organization'
@@ -35,11 +35,11 @@ export function getProjectTypes(project: ProjectTypeMetadata): string[] {
 }
 
 function isServerProject(project: ProjectTypeMetadata): boolean {
-	if (project.project_type === MINECRAFT_JAVA_SERVER_PROJECT_TYPE) {
+	if (project.project_type === SERVER_PROJECT_TYPE) {
 		return true
 	}
 
-	return project.project_types?.includes(MINECRAFT_JAVA_SERVER_PROJECT_TYPE) ?? false
+	return project.project_types?.includes(SERVER_PROJECT_TYPE) ?? false
 }
 
 export function isAnalyticsEligibleProject(

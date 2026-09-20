@@ -53,7 +53,7 @@ import {
 	SpinnerIcon,
 	TrashIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 
 import { Button } from '#ui/components/base/buttons'
 import { defineMessages, useVIntl } from '#ui/composables/i18n'

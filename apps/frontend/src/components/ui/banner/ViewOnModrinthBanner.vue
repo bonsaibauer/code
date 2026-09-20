@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { PagewideBanner } from '@modrinth/ui'
+import { PagewideBanner } from '@shroudedit/ui'
 
 const flags = useFeatureFlags()
+const config = useRuntimeConfig()
 const route = useRoute()
 
-const url = computed(() => `https://modrinth.com${route.fullPath}`)
+const url = computed(() => `${config.public.siteUrl}${route.fullPath}`)
 
 const bannerRoot = ref<HTMLElement | null>(null)
 

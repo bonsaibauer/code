@@ -21,11 +21,11 @@ use actix_web::{HttpRequest, HttpResponse, delete, get, post, web};
 use chrono::{DateTime, Duration, Utc};
 use hex::ToHex;
 use hmac::{Hmac, Mac};
-use modrinth_util::decimal::Decimal2dp;
 use reqwest::Method;
 use rust_decimal::Decimal;
 use serde::{Deserialize, Serialize};
 use sha2::Sha256;
+use shroudedit_util::decimal::Decimal2dp;
 use std::collections::HashMap;
 use tokio_stream::StreamExt;
 use tracing::error;
@@ -94,7 +94,7 @@ pub async fn post_compliance_form(
                 && !c.tin_matched
             {
                 return Err(ApiError::Request(eyre::eyre!(
-                    "Your TIN/SSN did not match the IRS records. Please contact support https://support.modrinth.com".to_owned(),
+                    "Your TIN/SSN did not match the IRS records. Please contact support https://support.shroudedit.com".to_owned(),
                 )));
             }
 
@@ -669,7 +669,7 @@ pub async fn create_payout(
 
     if requires_manual_review {
         return Err(ApiError::Request(eyre::eyre!(
-            "More information is required to proceed. Please contact support (https://support.modrinth.com, support@modrinth.com)",
+            "More information is required to proceed. Please contact support (https://support.shroudedit.com, support@shroudedit.com)",
         )));
     }
 

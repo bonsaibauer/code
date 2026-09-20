@@ -28,7 +28,7 @@
 			<span class="label">
 				<span class="label__title">Invite a member</span>
 				<span class="label__description">
-					Enter the Modrinth username of the person you'd like to invite to be a member of this
+					Enter the ShroudEdit username of the person you'd like to invite to be a member of this
 					project.
 				</span>
 			</span>
@@ -559,7 +559,7 @@ import {
 	UserPlusIcon,
 	UsersIcon,
 	UserXIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	Avatar,
 	Badge,
@@ -571,18 +571,18 @@ import {
 	commonProjectSettingsMessages,
 	ConfirmModal,
 	IconButton,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	injectProjectPageContext,
 	Input,
 	Toggle,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { useQuery } from '@tanstack/vue-query'
 
 import ConfirmTransferProjectModal from '~/components/ui/ConfirmTransferProjectModal.vue'
 import { removeSelfFromTeam } from '~/helpers/teams.js'
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const { addNotification } = injectNotificationManager()
 const {
 	projectV2: project,
@@ -595,7 +595,7 @@ const {
 
 useProjectSettingsHeadTitle(commonProjectSettingsMessages.members)
 
-const isServerProject = computed(() => projectV3.value?.minecraft_server != null)
+const isServerProject = computed(() => projectV3.value?.enshrouded_server != null)
 
 const auth = await useAuth()
 

@@ -1,4 +1,4 @@
-import type { Archon, UploadState } from '@modrinth/api-client'
+import type { Archon, UploadState } from '@shroudedit/api-client'
 import type { ComputedRef, Ref } from 'vue'
 
 import type { MessageDescriptor } from '#ui/composables/i18n'
@@ -38,7 +38,7 @@ export interface ServerStats {
 	}
 }
 
-export interface ModrinthServerContext {
+export interface ShroudEditServerContext {
 	readonly serverId: string
 	readonly worldId: Ref<string | null>
 	readonly server: Ref<Archon.Servers.v0.Server>
@@ -78,5 +78,5 @@ export interface ModrinthServerContext {
 	upsertLocalFileOperation?: (operation: FileOperation) => void
 }
 
-export const [injectModrinthServerContext, provideModrinthServerContext] =
-	createContext<ModrinthServerContext>('[id].vue', 'modrinthServerContext')
+export const [injectShroudEditServerContext, provideShroudEditServerContext] =
+	createContext<ShroudEditServerContext>('[id].vue', 'shroudeditServerContext')

@@ -39,7 +39,7 @@
 			>
 				<slot name="nametag-badge" />
 			</div>
-			<div v-if="nametag" class="px-3 py-1 rounded-md font-minecraft text-gray nametag-bg">
+			<div v-if="nametag" class="px-3 py-1 rounded-md font-enshrouded text-gray nametag-bg">
 				{{ nametagText }}
 			</div>
 		</div>
@@ -101,7 +101,7 @@
 </template>
 
 <script setup lang="ts">
-import { ClassicPlayerModel, SlimPlayerModel, UnfoldHorizontalIcon } from '@modrinth/assets'
+import { ClassicPlayerModel, SlimPlayerModel, UnfoldHorizontalIcon } from '@shroudedit/assets'
 import { TresCanvas } from '@tresjs/core'
 import * as THREE from 'three'
 import {

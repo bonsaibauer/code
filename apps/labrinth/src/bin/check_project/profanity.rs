@@ -242,7 +242,7 @@ pub(super) fn render_report(
         );
         println!("Project: {}", sanitize_text(&project.name));
         println!("ID:      {}", project.id);
-        println!("URL:     https://modrinth.com/project/{}", project.id);
+        println!("URL:     https://shroudedit.com/project/{}", project.id);
 
         for field in &project.fields {
             println!(

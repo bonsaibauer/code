@@ -1,4 +1,4 @@
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 
 import type { Nag, NagStatus } from '../../types/nags.ts'
 import { descriptionNags } from './description.ts'

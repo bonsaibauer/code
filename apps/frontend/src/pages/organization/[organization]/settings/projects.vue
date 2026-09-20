@@ -344,7 +344,7 @@ import {
 	TrashIcon,
 	TriangleAlertIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	Button,
 	ButtonLink,
@@ -354,7 +354,7 @@ import {
 	defineMessages,
 	FloatingActionBar,
 	IconButton,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	Input,
 	IntlFormatted,
@@ -362,8 +362,8 @@ import {
 	ProjectStatusBadge,
 	Table,
 	useVIntl,
-} from '@modrinth/ui'
-import { formatProjectType } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { formatProjectType } from '@shroudedit/utils'
 import { useQuery } from '@tanstack/vue-query'
 
 import ModalCreation from '~/components/ui/create/ProjectCreateModal.vue'
@@ -373,7 +373,7 @@ import { injectOrganizationContext } from '~/providers/organization-context.ts'
 
 const EDIT_DETAILS = 1 << 2
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const { addNotification } = injectNotificationManager()
 const { formatMessage } = useVIntl()
 
@@ -656,7 +656,7 @@ function getLinkInputPlaceholder(clearLink, isDiscord = false) {
 }
 
 function isProjectBulkEditDisabled(project) {
-	return (project.permissions & EDIT_DETAILS) === EDIT_DETAILS || isJavaServerProject(project)
+	return (project.permissions & EDIT_DETAILS) === EDIT_DETAILS || isServerProject(project)
 }
 
 const bulkEditableProjects = computed(() =>
@@ -720,7 +720,7 @@ function showEditLinksModal() {
 }
 
 function getBulkEditDisabledTooltip(project) {
-	if (isJavaServerProject(project)) {
+	if (isServerProject(project)) {
 		return formatMessage(messages.serverBulkEditDisabled)
 	}
 
@@ -728,8 +728,8 @@ function getBulkEditDisabledTooltip(project) {
 }
 
 function getProjectUrlType(project) {
-	const projectType = isJavaServerProject(project)
-		? 'minecraft_java_server'
+	const projectType = isServerProject(project)
+		? 'server'
 		: (project.project_types?.[0] ?? 'project')
 
 	return getProjectTypeForUrl(projectType, project.loaders)
@@ -755,8 +755,8 @@ function getProjectSortValue(project, column) {
 	}
 }
 
-function isJavaServerProject(project) {
-	return project.minecraft_server != null
+function isServerProject(project) {
+	return project.enshrouded_server != null
 }
 
 function hasEnvironmentMigrationWarning(project) {

@@ -47,7 +47,7 @@
 				:to="`/collection/following`"
 				class="universal-card recessed collection"
 			>
-				<Avatar src="https://cdn.modrinth.com/follow-collection.png" size="64px" />
+				<Avatar src="https://cdn.shroudedit.com/follow-collection.png" size="64px" />
 				<div class="details">
 					<span class="title">{{ formatMessage(commonMessages.followedProjectsLabel) }}</span>
 					<span class="description">
@@ -144,18 +144,18 @@ import {
 	PlusIcon,
 	SearchIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	Avatar,
 	Button,
 	commonMessages,
 	defineMessages,
 	DropdownSelect,
-	injectModrinthClient,
+	injectShroudEditClient,
 	Input,
 	useCompactNumber,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { useQuery } from '@tanstack/vue-query'
 
 import CollectionCreateModal from '~/components/ui/create/CollectionCreateModal.vue'
@@ -223,12 +223,12 @@ definePageMeta({
 })
 
 useHead({
-	title: () => `${formatMessage(messages.collectionsLongTitle)} - Modrinth`,
+	title: () => `${formatMessage(messages.collectionsLongTitle)} - ShroudEdit`,
 })
 
 const auth = await useAuth()
 const user = await useUser()
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 
 if (import.meta.client) {
 	await initUserFollows()

@@ -25,15 +25,15 @@
 </template>
 
 <script setup lang="ts">
-import { SettingsIcon } from '@modrinth/assets'
+import { SettingsIcon } from '@shroudedit/assets'
 import {
 	ButtonLink,
 	commonProjectSettingsMessages,
 	EnvironmentMigration,
 	injectProjectPageContext,
 	LoadingIndicator,
-} from '@modrinth/ui'
-import { isStaff } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { isStaff } from '@shroudedit/utils'
 
 const { currentMember, projectV2, projectV3 } = injectProjectPageContext()
 

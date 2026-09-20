@@ -70,7 +70,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	ArrowDownIcon,
 	ArrowUpIcon,
@@ -78,7 +78,7 @@ import {
 	PayPalColorIcon,
 	VenmoColorIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	BulletDivider,
 	getCurrencyIcon,
@@ -88,8 +88,8 @@ import {
 	useFormatDateTime,
 	useFormatMoney,
 	useVIntl,
-} from '@modrinth/ui'
-import { capitalizeString } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { capitalizeString } from '@shroudedit/utils'
 
 import { tremendousIdMap } from '~/generated/state.json'
 import { findRail } from '~/utils/muralpay-rails'

@@ -1,4 +1,4 @@
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import type { RouteLocationRaw } from 'vue-router'
 
 import type { ButtonMenuOption } from '#ui/components/base/buttons'
@@ -31,9 +31,9 @@ export type ClientWarningType = 'retained' | 'depends' | 'environment'
 
 export type ContentSourceKind =
 	| 'local'
-	| 'modrinth_modpack'
+	| 'shroudedit_modpack'
 	| 'server_project'
-	| 'modrinth_hosting'
+	| 'shroudedit_hosting'
 	| 'imported_modpack'
 	| 'shared_instance'
 

@@ -781,7 +781,7 @@ value.or_null()"#;
     #[test]
     fn or_null_preserves_an_existing_value() {
         let program = Program::compile(
-            r#"or_null(trace.data.url) == "https://modrinth.com/""#,
+            r#"or_null(trace.data.url) == "https://shroudedit.com/""#,
         )
         .unwrap();
         let mut context = Context::default();
@@ -789,7 +789,7 @@ value.or_null()"#;
             .add_variable(
                 "trace",
                 serde_json::json!({
-                    "data": { "url": "https://modrinth.com/" }
+                    "data": { "url": "https://shroudedit.com/" }
                 }),
             )
             .unwrap();
@@ -862,7 +862,7 @@ URL.fragment == "fragment"
     #[test]
     fn checks_url_validity() {
         let program = Program::compile(
-            r#"url.is_valid("https://modrinth.com/") && !url.is_valid("not a URL")"#,
+            r#"url.is_valid("https://shroudedit.com/") && !url.is_valid("not a URL")"#,
         )
         .unwrap();
 

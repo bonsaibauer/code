@@ -4,10 +4,10 @@ import { defineNuxtConfig } from 'nuxt/config'
 import { fileURLToPath } from 'url'
 import svgLoader from 'vite-svg-loader'
 
-import { GenericModrinthClient, type Labrinth } from '../../packages/api-client/src/index.ts'
+import { GenericShroudEditClient, type Labrinth } from '../../packages/api-client/src/index.ts'
 
-const STAGING_API_URL = 'https://staging-api.modrinth.com/v2/'
-const STAGING_SHARED_INSTANCES_API_URL = 'https://staging-shared-instances.modrinth.com'
+const STAGING_API_URL = 'https://staging-api.shroudedit.com/v2/'
+const STAGING_SHARED_INSTANCES_API_URL = 'https://staging-shared-instances.shroudedit.com'
 const API_CLIENT_SOURCE = fileURLToPath(
 	new URL('../../packages/api-client/src/index.ts', import.meta.url),
 )
@@ -19,26 +19,26 @@ const preloadedFonts = [
 	'inter/Inter-Bold.woff2',
 ]
 
-const PROD_MODRINTH_URL = 'https://modrinth.com'
-const STAGING_MODRINTH_URL = 'https://staging.modrinth.com'
+const PROD_SHROUDEDIT_URL = 'https://shroudedit.com'
+const STAGING_SHROUDEDIT_URL = 'https://staging.shroudedit.com'
 
 export default defineNuxtConfig({
 	srcDir: 'src/',
 	alias: {
-		'@modrinth/api-client': API_CLIENT_SOURCE,
+		'@shroudedit/api-client': API_CLIENT_SOURCE,
 	},
 	app: {
 		head: {
 			htmlAttrs: {
 				lang: 'en',
 			},
-			title: 'Modrinth',
+			title: 'ShroudEdit',
 			link: [
 				// The type is necessary because the linter can't always compare this very nested/complex type on itself
 				...preloadedFonts.map((font): object => {
 					return {
 						rel: 'preload',
-						href: `https://cdn.modrinth.com/fonts/${font}?v=3.19`,
+						href: `https://cdn.shroudedit.com/fonts/${font}?v=3.19`,
 						as: 'font',
 						type: 'font/woff2',
 						crossorigin: 'anonymous',
@@ -48,7 +48,7 @@ export default defineNuxtConfig({
 					rel: 'search',
 					type: 'application/opensearchdescription+xml',
 					href: '/opensearch.xml',
-					title: 'Modrinth mods',
+					title: 'ShroudEdit content',
 				},
 			],
 		},
@@ -76,7 +76,7 @@ export default defineNuxtConfig({
 		cacheDir: '../../node_modules/.vite/apps/knossos',
 		resolve: {
 			alias: {
-				'@modrinth/api-client': API_CLIENT_SOURCE,
+				'@shroudedit/api-client': API_CLIENT_SOURCE,
 			},
 			dedupe: ['vue'],
 		},
@@ -136,9 +136,9 @@ export default defineNuxtConfig({
 				return
 			}
 
-			const client = new GenericModrinthClient({
+			const client = new GenericShroudEditClient({
 				labrinthBaseUrl: API_URL.replace('/v2/', ''),
-				userAgent: 'Knossos generator (support@modrinth.com)',
+				userAgent: 'ShroudEdit generator (support@shroudedit.com)',
 			})
 
 			const generatedState = await client.labrinth.state.build()
@@ -165,7 +165,7 @@ export default defineNuxtConfig({
 			console.log('Tags generated!')
 
 			const robotsContent =
-				getDomain() === PROD_MODRINTH_URL && process.env.PREVIEW !== 'true'
+				getDomain() === PROD_SHROUDEDIT_URL && process.env.PREVIEW !== 'true'
 					? 'User-agent: *\nDisallow: /_internal/'
 					: 'User-agent: *\nDisallow: /'
 
@@ -199,7 +199,7 @@ export default defineNuxtConfig({
 			preview: process.env.PREVIEW === 'true',
 			featureFlagOverrides: getFeatureFlagOverrides(),
 
-			owner: process.env.VERCEL_GIT_REPO_OWNER || 'modrinth',
+			owner: process.env.VERCEL_GIT_REPO_OWNER || 'shroudedit',
 			slug: process.env.VERCEL_GIT_REPO_SLUG || 'code',
 			branch:
 				process.env.VERCEL_GIT_COMMIT_REF ||
@@ -276,6 +276,18 @@ export default defineNuxtConfig({
 		},
 	},
 	routeRules: {
+		'/app': {
+			redirect: {
+				to: '/',
+				statusCode: 301,
+			},
+		},
+		'/hosting/**': {
+			redirect: {
+				to: '/discover/servers',
+				statusCode: 301,
+			},
+		},
 		'/**': {
 			headers: {
 				'Accept-CH': 'Sec-CH-Prefers-Color-Scheme',
@@ -355,9 +367,9 @@ function getDomain() {
 		} else if (process.env.VERCEL_URL) {
 			return `https://${process.env.VERCEL_URL}`
 		} else if (getApiUrl() === STAGING_API_URL) {
-			return STAGING_MODRINTH_URL
+			return STAGING_SHROUDEDIT_URL
 		} else {
-			return PROD_MODRINTH_URL
+			return PROD_SHROUDEDIT_URL
 		}
 	} else {
 		const port = process.env.PORT || 3000

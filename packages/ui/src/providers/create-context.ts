@@ -43,7 +43,7 @@ export function createContext<ContextValue>(
 			: contextName
 
 	const injectionKey: InjectionKey<ContextValue | null> = Symbol.for(
-		`modrinth:${symbolDescription}`,
+		`shroudedit:${symbolDescription}`,
 	)
 
 	/**

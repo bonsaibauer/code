@@ -1,6 +1,6 @@
-import type { Archon } from '@modrinth/api-client'
+import type { Archon } from '@shroudedit/api-client'
 
-import { injectModrinthClient } from '../providers/api-client'
+import { injectShroudEditClient } from '../providers/api-client'
 import { injectNotificationManager } from '../providers/web-notifications'
 import { defineMessages, useVIntl } from './i18n'
 
@@ -32,7 +32,7 @@ export function hasAvailableWorldDownload(
 }
 
 export function useServerWorldDownload() {
-	const client = injectModrinthClient()
+	const client = injectShroudEditClient()
 	const { addNotification } = injectNotificationManager()
 	const { formatMessage } = useVIntl()
 

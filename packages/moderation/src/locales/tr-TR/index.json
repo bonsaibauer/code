@@ -80,10 +80,10 @@
   "nags.long-headers.title": {
     "defaultMessage": "Başlıkları kısalt"
   },
-  "nags.minecraft-title-clause.description": {
-    "defaultMessage": "Projeler Minecraft'ın logolarını kullanmamalı ve isimlerinde \"Minecraft\" içermemeli."
+  "nags.enshrouded-title-clause.description": {
+    "defaultMessage": "Projeler Enshrouded'ın logolarını kullanmamalı ve isimlerinde \"Enshrouded\" içermemeli."
   },
-  "nags.minecraft-title-clause.title": {
+  "nags.enshrouded-title-clause.title": {
     "defaultMessage": "Marka ihlalinden kaçının"
   },
   "nags.missing-alt-text.description": {

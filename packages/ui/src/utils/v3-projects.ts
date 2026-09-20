@@ -1,5 +1,5 @@
-import type { Labrinth } from '@modrinth/api-client'
-import { getPrimaryProjectType } from '@modrinth/utils'
+import type { Labrinth } from '@shroudedit/api-client'
+import { getPrimaryProjectType } from '@shroudedit/utils'
 
 import { normalizeProjectType } from './common-messages'
 import { sortProjectTypes } from './project-types'
@@ -14,7 +14,7 @@ export type ServerModpackContent = {
 }
 
 export function isProjectServer(project: Labrinth.Projects.v3.Project): boolean {
-	return project.minecraft_server != null
+	return project.enshrouded_server != null
 }
 
 export function getProjectCardTags(project: Labrinth.Projects.v3.Project): string[] {
@@ -42,28 +42,10 @@ export function getProjectPagePath(
 }
 
 export function getServerModpackContent(
-	project: Labrinth.Projects.v3.Project,
-	onNavigate?: (projectId: string) => void,
+	_project: Labrinth.Projects.v3.Project,
+	_onNavigate?: (projectId: string) => void,
 ): ServerModpackContent | undefined {
-	const content = project.minecraft_java_server?.content
-	if (content?.kind !== 'modpack') {
-		return undefined
-	}
-
-	const { project_name, project_icon, project_id } = content
-	if (!project_name) {
-		return undefined
-	}
-
-	return {
-		name: project_name,
-		icon: project_icon,
-		onclick:
-			project_id && project_id !== project.id && onNavigate
-				? () => onNavigate(project_id)
-				: undefined,
-		showCustomModpackTooltip: project_id === project.id,
-	}
+	return undefined
 }
 
 export function catalogProjectTypes(projects: Labrinth.Projects.v3.Project[]): string[] {

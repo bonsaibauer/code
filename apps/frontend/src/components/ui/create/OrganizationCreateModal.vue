@@ -27,7 +27,7 @@
 					</span>
 				</label>
 				<div class="text-input-wrapper">
-					<div class="text-input-wrapper__before">https://modrinth.com/organization/</div>
+					<div class="text-input-wrapper__before">{{ config.public.siteUrl }}/organization/</div>
 					<Input
 						id="slug"
 						v-model="slug"
@@ -72,7 +72,7 @@
 </template>
 
 <script setup lang="ts">
-import { PlusIcon, XIcon } from '@modrinth/assets'
+import { PlusIcon, XIcon } from '@shroudedit/assets'
 import {
 	Button,
 	commonMessages,
@@ -82,7 +82,7 @@ import {
 	NewModal,
 	Textarea,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { ref } from 'vue'
 
 import { generateUrlSlug } from '~/composables/project-slug-suggestions'
@@ -90,6 +90,7 @@ import { generateUrlSlug } from '~/composables/project-slug-suggestions'
 import CreateLimitAlert from './CreateLimitAlert.vue'
 
 const router = useNativeRouter()
+const config = useRuntimeConfig()
 const { addNotification } = injectNotificationManager()
 const { formatMessage } = useVIntl()
 

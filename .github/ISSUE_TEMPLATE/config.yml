@@ -2,7 +2,7 @@ blank_issues_enabled: false
 contact_links:
   - name: 🫶 Support portal
     about: Get support using through our support website.
-    url: https://support.modrinth.com
+    url: https://support.shroudedit.com
   - name: 💬 Chat on Discord
-    about: Join our Discord server to chat about Modrinth.
-    url: https://discord.modrinth.com
+    about: Join our Discord server to chat about ShroudEdit.
+    url: https://discord.shroudedit.com

@@ -1,5 +1,5 @@
-name: 👥 Bug with Modrinth Hosting
-description: For issues with a Modrinth Hosting product.
+name: 👥 Bug with ShroudEdit Hosting
+description: For issues with a ShroudEdit Hosting product.
 labels: [hosting]
 type: 'bug'
 body:
@@ -7,17 +7,17 @@ body:
     attributes:
       label: Please confirm the following.
       options:
-        - label: I checked the [existing issues](https://github.com/modrinth/code/issues?q=is%3Aissue) for duplicate problems
+        - label: I checked the [existing issues](https://github.com/shroudedit/code/issues?q=is%3Aissue) for duplicate problems
           required: true
-        - label: I have tried resolving the issue using the [support portal](https://support.modrinth.com)
+        - label: I have tried resolving the issue using the [support portal](https://support.shroudedit.com)
           required: true
   - type: dropdown
     id: issue-location
     attributes:
-      label: Is this an issue in the control panel or with the Minecraft server itself?
+      label: Is this an issue in the control panel or with the Enshrouded server itself?
       options:
-        - Control panel (on Modrinth.com)
-        - Minecraft server
+        - Control panel (on ShroudEdit.com)
+        - Enshrouded server
     validations:
       required: true
   - type: dropdown

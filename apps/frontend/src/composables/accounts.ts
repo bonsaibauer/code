@@ -1,4 +1,4 @@
-import type { AbstractModrinthClient, Labrinth } from '@modrinth/api-client'
+import type { AbstractShroudEditClient, Labrinth } from '@shroudedit/api-client'
 import { nextTick } from 'vue'
 
 import { useAuthState } from '@/composables/auth.ts'
@@ -375,7 +375,7 @@ export const switchToStoredAccount = async (
 	return 'ready'
 }
 
-export const switchToSignedOut = async (client: AbstractModrinthClient) => {
+export const switchToSignedOut = async (client: AbstractShroudEditClient) => {
 	if (!import.meta.client) return
 
 	const switching = useIsSwitchingAccount()

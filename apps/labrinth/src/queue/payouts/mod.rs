@@ -19,7 +19,6 @@ use chrono::{DateTime, Datelike, Duration, NaiveTime, TimeZone, Utc};
 use dashmap::DashMap;
 use eyre::Result;
 use futures::TryStreamExt;
-use modrinth_util::decimal::Decimal2dp;
 use muralpay::FiatAndRailCode;
 use reqwest::Method;
 use rust_decimal::Decimal;
@@ -27,6 +26,7 @@ use rust_decimal::prelude::ToPrimitive;
 use serde::de::DeserializeOwned;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
+use shroudedit_util::decimal::Decimal2dp;
 use sqlx::postgres::PgQueryResult;
 use std::collections::HashMap;
 use tokio::sync::RwLock;
@@ -1149,8 +1149,8 @@ pub async fn process_payout(
         })
         .sum();
 
-    // Modrinth's share of ad revenue
-    let modrinth_cut = Decimal::from(1) / Decimal::from(4);
+    // ShroudEdit's share of ad revenue
+    let shroudedit_cut = Decimal::from(1) / Decimal::from(4);
     // Clean.io fee (ad antimalware). Per 1000 impressions. 0.008 CPM
     let clean_io_fee = Decimal::from(8) / Decimal::from(1000);
     // Google Ad Manager fee. Per 1000 impressions. 0.015400 CPM
@@ -1160,7 +1160,7 @@ pub async fn process_payout(
         - ((clean_io_fee + gam_fee) * Decimal::from(aditude_impressions)
             / Decimal::from(1000));
 
-    let payout = net_revenue * (Decimal::from(1) - modrinth_cut);
+    let payout = net_revenue * (Decimal::from(1) - shroudedit_cut);
 
     // Ad payouts are Net 60 from the end of the month
     let available = {

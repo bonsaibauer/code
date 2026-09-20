@@ -7,7 +7,7 @@ import {
 	SettingsIcon,
 	TrashIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 import TeleportOverflowMenu from '../../components/base/buttons/TeleportOverflowMenu.vue'
@@ -32,7 +32,7 @@ const options: ButtonMenuOption[] = [
 		label: 'Open website',
 		icon: ExternalIcon,
 		type: 'link',
-		href: 'https://modrinth.com',
+		href: 'https://shroudedit.com',
 		target: '_blank',
 	},
 	{

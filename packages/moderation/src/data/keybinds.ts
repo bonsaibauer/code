@@ -1,4 +1,4 @@
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 
 import type { KeybindListener } from '../types/keybinds'
 
@@ -12,7 +12,7 @@ const copyProjectLink = async (
 	if (relative) {
 		url += `${globalThis.location.origin}`
 	} else {
-		url += `https://modrinth.com`
+		url += `https://shroudedit.com`
 	}
 
 	if (permalink) {
@@ -29,9 +29,9 @@ const copyProjectLink = async (
 	return url
 }
 
-function isOfficialModrinthHost(): boolean {
+function isOfficialShroudEditHost(): boolean {
 	const host = globalThis.location?.hostname
-	return host === 'modrinth.com' || host === 'www.modrinth.com' || host === 'staging.modrinth.com'
+	return host === 'shroudedit.com' || host === 'www.shroudedit.com' || host === 'staging.shroudedit.com'
 }
 
 const keybinds: { [id: string]: KeybindListener } = {
@@ -120,13 +120,13 @@ const keybinds: { [id: string]: KeybindListener } = {
 	},
 	'open-official-site': {
 		keybind: 'Ctrl+Shift+P',
-		description: isOfficialModrinthHost()
+		description: isOfficialShroudEditHost()
 			? 'Open current page on production/staging'
 			: 'Open current page on alternative host',
 		scope: 'global',
-		enabled: (ctx) => !isOfficialModrinthHost() || !!ctx.alternativeUrl,
+		enabled: (ctx) => !isOfficialShroudEditHost() || !!ctx.alternativeUrl,
 		action: (ctx) => {
-			const url = isOfficialModrinthHost() ? ctx.alternativeUrl : ctx.officialUrl
+			const url = isOfficialShroudEditHost() ? ctx.alternativeUrl : ctx.officialUrl
 			globalThis.open(url, '_blank', 'noopener,noreferrer')
 		},
 	},
@@ -134,10 +134,10 @@ const keybinds: { [id: string]: KeybindListener } = {
 		keybind: 'Ctrl+Shift+O',
 		description: 'Copy official URL',
 		scope: 'global',
-		enabled: () => !isOfficialModrinthHost(),
+		enabled: () => !isOfficialShroudEditHost(),
 		action: async (ctx) => {
 			await navigator.clipboard.writeText(ctx.officialUrl)
-			const environment = ctx.officialUrl.startsWith('https://staging.modrinth.com')
+			const environment = ctx.officialUrl.startsWith('https://staging.shroudedit.com')
 				? 'staging'
 				: 'production'
 			ctx.notifyCopied(ctx.officialUrl, `Copied ${environment} URL to clipboard`)

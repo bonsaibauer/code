@@ -448,7 +448,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	BlocksIcon,
 	BoxIcon,
@@ -459,8 +459,8 @@ import {
 	FolderOpenIcon,
 	LayersIcon,
 	UserIcon,
-} from '@modrinth/assets'
-import { Button } from '@modrinth/ui'
+} from '@shroudedit/assets'
+import { Button } from '@shroudedit/ui'
 import {
 	Combobox,
 	type ComboboxOption,
@@ -468,7 +468,7 @@ import {
 	type MultiSelectItem,
 	type MultiSelectOption,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 
 import {
 	buildDefaultAnalyticsQueryBuilderState,
@@ -993,10 +993,6 @@ const breakdownOptions = computed<MultiSelectOption<Exclude<AnalyticsBreakdownPr
 			{
 				value: 'country',
 				label: formatAnalyticsBreakdownLabel('country', formatMessage),
-			},
-			{
-				value: 'monetization',
-				label: formatAnalyticsBreakdownLabel('monetization', formatMessage),
 			},
 			{
 				value: 'user_agent',

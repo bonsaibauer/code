@@ -15,18 +15,14 @@ import python from 'highlight.js/lib/languages/python'
 import scala from 'highlight.js/lib/languages/scala'
 import xml from 'highlight.js/lib/languages/xml'
 import yaml from 'highlight.js/lib/languages/yaml'
-import mcfunction from 'highlightjs-mcfunction'
 
 import { configuredXss, md } from '../parse'
-import skript from './skript'
 
 /* REGISTRATION */
 // Scripting
 hljs.registerLanguage('javascript', javascript)
 hljs.registerLanguage('python', python)
 hljs.registerLanguage('lua', lua)
-hljs.registerLanguage('skript', skript)
-hljs.registerLanguage('mcfunction', mcfunction)
 // Coding
 hljs.registerLanguage('java', java)
 hljs.registerLanguage('kotlin', kotlin)
@@ -44,16 +40,13 @@ hljs.registerLanguage('properties', properties)
 // Scripting
 hljs.registerAliases(['js'], { languageName: 'javascript' })
 hljs.registerAliases(['py'], { languageName: 'python' })
-hljs.registerAliases(['sk'], { languageName: 'skript' })
-hljs.registerAliases(['command'], { languageName: 'mcfunction' })
-hljs.registerAliases(['kubejs'], { languageName: 'javascript' })
 // Coding
 hljs.registerAliases(['kt'], { languageName: 'kotlin' })
 // Configs
 hljs.registerAliases(['json5'], { languageName: 'json' })
 hljs.registerAliases(['toml'], { languageName: 'ini' })
 hljs.registerAliases(['yml'], { languageName: 'yaml' })
-hljs.registerAliases(['html', 'htm', 'xhtml', 'mcui', 'fxml'], { languageName: 'xml' })
+hljs.registerAliases(['html', 'htm', 'xhtml', 'fxml'], { languageName: 'xml' })
 
 export { hljs }
 

@@ -13,15 +13,15 @@ import {
 	TagsIcon,
 	UsersIcon,
 	VersionIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	commonMessages,
 	commonProjectSettingsMessages,
 	injectProjectPageContext,
 	Toggle,
 	useVIntl,
-} from '@modrinth/ui'
-import { isStaff } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { isStaff } from '@shroudedit/utils'
 import { useLocalStorage, useScroll } from '@vueuse/core'
 import { computed } from 'vue'
 
@@ -43,7 +43,7 @@ const {
 
 const flags = useFeatureFlags()
 
-const isServerProject = computed(() => projectV3.value?.minecraft_server != null)
+const isServerProject = computed(() => projectV3.value?.enshrouded_server != null)
 
 const navItems = computed(() => {
 	const base = `${project.value.project_type}/${project.value.slug ? project.value.slug : project.value.id}`

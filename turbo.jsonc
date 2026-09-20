@@ -5,13 +5,13 @@
 		"packages/tooling-config/**",
 		"!packages/tooling-config/.turbo/**",
 		"!packages/tooling-config/node_modules/**",
-		"packages/app-lib/.env"
+		"apps/frontend/.env"
 	],
 	"globalEnv": [
-		"MODRINTH_URL",
-		"MODRINTH_API_BASE_URL",
+		"SHROUDEDIT_URL",
+		"SHROUDEDIT_API_BASE_URL",
 		"SHARED_INSTANCES_API_BASE_URL",
-		"MODRINTH_ARCHON_BASE_URL",
+		"SHROUDEDIT_ARCHON_BASE_URL",
 		"VITE_STRIPE_PUBLISHABLE_KEY"
 	],
 	"tasks": {
@@ -69,8 +69,6 @@
 				"scripts/run.mjs",
 				"scripts/coverage-i18n.ts",
 				"scripts/i18n-icu-contract.ts",
-				"apps/app-frontend/src/**/*.vue",
-				"apps/app-frontend/src/locales/**/*.json",
 				"apps/frontend/src/**/*.vue",
 				"apps/frontend/src/locales/**/*.json",
 				"packages/moderation/src/**/*.vue",

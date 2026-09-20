@@ -9,7 +9,7 @@ pub(super) fn validate(
     let mut nags = Vec::new();
 
     if project.versions.is_empty()
-        && project.components.minecraft_server.is_none()
+        && project.components.enshrouded_server.is_none()
     {
         nags.push(ProjectNag::new(
             ProjectNagKind::UploadVersion,

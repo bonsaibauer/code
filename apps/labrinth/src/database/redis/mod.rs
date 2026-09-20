@@ -85,7 +85,7 @@ mod tests {
         DBVersion, VersionQueryResult,
     };
     use crate::models::billing::{Price, ProductMetadata};
-    use crate::models::exp::{self, minecraft};
+    use crate::models::exp::{self, enshrouded};
     use crate::models::notifications::NotificationBody;
     use crate::models::projects::{
         MonetizationStatus, ProjectStatus, SideTypesMigrationReviewStatus,
@@ -182,10 +182,10 @@ mod tests {
         for platform in [None, Some(false), Some(true)] {
             let loader = Loader {
                 id: LoaderId(1),
-                loader: "paper".to_string(),
+                loader: "shroudforge".to_string(),
                 icon: "icon".to_string(),
-                supported_project_types: vec!["plugin".to_string()],
-                supported_games: vec!["minecraft-java".to_string()],
+                supported_project_types: vec!["mod".to_string()],
+                supported_games: vec!["enshrouded".to_string()],
                 metadata: LoaderMetadata { platform },
             };
             let round_tripped = postcard_round_trip(&loader);
@@ -285,9 +285,9 @@ mod tests {
                     enum_value,
                 ),
             }],
-            loaders: vec!["fabric".to_string()],
+            loaders: vec!["shroudtopia".to_string()],
             project_types: vec!["mod".to_string()],
-            games: vec!["minecraft-java".to_string()],
+            games: vec!["enshrouded".to_string()],
             dependencies: Vec::new(),
             components: exp::VersionQuery::default(),
         };
@@ -299,7 +299,7 @@ mod tests {
             additional_categories: Vec::new(),
             versions: vec![DBVersionId(1)],
             project_types: vec!["mod".to_string()],
-            games: vec!["minecraft-java".to_string()],
+            games: vec!["enshrouded".to_string()],
             urls: Vec::new(),
             gallery_items: Vec::new(),
             thread_id: DBThreadId(1),
@@ -354,21 +354,13 @@ mod tests {
             read: false,
             created: Utc::now(),
         });
-        postcard_round_trip(&minecraft::ServerContent::Vanilla {
-            supported_game_versions: vec!["1.21.8".to_string()],
-            recommended_game_version: Some("1.21.8".to_string()),
-        });
-        postcard_round_trip(&minecraft::ServerContentQuery::Vanilla {
-            supported_game_versions: vec!["1.21.8".to_string()],
-            recommended_game_version: Some("1.21.8".to_string()),
-        });
     }
 
     #[test]
     fn simple_flow_variants_round_trip_with_postcard() {
         assert!(matches!(
-            postcard_round_trip(&DBFlow::MinecraftAuth),
-            DBFlow::MinecraftAuth
+            postcard_round_trip(&DBFlow::EnshroudedAuth),
+            DBFlow::EnshroudedAuth
         ));
 
         let flow = postcard_round_trip(&DBFlow::Login2FA {

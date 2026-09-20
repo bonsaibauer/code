@@ -31,8 +31,8 @@
 </template>
 
 <script lang="ts" setup>
-import { XIcon } from '@modrinth/assets'
-import { Button, TagItem } from '@modrinth/ui'
+import { XIcon } from '@shroudedit/assets'
+import { Button, TagItem } from '@shroudedit/ui'
 
 import { injectManageVersionContext } from '~/providers/version/manage-version-modal'
 

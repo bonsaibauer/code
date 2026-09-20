@@ -1,50 +1,36 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	BookmarkIcon,
-	CheckIcon,
 	DownloadIcon,
 	GridIcon,
 	HeartIcon,
 	ImageIcon,
 	ListIcon,
 	MoreVerticalIcon,
-	SpinnerIcon,
-} from '@modrinth/assets'
-import type { CardAction } from '@modrinth/ui'
+} from '@shroudedit/assets'
+import type { CardAction } from '@shroudedit/ui'
 import {
-	BrowseInstallHeader,
 	BrowsePageLayout,
 	BrowseSidebar,
-	CreationFlowModal,
 	defineMessages,
 	formatProjectTypeSentence,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectUserPreferences,
-	PROJECT_DEP_MARKER_QUERY,
 	provideBrowseManager,
-	SelectedProjectsFloatingBar,
 	useBrowseSearch,
 	useDebugLogger,
-	useStickyObserver,
 	useVIntl,
-} from '@modrinth/ui'
-import { commonMessages } from '@modrinth/ui/src/utils/common-messages'
-import { cycleValue } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { commonMessages } from '@shroudedit/ui/src/utils/common-messages'
+import { cycleValue } from '@shroudedit/utils'
 import { useQueryClient } from '@tanstack/vue-query'
 import { useTimeoutFn } from '@vueuse/core'
 import { computed, ref, watch } from 'vue'
-import type { LocationQueryRaw } from 'vue-router'
 
 import LogoAnimated from '~/components/brand/LogoAnimated.vue'
 import AdPlaceholder from '~/components/ui/AdPlaceholder.vue'
 import { projectQueryOptions, warmProjectCheckCaches } from '~/composables/queries/project'
-import { versionQueryOptions } from '~/composables/queries/version'
-import type {
-	ServerInstallModalHandle,
-	ServerInstallSearchResult,
-} from '~/composables/use-server-install-content'
-import { useServerInstallContent } from '~/composables/use-server-install-content'
 import { withLabrinthCanaryHeader } from '~/helpers/canary.ts'
 import type { DisplayLocation, DisplayMode } from '~/plugins/cosmetics.ts'
 
@@ -53,7 +39,7 @@ const debug = useDebugLogger('Discover')
 
 const { updateDiscoverFilterContext } = useCdnDownloadContext()
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const { updatePreferences } = injectUserPreferences()
 const queryClient = useQueryClient()
 
@@ -86,23 +72,7 @@ const handleProjectMouseEnter = (result: Labrinth.Search.v3.ResultSearchProject)
 }
 
 const handleServerProjectMouseEnter = (result: Labrinth.Search.v3.ResultSearchProject) => {
-	const projectId = result.project_id
-
-	prefetchTimeout = useTimeoutFn(
-		async () => {
-			warmProjectCheckCaches(queryClient, result)
-			queryClient.prefetchQuery(projectQueryOptions.v2(projectId, client))
-			queryClient.prefetchQuery(projectQueryOptions.v3(projectId, client))
-
-			const content = result.minecraft_java_server?.content
-			if (content?.kind === 'modpack' && content.version_id) {
-				queryClient.prefetchQuery(versionQueryOptions.v3(content.version_id, client))
-			}
-		},
-		HOVER_DURATION_TO_PREFETCH_MS,
-		{ immediate: false },
-	)
-	prefetchTimeout.start()
+	handleProjectMouseEnter(result)
 }
 
 const handleProjectHoverEnd = () => {
@@ -140,6 +110,7 @@ const layoutPreferenceKeys = {
 	shader: 'shaders',
 	resourcepack: 'resourcepacks',
 	modpack: 'modpacks',
+	schematic: 'mods',
 	server: 'servers',
 	user: 'users',
 } as const satisfies Partial<Record<DisplayLocation, keyof Labrinth.Users.v3.LayoutPreferences>>
@@ -171,76 +142,6 @@ function cycleSearchDisplayMode() {
 			[preferenceKey]: displayMode === 'list' ? 'rows' : 'grid',
 		} as Partial<Labrinth.Users.v3.LayoutPreferences>,
 	}).catch(() => undefined)
-}
-
-const onboardingModalRef = ref<ServerInstallModalHandle | null>(null)
-const {
-	currentServerId,
-	fromContext,
-	serverData,
-	serverContentData,
-	serverFilters,
-	serverHideInstalled,
-	serverContentServerOnly,
-	showServerOnlyToggle,
-	serverEnvironmentOverride,
-	hideSelectedServerInstalls,
-	installingProjectIds,
-	optimisticallyInstalledProjectIds,
-	queuedServerInstallRootProjectIds,
-	queuedServerInstallProjectIds,
-	queuedServerInstallCount,
-	isInstallingQueuedServerInstalls,
-	installContext,
-	setBrowseSearchState,
-	syncHiddenInstalledProjectIds,
-	serverInstall,
-	onOnboardingHide,
-	onOnboardingBack,
-	onModpackFlowCreate,
-} = useServerInstallContent({
-	projectType,
-	onboardingModalRef,
-	debug,
-})
-
-function getServerModpackContent(project: Labrinth.Search.v3.ResultSearchProject) {
-	const content = project.minecraft_java_server?.content
-	if (content?.kind === 'modpack') {
-		const { project_name, project_icon, project_id } = content
-		if (!project_name) return undefined
-		return {
-			name: project_name,
-			icon: project_icon ?? undefined,
-			onclick:
-				project_id !== project.project_id
-					? () =>
-							navigateTo({
-								path: `/project/${project_id}`,
-								query: { ...PROJECT_DEP_MARKER_QUERY },
-							})
-					: undefined,
-			showCustomModpackTooltip: project_id === project.project_id,
-		}
-	}
-	return undefined
-}
-
-const hostingContextQuery = computed(() => {
-	const query: LocationQueryRaw = {}
-
-	for (const key of ['sid', 'wid', 'from', 'shi']) {
-		const value = route.query[key]
-		if (value != null) {
-			query[key] = value
-		}
-	}
-
-	return Object.keys(query).length > 0 ? query : undefined
-})
-
-function withHostingContext(path: string) {
-	return hostingContextQuery.value ? { path, query: hostingContextQuery.value } : path
 }
 
 function parseSearchParams(requestParams: string): Labrinth.Search.SearchParams {
@@ -314,8 +215,6 @@ function getCardActions(
 ): CardAction[] {
 	if (currentProjectType === 'server') return []
 
-	const projectResult = result as ServerInstallSearchResult
-
 	if (flags.value.showDiscoverProjectButtons) {
 		return [
 			{
@@ -346,53 +245,6 @@ function getCardActions(
 				circular: true,
 				type: 'transparent',
 				onClick: () => {},
-			},
-		]
-	}
-
-	if (serverData.value) {
-		const isQueued = queuedServerInstallProjectIds.value.has(result.project_id)
-		const isQueuedRoot = queuedServerInstallRootProjectIds.value.has(result.project_id)
-		const isInstalled =
-			projectResult.installed ||
-			optimisticallyInstalledProjectIds.value.has(result.project_id) ||
-			(serverContentData.value &&
-				(serverContentData.value.addons ?? []).find((x) => x.project_id === result.project_id)) ||
-			serverData.value.upstream?.project_id === result.project_id
-		const isInstalling = installingProjectIds.value.has(result.project_id)
-		const isInstallingSelection = isInstallingQueuedServerInstalls.value
-		const validatingInstall =
-			isInstalling && currentProjectType !== 'modpack' && !isInstallingSelection
-		const installLabel = isInstalled
-			? formatMessage(commonMessages.installedLabel)
-			: isQueued
-				? isInstalling || isInstallingSelection
-					? validatingInstall
-						? formatMessage(commonMessages.validatingLabel)
-						: formatMessage(commonMessages.installingLabel)
-					: formatMessage(commonMessages.selectedLabel)
-				: isInstalling || isInstallingSelection
-					? validatingInstall
-						? formatMessage(commonMessages.validatingLabel)
-						: formatMessage(commonMessages.installingLabel)
-					: formatMessage(commonMessages.installButton)
-
-		return [
-			{
-				key: 'install',
-				label: installLabel,
-				icon:
-					isInstalling || isInstallingSelection
-						? SpinnerIcon
-						: isQueued || isInstalled
-							? CheckIcon
-							: DownloadIcon,
-				iconClass: isInstalling || isInstallingSelection ? 'animate-spin' : undefined,
-				disabled:
-					!!isInstalled || isInstalling || isInstallingSelection || (isQueued && !isQueuedRoot),
-				color: isQueued && !isInstalling && !isInstallingSelection ? 'green' : 'brand',
-				type: 'outlined',
-				onClick: () => serverInstall(projectResult),
 			},
 		]
 	}
@@ -428,7 +280,7 @@ const messages = defineMessages({
 	seoDescription: {
 		id: 'discover.seo.description',
 		defaultMessage:
-			'Search and browse thousands of Minecraft {projectType} on Modrinth with instant, accurate search results. Our filters help you quickly find the best Minecraft {projectType}.',
+			'Search and browse Enshrouded {projectType} on ShroudEdit with fast, accurate filters.',
 	},
 	gameVersionShaderMessage: {
 		id: 'search.filter.game-version-shader-message',
@@ -461,18 +313,10 @@ watch(projectTypeId, (val) => debug('projectTypeId changed:', val))
 const searchState = useBrowseSearch({
 	projectType: projectTypeId,
 	tags,
-	providedFilters: serverFilters,
-	environmentOverride: serverEnvironmentOverride,
 	search,
-	persistentQueryParams: ['sid', 'wid', 'shi', 'so', 'from'],
-	getExtraQueryParams: () => ({
-		shi: serverHideInstalled.value ? 'true' : undefined,
-		so: showServerOnlyToggle.value && serverContentServerOnly.value ? 'true' : undefined,
-	}),
 	maxResultsOptions: currentMaxResultsOptions,
 	displayMode: resultsDisplayMode,
 })
-setBrowseSearchState(searchState)
 
 // Warm check caches for every visible hit so clicking a result skips /project/{slug}/check
 watch(
@@ -490,19 +334,6 @@ watch(
 			: searchState.currentFilters.value,
 	(filters) => updateDiscoverFilterContext(filters),
 	{ deep: true, immediate: true },
-)
-
-watch(
-	[
-		() => searchState.query.value,
-		() => searchState.currentFilters.value,
-		() => searchState.serverCurrentFilters.value,
-		() => projectTypeId.value,
-	],
-	() => {
-		syncHiddenInstalledProjectIds()
-	},
-	{ deep: true },
 )
 
 debug('calling initial refreshSearch')
@@ -544,38 +375,18 @@ provideBrowseManager({
 	projectType: projectTypeId,
 	...searchState,
 	getProjectLink: (result: Labrinth.Search.v3.ResultSearchProject) =>
-		withHostingContext(
-			`/${projectType.value?.id ?? 'project'}/${result.slug ? result.slug : result.project_id}`,
-		),
+		`/${projectType.value?.id ?? 'project'}/${result.slug ? result.slug : result.project_id}`,
 	getServerProjectLink: (result: Labrinth.Search.v3.ResultSearchProject) =>
-		withHostingContext(`/server/${result.slug ?? result.project_id}`),
+		`/server/${result.slug ?? result.project_id}`,
 	selectableProjectTypes: computed(() => []),
 	showProjectTypeTabs: computed(() => false),
 	variant: 'web',
 	getCardActions,
-	installContext,
-	providedFilters: serverFilters,
-	hideInstalled: serverHideInstalled,
-	showHideInstalled: computed(() => !!serverData.value && projectType.value?.id !== 'modpack'),
-	hideInstalledLabel: computed(() => formatMessage(commonMessages.hideInstalledContentLabel)),
-	hideSelected: hideSelectedServerInstalls,
-	showHideSelected: computed(
-		() =>
-			!!serverData.value &&
-			projectType.value?.id !== 'modpack' &&
-			queuedServerInstallCount.value > 0,
-	),
-	hideSelectedLabel: computed(() => formatMessage(commonMessages.hideSelectedContentLabel)),
-	serverOnly: serverContentServerOnly,
-	showServerOnly: showServerOnlyToggle,
-	serverOnlyLabel: computed(() => formatMessage(commonMessages.serverOnlyLabel)),
-	hiddenFilterTypes: computed(() => (showServerOnlyToggle.value ? ['environment'] : [])),
 	advancedFiltersCollapsed,
 	dismissedPhotosensitivityFilterWarning,
 	displayMode: resultsDisplayMode,
 	cycleDisplayMode: cycleSearchDisplayMode,
 	maxResultsOptions: currentMaxResultsOptions,
-	getServerModpackContent,
 	onProjectHover: handleProjectMouseEnter,
 	onServerProjectHover: handleServerProjectMouseEnter,
 	onProjectHoverEnd: handleProjectHoverEnd,
@@ -590,27 +401,11 @@ provideBrowseManager({
 	loadingComponent: LogoAnimated,
 })
 
-const stickyInstallHeaderRef = ref<HTMLElement | null>(null)
-const { isStuck: isInstallHeaderStuck } = useStickyObserver(
-	stickyInstallHeaderRef,
-	'DiscoverInstallHeader',
-)
 </script>
 <template>
 	<Teleport v-if="flags.searchBackground" to="#absolute-background-teleport">
 		<div class="search-background"></div>
 	</Teleport>
-
-	<div
-		v-if="installContext"
-		ref="stickyInstallHeaderRef"
-		class="sticky top-0 z-20 -mx-6 mb-2 border-0 border-solid border-divider bg-surface-1 px-6 pt-4"
-		:class="[isInstallHeaderStuck ? 'border-t' : '']"
-	>
-		<BrowseInstallHeader divider bottom-padding />
-	</div>
-
-	<SelectedProjectsFloatingBar v-if="installContext" :install-context="installContext" />
 
 	<div
 		class="grid min-w-0 gap-3"
@@ -622,10 +417,7 @@ const { isStuck: isInstallHeaderStuck } = useStickyObserver(
 	>
 		<section
 			class="flex min-w-0 flex-col gap-2"
-			:class="[
-				{ 'mt-6 sm:mt-0': !installContext },
-				cosmetics.rightSearchLayout ? 'lg:order-1' : 'lg:order-2',
-			]"
+			:class="['mt-6 sm:mt-0', cosmetics.rightSearchLayout ? 'lg:order-1' : 'lg:order-2']"
 		>
 			<BrowsePageLayout>
 				<template #display-mode-icon>
@@ -643,23 +435,12 @@ const { isStuck: isInstallHeaderStuck } = useStickyObserver(
 		>
 			<BrowseSidebar>
 				<template #prepend>
-					<AdPlaceholder v-if="!auth.user && !serverData" />
+					<AdPlaceholder v-if="!auth.user" />
 				</template>
 			</BrowseSidebar>
 		</aside>
 	</div>
 
-	<CreationFlowModal
-		v-if="currentServerId && projectType?.id === 'modpack'"
-		ref="onboardingModalRef"
-		:type="fromContext === 'reset-server' ? 'reset-server' : 'server-onboarding'"
-		:available-loaders="['vanilla', 'fabric', 'neoforge', 'forge', 'quilt', 'paper', 'purpur']"
-		:show-snapshot-toggle="true"
-		:on-back="onOnboardingBack"
-		@hide="onOnboardingHide"
-		@browse-modpacks="() => {}"
-		@create="onModpackFlowCreate"
-	/>
 </template>
 <style lang="scss" scoped>
 .search-background {

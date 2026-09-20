@@ -1,4 +1,4 @@
-import { KeyIcon, LinkIcon, MailIcon, SearchIcon, UserIcon } from '@modrinth/assets'
+import { KeyIcon, LinkIcon, MailIcon, SearchIcon, UserIcon } from '@shroudedit/assets'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
 
@@ -45,7 +45,7 @@ export const WithTextPrefix: Story = {
 		template: `
 			<Input v-model="value">
 				<template #prefix>
-					<span style="white-space: nowrap">https://modrinth.com/mod/</span>
+					<span style="white-space: nowrap">https://shroudedit.com/mod/</span>
 				</template>
 			</Input>
 		`,

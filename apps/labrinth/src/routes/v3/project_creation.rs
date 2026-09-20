@@ -199,6 +199,8 @@ pub struct ProjectCreateData {
     #[serde(alias = "mod_name")]
     /// The title or name of the project.
     pub name: String,
+    #[serde(default = "default_project_type")]
+    pub project_type: String,
     #[validate(
         length(min = 3, max = 64),
         regex(path = *crate::util::validate::RE_URL_SAFE)
@@ -982,7 +984,11 @@ async fn project_create_inner(
                 .collect(),
             color: icon_data.and_then(|x| x.2),
             monetization_status: MonetizationStatus::Monetized,
-            components: exp::ProjectSerial::default(),
+            components: exp::ProjectSerial {
+                schematic: (project_create_data.project_type == "schematic")
+                    .then_some(exp::enshrouded::SchematicProject {}),
+                ..exp::ProjectSerial::default()
+            },
         };
         let project_builder = project_builder_actual.clone();
 

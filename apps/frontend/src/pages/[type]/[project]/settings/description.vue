@@ -47,8 +47,8 @@ import {
 	UnsavedChangesPopup,
 	usePageLeaveSafety,
 	useSavable,
-} from '@modrinth/ui'
-import { isAdmin, TeamMemberPermission } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { isAdmin, TeamMemberPermission } from '@shroudedit/utils'
 import { computed, useTemplateRef } from 'vue'
 
 import AiImageWarningModal from '~/components/ui/AiImageWarningModal.vue'

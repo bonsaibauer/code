@@ -60,7 +60,7 @@
 					:disabled="hasHitLimit"
 					@update:model-value="manualSlug = true"
 				>
-					<template #prefix>https://modrinth.com/project/</template>
+					<template #prefix>{{ config.public.siteUrl }}/project/</template>
 				</Input>
 				<SlugSuggestions
 					:selected="slug"
@@ -139,23 +139,23 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { OrganizationIcon, PlusIcon, XIcon } from '@modrinth/assets'
-import { Button } from '@modrinth/ui'
+import type { Labrinth } from '@shroudedit/api-client'
+import { OrganizationIcon, PlusIcon, XIcon } from '@shroudedit/assets'
+import { Button } from '@shroudedit/ui'
 import {
 	Chips,
 	Combobox,
 	type ComboboxOption,
 	commonMessages,
 	defineMessages,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	Input,
 	NewModal,
 	Textarea,
 	useDebugLogger,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { computed, defineAsyncComponent, h } from 'vue'
 
 import SlugSuggestions from '~/components/ui/SlugSuggestions.vue'
@@ -167,17 +167,18 @@ import {
 
 import CreateLimitAlert from './CreateLimitAlert.vue'
 
-type ProjectTypes = 'server' | 'project'
+type ProjectTypes = 'server' | 'project' | 'schematic'
 interface VisibilityOption {
 	actual: Labrinth.Projects.v2.ProjectStatus
 	display: string
 }
 interface ShowOptions {
-	type?: 'server' | 'project'
+	type?: ProjectTypes
 }
 
 const { addNotification } = injectNotificationManager()
 const { formatMessage } = useVIntl()
+const config = useRuntimeConfig()
 const router = useRouter()
 const debug = useDebugLogger('ProjectCreateModal')
 
@@ -202,11 +203,15 @@ const messages = defineMessages({
 	},
 	typeProject: {
 		id: 'create.project.type-project',
-		defaultMessage: 'Project',
+		defaultMessage: 'Mod',
 	},
 	typeServer: {
 		id: 'create.project.type-server',
 		defaultMessage: 'Server',
+	},
+	typeSchematic: {
+		id: 'create.project.type-schematic',
+		defaultMessage: 'Schematic',
 	},
 	ownerLabel: {
 		id: 'create.project.owner-label',
@@ -309,6 +314,10 @@ const projectTypeOptions = computed<ComboboxOption<ProjectTypes>[]>(() => [
 		value: 'server',
 		label: formatMessage(messages.typeServer),
 	},
+	{
+		value: 'schematic',
+		label: formatMessage(messages.typeSchematic),
+	},
 ])
 const ownerOptions = ref<ComboboxOption<string>[]>([])
 const owner = ref<string | undefined>('self')
@@ -377,7 +386,7 @@ const userOption = computed(() => ({
 		: undefined,
 }))
 
-const { labrinth } = injectModrinthClient()
+const { labrinth } = injectShroudEditClient()
 
 async function fetchOrganizations() {
 	if (!auth.value.user?.id) return
@@ -427,7 +436,7 @@ async function createProject() {
 
 	const projectData: Labrinth.Projects.v2.CreateProjectBase = {
 		title: name.value.trim(),
-		project_type: 'mod',
+		project_type: projectType.value === 'schematic' ? 'schematic' : 'mod',
 		slug: slug.value,
 		description: description.value.trim(),
 		body: '',
@@ -443,7 +452,7 @@ async function createProject() {
 		categories: [],
 		client_side: 'required',
 		server_side: 'required',
-		license_id: 'LicenseRef-Unknown',
+		license_id: 'LicenseRef-Open-Source',
 		is_draft: true,
 		organization_id: owner.value !== 'self' ? owner.value : undefined,
 	}
@@ -463,14 +472,10 @@ async function createProject() {
 					requested_status: projectData.requested_status,
 					organization_id: owner.value !== 'self' ? owner.value : undefined,
 				},
-				minecraft_server: {
-					// empty component
-				},
-				minecraft_java_server: {
+				enshrouded_server: {
 					address: '',
-				},
-				minecraft_bedrock_server: {
-					address: '',
+					query_port: 15637,
+					languages: [],
 				},
 			})
 			createdProjectId = result.id

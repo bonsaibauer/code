@@ -31,14 +31,11 @@ impl RedisBlockingPool {
         let pool_size = config.blocking_pool_size();
         let inner = match config.topology() {
             RedisTopology::Standalone => {
-                let connection_config = redis::AsyncConnectionConfig::new()
-                    .set_connection_timeout(None)
-                    .set_response_timeout(None);
-                let manager = deadpool_redis::Manager::new_with_config(
-                    config.seed_urls()[0].clone(),
-                    connection_config,
-                )
-                .wrap_err("configuring standalone blocking Redis client")?;
+                let manager =
+                    deadpool_redis::Manager::new(config.seed_urls()[0].clone())
+                        .wrap_err(
+                            "configuring standalone blocking Redis client",
+                        )?;
                 let pool = deadpool_redis::Pool::builder(manager)
                     .max_size(pool_size.max())
                     .wait_timeout(Some(Duration::from_millis(

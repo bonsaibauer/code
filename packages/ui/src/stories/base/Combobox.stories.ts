@@ -7,7 +7,7 @@ import {
 	ShareIcon,
 	TrashIcon,
 	UserIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 import Combobox from '../../components/base/Combobox.vue'
@@ -46,7 +46,7 @@ export const WithSelectedOption: Story = {
 export const Searchable: Story = {
 	args: {
 		options: [
-			{ value: '1', label: 'Minecraft' },
+			{ value: '1', label: 'Enshrouded' },
 			{ value: '2', label: 'Fabric' },
 			{ value: '3', label: 'Forge' },
 			{ value: '4', label: 'NeoForge' },
@@ -61,7 +61,7 @@ export const Searchable: Story = {
 export const SearchableButtonVariant: Story = {
 	args: {
 		options: [
-			{ value: '1', label: 'Minecraft' },
+			{ value: '1', label: 'Enshrouded' },
 			{ value: '2', label: 'Fabric' },
 			{ value: '3', label: 'Forge' },
 		],
@@ -95,7 +95,7 @@ export const DropdownMinWidth: StoryObj = {
 			selected: undefined,
 			options: [
 				{ value: 'fabric', label: 'Fabric', subLabel: 'Lightweight modding toolchain' },
-				{ value: 'forge', label: 'Forge', subLabel: 'The original Minecraft modding API' },
+				{ value: 'forge', label: 'Forge', subLabel: 'The original Enshrouded modding API' },
 				{ value: 'neoforge', label: 'NeoForge', subLabel: 'Community-driven Forge fork' },
 			],
 		}),
@@ -182,7 +182,7 @@ export const WithSubLabel: Story = {
 		modelValue: '2',
 		options: [
 			{ value: '1', label: 'Fabric', subLabel: 'Lightweight modding toolchain' },
-			{ value: '2', label: 'Forge', subLabel: 'The original Minecraft modding API' },
+			{ value: '2', label: 'Forge', subLabel: 'The original Enshrouded modding API' },
 			{ value: '3', label: 'NeoForge', subLabel: 'Community-driven Forge fork' },
 			{ value: '4', label: 'Quilt', subLabel: 'The mod-loader that cares' },
 		],
@@ -203,7 +203,7 @@ export const LongSelectedLabel: Story = {
 export const MixedSubLabels: Story = {
 	args: {
 		options: [
-			{ value: '1', label: 'Minecraft', subLabel: 'The base game' },
+			{ value: '1', label: 'Enshrouded', subLabel: 'The base game' },
 			{ value: '2', label: 'Fabric' },
 			{ value: '3', label: 'Forge', subLabel: 'Supports most mods' },
 			{ value: '4', label: 'NeoForge' },

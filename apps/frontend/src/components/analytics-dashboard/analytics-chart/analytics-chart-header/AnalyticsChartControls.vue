@@ -124,22 +124,22 @@
 						/>
 					</div>
 					<div
-						v-tooltip="modrinthEventsDisabledTooltip"
+						v-tooltip="shroudeditEventsDisabledTooltip"
 						class="justify3 flex min-h-7 items-center"
 						:aria-disabled="!hasChartEvents"
 					>
 						<label
-							:for="modrinthEventsToggleId"
+							:for="shroudeditEventsToggleId"
 							class="flex min-h-7 min-w-0 grow items-center gap-1.5 pr-3 font-semibold leading-tight text-primary"
 							:class="hasChartEvents ? 'cursor-pointer' : 'cursor-not-allowed opacity-60'"
 						>
 							<InfoIcon class="size-4 shrink-0 text-blue" aria-hidden="true" />
 							<span class="min-w-0 truncate">
-								{{ formatMessage(analyticsChartMessages.modrinthEvents) }}
+								{{ formatMessage(analyticsChartMessages.shroudeditEvents) }}
 							</span>
 						</label>
 						<Toggle
-							:id="modrinthEventsToggleId"
+							:id="shroudeditEventsToggleId"
 							v-model="showChartEventsControlModel"
 							:small="smallToggles"
 							:disabled="!hasChartEvents"
@@ -158,8 +158,8 @@ import {
 	InfoIcon,
 	Settings2Icon,
 	TagCategoryFlagIcon,
-} from '@modrinth/assets'
-import { FloatingMenu, Toggle, useVIntl } from '@modrinth/ui'
+} from '@shroudedit/assets'
+import { FloatingMenu, Toggle, useVIntl } from '@shroudedit/ui'
 
 import { analyticsChartMessages, analyticsMessages } from '../../analytics-messages'
 
@@ -194,7 +194,7 @@ const isControlsMenuOpen = ref(false)
 const controlsMenuId = useId()
 const ratioModeToggleId = useId()
 const previousPeriodToggleId = useId()
-const modrinthEventsToggleId = useId()
+const shroudeditEventsToggleId = useId()
 const projectEventsToggleId = useId()
 const { formatMessage } = useVIntl()
 
@@ -227,8 +227,8 @@ const hasDisplayControls = computed(() => props.canShowPreviousPeriod || props.c
 const projectEventsDisabledTooltip = computed(() =>
 	props.hasProjectEvents ? undefined : formatMessage(analyticsChartMessages.noProjectEvents),
 )
-const modrinthEventsDisabledTooltip = computed(() =>
-	props.hasChartEvents ? undefined : formatMessage(analyticsChartMessages.noModrinthEvents),
+const shroudeditEventsDisabledTooltip = computed(() =>
+	props.hasChartEvents ? undefined : formatMessage(analyticsChartMessages.noShroudEditEvents),
 )
 const activeControlCount = computed(() => {
 	let count = 0

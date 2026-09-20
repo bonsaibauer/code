@@ -61,7 +61,7 @@
 				<p class="m-0">
 					<IntlFormatted :message-id="messages.replyModalHelpCenterNote">
 						<template #help-center-link="{ children }">
-							<a class="text-link" href="https://support.modrinth.com" target="_blank">
+							<a class="text-link" href="https://support.shroudedit.com" target="_blank">
 								<component :is="() => children" />
 							</a>
 						</template>
@@ -405,7 +405,7 @@ import {
 	SpinnerIcon,
 	StickyNotePlusIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	Button,
 	Checkbox,
@@ -418,7 +418,7 @@ import {
 	NewModal,
 	SplitButton,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 
 import ThreadMessage from '~/components/ui/thread/ThreadMessage.vue'
 import { useImageUpload } from '~/composables/image-upload.ts'
@@ -471,7 +471,7 @@ const messages = defineMessages({
 	replyModalHelpCenterNote: {
 		id: 'conversation-thread.reply-modal.help-center-note',
 		defaultMessage:
-			'If you need to get in contact with the moderation team, please use the <help-center-link>Modrinth Help Center</help-center-link> and click the blue bubble in the bottom right corner to contact support.',
+			'If you need to get in contact with the moderation team, please use the <help-center-link>ShroudEdit Help Center</help-center-link> and click the blue bubble in the bottom right corner to contact support.',
 	},
 	replyModalConfirmationDescription: {
 		id: 'conversation-thread.reply-modal.confirmation.description',

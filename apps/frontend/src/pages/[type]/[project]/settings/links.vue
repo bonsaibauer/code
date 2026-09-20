@@ -238,21 +238,21 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	Combobox,
 	commonProjectSettingsMessages,
 	ConfirmLeaveModal,
 	defineMessage,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	injectProjectPageContext,
 	Input,
 	UnsavedChangesPopup,
 	usePageLeaveSafety,
 	useSavable,
-} from '@modrinth/ui'
-import { isAdmin } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { isAdmin } from '@shroudedit/utils'
 
 import ValidationMessage from '@/components/ValidationMessage.vue'
 import { useProjectNagMessages } from '~/composables/project-nag-validation'
@@ -276,12 +276,12 @@ const donationPlatformOptions = computed(() =>
 )
 
 const { projectV3: project, currentMember, invalidate } = injectProjectPageContext()
-const { labrinth } = injectModrinthClient()
+const { labrinth } = injectShroudEditClient()
 const { addNotification } = injectNotificationManager()
 
 useProjectSettingsHeadTitle(commonProjectSettingsMessages.links)
 
-const isServerProject = computed(() => project.value?.minecraft_server != null)
+const isServerProject = computed(() => project.value?.enshrouded_server != null)
 
 const {
 	saved,

@@ -1165,14 +1165,14 @@ pub async fn version_list_internal(
                     &***ro_pool,
                     &redis,
                 ),
-                database::models::legacy_loader_fields::MinecraftGameVersion::list(
+                database::models::legacy_loader_fields::EnshroudedGameVersion::list(
                     None,
                     Some(true),
                     &***ro_pool,
                     &redis,
                 ),
             )
-            .await.wrap_internal_err("fetching minecraft game version from Redis")?;
+            .await.wrap_internal_err("fetching enshrouded game version from Redis")?;
 
             let mut joined_filters = Vec::new();
             for game_version in &game_versions {

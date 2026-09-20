@@ -5,7 +5,7 @@ import {
 	FileIcon,
 	LinkIcon,
 	UnknownIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import { computed } from 'vue'
 
 import { IconButton } from '#ui/components/base/buttons'

@@ -1,5 +1,5 @@
-import type { ISO3166, Labrinth } from '@modrinth/api-client'
-import type { DisplayProjectType } from '@modrinth/utils'
+import type { ISO3166, Labrinth } from '@shroudedit/api-client'
+import type { DisplayProjectType } from '@shroudedit/utils'
 
 import {
 	apiUrl,
@@ -13,6 +13,56 @@ import {
 	taxComplianceThresholds,
 } from '~/generated/state.json'
 import type { DisplayMode } from '~/plugins/cosmetics'
+
+const ENSHROUDED_GAME_VERSIONS = new Set([
+	'0.7.0.1',
+	'0.7.0.2',
+	'0.7.1.0',
+	'0.7.1.1',
+	'0.7.2.0',
+	'0.7.2.1',
+	'0.7.3.0',
+	'0.7.4.0',
+	'0.7.4.1',
+	'0.7.4.2',
+	'0.8.0.0',
+	'0.8.0.1',
+	'0.8.1.0',
+	'0.8.1.1',
+	'0.8.1.2',
+	'0.9.0.0',
+	'0.9.0.1',
+	'0.9.0.2',
+	'0.9.0.3',
+	'0.9.0.4',
+	'0.9.1.0',
+	'0.9.1.1',
+	'0.9.1.2',
+])
+
+const ENSHROUDED_LOADERS: Labrinth.Tags.v2.Loader[] = [
+	{
+		name: 'shroudtopia',
+		icon: '',
+		supported_project_types: ['mod', 'schematic'],
+	},
+	{
+		name: 'shroudforge',
+		icon: '',
+		supported_project_types: ['mod', 'schematic'],
+	},
+	{
+		name: 'eml',
+		icon: '',
+		supported_project_types: ['mod', 'schematic'],
+	},
+]
+
+const getEnshroudedLoaders = (generatedLoaders: Labrinth.Tags.v2.Loader[]) =>
+	generatedLoaders.length > 0 ? generatedLoaders : ENSHROUDED_LOADERS
+
+const filterEnshroudedGameVersions = (versions: Labrinth.Tags.v2.GameVersion[]) =>
+	versions.filter((version) => ENSHROUDED_GAME_VERSIONS.has(version.version))
 
 export interface ProjectType {
 	actual: string
@@ -80,8 +130,10 @@ const generatedState = shallowRef<GeneratedState>(
 	Object.freeze({
 		// Cast JSON data to typed API responses
 		categories: (categories ?? []) as Labrinth.Tags.v2.Category[],
-		loaders: (loaders ?? []) as Labrinth.Tags.v2.Loader[],
-		gameVersions: (gameVersions ?? []) as Labrinth.Tags.v2.GameVersion[],
+		loaders: getEnshroudedLoaders((loaders ?? []) as Labrinth.Tags.v2.Loader[]),
+		gameVersions: filterEnshroudedGameVersions(
+			(gameVersions ?? []) as Labrinth.Tags.v2.GameVersion[],
+		),
 		donationPlatforms: (donationPlatforms ?? []) as Labrinth.Tags.v2.DonationPlatform[],
 		reportTypes: (reportTypes ?? []) as string[],
 
@@ -92,29 +144,14 @@ const generatedState = shallowRef<GeneratedState>(
 				display: 'mod',
 			},
 			{
-				actual: 'mod',
-				id: 'plugin',
-				display: 'plugin',
-			},
-			{
-				actual: 'mod',
-				id: 'datapack',
-				display: 'data pack',
-			},
-			{
-				actual: 'shader',
-				id: 'shader',
-				display: 'shader',
-			},
-			{
-				actual: 'resourcepack',
-				id: 'resourcepack',
-				display: 'resource pack',
-			},
-			{
 				actual: 'modpack',
 				id: 'modpack',
 				display: 'modpack',
+			},
+			{
+				actual: 'schematic',
+				id: 'schematic',
+				display: 'schematic',
 			},
 			{
 				actual: 'server',
@@ -123,22 +160,12 @@ const generatedState = shallowRef<GeneratedState>(
 			},
 		],
 		loaderData: {
-			pluginLoaders: ['bukkit', 'spigot', 'paper', 'purpur', 'sponge', 'folia'],
-			pluginPlatformLoaders: ['bungeecord', 'waterfall', 'velocity'],
-			allPluginLoaders: [
-				'bukkit',
-				'spigot',
-				'paper',
-				'purpur',
-				'sponge',
-				'bungeecord',
-				'waterfall',
-				'velocity',
-				'folia',
-			],
-			dataPackLoaders: ['datapack'],
-			modLoaders: ['forge', 'fabric', 'quilt', 'liteloader', 'modloader', 'rift', 'neoforge'],
-			hiddenModLoaders: ['liteloader', 'modloader', 'rift'],
+			pluginLoaders: [],
+			pluginPlatformLoaders: [],
+			allPluginLoaders: [],
+			dataPackLoaders: [],
+			modLoaders: ['shroudtopia', 'shroudforge', 'eml'],
+			hiddenModLoaders: [],
 		},
 		projectViewModes: ['list', 'grid', 'gallery'],
 		approvedStatuses: ['approved', 'archived', 'unlisted', 'private'],
@@ -189,6 +216,6 @@ export function setGameVersions(versions: Labrinth.Tags.v2.GameVersion[]) {
 
 	generatedState.value = Object.freeze({
 		...generatedState.value,
-		gameVersions: versions,
+		gameVersions: filterEnshroudedGameVersions(versions),
 	}) as GeneratedState
 }

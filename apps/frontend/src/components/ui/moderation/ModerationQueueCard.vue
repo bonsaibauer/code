@@ -105,7 +105,7 @@
 					<CopyCode v-tooltip="'Copy project ID'" :text="queueEntry.project.id" />
 					<CopyLinkButton
 						v-tooltip="'Copy project link'"
-						:url="`https://modrinth.com/project/${queueEntry.project.id}`"
+						:url="`${config.public.siteUrl}/project/${queueEntry.project.id}`"
 					/>
 					<ButtonLink
 						v-tooltip="'Open moderation thread'"
@@ -132,7 +132,7 @@
 </template>
 
 <script setup lang="ts">
-import { ExternalIcon, FileIcon, ScaleIcon } from '@modrinth/assets'
+import { ExternalIcon, FileIcon, ScaleIcon } from '@shroudedit/assets'
 import {
 	Avatar,
 	Badge,
@@ -143,14 +143,15 @@ import {
 	IconButton,
 	useFormatDateTime,
 	useRelativeTime,
-} from '@modrinth/ui'
-import { formatProjectType } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { formatProjectType } from '@shroudedit/utils'
 import dayjs from 'dayjs'
 import { computed } from 'vue'
 
 import type { ModerationProject } from '~/helpers/moderation'
 
 const formatRelativeTime = useRelativeTime()
+const config = useRuntimeConfig()
 const formatDateTimeFull = useFormatDateTime({
 	weekday: 'short',
 	year: 'numeric',

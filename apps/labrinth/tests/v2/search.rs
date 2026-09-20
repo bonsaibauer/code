@@ -64,7 +64,7 @@ async fn search_projects() {
             { "op": "add", "path": "/categories", "value": DUMMY_CATEGORIES[4..6] },
             { "op": "add", "path": "/server_side", "value": "required" },
             { "op": "add", "path": "/license_id", "value": "LGPL-3.0-or-later" },
-            { "op": "add", "path": "/source_url", "value": "https://github.com/modrinth/labrinth" },
+            { "op": "add", "path": "/source_url", "value": "https://github.com/shroudedit/labrinth" },
         ]))
         .unwrap();
         project_creation_futures.push(create_async_future(
@@ -142,7 +142,7 @@ async fn search_projects() {
             { "op": "add", "path": "/client_side", "value": "optional" },
             { "op": "add", "path": "/initial_versions/0/game_versions", "value": ["1.20.5"] },
             { "op": "add", "path": "/license_id", "value": "LGPL-3.0-or-later" },
-            { "op": "add", "path": "/source_url", "value": "https://github.com/modrinth/labrinth" },
+            { "op": "add", "path": "/source_url", "value": "https://github.com/shroudedit/labrinth" },
         ]))
         .unwrap();
         project_creation_futures.push(create_async_future(
@@ -159,7 +159,7 @@ async fn search_projects() {
             { "op": "add", "path": "/client_side", "value": "optional" },
             { "op": "add", "path": "/server_side", "value": "required" },
             { "op": "add", "path": "/license_id", "value": "LGPL-3.0-or-later" },
-            { "op": "add", "path": "/source_url", "value": "https://github.com/modrinth/labrinth" },
+            { "op": "add", "path": "/source_url", "value": "https://github.com/shroudedit/labrinth" },
         ]))
         .unwrap();
         project_creation_futures.push(create_async_future(
@@ -179,7 +179,7 @@ async fn search_projects() {
             { "op": "add", "path": "/client_side", "value": "optional" },
             { "op": "add", "path": "/server_side", "value": "required" },
             { "op": "add", "path": "/license_id", "value": "LGPL-3.0-or-later" },
-            { "op": "add", "path": "/source_url", "value": "https://github.com/modrinth/labrinth" },
+            { "op": "add", "path": "/source_url", "value": "https://github.com/shroudedit/labrinth" },
             { "op": "add", "path": "/initial_versions/0/loaders", "value": ["forge"] },
             { "op": "add", "path": "/initial_versions/0/game_versions", "value": ["1.20.2"] },
         ]))

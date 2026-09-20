@@ -1,10 +1,10 @@
-import type { Labrinth, UploadProgress } from '@modrinth/api-client'
-import { SaveIcon, SpinnerIcon } from '@modrinth/assets'
+import type { Labrinth, UploadProgress } from '@shroudedit/api-client'
+import { SaveIcon, SpinnerIcon } from '@shroudedit/assets'
 import {
 	type ComboboxOption,
 	createContext,
 	defineMessage,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	injectProjectPageContext,
 	type MessageDescriptor,
@@ -12,8 +12,7 @@ import {
 	resolveCtxFn,
 	type StageButtonConfig,
 	type StageConfigInput,
-} from '@modrinth/ui'
-import JSZip from 'jszip'
+} from '@shroudedit/ui'
 import type { ComputedRef, Ref, ShallowRef } from 'vue'
 import type { ComponentExposed } from 'vue-component-type-helpers'
 
@@ -31,6 +30,13 @@ export interface InferredVersionInfo {
 	game_versions?: string[]
 	project_type?: Labrinth.Projects.v2.ProjectType
 	environment?: Labrinth.Projects.v3.Environment
+	dependencies?: Labrinth.Versions.v3.Dependency[]
+	schematic_format_version?: number
+	world_editor_version?: string
+	schematic_width?: number
+	schematic_height?: number
+	schematic_depth?: number
+	schematic_installation?: string
 }
 
 const EMPTY_DRAFT_VERSION: Labrinth.Versions.v3.DraftVersion = {
@@ -121,37 +127,7 @@ export interface ManageVersionContextValue {
 }
 
 const PROJECT_TYPE_LOADERS: Record<string, readonly string[]> = {
-	mod: [
-		'fabric',
-		'neoforge',
-		'forge',
-		'quilt',
-		'liteloader',
-		'rift',
-		'ornithe',
-		'nilloader',
-		'risugami',
-		'legacy-fabric',
-		'bta-babric',
-		'babric',
-		'modloader',
-		'java-agent',
-	],
-	shader: ['optifine', 'iris', 'canvas', 'vanilla'],
-	plugin: [
-		'paper',
-		'purpur',
-		'spigot',
-		'bukkit',
-		'sponge',
-		'folia',
-		'bungeecord',
-		'velocity',
-		'waterfall',
-		'geyser',
-	],
-	datapack: ['datapack'],
-	resourcepack: ['minecraft'],
+	mod: ['shroudtopia', 'shroudforge', 'eml'],
 	modpack: ['mrpack'],
 } as const
 
@@ -211,7 +187,7 @@ export function createManageVersionContext(
 	modal: ShallowRef<ComponentExposed<typeof MultiStageModal> | null>,
 	onSave?: () => void,
 ): ManageVersionContextValue {
-	const { labrinth } = injectModrinthClient()
+	const { labrinth } = injectShroudEditClient()
 	const { addNotification } = injectNotificationManager()
 	const { invalidate, projectV2 } = injectProjectPageContext()
 
@@ -235,6 +211,13 @@ export function createManageVersionContext(
 	const uploadProgress = ref<UploadProgress>({ loaded: 0, total: 0, progress: 0 })
 
 	const projectType = computed<Labrinth.Projects.v2.ProjectType>(() => {
+		if (
+			projectV2.value.project_type === 'schematic' ||
+			projectV2.value.actualProjectType === 'schematic'
+		) {
+			return 'schematic'
+		}
+
 		const primaryFile = filesToAdd.value[0]?.file
 		if (
 			(primaryFile && primaryFile.name.toLowerCase().endsWith('.mrpack')) ||
@@ -249,18 +232,6 @@ export function createManageVersionContext(
 			return 'modpack'
 		}
 
-		if (loaders.some((loader) => PROJECT_TYPE_LOADERS.datapack.includes(loader))) {
-			return 'datapack'
-		}
-		if (loaders.length === 1 && loaders[0] === 'minecraft') {
-			return 'resourcepack'
-		}
-		if (loaders.some((loader) => PROJECT_TYPE_LOADERS.shader.includes(loader))) {
-			return 'shader'
-		}
-		if (loaders.some((loader) => PROJECT_TYPE_LOADERS.plugin.includes(loader))) {
-			return 'plugin'
-		}
 		if (loaders.some((loader) => PROJECT_TYPE_LOADERS.mod.includes(loader))) {
 			return 'mod'
 		}
@@ -310,6 +281,18 @@ export function createManageVersionContext(
 
 	async function handleNewFiles(newFiles: File[]) {
 		handlingNewFiles.value = true
+		if (
+			projectType.value === 'schematic' &&
+			newFiles.some((file) => !file.name.toLowerCase().endsWith('.schematic'))
+		) {
+			addNotification({
+				title: 'Invalid schematic file',
+				text: 'World Editor exports must use the .schematic file extension.',
+				type: 'error',
+			})
+			handlingNewFiles.value = false
+			return
+		}
 		// detect primary file if no primary file is set
 		const primaryFileIndex = primaryFile.value ? null : detectPrimaryFileIndex(newFiles)
 
@@ -329,11 +312,10 @@ export function createManageVersionContext(
 			if (primaryFileIndex !== null) {
 				const primaryFileData = filesToAdd.value[0]?.file
 				if (primaryFileData) {
-					if (await rejectOnRedundantWrappedZip(primaryFileData)) {
+					if (!(await addDetectedData(primaryFileData))) {
 						handlingNewFiles.value = false
 						return
 					}
-					await addDetectedData(primaryFileData)
 				}
 				if (filesToAdd.value.length === 1 && primaryFileData) {
 					modal.value?.nextStage()
@@ -348,7 +330,6 @@ export function createManageVersionContext(
 		if (file && !editingVersion.value) {
 			filesToAdd.value[0] = { file }
 		}
-		if (await rejectOnRedundantWrappedZip(file)) return
 		await addDetectedData(file)
 	}
 
@@ -359,83 +340,10 @@ export function createManageVersionContext(
 		files[index].fileType = 'unknown'
 		;[files[0], files[index]] = [files[index], files[0]]
 
-		if (await rejectOnRedundantWrappedZip(files[0].file)) return
 		await addDetectedData(files[0].file)
 	}
 
 	const tags = useGeneratedState()
-
-	const hasFile = (entries: string[], name: string) =>
-		entries.some((f) => f === name || f.endsWith(`/${name}`))
-
-	const hasDir = (entries: string[], dir: string) => entries.some((f) => f.startsWith(`${dir}/`))
-
-	async function checkIsResourcePack(file: File): Promise<boolean> {
-		try {
-			const name = file.name.toLowerCase()
-			if (!name.endsWith('.zip')) return false
-
-			const zip = await JSZip.loadAsync(file)
-			const entries = Object.keys(zip.files).map((f) => f.toLowerCase())
-
-			return hasFile(entries, 'pack.mcmeta') && hasDir(entries, 'assets')
-		} catch {
-			return false
-		}
-	}
-
-	async function checkIsDataPack(file: File): Promise<boolean> {
-		try {
-			const name = file.name.toLowerCase()
-			if (!name.endsWith('.zip')) return false
-
-			const zip = await JSZip.loadAsync(file)
-			const entries = Object.keys(zip.files).map((f) => f.toLowerCase())
-
-			return hasFile(entries, 'pack.mcmeta') && hasDir(entries, 'data')
-		} catch {
-			return false
-		}
-	}
-
-	async function checkRedundantWrappedZip(file: File): Promise<boolean> {
-		const fileName = file.name.toLowerCase()
-		if (!fileName.endsWith('.zip')) return false
-
-		const zip = await JSZip.loadAsync(file)
-		const entries = Object.keys(zip.files).map((e) => e.toLowerCase())
-		const filtered = entries.filter((e) => !e.startsWith('__macosx/') && !e.endsWith('.ds_store'))
-
-		const hasRootEntries = filtered.some((e) => !e.includes('/'))
-		if (hasRootEntries) return false
-
-		const topLevelFolders = new Set(filtered.map((e) => e.split('/')[0]).filter(Boolean))
-		if (topLevelFolders.size !== 1) return false
-
-		const [folderName] = [...topLevelFolders]
-
-		// Check if the inner folder contents indicate a datapack or resource pack
-		const innerEntries = filtered.map((e) => e.substring(folderName.length + 1))
-		const hasPackMcmeta = hasFile(innerEntries, 'pack.mcmeta')
-		const hasAssets = hasDir(innerEntries, 'assets')
-		const hasData = hasDir(innerEntries, 'data')
-
-		return hasPackMcmeta && (hasAssets || hasData)
-	}
-
-	async function rejectOnRedundantWrappedZip(file: File): Promise<boolean> {
-		if (await checkRedundantWrappedZip(file)) {
-			newDraftVersion(projectV2.value.id)
-			modal.value?.setStage('add-files')
-			addNotification({
-				title: 'Invalid ZIP structure',
-				text: `The uploaded ZIP file "${file.name}" contains a redundant top-level folder. Please re-zip the contents directly without the extra folder layer.`,
-				type: 'error',
-			})
-			return true
-		}
-		return false
-	}
 
 	async function inferEnvironmentFromVersions(
 		projectId: string,
@@ -469,15 +377,9 @@ export function createManageVersionContext(
 
 		inferred.environment = await inferEnvironmentFromVersions(project.id, inferred.loaders ?? [])
 
-		const noLoaders = !inferred.loaders?.length
-
-		if (noLoaders && (await checkIsResourcePack(file))) {
-			inferred.loaders = ['minecraft']
-		}
-
-		if (noLoaders && (await checkIsDataPack(file))) {
-			inferred.loaders = ['datapack']
-		}
+		inferred.loaders = inferred.loaders?.filter((loader) =>
+			PROJECT_TYPE_LOADERS.mod.includes(loader),
+		)
 
 		inferredVersionData.value = inferred
 
@@ -611,10 +513,10 @@ export function createManageVersionContext(
 	}
 
 	const addDetectedData = async (file?: File) => {
-		if (editingVersion.value) return
+		if (editingVersion.value) return true
 
 		const primaryFileData = file ?? filesToAdd.value[0]?.file
-		if (!primaryFileData) return
+		if (!primaryFileData) return false
 
 		try {
 			const inferredData = await setInferredVersionData(primaryFileData, projectV2.value)
@@ -627,8 +529,21 @@ export function createManageVersionContext(
 				...draftVersion.value,
 				...mappedInferredData,
 			}
+			return true
 		} catch (err) {
 			console.error('Error parsing version file data', err)
+			if (projectType.value === 'schematic') {
+				const message = err instanceof Error ? err.message : 'The schematic could not be read.'
+				addNotification({
+					title: 'Invalid schematic file',
+					text: message,
+					type: 'error',
+				})
+				filesToAdd.value = []
+				modal.value?.setStage('add-files')
+				return false
+			}
+			return true
 		}
 	}
 
@@ -845,6 +760,12 @@ export function createManageVersionContext(
 				game_versions: version.game_versions,
 				loaders: version.loaders,
 				environment: version.environment,
+				schematic_format_version: version.schematic_format_version,
+				world_editor_version: version.world_editor_version,
+				schematic_width: version.schematic_width,
+				schematic_height: version.schematic_height,
+				schematic_depth: version.schematic_depth,
+				schematic_installation: version.schematic_installation,
 				file_types: version.existing_files
 					?.filter((file) => file.file_type)
 					.map((file) => ({

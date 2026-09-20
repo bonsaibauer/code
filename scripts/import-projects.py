@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Search projects on api.modrinth.com and import results into the local database
+Search projects on api.shroudedit.com and import results into the local database
 with correct author names.
 
 Modes:
@@ -28,7 +28,7 @@ ADMIN_USER_ID = 103587649610509
 DB_CONTAINER = "labrinth-postgres"
 DB_USER = "labrinth"
 DB_NAME = "labrinth"
-API_BASE = "https://api.modrinth.com/v2"
+API_BASE = "https://api.shroudedit.com/v2"
 HEADERS = {"User-Agent": "import-projects-script/1.0"}
 
 seen_slugs = set()
@@ -199,7 +199,7 @@ COMMIT;
 def mode_search(query, limit=5):
     encoded_query = urllib.parse.quote(query)
     search_url = f"{API_BASE}/search?query={encoded_query}&limit={limit}&facets=[]"
-    print(f"Searching Modrinth for: {query} (limit: {limit})")
+    print(f"Searching ShroudEdit for: {query} (limit: {limit})")
 
     search_data = api_get(search_url)
     hits = search_data.get("hits", [])
@@ -217,7 +217,7 @@ def mode_search(query, limit=5):
 
 
 def mode_top(count=1000):
-    print(f"Fetching top {count} projects by downloads from Modrinth...")
+    print(f"Fetching top {count} projects by downloads from ShroudEdit...")
 
     imported = 0
     batch_size = 50

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { InfoIcon, XIcon } from '@modrinth/assets'
+import { InfoIcon, XIcon } from '@shroudedit/assets'
 import { computed, nextTick, toValue, useTemplateRef, watch } from 'vue'
 
 import { IconButton } from '#ui/components/base/buttons'
@@ -110,10 +110,13 @@ function getFilterOpenByDefault(filterId: string): boolean {
 	if (filterId === 'compatible_dependency_project_ids') {
 		return true
 	}
+	if (filterId === 'mod_loader' || filterId === 'modpack_loader') {
+		return true
+	}
 	if (ctx.isServerType.value) {
 		return ![
-			'server_category_minecraft_server_meta',
-			'server_category_minecraft_server_community',
+			'server_category_enshrouded_server_meta',
+			'server_category_enshrouded_server_community',
 			'server_game_version',
 			'server_status',
 		].includes(filterId)

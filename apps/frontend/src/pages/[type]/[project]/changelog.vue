@@ -89,17 +89,17 @@
 	</div>
 </template>
 <script setup>
-import { DownloadIcon, SpinnerIcon } from '@modrinth/assets'
+import { DownloadIcon, SpinnerIcon } from '@shroudedit/assets'
 import {
 	ButtonLink,
 	getEnvironmentFilterValue,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectProjectPageContext,
 	Pagination,
 	useFormatDateTime,
-} from '@modrinth/ui'
-import VersionFilterControl from '@modrinth/ui/src/components/version/VersionFilterControl.vue'
-import { renderHighlightedString } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import VersionFilterControl from '@shroudedit/ui/src/components/version/VersionFilterControl.vue'
+import { renderHighlightedString } from '@shroudedit/utils'
 import { useQuery } from '@tanstack/vue-query'
 import { onMounted, watch } from 'vue'
 
@@ -159,7 +159,7 @@ const filteredVersions = computed(() => {
 	)
 })
 
-const { labrinth } = injectModrinthClient()
+const { labrinth } = injectShroudEditClient()
 
 const paginatedVersionIds = computed(() => {
 	const page = currentPage.value

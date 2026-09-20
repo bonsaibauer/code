@@ -3,9 +3,9 @@ use serde_json::json;
 
 fn build_info() -> serde_json::Value {
     json!({
-        "name": "modrinth-labrinth",
+        "name": "shroudedit-labrinth",
         "version": env!("CARGO_PKG_VERSION"),
-        "documentation": "https://docs.modrinth.com",
+        "documentation": "https://docs.shroudedit.com",
         "about": "Welcome traveler!",
 
         "build_info": {

@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { RefreshCwIcon } from '@modrinth/assets'
+import { RefreshCwIcon } from '@shroudedit/assets'
 
 import { defineMessages, useVIntl } from '#ui/composables/i18n'
 

@@ -66,14 +66,9 @@ impl RedisBackend {
         config: &RedisConfig,
         pool_size: RedisPoolSize,
     ) -> Result<Self> {
-        let connection_config = redis::AsyncConnectionConfig::new()
-            .set_connection_timeout(None)
-            .set_response_timeout(None);
-        let manager = deadpool_redis::Manager::new_with_config(
-            config.seed_urls()[0].clone(),
-            connection_config,
-        )
-        .wrap_err("configuring standalone Redis client")?;
+        let manager =
+            deadpool_redis::Manager::new(config.seed_urls()[0].clone())
+                .wrap_err("configuring standalone Redis client")?;
         let pool = deadpool_redis::Pool::builder(manager)
             .max_size(pool_size.max())
             .wait_timeout(Some(Duration::from_millis(config.wait_timeout_ms())))

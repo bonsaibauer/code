@@ -21,7 +21,7 @@
 				/>
 				<img
 					v-else
-					src="https://cdn.modrinth.com/landing-new/landing.webp"
+					src="https://cdn.shroudedit.com/landing-new/landing.webp"
 					alt=""
 					class="absolute w-full h-full inset-0 object-cover object-center placeholder-banner scale-[200%]"
 				/>
@@ -189,7 +189,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ProjectStatus } from '@modrinth/utils'
+import type { ProjectStatus } from '@shroudedit/utils'
 import dayjs from 'dayjs'
 import { computed } from 'vue'
 import type { RouteLocationRaw } from 'vue-router'

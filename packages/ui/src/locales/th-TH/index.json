@@ -416,8 +416,8 @@
   "omorphia.component.badge.label.failed": {
     "defaultMessage": "ไม่สำเร็จ"
   },
-  "omorphia.component.badge.label.modrinth-team": {
-    "defaultMessage": "ทีม Modrinth"
+  "omorphia.component.badge.label.shroudedit-team": {
+    "defaultMessage": "ทีม ShroudEdit"
   },
   "omorphia.component.badge.label.pending": {
     "defaultMessage": "กําลังดำเนินการ"
@@ -494,8 +494,8 @@
   "project-type.shader.category": {
     "defaultMessage": "แสงเงา"
   },
-  "project.about.compatibility.game.minecraftJava": {
-    "defaultMessage": "Minecraft: Java Edition"
+  "project.about.compatibility.game.enshroudedJava": {
+    "defaultMessage": "Enshrouded: Java Edition"
   },
   "project.about.compatibility.platforms": {
     "defaultMessage": "แพลตฟอร์ม"

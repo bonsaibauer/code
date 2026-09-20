@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ExternalIcon } from '@modrinth/assets'
-import { ButtonLink, NewModal } from '@modrinth/ui'
+import { ExternalIcon } from '@shroudedit/assets'
+import { ButtonLink, NewModal } from '@shroudedit/ui'
 import { ref, useTemplateRef } from 'vue'
 
 import { fileDeclaresAi } from '~/helpers/c2pa.ts'

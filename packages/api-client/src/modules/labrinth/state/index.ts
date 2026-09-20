@@ -100,9 +100,7 @@ export class LabrinthStateModule extends AbstractModule {
 				.catch((err) => handleError(err, [], '/v2/tag/report_type')),
 
 			// Homepage data
-			this.fetchHomePageProjects().catch((err) =>
-				handleError(err, [], `/v3/collection/${FEATURED_PROJECTS_COLLECTION_ID}`),
-			),
+			this.fetchHomePageProjects().catch(() => []),
 			this.client
 				.request<Labrinth.Search.v2.SearchResults>('/search', {
 					api: 'labrinth',
@@ -130,7 +128,7 @@ export class LabrinthStateModule extends AbstractModule {
 					version: 'internal',
 					method: 'GET',
 				})
-				.catch((err) => handleError(err, null, '/_internal/mural/bank-details')),
+				.catch(() => null),
 
 			// ISO3166 country and subdivision data
 			this.client.iso3166.data

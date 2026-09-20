@@ -198,20 +198,20 @@
 </template>
 
 <script setup lang="ts">
-import { PlusIcon, SendIcon, XIcon } from '@modrinth/assets'
+import { PlusIcon, SendIcon, XIcon } from '@shroudedit/assets'
 import {
 	Button,
 	Chips,
 	Combobox,
 	DateInput,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	Input,
 	NewModal,
 	TagItem,
 	Textarea,
 	Toggle,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import dayjs from 'dayjs'
 import { computed, ref } from 'vue'
 
@@ -220,7 +220,7 @@ const emit = defineEmits<{
 }>()
 
 const { addNotification } = injectNotificationManager()
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 
 const modal = ref<InstanceType<typeof NewModal>>()
 

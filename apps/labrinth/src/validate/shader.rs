@@ -91,11 +91,11 @@ impl super::Validator for CoreShaderValidator {
         static VANILLA_SHADER_CEN_ENTRY_REGEX: LazyLock<regex::bytes::Regex> =
             LazyLock::new(|| {
                 regex::bytes::RegexBuilder::new(concat!(
-                    r"\x50\x4b\x01\x02",          // CEN signature
-                    r".{24}",                     // CEN fields
-                    r".{2}",                      // CEN file name length
-                    r".{16}",                     // More CEN fields
-                    r"assets/minecraft/shaders/", // CEN file name
+                    r"\x50\x4b\x01\x02",           // CEN signature
+                    r".{24}",                      // CEN fields
+                    r".{2}",                       // CEN file name length
+                    r".{16}",                      // More CEN fields
+                    r"assets/enshrouded/shaders/", // CEN file name
                 ))
                 .unicode(false)
                 .dot_matches_new_line(true)
@@ -108,7 +108,7 @@ impl super::Validator for CoreShaderValidator {
                 archive.by_name("pack.mcmeta").is_ok()
                     && archive
                         .file_names()
-                        .any(|x| x.starts_with("assets/minecraft/shaders/"))
+                        .any(|x| x.starts_with("assets/enshrouded/shaders/"))
             }
             MaybeProtectedZipFile::MaybeProtected { data, .. } => {
                 PLAUSIBLE_PACK_REGEX.is_match(data)

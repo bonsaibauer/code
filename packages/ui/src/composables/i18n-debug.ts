@@ -27,7 +27,7 @@ export function injectI18nDebug(): I18nDebugContext | null {
 }
 
 export function buildCrowdinUrl(key: string, locale: string): string {
-	return `https://crowdin.com/translate/modrinth-platform/all/en-${locale}?filter=basic&value=0&search_type=identifier&search=${encodeURIComponent(key)}`
+	return `https://crowdin.com/translate/shroudedit-platform/all/en-${locale}?filter=basic&value=0&search_type=identifier&search=${encodeURIComponent(key)}`
 }
 
 export function initI18nDebugRuntime(context: I18nDebugContext): () => void {
@@ -42,7 +42,7 @@ export function initI18nDebugRuntime(context: I18nDebugContext): () => void {
 				clearAllAnnotations()
 				return
 			}
-			import('@modrinth/assets/styles/i18n-debug.css')
+			import('@shroudedit/assets/styles/i18n-debug.css')
 			document.body.classList.add('i18n-debug')
 			runtime = effectScope()
 			runtime.run(() => {

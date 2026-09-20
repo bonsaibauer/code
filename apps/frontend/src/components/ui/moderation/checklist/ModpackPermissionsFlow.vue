@@ -188,8 +188,8 @@
 </template>
 
 <script setup lang="ts">
-import { LeftArrowIcon, RightArrowIcon } from '@modrinth/assets'
-import { Button, Input } from '@modrinth/ui'
+import { LeftArrowIcon, RightArrowIcon } from '@shroudedit/assets'
+import { Button, Input } from '@shroudedit/ui'
 import type {
 	ModerationFlameModpackItem,
 	ModerationJudgements,
@@ -198,7 +198,7 @@ import type {
 	ModerationModpackResponse,
 	ModerationPermissionType,
 	ModerationUnknownModpackItem,
-} from '@modrinth/utils'
+} from '@shroudedit/utils'
 import { useLocalStorage, useSessionStorage } from '@vueuse/core'
 import { computed, onMounted, ref, watch } from 'vue'
 
@@ -381,7 +381,7 @@ async function fetchModPackData(): Promise<void> {
 						approved: null,
 						id: info.id,
 						title: info.title || info.file_name,
-						url: info.url || `https://www.curseforge.com/minecraft/mc-mods/${info.id}`,
+						url: info.url || `https://www.curseforge.com/enshrouded/mc-mods/${info.id}`,
 					}),
 				)
 				.sort((a, b) => a.file_name.localeCompare(b.file_name)),

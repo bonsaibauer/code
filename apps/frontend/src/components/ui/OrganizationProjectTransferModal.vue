@@ -93,7 +93,7 @@
 </template>
 
 <script setup>
-import { BoxIcon, TransferIcon, XIcon } from '@modrinth/assets'
+import { BoxIcon, TransferIcon, XIcon } from '@shroudedit/assets'
 import {
 	Button,
 	Checkbox,
@@ -103,8 +103,8 @@ import {
 	NewModal,
 	Table,
 	useVIntl,
-} from '@modrinth/ui'
-import { formatProjectType } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { formatProjectType } from '@shroudedit/utils'
 
 import { getProjectTypeForUrl } from '~/helpers/projects.js'
 

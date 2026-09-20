@@ -30,7 +30,7 @@
 								? previewImage
 								: filteredGallery[editIndex]?.url
 									? filteredGallery[editIndex].url
-									: 'https://cdn.modrinth.com/placeholder-banner.svg'
+									: 'https://cdn.shroudedit.com/placeholder-banner.svg'
 						"
 						alt="gallery-preview"
 					/>
@@ -168,7 +168,7 @@
 			<div v-for="(item, index) in filteredGallery" :key="index" class="card gallery-item">
 				<a class="gallery-thumbnail" @click="expandImage(index)">
 					<img
-						:src="item.url ? item.url : 'https://cdn.modrinth.com/placeholder-banner.svg'"
+						:src="item.url ? item.url : 'https://cdn.shroudedit.com/placeholder-banner.svg'"
 						:alt="item.title ? item.title : 'gallery-image'"
 						@contextmenu="onFullImageContextMenu($event, item.raw_url)"
 					/>
@@ -246,7 +246,7 @@ import {
 	TrashIcon,
 	UploadIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	Button,
 	ConfirmModal,
@@ -259,7 +259,7 @@ import {
 	Textarea,
 	useFormatDateTime,
 	useFullImageContextMenu,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 
 import AiImageWarningModal from '~/components/ui/AiImageWarningModal.vue'
 import ValidationMessage from '~/components/ValidationMessage.vue'
@@ -292,7 +292,7 @@ const galleryViewer = useTemplateRef('galleryViewer')
 // SEO
 const title = computed(() => `${project.value.title} - Gallery`)
 const description = computed(
-	() => `View ${project.value.gallery?.length ?? 0} images of ${project.value.title} on Modrinth.`,
+	() => `View ${project.value.gallery?.length ?? 0} images of ${project.value.title} on ShroudEdit.`,
 )
 
 useSeoMeta({
@@ -342,7 +342,7 @@ const canSaveGalleryFields = computed(() => true)
 const galleryViewerItems = computed(() =>
 	filteredGallery.value.map((image) => ({
 		id: image.url,
-		src: image.raw_url ?? 'https://cdn.modrinth.com/placeholder-banner.svg',
+		src: image.raw_url ?? 'https://cdn.shroudedit.com/placeholder-banner.svg',
 		alt: image.title || 'Gallery image',
 		title: image.title,
 		description: image.description,

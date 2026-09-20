@@ -76,8 +76,8 @@
 	</div>
 </template>
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { BadgeCheckIcon, CheckIcon, IssuesIcon, XCircleIcon } from '@modrinth/assets'
+import type { Labrinth } from '@shroudedit/api-client'
+import { BadgeCheckIcon, CheckIcon, IssuesIcon, XCircleIcon } from '@shroudedit/assets'
 import {
 	Avatar,
 	Button,
@@ -87,8 +87,8 @@ import {
 	PageHeaderMetadata,
 	PageHeaderMetadataItem,
 	useVIntl,
-} from '@modrinth/ui'
-import { isOfficialAccount } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { isOfficialAccount } from '@shroudedit/utils'
 
 import { useScopes } from '~/composables/auth/scopes.ts'
 
@@ -112,7 +112,7 @@ const descriptionId = computed(() => `app-description-${props.authorization.id}`
 const scopeListId = computed(() => `app-scope-list-${props.authorization.id}`)
 
 const unofficialTriggerWords = [
-	'modrinth',
+	'shroudedit',
 	'mod rinth',
 	'rnodrinth',
 	'rinth',
@@ -153,11 +153,11 @@ const messages = defineMessages({
 	},
 	unofficialDisclosure: {
 		id: 'settings.authorizations.unofficial-disclosure',
-		defaultMessage: 'This app is not affiliated with Modrinth in any way, despite its name.',
+		defaultMessage: 'This app is not affiliated with ShroudEdit in any way, despite its name.',
 	},
 	officialTooltip: {
 		id: 'settings.authorizations.official-tooltip',
-		defaultMessage: 'This app is created by an official Modrinth account.',
+		defaultMessage: 'This app is created by an official ShroudEdit account.',
 	},
 })
 </script>

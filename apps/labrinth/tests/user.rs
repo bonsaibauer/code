@@ -89,7 +89,7 @@ async fn email_lookup_remains_admin_only_and_returns_public_user() {
         |test_env: TestEnvironment<ApiV3>| async move {
             for pat in [None, USER_USER_PAT, MOD_USER_PAT, ADMIN_USER_PAT] {
                 let req = test::TestRequest::get()
-                    .uri("/v3/user_email?email=USER%40MODRINTH.COM")
+                    .uri("/v3/user_email?email=USER%40SHROUDEDIT.COM")
                     .append_pat(pat)
                     .to_request();
                 let resp = test_env.call(req).await;
@@ -129,9 +129,9 @@ pub async fn search_users_returns_compact_prefix_matches_with_exact_first() {
                 "
                 INSERT INTO users (id, username, email, role)
                 VALUES
-                    (1000, 'userland', 'userland@modrinth.com', 'developer'),
-                    (1001, 'useful', 'useful@modrinth.com', 'developer'),
-                    (1002, 'Useless', 'useless@modrinth.com', 'developer')
+                    (1000, 'userland', 'userland@shroudedit.com', 'developer'),
+                    (1001, 'useful', 'useful@shroudedit.com', 'developer'),
+                    (1002, 'Useless', 'useless@shroudedit.com', 'developer')
                 ",
             )
             .execute(&*test_env.db.pool)
@@ -172,7 +172,7 @@ pub async fn search_users_escapes_wildcards_and_limits_results() {
                     ",
                     2000 + i,
                     format!("prefix{i:02}"),
-                    format!("prefix{i:02}@modrinth.com"),
+                    format!("prefix{i:02}@shroudedit.com"),
                 )
                 .execute(&*test_env.db.pool)
                 .await
@@ -182,7 +182,7 @@ pub async fn search_users_escapes_wildcards_and_limits_results() {
             sqlx::query!(
                 "
                 INSERT INTO users (id, username, email, role)
-                VALUES (2100, 'prefix_under_score', 'prefix_under_score@modrinth.com', 'developer')
+                VALUES (2100, 'prefix_under_score', 'prefix_under_score@shroudedit.com', 'developer')
                 ",
             )
             .execute(&*test_env.db.pool)

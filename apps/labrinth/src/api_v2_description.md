@@ -1,10 +1,10 @@
 > [!success]
-> API v2 is Modrinth's current, official API. It is the recommended API for integrations and applications and will receive long-term support.
+> API v2 is ShroudEdit's current, official API. It is the recommended API for integrations and applications and will receive long-term support.
 
 ## Authentication
 
 This API has two options for authentication: personal access tokens and [OAuth2](https://en.wikipedia.org/wiki/OAuth).
-All tokens are tied to a Modrinth user and use the `Authorization` header of the request.
+All tokens are tied to a ShroudEdit user and use the `Authorization` header of the request.
 
 Example:
 
@@ -21,18 +21,18 @@ Authorization: mrp_RNtLRSPmGj2pd1v1ubi52nX7TJJM9sznrmwhAuj511oe4t1jAqAQ3D6Wc8Ic
 > - those which access private data (such as draft projects, notifications, emails, and payout data)
 
 Each request requiring authentication has a certain scope. For example, to view the email of the user being requested, the token must have the `USER_READ_EMAIL` scope.
-You can find the list of available scopes [on GitHub](https://github.com/modrinth/code/blob/main/apps/labrinth/src/models/v3/pats.rs#L9). Making a request with an invalid scope will return a 401 error.
+You can find the list of available scopes [on GitHub](https://github.com/shroudedit/code/blob/main/apps/labrinth/src/models/v3/pats.rs#L9). Making a request with an invalid scope will return a 401 error.
 
 Please note that certain scopes and requests cannot be completed with a personal access token or using OAuth.
-For example, deleting a user account can only be done through Modrinth's frontend.
+For example, deleting a user account can only be done through ShroudEdit's frontend.
 
 ### Personal access tokens
 
-Personal access tokens (PATs) can be generated from [the user settings](https://modrinth.com/settings/account).
+Personal access tokens (PATs) can be generated from [the user settings](https://shroudedit.com/settings/account).
 
 ### GitHub tokens
 
-For backwards compatibility purposes, some types of GitHub tokens also work for authenticating a user with Modrinth's API, granting all scopes.
+For backwards compatibility purposes, some types of GitHub tokens also work for authenticating a user with ShroudEdit's API, granting all scopes.
 **We urge any application still using GitHub tokens to start using personal access tokens for security and reliability purposes.**
 
 ## Cross-Origin Resource Sharing
@@ -63,11 +63,11 @@ The API has a ratelimit defined per IP. Limits and remaining amounts are given i
 
 The ratelimit is currently 300 requests per minute per IP. If your application is hitting rate limits, try caching responses, using batch requests, or spreading out your requests over time.
 
-Higher rate limits are granted only in very rare cases. If you believe your use case requires an exception, please [contact us](mailto:support@modrinth.com).
+Higher rate limits are granted only in very rare cases. If you believe your use case requires an exception, please [contact us](mailto:support@shroudedit.com).
 
 ## User Agents
 
-To access the Modrinth API, you **must** use provide a uniquely-identifying `User-Agent` header.
+To access the ShroudEdit API, you **must** use provide a uniquely-identifying `User-Agent` header.
 Providing a user agent that only identifies your HTTP client library (such as "okhttp/4.9.3") increases the likelihood that we will block your traffic.
 It is recommended, but not required, to include contact information in your user agent.
 This allows us to contact you if we would like a change in your application's behavior without having to block your traffic.
@@ -79,12 +79,12 @@ This allows us to contact you if we would like a change in your application's be
 
 ## Versioning
 
-Modrinth follows a simple pattern for its API versioning.
+ShroudEdit follows a simple pattern for its API versioning.
 In the event of a breaking API change, the API version in the URL path is bumped, and migration steps will be published below.
 
 ### Migrations
 
-Inside the following spoiler, you will be able to find all changes between versions of the Modrinth API, accompanied by tips and a guide to migrate applications to newer versions.
+Inside the following spoiler, you will be able to find all changes between versions of the ShroudEdit API, accompanied by tips and a guide to migrate applications to newer versions.
 
 <details><summary>API v1 to API v2</summary>
 
@@ -97,8 +97,8 @@ These bullet points cover most changes in the v2 API, but please note that field
 - New search fields: `project_type`, `gallery`
   - The gallery field is an array of URLs to images that are part of the project's gallery
 - The gallery is a new feature which allows the user to upload images showcasing their mod to the CDN which will be displayed on their mod page
-- Internal change: Any project file uploaded to Modrinth is now validated to make sure it's a valid Minecraft mod, Modpack, etc.
-  - For example, a Forge 1.17 mod with a JAR not containing a mods.toml will not be allowed to be uploaded to Modrinth
+- Internal change: Any project file uploaded to ShroudEdit is now validated to make sure it's a valid Enshrouded mod, Modpack, etc.
+  - For example, a Forge 1.17 mod with a JAR not containing a mods.toml will not be allowed to be uploaded to ShroudEdit
 - In project creation, projects may not upload a mod with no versions to review, however they can be saved as a draft
   - Similarly, for version creation, a version may not be uploaded without any files
 - Donation URLs have been enabled

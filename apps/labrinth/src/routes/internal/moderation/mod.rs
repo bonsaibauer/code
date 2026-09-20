@@ -343,13 +343,13 @@ pub async fn get_projects_internal(
                     search_organization.name AS organization_name,
                     search_owner.username AS owner_name,
                     CASE
-                        WHEN jsonb_typeof(mp.components -> 'minecraft_server') = 'object'
+                        WHEN jsonb_typeof(mp.components -> 'enshrouded_server') = 'object'
                             THEN ARRAY_APPEND(
                                 ARRAY_REMOVE(
                                     COALESCE(vpt.project_types::text[], ARRAY[]::text[]),
                                     'modpack'
                                 ),
-                                'minecraft_java_server'
+                                'enshrouded_server'
                             )
                         ELSE COALESCE(vpt.project_types::text[], ARRAY[]::text[])
                     END AS project_types,
@@ -398,8 +398,8 @@ pub async fn get_projects_internal(
                     AND (
                         $4::text IS NULL
                         OR ($4 = 'none' AND CARDINALITY(project_types) = 0)
-                        OR ($4 = 'minecraft_java_server' AND project_types @> ARRAY['minecraft_java_server']::text[])
-                        OR ($4 <> 'none' AND $4 <> 'minecraft_java_server' AND
+                        OR ($4 = 'enshrouded_server' AND project_types @> ARRAY['enshrouded_server']::text[])
+                        OR ($4 <> 'none' AND $4 <> 'enshrouded_server' AND
                             project_types[1] = $4
                         )
                     )
@@ -614,13 +614,13 @@ pub async fn get_projects_internal(
                     owner.username AS owner_name,
                     owner.avatar_url AS owner_icon_url,
                     CASE
-                        WHEN jsonb_typeof(m.components -> 'minecraft_server') = 'object'
+                        WHEN jsonb_typeof(m.components -> 'enshrouded_server') = 'object'
                             THEN ARRAY_APPEND(
                                 ARRAY_REMOVE(
                                     COALESCE(ppt.project_types::text[], ARRAY[]::text[]),
                                     'modpack'
                                 ),
-                                'minecraft_java_server'
+                                'enshrouded_server'
                             )
                         ELSE COALESCE(ppt.project_types::text[], ARRAY[]::text[])
                     END AS project_types,
@@ -821,13 +821,13 @@ pub async fn get_project_ids(
                     search_organization.name AS organization_name,
                     search_owner.username AS owner_name,
                     CASE
-                        WHEN jsonb_typeof(mp.components -> 'minecraft_server') = 'object'
+                        WHEN jsonb_typeof(mp.components -> 'enshrouded_server') = 'object'
                             THEN ARRAY_APPEND(
                                 ARRAY_REMOVE(
                                     COALESCE(vpt.project_types::text[], ARRAY[]::text[]),
                                     'modpack'
                                 ),
-                                'minecraft_java_server'
+                                'enshrouded_server'
                             )
                         ELSE COALESCE(vpt.project_types::text[], ARRAY[]::text[])
                     END AS project_types,
@@ -870,8 +870,8 @@ pub async fn get_project_ids(
                 AND (
                     $4::text IS NULL
                     OR ($4 = 'none' AND CARDINALITY(project_types) = 0)
-                    OR ($4 = 'minecraft_java_server' AND project_types @> ARRAY['minecraft_java_server']::text[])
-                    OR ($4 <> 'none' AND $4 <> 'minecraft_java_server' AND project_types[1] = $4)
+                    OR ($4 = 'enshrouded_server' AND project_types @> ARRAY['enshrouded_server']::text[])
+                    OR ($4 <> 'none' AND $4 <> 'enshrouded_server' AND project_types[1] = $4)
                 )
                 AND ($5::boolean IS NULL OR (external_dependencies_count > 0) = $5)
             ORDER BY

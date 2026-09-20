@@ -40,7 +40,6 @@
 				</div>
 			</div>
 		</div>
-		<RussiaBanner v-if="flags.showAllBanners || isRussia" />
 		<TaxIdMismatchBanner v-if="flags.showAllBanners || showTinMismatchBanner" />
 		<TaxComplianceBanner v-if="flags.showAllBanners || showTaxComplianceBanner" />
 		<VerifyEmailBanner
@@ -50,13 +49,6 @@
 			"
 			:has-email="!!auth?.user?.email"
 		/>
-		<SubscriptionPaymentFailedBanner
-			v-if="
-				flags.showAllBanners ||
-				(user.subscriptions.some((x) => x.status === 'payment-failed') &&
-					route.path !== '/settings/billing')
-			"
-		/>
 		<PreviewBanner
 			v-if="
 				flags.showAllBanners || (config.public.buildEnv === 'production' && config.public.preview)
@@ -65,7 +57,7 @@
 		<StagingBanner
 			v-if="
 				flags.showAllBanners ||
-				config.public.apiBaseUrl.startsWith('https://staging-api.modrinth.com')
+				config.public.apiBaseUrl.startsWith('https://staging-api.shroudedit.com')
 			"
 		/>
 		<GeneratedStateErrorsBanner
@@ -80,7 +72,7 @@
 			<div>
 				<NuxtLink
 					to="/"
-					:aria-label="formatMessage(messages.modrinthHomePage)"
+					:aria-label="formatMessage(messages.shroudEditHomePage)"
 					class="group hover:brightness-[--hover-brightness] focus-visible:brightness-[--hover-brightness]"
 				>
 					<TextLogo
@@ -111,10 +103,10 @@
 					</ButtonLink>
 					<ButtonLink
 						type="quiet"
-						to="/discover/resourcepacks"
+						to="/discover/schematics"
 						:class="
-							route.name === 'discover-resourcepacks' || route.path.startsWith('/resourcepack/')
-								? (route.name === 'discover-resourcepacks'
+							route.name === 'discover-schematics' || route.path.startsWith('/schematic/')
+								? (route.name === 'discover-schematics'
 										? 'main-nav-primary'
 										: 'main-nav-secondary') === 'main-nav-primary'
 									? '!bg-[var(--color-button-bg-selected)] !text-[var(--color-button-text-selected)] [&>svg]:!text-[var(--color-button-text-selected)]'
@@ -122,40 +114,8 @@
 								: ''
 						"
 					>
-						<PaintbrushIcon aria-hidden="true" />
-						{{ formatMessage(commonProjectTypeCategoryMessages.resourcepack) }}
-					</ButtonLink>
-					<ButtonLink
-						type="quiet"
-						to="/discover/datapacks"
-						:class="
-							route.name === 'discover-datapacks' || route.path.startsWith('/datapack/')
-								? (route.name === 'discover-datapacks'
-										? 'main-nav-primary'
-										: 'main-nav-secondary') === 'main-nav-primary'
-									? '!bg-[var(--color-button-bg-selected)] !text-[var(--color-button-text-selected)] [&>svg]:!text-[var(--color-button-text-selected)]'
-									: '!bg-[var(--color-button-bg)] !text-contrast'
-								: ''
-						"
-					>
-						<BracesIcon aria-hidden="true" />
-						{{ formatMessage(commonProjectTypeCategoryMessages.datapack) }}
-					</ButtonLink>
-					<ButtonLink
-						type="quiet"
-						to="/discover/shaders"
-						:class="
-							route.name === 'discover-shaders' || route.path.startsWith('/shader/')
-								? (route.name === 'discover-shaders'
-										? 'main-nav-primary'
-										: 'main-nav-secondary') === 'main-nav-primary'
-									? '!bg-[var(--color-button-bg-selected)] !text-[var(--color-button-text-selected)] [&>svg]:!text-[var(--color-button-text-selected)]'
-									: '!bg-[var(--color-button-bg)] !text-contrast'
-								: ''
-						"
-					>
-						<GlassesIcon aria-hidden="true" />
-						{{ formatMessage(commonProjectTypeCategoryMessages.shader) }}
+						<WorldGenIcon aria-hidden="true" />
+						{{ formatMessage(commonProjectTypeCategoryMessages.schematic) }}
 					</ButtonLink>
 					<ButtonLink
 						type="quiet"
@@ -172,22 +132,6 @@
 					>
 						<PackageOpenIcon aria-hidden="true" />
 						{{ formatMessage(commonProjectTypeCategoryMessages.modpack) }}
-					</ButtonLink>
-					<ButtonLink
-						type="quiet"
-						to="/discover/plugins"
-						:class="
-							route.name === 'discover-plugins' || route.path.startsWith('/plugin/')
-								? (route.name === 'discover-plugins'
-										? 'main-nav-primary'
-										: 'main-nav-secondary') === 'main-nav-primary'
-									? '!bg-[var(--color-button-bg-selected)] !text-[var(--color-button-text-selected)] [&>svg]:!text-[var(--color-button-text-selected)]'
-									: '!bg-[var(--color-button-bg)] !text-contrast'
-								: ''
-						"
-					>
-						<PlugIcon aria-hidden="true" />
-						{{ formatMessage(commonProjectTypeCategoryMessages.plugin) }}
 					</ButtonLink>
 					<ButtonLink
 						type="quiet"
@@ -219,34 +163,16 @@
 								to: '/discover/mods',
 							},
 							{
-								id: 'resourcepacks',
-								label: formatMessage(commonProjectTypeCategoryMessages.resourcepack),
+								id: 'schematics',
+								label: formatMessage(commonProjectTypeCategoryMessages.schematic),
 								type: 'link',
-								to: '/discover/resourcepacks',
-							},
-							{
-								id: 'datapacks',
-								label: formatMessage(commonProjectTypeCategoryMessages.datapack),
-								type: 'link',
-								to: '/discover/datapacks',
-							},
-							{
-								id: 'shaders',
-								label: formatMessage(commonProjectTypeCategoryMessages.shader),
-								type: 'link',
-								to: '/discover/shaders',
+								to: '/discover/schematics',
 							},
 							{
 								id: 'modpacks',
 								label: formatMessage(commonProjectTypeCategoryMessages.modpack),
 								type: 'link',
 								to: '/discover/modpacks',
-							},
-							{
-								id: 'plugins',
-								label: formatMessage(commonProjectTypeCategoryMessages.plugin),
-								type: 'link',
-								to: '/discover/plugins',
 							},
 							{
 								id: 'servers',
@@ -268,26 +194,14 @@
 							v-if="route.name === 'discover-mods' || route.path.startsWith('/mod/')"
 							aria-hidden="true"
 						/>
-						<PaintbrushIcon
+						<WorldGenIcon
 							v-else-if="
-								route.name === 'discover-resourcepacks' || route.path.startsWith('/resourcepack/')
+								route.name === 'discover-schematics' || route.path.startsWith('/schematic/')
 							"
-							aria-hidden="true"
-						/>
-						<BracesIcon
-							v-else-if="route.name === 'discover-datapacks' || route.path.startsWith('/datapack/')"
 							aria-hidden="true"
 						/>
 						<PackageOpenIcon
 							v-else-if="route.name === 'discover-modpacks' || route.path.startsWith('/modpack/')"
-							aria-hidden="true"
-						/>
-						<GlassesIcon
-							v-else-if="route.name === 'discover-shaders' || route.path.startsWith('/shader/')"
-							aria-hidden="true"
-						/>
-						<PlugIcon
-							v-else-if="route.name === 'discover-plugins' || route.path.startsWith('/plugin/')"
 							aria-hidden="true"
 						/>
 						<ServerIcon
@@ -305,21 +219,9 @@
 							<BoxIcon aria-hidden="true" />
 							{{ formatMessage(commonProjectTypeCategoryMessages.mod) }}
 						</template>
-						<template #resourcepacks>
-							<PaintbrushIcon aria-hidden="true" />
-							{{ formatMessage(commonProjectTypeCategoryMessages.resourcepack) }}
-						</template>
-						<template #datapacks>
-							<BracesIcon aria-hidden="true" />
-							{{ formatMessage(commonProjectTypeCategoryMessages.datapack) }}
-						</template>
-						<template #plugins>
-							<PlugIcon aria-hidden="true" />
-							{{ formatMessage(commonProjectTypeCategoryMessages.plugin) }}
-						</template>
-						<template #shaders>
-							<GlassesIcon aria-hidden="true" />
-							{{ formatMessage(commonProjectTypeCategoryMessages.shader) }}
+						<template #schematics>
+							<WorldGenIcon aria-hidden="true" />
+							{{ formatMessage(commonProjectTypeCategoryMessages.schematic) }}
 						</template>
 						<template #modpacks>
 							<PackageOpenIcon aria-hidden="true" />
@@ -330,39 +232,6 @@
 							{{ formatMessage(commonProjectTypeCategoryMessages.server) }}
 						</template>
 					</TeleportOverflowMenu>
-					<ButtonLink
-						type="quiet"
-						to="/hosting"
-						:class="
-							route.name?.startsWith('hosting') ||
-							(route.name?.startsWith('discover-') && !!route.query.sid)
-								? (route.name === 'hosting' ? 'main-nav-primary' : 'main-nav-secondary') ===
-									'main-nav-primary'
-									? '!bg-[var(--color-button-bg-selected)] !text-[var(--color-button-text-selected)] [&>svg]:!text-[var(--color-button-text-selected)]'
-									: '!bg-[var(--color-button-bg)] !text-contrast'
-								: ''
-						"
-					>
-						<ServerStackIcon aria-hidden="true" />
-						{{ formatMessage(navMenuMessages.hostAServer) }}
-					</ButtonLink>
-					<ButtonLink
-						type="quiet"
-						to="/app"
-						:class="
-							route.name === 'app'
-								? true
-									? '!bg-[var(--color-button-bg-selected)] !text-[var(--color-button-text-selected)] [&>svg]:!text-[var(--color-button-text-selected)]'
-									: '!bg-[var(--color-button-bg)] !text-contrast'
-								: ''
-						"
-					>
-						<DownloadIcon aria-hidden="true" />
-						<span class="hidden md:contents">{{
-							formatMessage(navMenuMessages.getModrinthApp)
-						}}</span>
-						<span class="contents md:hidden">{{ formatMessage(navMenuMessages.modrinthApp) }}</span>
-					</ButtonLink>
 				</template>
 			</div>
 			<div class="flex items-center gap-1">
@@ -509,7 +378,7 @@
 						},
 					]"
 				>
-					<ModrinthIcon aria-hidden="true" />
+					<ShroudEditIcon aria-hidden="true" />
 					<DropdownIcon aria-hidden="true" class="h-5 w-5 text-secondary" />
 				</TeleportOverflowMenu>
 				<TeleportOverflowMenu
@@ -682,7 +551,7 @@
 							<LibraryIcon class="icon" />
 							{{ formatMessage(commonMessages.collectionsLabel) }}
 						</ButtonLink>
-						<ButtonLink class="!h-auto !whitespace-normal" to="/hosting/manage">
+						<ButtonLink class="!h-auto !whitespace-normal" to="/discover/servers">
 							<ServerIcon class="icon" />
 							{{ formatMessage(commonMessages.serversLabel) }}
 						</ButtonLink>
@@ -815,21 +684,17 @@
 <script setup>
 import {
 	AffiliateIcon,
-	ArrowBigUpDashIcon,
 	ArrowLeftRightIcon,
 	BellIcon,
 	BookOpenIcon,
 	BoxIcon,
 	BoxPlusIcon,
-	BracesIcon,
 	ChartIcon,
 	CollectionPlusIcon,
 	CompassIcon,
 	CurrencyIcon,
-	DownloadIcon,
 	DropdownIcon,
 	FileSearchCornerIcon,
-	GlassesIcon,
 	GlobeIcon,
 	HamburgerIcon,
 	HashIcon,
@@ -839,13 +704,11 @@ import {
 	LogInIcon,
 	LogOutIcon,
 	MailIcon,
-	ModrinthIcon,
+	ShroudEditIcon,
 	MoonIcon,
 	OrganizationIcon,
 	OrganizationPlusIcon,
 	PackageOpenIcon,
-	PaintbrushIcon,
-	PlugIcon,
 	PlusIcon,
 	ReportIcon,
 	ScaleIcon,
@@ -853,7 +716,7 @@ import {
 	ServerIcon,
 	ServerPlusIcon,
 	ServerSearchIcon,
-	ServerStackIcon,
+	TagCategoryWorldgenIcon as WorldGenIcon,
 	SettingsIcon,
 	ShieldAlertIcon,
 	SunIcon,
@@ -862,7 +725,7 @@ import {
 	UserIcon,
 	UserSearchIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	Avatar,
 	Button,
@@ -870,20 +733,18 @@ import {
 	commonMessages,
 	commonProjectTypeCategoryMessages,
 	commonSettingsMessages,
-	createHostingIntercomIdentityKey,
 	defineMessages,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	injectPageContext,
 	injectUserPreferences,
 	providePageContext,
 	TeleportOverflowMenu,
 	TooltipDirective,
-	useHostingIntercom,
 	UserRoleIcon,
 	useVIntl,
-} from '@modrinth/ui'
-import { isAdmin, isStaff, UserBadge } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { isAdmin, isStaff, UserBadge } from '@shroudedit/utils'
 import { useQuery } from '@tanstack/vue-query'
 
 import { getTaxThreshold } from '@/providers/creator-withdraw.ts'
@@ -891,9 +752,7 @@ import TextLogo from '~/components/brand/TextLogo.vue'
 import BatchCreditModal from '~/components/ui/admin/BatchCreditModal.vue'
 import GeneratedStateErrorsBanner from '~/components/ui/banner/GeneratedStateErrorsBanner.vue'
 import PreviewBanner from '~/components/ui/banner/PreviewBanner.vue'
-import RussiaBanner from '~/components/ui/banner/RussiaBanner.vue'
 import StagingBanner from '~/components/ui/banner/StagingBanner.vue'
-import SubscriptionPaymentFailedBanner from '~/components/ui/banner/SubscriptionPaymentFailedBanner.vue'
 import TaxComplianceBanner from '~/components/ui/banner/TaxComplianceBanner.vue'
 import TaxIdMismatchBanner from '~/components/ui/banner/TaxIdMismatchBanner.vue'
 import VerifyEmailBanner from '~/components/ui/banner/VerifyEmailBanner.vue'
@@ -913,16 +772,12 @@ import { logout } from '~/composables/user.js'
 import { errors as generatedStateErrors, taxComplianceThresholds } from '~/generated/state.json'
 import { provideCurrentProjectId } from '~/providers/current-project.ts'
 import { getProjectTypeMessage } from '~/utils/i18n-project-type.ts'
-import { hasActiveMidas } from '~/utils/user-membership.ts'
-
-const country = useUserCountry()
 
 const { formatMessage } = useVIntl()
 const { addNotification } = injectNotificationManager()
 const { updatePreferences } = injectUserPreferences()
 
 const auth = await useAuth()
-const user = await useUser()
 
 const cosmetics = useCosmetics()
 const flags = useFeatureFlags()
@@ -933,25 +788,11 @@ const router = useNativeRouter()
 const signInRouteObj = computed(() => getSignInRouteObj(route))
 const storedAccounts = useStoredAccounts()
 const link = config.public.siteUrl + route.path.replace(/\/+$/, '')
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const pageContext = injectPageContext()
-const hostingIntercomActive = computed(() => route.path.startsWith('/hosting') && !!auth.value.user)
-const hostingIntercomServerId = computed(() => {
-	const rawId = route.params.id
-	return Array.isArray(rawId) ? rawId[0] : rawId
-})
-const hostingIntercom = useHostingIntercom({
-	enabled: hostingIntercomActive,
-	appId: computed(() => config.public.intercomAppId),
-	fetchToken: fetchIntercomToken,
-	identityKey: computed(() =>
-		createHostingIntercomIdentityKey(auth.value.user, hostingIntercomServerId.value),
-	),
-})
 
 providePageContext({
 	...pageContext,
-	intercomBubble: hostingIntercom.intercomBubble,
 })
 
 const { data: payoutBalance } = useQuery({
@@ -979,34 +820,10 @@ const showTinMismatchBanner = computed(() => {
 	return !!auth.value.user && status === 'tin-mismatch'
 })
 
-const PRIDE_COLLECTION_ID = 'M4c3ITvd'
-const PRIDE_ARTICLE_SLUGS = ['pride-campaign-2025', 'pride-campaign-2026', 'proud-of-you-2026']
-
-const { data: prideCollection } = useQuery({
-	queryKey: computed(() => ['collection', PRIDE_COLLECTION_ID]),
-	queryFn: () => client.labrinth.collections.get(PRIDE_COLLECTION_ID),
-})
-
-const prideProjectIds = computed(() => new Set(prideCollection.value?.projects ?? []))
-
 const currentProjectId = ref()
 provideCurrentProjectId(currentProjectId)
 
-const showPrideBackdrop = computed(() => {
-	if (PRIDE_ARTICLE_SLUGS.includes(route.params.slug)) {
-		return true
-	}
-	if (route.params.collection === PRIDE_COLLECTION_ID) {
-		return true
-	}
-	return !!currentProjectId.value && prideProjectIds.value.has(currentProjectId.value)
-})
-
-async function fetchIntercomToken() {
-	return $fetch('/api/intercom/messenger-jwt', {
-		query: hostingIntercomServerId.value ? { server_id: hostingIntercomServerId.value } : {},
-	})
-}
+const showPrideBackdrop = computed(() => false)
 
 function requireVerifiedEmail(action) {
 	if (!auth.value.user?.email_verified) {
@@ -1034,18 +851,6 @@ const navMenuMessages = defineMessages({
 		id: 'layout.nav.discover',
 		defaultMessage: 'Discover',
 	},
-	hostAServer: {
-		id: 'layout.nav.host-a-server',
-		defaultMessage: 'Host a server',
-	},
-	getModrinthApp: {
-		id: 'layout.nav.get-modrinth-app',
-		defaultMessage: 'Get Modrinth App',
-	},
-	modrinthApp: {
-		id: 'layout.nav.modrinth-app',
-		defaultMessage: 'Modrinth App',
-	},
 })
 
 const messages = defineMessages({
@@ -1061,9 +866,9 @@ const messages = defineMessages({
 		id: 'layout.action.change-theme',
 		defaultMessage: 'Change theme',
 	},
-	modrinthHomePage: {
-		id: 'layout.nav.modrinth-home-page',
-		defaultMessage: 'Modrinth home page',
+	shroudEditHomePage: {
+		id: 'layout.nav.shroudedit-home-page',
+		defaultMessage: 'ShroudEdit home page',
 	},
 	createNew: {
 		id: 'layout.action.create-new',
@@ -1079,7 +884,7 @@ const messages = defineMessages({
 	},
 	verifyEmailBeforePublishing: {
 		id: 'layout.publish.email-verification-required.description',
-		defaultMessage: 'You must verify your email before publishing on Modrinth.',
+		defaultMessage: 'You must verify your email before publishing on ShroudEdit.',
 	},
 	reviewProjects: {
 		id: 'layout.action.review-projects',
@@ -1141,10 +946,6 @@ const messages = defineMessages({
 		id: 'layout.nav.saved-projects',
 		defaultMessage: 'Saved projects',
 	},
-	upgradeToModrinthPlus: {
-		id: 'layout.nav.upgrade-to-modrinth-plus',
-		defaultMessage: 'Upgrade to Modrinth+',
-	},
 	projects: {
 		id: 'layout.nav.projects',
 		defaultMessage: 'Projects',
@@ -1160,10 +961,6 @@ const messages = defineMessages({
 	activeReports: {
 		id: 'layout.nav.active-reports',
 		defaultMessage: 'Active reports',
-	},
-	myServers: {
-		id: 'layout.nav.my-servers',
-		defaultMessage: 'My servers',
 	},
 	switchAccount: {
 		id: 'layout.nav.switch-account',
@@ -1201,25 +998,25 @@ useHead({
 	],
 })
 useSeoMeta({
-	title: 'Modrinth',
+	title: 'ShroudEdit',
 	description: () =>
 		formatMessage({
 			id: 'layout.meta.description',
 			defaultMessage:
-				'Download Minecraft mods, plugins, datapacks, shaders, resourcepacks, and modpacks on Modrinth. ' +
-				'Discover and publish projects on Modrinth with a modern, easy to use interface and API.',
+				'Download Enshrouded mods, schematics, and modpacks, or discover community servers on ShroudEdit. ' +
+				'Discover and publish projects with a modern, easy to use interface and API.',
 		}),
-	publisher: 'Modrinth',
+	publisher: 'ShroudEdit',
 	themeColor: '#1bd96a',
 	colorScheme: 'dark light',
 
 	// OpenGraph
-	ogTitle: 'Modrinth',
-	ogSiteName: 'Modrinth',
+	ogTitle: 'ShroudEdit',
+	ogSiteName: 'ShroudEdit',
 	ogDescription: () =>
 		formatMessage({
 			id: 'layout.meta.og-description',
-			defaultMessage: 'Discover and publish Minecraft content!',
+			defaultMessage: 'Discover and publish Enshrouded content!',
 		}),
 	ogType: 'website',
 	ogImage: 'https://cdn.modrinth.com/modrinth-new.png',
@@ -1227,7 +1024,6 @@ useSeoMeta({
 
 	// Twitter
 	twitterCard: 'summary',
-	twitterSite: '@modrinth',
 })
 
 const isMobileMenuOpen = ref(false)
@@ -1239,24 +1035,12 @@ const navRoutes = computed(() => [
 		href: '/discover/mods',
 	},
 	{
-		label: formatMessage(getProjectTypeMessage('resourcepack', true)),
-		href: '/discover/resourcepacks',
-	},
-	{
-		label: formatMessage(getProjectTypeMessage('datapack', true)),
-		href: '/discover/datapacks',
-	},
-	{
-		label: formatMessage(getProjectTypeMessage('shader', true)),
-		href: '/discover/shaders',
+		label: formatMessage(getProjectTypeMessage('schematic', true)),
+		href: '/discover/schematics',
 	},
 	{
 		label: formatMessage(getProjectTypeMessage('modpack', true)),
 		href: '/discover/modpacks',
-	},
-	{
-		label: formatMessage(getProjectTypeMessage('plugin', true)),
-		href: '/discover/plugins',
 	},
 	{
 		label: formatMessage(getProjectTypeMessage('server', true)),
@@ -1330,22 +1114,6 @@ const userMenuOptions = computed(() => {
 			icon: UserIcon,
 			type: 'link',
 			to: `/user/${user.username}`,
-		},
-		{
-			id: 'plus',
-			label: formatMessage(messages.upgradeToModrinthPlus),
-			icon: ArrowBigUpDashIcon,
-			type: 'link',
-			to: '/plus',
-			tone: 'purple',
-			shown: !flags.value.hidePlusPromoInUserMenu && !hasActiveMidas(user),
-		},
-		{
-			id: 'servers',
-			label: formatMessage(messages.myServers),
-			icon: ServerStackIcon,
-			type: 'link',
-			to: '/hosting/manage',
 		},
 		{
 			id: 'flags',
@@ -1464,8 +1232,6 @@ const isDiscoveringSubpage = computed(
 	() => route.name && route.name.startsWith('type-project') && !route.query.sid,
 )
 
-const isRussia = computed(() => country.value === 'ru')
-
 const rCount = ref(0)
 
 const randomProjects = ref([])
@@ -1473,7 +1239,6 @@ const disableRandomProjects = ref(false)
 
 const disableRandomProjectsForRoute = computed(
 	() =>
-		route.name.startsWith('hosting') ||
 		route.name.includes('settings') ||
 		route.name.includes('admin'),
 )
@@ -1596,7 +1361,6 @@ function changeTheme() {
 
 <style lang="scss">
 @import '~/assets/styles/global.scss';
-// @import '@modrinth/assets';
 
 .layout {
 	min-height: 100vh;

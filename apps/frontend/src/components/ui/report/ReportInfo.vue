@@ -132,7 +132,7 @@
 </template>
 
 <script setup>
-import { BoxesIcon, ReportIcon, UnknownIcon, VersionIcon } from '@modrinth/assets'
+import { BoxesIcon, ReportIcon, UnknownIcon, VersionIcon } from '@shroudedit/assets'
 import {
 	Avatar,
 	Badge,
@@ -142,8 +142,8 @@ import {
 	useFormatDateTime,
 	useRelativeTime,
 	useVIntl,
-} from '@modrinth/ui'
-import { formatProjectType, renderHighlightedString } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { formatProjectType, renderHighlightedString } from '@shroudedit/utils'
 
 import ThreadSummary from '~/components/ui/thread/ThreadSummary.vue'
 import { getProjectTypeForUrl } from '~/helpers/projects.js'

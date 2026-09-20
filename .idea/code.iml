@@ -12,17 +12,17 @@
       <sourceFolder url="file://$MODULE_DIR$/packages/app-lib/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/packages/ariadne/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/packages/path-util/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/packages/modrinth-log/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/packages/modrinth-maxmind/examples" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/packages/modrinth-maxmind/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/packages/modrinth-util/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/packages/shroudedit-log/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/packages/shroudedit-maxmind/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/packages/shroudedit-maxmind/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/packages/shroudedit-util/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/packages/muralpay/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/packages/async-minecraft-ping/examples" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/packages/async-minecraft-ping/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/packages/async-minecraft-ping/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/packages/async-enshrouded-ping/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/packages/async-enshrouded-ping/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/packages/async-enshrouded-ping/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/packages/labrinth-derive/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/packages/modrinth-content-management/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/packages/modrinth-content-management/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/packages/shroudedit-content-management/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/packages/shroudedit-content-management/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/packages/neverbounce/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/packages/serde-binhum/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/packages/sqlx-tracing/src" isTestSource="false" />

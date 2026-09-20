@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ScaleIcon, XIcon } from '@modrinth/assets'
-import { AutoLink, Button, injectModrinthClient, NewModal } from '@modrinth/ui'
+import { ScaleIcon, XIcon } from '@shroudedit/assets'
+import { AutoLink, Button, injectShroudEditClient, NewModal } from '@shroudedit/ui'
 import { ref, useTemplateRef } from 'vue'
 
 import { useGeneratedState } from '~/composables/generated'
@@ -15,7 +15,7 @@ const emit = defineEmits<{
 	(e: 'review-skipped'): void
 }>()
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const tags = useGeneratedState()
 const modalRef = useTemplateRef<InstanceType<typeof NewModal>>('modalRef')
 

@@ -21,7 +21,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
 				projectQueryOptions.v3(version.project_id, client),
 			)
 			const type =
-				project.minecraft_server == null
+				project.enshrouded_server == null
 					? getProjectTypeForUrl(project.project_types[0], project.loaders)
 					: 'server'
 

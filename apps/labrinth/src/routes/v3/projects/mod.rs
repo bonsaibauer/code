@@ -395,21 +395,8 @@ pub struct EditProject {
         skip_serializing_if = "Option::is_none",
         with = "serde_with::rust::double_option"
     )]
-    pub minecraft_server: Option<Option<exp::minecraft::ServerProjectEdit>>,
-    #[serde(
-        default,
-        skip_serializing_if = "Option::is_none",
-        with = "serde_with::rust::double_option"
-    )]
-    pub minecraft_java_server:
-        Option<Option<exp::minecraft::JavaServerProjectEdit>>,
-    #[serde(
-        default,
-        skip_serializing_if = "Option::is_none",
-        with = "serde_with::rust::double_option"
-    )]
-    pub minecraft_bedrock_server:
-        Option<Option<exp::minecraft::BedrockServerProjectEdit>>,
+    pub enshrouded_server:
+        Option<Option<exp::enshrouded::EnshroudedServerProjectEdit>>,
 }
 
 #[allow(clippy::too_many_arguments)]
@@ -679,7 +666,7 @@ pub async fn project_edit_internal(
             if status.is_searchable()
                 && !project_item.inner.webhook_sent
                 && !ENV.PUBLIC_DISCORD_WEBHOOK.is_empty()
-                && project_item.inner.components.minecraft_server.is_none()
+                && project_item.inner.components.enshrouded_server.is_none()
             {
                 crate::util::webhook::send_discord_webhook(
                     project_item.inner.id.into(),
@@ -1298,31 +1285,12 @@ pub async fn project_edit_internal(
     reindex_versions |= update(
         &mut transaction,
         id,
-        new_project.minecraft_server,
-        &mut project_item.inner.components.minecraft_server,
+        new_project.enshrouded_server,
+        &mut project_item.inner.components.enshrouded_server,
         perms,
     )
     .await
-    .wrap_api_err("updating Minecraft server component")?;
-    reindex_versions |= update(
-        &mut transaction,
-        id,
-        new_project.minecraft_java_server,
-        &mut project_item.inner.components.minecraft_java_server,
-        perms,
-    )
-    .await
-    .wrap_api_err("updating Minecraft Java server component")?;
-    reindex_versions |= update(
-        &mut transaction,
-        id,
-        new_project.minecraft_bedrock_server,
-        &mut project_item.inner.components.minecraft_bedrock_server,
-        perms,
-    )
-    .await
-    .wrap_api_err("updating Minecraft Bedrock server component")?;
-
+    .wrap_api_err("updating Enshrouded server component")?;
     let components_serial = project_item.inner.components.clone();
 
     exp::component::kinds_valid(

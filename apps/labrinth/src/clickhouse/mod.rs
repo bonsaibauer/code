@@ -9,7 +9,7 @@ pub use fetch::*;
 
 use crate::env::ENV;
 use crate::queue::server_ping;
-use crate::routes::analytics::MINECRAFT_SERVER_PLAYS;
+use crate::routes::analytics::ENSHROUDED_SERVER_PLAYS;
 
 pub const DOWNLOADS: &str = "downloads";
 pub const PLAYTIME: &str = "playtime";
@@ -60,7 +60,7 @@ pub async fn run_migrations() -> clickhouse::error::Result<()> {
 pub async fn run_migrations_on_database(
     database: &str,
 ) -> clickhouse::error::Result<()> {
-    const MINECRAFT_JAVA_SERVER_PINGS: &str = server_ping::CLICKHOUSE_TABLE;
+    const ENSHROUDED_SERVER_PINGS: &str = server_ping::CLICKHOUSE_TABLE;
 
     let client = connect()?;
 
@@ -195,18 +195,20 @@ pub async fn run_migrations_on_database(
     client
         .query(&format!(
             "
-            CREATE TABLE IF NOT EXISTS {database}.{MINECRAFT_JAVA_SERVER_PINGS} {cluster_line}
+            CREATE TABLE IF NOT EXISTS {database}.{ENSHROUDED_SERVER_PINGS} {cluster_line}
             (
                 recorded DateTime64(4),
                 project_id UInt64,
                 address String,
+                query_port UInt16,
                 online Bool,
                 latency_ms Nullable(UInt32),
-                description Nullable(String),
-                version_name Nullable(String),
-                version_protocol Nullable(Int32),
-                players_online Nullable(Int32),
-                players_max Nullable(Int32)
+                name Nullable(String),
+                game_version Nullable(String),
+                map Nullable(String),
+                players_online Nullable(UInt8),
+                players_max Nullable(UInt8),
+                password_protected Nullable(Bool)
             )
             ENGINE = {engine}
             PARTITION BY toYYYYMM(recorded)
@@ -221,12 +223,12 @@ pub async fn run_migrations_on_database(
     client
         .query(&format!(
             "
-            CREATE TABLE IF NOT EXISTS {database}.{MINECRAFT_SERVER_PLAYS} {cluster_line}
+            CREATE TABLE IF NOT EXISTS {database}.{ENSHROUDED_SERVER_PLAYS} {cluster_line}
             (
                 recorded DateTime64(4),
                 user_id UInt64,
                 project_id UInt64,
-                minecraft_uuid UUID
+                enshrouded_uuid UUID
             )
             ENGINE = {engine}
             PARTITION BY toYYYYMM(recorded)
@@ -241,8 +243,8 @@ pub async fn run_migrations_on_database(
     client
         .query(&format!(
             "
-            ALTER TABLE {database}.{MINECRAFT_SERVER_PLAYS} {cluster_line}
-            ADD COLUMN IF NOT EXISTS minecraft_uuid UUID
+            ALTER TABLE {database}.{ENSHROUDED_SERVER_PLAYS} {cluster_line}
+            ADD COLUMN IF NOT EXISTS enshrouded_uuid UUID
             "
         ))
         .execute()
@@ -251,18 +253,8 @@ pub async fn run_migrations_on_database(
     client
         .query(&format!(
             "
-            ALTER TABLE {database}.{MINECRAFT_SERVER_PLAYS} {cluster_line}
+            ALTER TABLE {database}.{ENSHROUDED_SERVER_PLAYS} {cluster_line}
             ADD COLUMN IF NOT EXISTS ip IPv6 DEFAULT toIPv6('::')
-            "
-        ))
-        .execute()
-        .await?;
-
-    client
-        .query(&format!(
-            "
-            ALTER TABLE {database}.{MINECRAFT_JAVA_SERVER_PINGS} {cluster_line}
-            DROP COLUMN IF EXISTS port
             "
         ))
         .execute()

@@ -8,7 +8,7 @@ import type { AbstractModule } from './abstract-module'
 import type { AbstractSyncClient } from './abstract-sync'
 import { AbstractUploadClient } from './abstract-upload-client'
 import type { AbstractWebSocketClient } from './abstract-websocket'
-import { ModrinthApiError, ModrinthServerError } from './errors'
+import { ShroudEditApiError, ShroudEditServerError } from './errors'
 
 type ArchonClientModules = Omit<InferredClientModules['archon'], 'backups_v1'> & {
 	/** @deprecated Use `backups_queue_v1` for the Backups Queue API. */
@@ -16,9 +16,9 @@ type ArchonClientModules = Omit<InferredClientModules['archon'], 'backups_v1'> &
 }
 
 /**
- * Abstract base client for Modrinth APIs
+ * Abstract base client for ShroudEdit APIs
  */
-export abstract class AbstractModrinthClient extends AbstractUploadClient {
+export abstract class AbstractShroudEditClient extends AbstractUploadClient {
 	protected config: ClientConfig
 	protected features: AbstractFeature[]
 
@@ -49,9 +49,9 @@ export abstract class AbstractModrinthClient extends AbstractUploadClient {
 		super()
 		this.config = {
 			timeout: 10000,
-			labrinthBaseUrl: 'https://api.modrinth.com',
-			archonBaseUrl: 'https://archon.modrinth.com',
-			sharedInstancesBaseUrl: 'https://shared-instances.modrinth.com',
+			labrinthBaseUrl: 'https://api.shroudedit.com',
+			archonBaseUrl: 'https://archon.shroudedit.com',
+			sharedInstancesBaseUrl: 'https://shared-instances.shroudedit.com',
 			...config,
 		}
 		this.features = config.features ?? []
@@ -117,7 +117,7 @@ export abstract class AbstractModrinthClient extends AbstractUploadClient {
 	 * @param path - API path (e.g., '/project/sodium')
 	 * @param options - Request options
 	 * @returns Promise resolving to the response data
-	 * @throws {ModrinthApiError} When the request fails or features throw errors
+	 * @throws {ShroudEditApiError} When the request fails or features throw errors
 	 */
 	async request<T>(path: string, options: RequestOptions): Promise<T> {
 		let baseUrl: string
@@ -286,7 +286,7 @@ export abstract class AbstractModrinthClient extends AbstractUploadClient {
 		} else if (typeof version === 'number') {
 			versionPath = `/v${version}`
 		} else if (typeof version === 'string') {
-			// Custom version string (e.g., 'v0', 'modrinth/v0')
+			// Custom version string (e.g., 'v0', 'shroudedit/v0')
 			versionPath = `/${version}`
 		}
 
@@ -388,7 +388,7 @@ export abstract class AbstractModrinthClient extends AbstractUploadClient {
 			return
 		}
 
-		options.headers['modrinth-sentry-capture'] = '1'
+		options.headers['shroudedit-sentry-capture'] = '1'
 	}
 
 	private shouldCaptureArchonRequests(): boolean {
@@ -433,17 +433,17 @@ export abstract class AbstractModrinthClient extends AbstractUploadClient {
 	): Promise<T>
 
 	/**
-	 * Normalize an error into a ModrinthApiError
+	 * Normalize an error into a ShroudEditApiError
 	 *
 	 * Platform implementations should override this to handle platform-specific errors
 	 * (e.g., FetchError from ofetch, Tauri HTTP errors)
 	 */
-	protected normalizeError(error: unknown, context?: RequestContext): ModrinthApiError {
-		if (error instanceof ModrinthApiError) {
+	protected normalizeError(error: unknown, context?: RequestContext): ShroudEditApiError {
+		if (error instanceof ShroudEditApiError) {
 			return error
 		}
 
-		return ModrinthApiError.fromUnknown(error, context?.path)
+		return ShroudEditApiError.fromUnknown(error, context?.path)
 	}
 
 	/**
@@ -453,12 +453,12 @@ export abstract class AbstractModrinthClient extends AbstractUploadClient {
 		error: Error,
 		statusCode: number | undefined,
 		responseData: unknown,
-	): ModrinthApiError {
+	): ShroudEditApiError {
 		if (statusCode && responseData) {
-			return ModrinthServerError.fromResponse(statusCode, responseData)
+			return ShroudEditServerError.fromResponse(statusCode, responseData)
 		}
 
-		return new ModrinthApiError(error.message, {
+		return new ShroudEditApiError(error.message, {
 			statusCode,
 			originalError: error,
 			responseData,
@@ -472,7 +472,7 @@ export abstract class AbstractModrinthClient extends AbstractUploadClient {
 	 *
 	 * @example
 	 * ```typescript
-	 * const client = new GenericModrinthClient()
+	 * const client = new GenericShroudEditClient()
 	 * client.addFeature(new AuthFeature({ token: async () => getOAuthToken() }))
 	 * client.addFeature(new RetryFeature({ maxAttempts: 3 }))
 	 * ```

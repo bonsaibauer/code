@@ -209,7 +209,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	BlendIcon,
 	CheckIcon,
@@ -218,15 +218,15 @@ import {
 	ListFilterIcon,
 	SortAscIcon,
 	SortDescIcon,
-} from '@modrinth/assets'
-import type { ExtendedReport, OwnershipTarget } from '@modrinth/moderation'
+} from '@shroudedit/assets'
+import type { ExtendedReport, OwnershipTarget } from '@shroudedit/moderation'
 import {
 	Checkbox,
 	Combobox,
 	type ComboboxOption,
 	commonMessages,
 	formatReportType,
-	injectModrinthClient,
+	injectShroudEditClient,
 	MultiSelect,
 	type MultiSelectItem,
 	Pagination,
@@ -234,7 +234,7 @@ import {
 	useDebugLogger,
 	useFormatNumber,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import Fuse from 'fuse.js'
 
 import ModerationFilterCount from '~/components/ui/moderation/ModerationFilterCount.vue'
@@ -243,14 +243,14 @@ import ModerationQueueToolbar from '~/components/ui/moderation/ModerationQueueTo
 import ReportCard from '~/components/ui/moderation/ModerationReportCard.vue'
 import { enrichReportBatch } from '~/helpers/moderation.ts'
 
-useHead({ title: 'Reports queue - Modrinth' })
+useHead({ title: 'Reports queue - ShroudEdit' })
 
 const { formatMessage } = useVIntl()
 const formatNumber = useFormatNumber()
 const route = useRoute()
 const router = useRouter()
 const auth = await useAuth()
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const debug = useDebugLogger('ModerationReports')
 
 const { data: allReports, pending: reportsPending } = await useLazyAsyncData(
@@ -329,7 +329,7 @@ const PROJECT_TYPE_FILTERS = [
 	{ value: 'datapack', name: 'Data Packs' },
 	{ value: 'plugin', name: 'Plugins' },
 	{ value: 'shader', name: 'Shaders' },
-	{ value: 'minecraft_java_server', name: 'Servers' },
+	{ value: 'server', name: 'Servers' },
 	{ value: 'shared-instance', name: 'Shared instance' },
 ] as const
 const PROJECT_TYPE_VALUES = PROJECT_TYPE_FILTERS.map((filter) => filter.value)

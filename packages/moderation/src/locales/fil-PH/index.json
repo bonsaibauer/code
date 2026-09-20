@@ -65,10 +65,10 @@
   "nags.long-headers.title": {
     "defaultMessage": "Paikliin ang mga uluhan"
   },
-  "nags.minecraft-title-clause.description": {
-    "defaultMessage": "Hindi maaaring gamitin ng mga proyekto ang branding ng Minecraft o saklawin ang \"Minecraft\" na may malaking parte sa pangalan."
+  "nags.enshrouded-title-clause.description": {
+    "defaultMessage": "Hindi maaaring gamitin ng mga proyekto ang branding ng Enshrouded o saklawin ang \"Enshrouded\" na may malaking parte sa pangalan."
   },
-  "nags.minecraft-title-clause.title": {
+  "nags.enshrouded-title-clause.title": {
     "defaultMessage": "Umiwas sa brand infringement"
   },
   "nags.missing-alt-text.description": {

@@ -42,7 +42,7 @@
 					type="url"
 					:placeholder="
 						cf
-							? 'https://www.curseforge.com/minecraft/modpacks/.../files/6412259'
+							? 'https://www.curseforge.com/enshrouded/modpacks/.../files/6412259'
 							: 'https://www.example.com/.../modpack-name-1.0.2.zip'
 					"
 					:disabled="submitted || props.disabled"
@@ -100,21 +100,21 @@ import {
 	SearchIcon,
 	SpinnerIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import { computed, nextTick, ref } from 'vue'
 
 import { Button } from '#ui/components/base/buttons'
 import Input from '#ui/components/base/inputs/Input.vue'
 import NewModal from '#ui/components/modal/NewModal.vue'
 import { defineMessages, useVIntl } from '#ui/composables/i18n'
-import { injectModrinthClient } from '#ui/providers/api-client'
+import { injectShroudEditClient } from '#ui/providers/api-client'
 import { injectNotificationManager } from '#ui/providers/web-notifications'
 import { commonMessages } from '#ui/utils/common-messages'
 
 import InlineBackupCreator from '../../../content-tab/components/modals/InlineBackupCreator.vue'
 
 const { addNotification } = injectNotificationManager()
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const { formatMessage } = useVIntl()
 
 const props = withDefaults(
@@ -235,7 +235,7 @@ const backupInProgress = ref(false)
 
 const trimmedUrl = computed(() => url.value.trim())
 
-const regex = /https:\/\/(www\.)?curseforge\.com\/minecraft\/modpacks\/[^/]+\/files\/\d+/
+const regex = /https:\/\/(www\.)?curseforge\.com\/enshrouded\/modpacks\/[^/]+\/files\/\d+/
 
 const error = computed(() => {
 	if (trimmedUrl.value.length === 0) {

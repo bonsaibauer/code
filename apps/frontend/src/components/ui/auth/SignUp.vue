@@ -83,15 +83,24 @@
 				:icon="KeyIcon"
 				type="password"
 				autocomplete="new-password"
+				:minlength="PASSWORD_MIN_LENGTH"
+				:maxlength="PASSWORD_MAX_LENGTH"
 				:placeholder="formatMessage(commonMessages.passwordLabel)"
 				wrapper-class="w-full"
 			/>
+			<span class="text-secondary text-sm">
+				{{ formatMessage(messages.passwordRequirements) }}
+			</span>
 
 			<Button
 				type="colored"
 				color="brand"
 				class="!w-full"
-				:disabled="!emailModel || !passwordModel"
+				:disabled="
+					!emailModel ||
+					passwordModel.length < PASSWORD_MIN_LENGTH ||
+					passwordModel.length > PASSWORD_MAX_LENGTH
+				"
 				@click="onContinueWithEmail()"
 			>
 				{{ formatMessage(messages.continueWithEmail) }} <RightArrowIcon />
@@ -139,7 +148,7 @@ import {
 	MicrosoftColorIcon,
 	RightArrowIcon,
 	SteamColorIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	Button,
 	ButtonLink,
@@ -148,7 +157,7 @@ import {
 	Input,
 	IntlFormatted,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { useStorage } from '@vueuse/core'
 import type { LocationQuery } from 'vue-router'
 
@@ -175,6 +184,8 @@ const {
 
 const emailModel = defineModel<string>('email', { default: '' })
 const passwordModel = defineModel<string>('password', { default: '' })
+const PASSWORD_MIN_LENGTH = 8
+const PASSWORD_MAX_LENGTH = 256
 
 const pendingSignInOAuthProvider = useStorage<AuthProvider | null>(
 	PENDING_SIGN_IN_OAUTH_PROVIDER_STORAGE_KEY,
@@ -198,7 +209,7 @@ const messages = defineMessages({
 	legalDisclaimer: {
 		id: 'auth.sign-up.legal-dislaimer',
 		defaultMessage:
-			"By creating an account, you agree to Modrinth's <terms-link>Terms</terms-link> and <privacy-policy-link>Privacy Policy</privacy-policy-link>.",
+			"By creating an account, you agree to ShroudEdit's <terms-link>Terms</terms-link> and <privacy-policy-link>Privacy Policy</privacy-policy-link>.",
 	},
 	alreadyHaveAccountLabel: {
 		id: 'auth.sign-up.sign-in-option.title',
@@ -207,6 +218,10 @@ const messages = defineMessages({
 	continueWithEmail: {
 		id: 'auth.sign-up.continue-with-email',
 		defaultMessage: 'Continue with Email',
+	},
+	passwordRequirements: {
+		id: 'auth.sign-up.password-requirements',
+		defaultMessage: 'Use between 8 and 256 characters.',
 	},
 	showFewerOptions: {
 		id: 'auth.sign-up.show-fewer-options',

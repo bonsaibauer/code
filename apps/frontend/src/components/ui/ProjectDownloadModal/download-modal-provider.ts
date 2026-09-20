@@ -1,13 +1,13 @@
-import type { AbstractModrinthClient, Labrinth } from '@modrinth/api-client'
+import type { AbstractShroudEditClient, Labrinth } from '@shroudedit/api-client'
 import {
 	type CdnDownloadReason,
 	createContext,
 	defineMessages,
 	fileTypeMessages,
-	injectModrinthClient,
+	injectShroudEditClient,
 	useVIntl,
-} from '@modrinth/ui'
-import type { DisplayProjectType } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import type { DisplayProjectType } from '@shroudedit/utils'
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import { type Component, computed, type ComputedRef } from 'vue'
 
@@ -79,7 +79,7 @@ export const [injectDownloadModalProvider, provideDownloadModalContext] =
 export function provideDownloadModalProvider(
 	options: DownloadModalProviderOptions,
 ): DownloadModalProvider {
-	const client = injectModrinthClient()
+	const client = injectShroudEditClient()
 	const queryClient = useQueryClient()
 	const { createProjectDownloadUrl } = useCdnDownloadContext()
 	const { formatMessage } = useVIntl()
@@ -507,7 +507,7 @@ export function provideDownloadModalProvider(
 }
 
 function dependencyResolutionQueryOptions(
-	client: AbstractModrinthClient,
+	client: AbstractShroudEditClient,
 	project: ComputedRef<DownloadModalProject | null>,
 	selectedVersion: ComputedRef<Labrinth.Versions.v3.Version | null>,
 	preferences: ComputedRef<Labrinth.Content.v3.ResolutionPreferences>,
@@ -534,7 +534,7 @@ function dependencyResolutionQueryOptions(
 }
 
 function dependencyVersionsQueryOptions(
-	client: AbstractModrinthClient,
+	client: AbstractShroudEditClient,
 	versionIds: ComputedRef<string[]>,
 ) {
 	return {
@@ -545,7 +545,7 @@ function dependencyVersionsQueryOptions(
 }
 
 function dependencyProjectsQueryOptions(
-	client: AbstractModrinthClient,
+	client: AbstractShroudEditClient,
 	projectIds: ComputedRef<string[]>,
 ) {
 	return {
@@ -604,7 +604,9 @@ function hasSkippedDuplicateDependency(resolution?: Labrinth.Content.v3.ResolveC
 }
 
 function resolveContentType(projectType: DisplayProjectType): Labrinth.Content.v3.ContentType {
-	return ['mod', 'plugin', 'datapack', 'resourcepack', 'shader', 'modpack'].includes(projectType)
+	return ['mod', 'plugin', 'datapack', 'resourcepack', 'shader', 'modpack', 'schematic'].includes(
+		projectType,
+	)
 		? (projectType as Labrinth.Content.v3.ContentType)
 		: 'mod'
 }

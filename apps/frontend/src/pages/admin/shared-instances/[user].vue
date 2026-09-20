@@ -207,7 +207,7 @@
 </template>
 
 <script setup lang="ts">
-import type { SharedInstances } from '@modrinth/api-client'
+import type { SharedInstances } from '@shroudedit/api-client'
 import {
 	BoxesIcon,
 	CalendarIcon,
@@ -219,19 +219,19 @@ import {
 	UserIcon,
 	UsersIcon,
 	VersionIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	Admonition,
 	Avatar,
 	Button,
 	ButtonLink,
 	CopyCode,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	NewModal,
 	useFormatDateTime,
 	useRelativeTime,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, onServerPrefetch, ref } from 'vue'
 
@@ -255,7 +255,7 @@ type UserSharedInstance = {
 }
 
 const route = useRoute()
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const queryClient = useQueryClient()
 const { addNotification } = injectNotificationManager()
 const userId = computed(() => String(route.params.user ?? ''))
@@ -362,7 +362,7 @@ const selectedContextErrorMessage = computed(() =>
 const banOwnerPending = computed(() => banOwnerMutation.isPending.value)
 
 useHead({
-	title: computed(() => `${user.value?.username ?? userId.value}'s shared instances - Modrinth`),
+	title: computed(() => `${user.value?.username ?? userId.value}'s shared instances - ShroudEdit`),
 })
 
 onServerPrefetch(() => Promise.all([userSuspense(), sharedInstancesSuspense()]))
@@ -546,7 +546,7 @@ function formattedVersion(version: InstanceVersion): string {
 		? version.loader.charAt(0).toUpperCase() + version.loader.slice(1)
 		: 'Vanilla'
 	const formattedLoader = version.loader_version ? `${loader} ${version.loader_version}` : loader
-	return `Minecraft ${version.game_version} · ${formattedLoader}`
+	return `Enshrouded ${version.game_version} · ${formattedLoader}`
 }
 
 function getErrorMessage(requestError: unknown, fallback: string): string {

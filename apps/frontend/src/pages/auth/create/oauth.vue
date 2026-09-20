@@ -1,12 +1,5 @@
 <template>
-	<div v-if="subtleLauncherRedirectUri">
-		<iframe
-			:src="subtleLauncherRedirectUri"
-			class="fixed left-0 top-0 z-[9999] m-0 h-full w-full border-0 p-0"
-		></iframe>
-	</div>
 	<CreateAccountView
-		v-else
 		v-model:date-of-birth="dateOfBirth"
 		v-model:username="username"
 		v-model:token="token"
@@ -22,15 +15,15 @@
 import {
 	commonMessages,
 	defineMessages,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import type { LocationQueryValue } from 'vue-router'
 
 import CreateAccountView from '@/components/ui/auth/CreateAccount.vue'
-import { getLauncherRedirectUrl, promotePendingSignInOAuthProvider } from '@/composables/auth.ts'
+import { promotePendingSignInOAuthProvider } from '@/composables/auth.ts'
 
 interface AuthGlobalsResponse {
 	captcha_enabled?: boolean
@@ -61,7 +54,7 @@ const getErrorMessage = (error: unknown): string => {
 	return String(error)
 }
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const queryClient = useQueryClient()
 const { addNotification } = injectNotificationManager()
 const { formatMessage } = useVIntl()
@@ -78,7 +71,7 @@ const messages = defineMessages({
 
 useHead({
 	title() {
-		return `${formatMessage(messages.createAccountTitle)} - Modrinth`
+		return `${formatMessage(messages.createAccountTitle)} - ShroudEdit`
 	},
 })
 
@@ -109,7 +102,6 @@ const dateOfBirth = ref('')
 const username = ref(defaultUsername.value)
 const token = ref('')
 const subscribe = ref(false)
-const subtleLauncherRedirectUri = ref<string>()
 
 const captcha = ref<{ reset?: () => void } | null>(null)
 const setCaptchaRef = (captchaRef: unknown) => {
@@ -156,27 +148,6 @@ async function completeOAuthSignUp(accountConsent: boolean) {
 }
 
 async function finishSignIn(sessionToken?: string | null) {
-	if (route.query.launcher) {
-		let token = sessionToken
-		if (!token) {
-			token = auth.value.token
-		}
-
-		promotePendingSignInOAuthProvider()
-
-		const redirectUrl = `${getLauncherRedirectUrl(route)}/?code=${token}`
-
-		if (redirectUrl.startsWith('https://launcher-files.modrinth.com/')) {
-			await navigateTo(redirectUrl, {
-				external: true,
-			})
-		} else {
-			subtleLauncherRedirectUri.value = redirectUrl
-		}
-
-		return
-	}
-
 	if (sessionToken) {
 		await useAuth(sessionToken)
 		await useUser()

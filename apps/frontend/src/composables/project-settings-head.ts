@@ -1,4 +1,4 @@
-import { injectProjectPageContext, type MessageDescriptor, useVIntl } from '@modrinth/ui'
+import { injectProjectPageContext, type MessageDescriptor, useVIntl } from '@shroudedit/ui'
 
 export function useProjectSettingsHeadTitle(section: MessageDescriptor) {
 	const { formatMessage } = useVIntl()

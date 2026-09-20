@@ -1,5 +1,5 @@
-import { CopyrightIcon } from '@modrinth/assets'
-import { injectProjectPageContext } from '@modrinth/ui'
+import { CopyrightIcon } from '@shroudedit/assets'
+import { injectProjectPageContext } from '@shroudedit/ui'
 import { computed } from 'vue'
 
 import { check, group, markdown, stage, text, toggle } from '../../types/node'
@@ -7,12 +7,7 @@ import { check, group, markdown, stage, text, toggle } from '../../types/node'
 export default function () {
 	const { projectV3: project } = injectProjectPageContext()
 
-	const isServerModpack = computed(
-		() =>
-			!!project.value.minecraft_server &&
-			project.value.minecraft_java_server?.content?.kind === 'modpack' &&
-			project.value.minecraft_java_server?.content?.project_id === project.value.id,
-	)
+	const isServerModpack = computed(() => false)
 
 	return stage('reupload', 'Reupload')
 		.hint('Does the author have proper permissions to post this project?')
@@ -24,7 +19,7 @@ export default function () {
 		.children(
 			group().children(
 				toggle('reupload', 'Re-upload')
-					.shown(computed(() => !project.value.minecraft_server))
+					.shown(computed(() => !project.value.enshrouded_server))
 					.suggestedStatus('rejected')
 					.message((state) => ({
 						ORIGINAL_PROJECT: state['original-project'],
@@ -36,19 +31,19 @@ export default function () {
 					),
 
 				toggle('unclear-fork', 'Unclear Fork')
-					.shown(computed(() => !project.value.minecraft_server))
+					.shown(computed(() => !project.value.enshrouded_server))
 					.suggestedStatus('rejected')
 					.message(),
 
 				toggle('insufficient-fork', 'Insufficient Fork')
-					.shown(computed(() => !project.value.minecraft_server))
+					.shown(computed(() => !project.value.enshrouded_server))
 					.suggestedStatus('rejected')
 					.message(),
 
 				toggle('request-proof', 'Proof of permissions').suggestedStatus('rejected').message(),
 
 				toggle('identity-verification', 'Verify Identity')
-					.shown(computed(() => !project.value.minecraft_server))
+					.shown(computed(() => !project.value.enshrouded_server))
 					.suggestedStatus('rejected')
 					.message((state) => ({
 						PLATFORM: state.platform,
@@ -56,7 +51,7 @@ export default function () {
 					.children(text('platform').title('Where else can the project be found?').required()),
 
 				toggle('identity-verification-server', 'Verify Identity')
-					.shown(computed(() => !!project.value.minecraft_server))
+					.shown(computed(() => !!project.value.enshrouded_server))
 					.suggestedStatus('rejected')
 					.message((state) => ({
 						CONTACT: state.contact,

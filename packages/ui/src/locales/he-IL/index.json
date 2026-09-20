@@ -191,8 +191,8 @@
   "button.open-in-folder": {
     "defaultMessage": "פתח בתקייה"
   },
-  "button.open-in-modrinth": {
-    "defaultMessage": "פתח בModrinth"
+  "button.open-in-shroudedit": {
+    "defaultMessage": "פתח בShroudEdit"
   },
   "button.play": {
     "defaultMessage": "שחק"
@@ -683,8 +683,8 @@
   "omorphia.component.badge.label.moderator": {
     "defaultMessage": "מפקח"
   },
-  "omorphia.component.badge.label.modrinth-team": {
-    "defaultMessage": "צוות Modrinth"
+  "omorphia.component.badge.label.shroudedit-team": {
+    "defaultMessage": "צוות ShroudEdit"
   },
   "omorphia.component.badge.label.pending": {
     "defaultMessage": "בהמתנה"
@@ -836,7 +836,7 @@
   "project.about.compatibility.environments.singleplayer-only": {
     "defaultMessage": "שחקן יחיד בלבד"
   },
-  "project.about.compatibility.game.minecraftJava": {
+  "project.about.compatibility.game.enshroudedJava": {
     "defaultMessage": "מיינקראפט: גרסת ג'אבה"
   },
   "project.about.compatibility.platforms": {
@@ -1280,7 +1280,7 @@
   "tag.loader.liteloader": {
     "defaultMessage": "LiteLoader"
   },
-  "tag.loader.minecraft": {
+  "tag.loader.enshrouded": {
     "defaultMessage": "חבילת משאבים"
   },
   "tag.loader.modloader": {

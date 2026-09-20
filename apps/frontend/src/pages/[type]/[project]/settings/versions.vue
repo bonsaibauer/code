@@ -135,7 +135,7 @@
 							label: formatMessage(messages.copyLinkOption),
 							action: () =>
 								copyToClipboard(
-									`https://modrinth.com/${project.project_type}/${
+									`${config.public.siteUrl}/${project.project_type}/${
 										project.slug ? project.slug : project.id
 									}/version/${encodeURI(version.displayUrlEnding ? version.displayUrlEnding : version.id)}`,
 								),
@@ -163,14 +163,6 @@
 								copyToClipboard(version.id)
 							},
 							shown: !!currentMember || flags.developerMode,
-						},
-						{
-							id: 'copy-maven',
-							label: formatMessage(messages.copyMavenCoordinatesOption),
-							action: () => {
-								copyToClipboard(`maven.modrinth:${project.slug}:${version.id}`)
-							},
-							shown: flags.developerMode,
 						},
 						{ type: 'divider', shown: !!currentMember },
 						{
@@ -245,10 +237,6 @@
 					<template #copy-id>
 						<ClipboardCopyIcon aria-hidden="true" />
 						{{ formatMessage(messages.copyIdOption) }}
-					</template>
-					<template #copy-maven>
-						<ClipboardCopyIcon aria-hidden="true" />
-						{{ formatMessage(messages.copyMavenCoordinatesOption) }}
 					</template>
 				</TeleportOverflowMenu>
 			</template>
@@ -328,7 +316,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	BoxIcon,
 	ClipboardCopyIcon,
@@ -344,7 +332,7 @@ import {
 	RightArrowIcon,
 	ShareIcon,
 	TrashIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	Admonition,
 	Button,
@@ -353,13 +341,13 @@ import {
 	commonProjectSettingsMessages,
 	ConfirmModal,
 	defineMessages,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	injectProjectPageContext,
 	ProjectPageVersions,
 	TeleportOverflowMenu,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { useTemplateRef, watch } from 'vue'
 
 import CreateProjectVersionModal from '~/components/ui/create-project-version/CreateProjectVersionModal.vue'
@@ -369,10 +357,11 @@ import { useProjectNagMessages } from '~/composables/project-nag-validation'
 import { reportVersion } from '~/utils/report-helpers.ts'
 
 const route = useRoute()
+const config = useRuntimeConfig()
 
 const { createProjectDownloadUrl, updateVersionsFilterContext } = useCdnDownloadContext()
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const { addNotification } = injectNotificationManager()
 const { formatMessage } = useVIntl()
 const {
@@ -539,10 +528,6 @@ const messages = defineMessages({
 	copyIdOption: {
 		id: 'project.versions.copy-id-option',
 		defaultMessage: 'Copy ID',
-	},
-	copyMavenCoordinatesOption: {
-		id: 'project.versions.copy-maven-coordinates-option',
-		defaultMessage: 'Copy Maven coordinates',
 	},
 	versionDeletedTitle: {
 		id: 'project.versions.version-deleted-title',

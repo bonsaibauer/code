@@ -2,12 +2,12 @@
 import { readFile } from 'node:fs/promises'
 import { basename, extname, resolve } from 'node:path'
 
-const DEFAULT_PROD_API = 'https://api.modrinth.com/v3'
+const DEFAULT_PROD_API = 'https://api.shroudedit.com/v3'
 const DEFAULT_LOCAL_API = 'http://127.0.0.1:8000/v3'
 const DEFAULT_TOKEN_FIXTURE =
 	new URL('../apps/labrinth/fixtures/labrinth-seed-data-202508052143.sql', import.meta.url)
 		.pathname
-const USER_AGENT = 'modrinth-local-labrinth-cloner/1.0'
+const USER_AGENT = 'shroudedit-local-labrinth-cloner/1.0'
 const LOCAL_ICON_LIMIT_BYTES = 256 * 1024
 const DEFAULT_MAX_FILE_BYTES = 256 * 1024 * 1024
 
@@ -356,7 +356,7 @@ async function createLocalProject(prodProject, localSlug, options, localMetadata
 	const createData = {
 		name: clampText(projectName(prodProject), 'Imported project', 3, 64),
 		slug: localSlug,
-		summary: clampText(projectSummary(prodProject), 'Imported from production Modrinth.', 3, 255),
+		summary: clampText(projectSummary(prodProject), 'Imported from production ShroudEdit.', 3, 255),
 		description: truncate(projectBody(prodProject), 65536),
 		initial_versions: [],
 		is_draft: true,
@@ -668,11 +668,11 @@ function fallbackLoaders(projectTypes, filename, localMetadata) {
 	const ext = extname(filename).toLowerCase()
 	const candidates = []
 	if (ext === '.mrpack' || projectTypes.includes('modpack')) candidates.push('mrpack')
-	if (projectTypes.includes('resourcepack')) candidates.push('minecraft')
+	if (projectTypes.includes('resourcepack')) candidates.push('enshrouded')
 	if (projectTypes.includes('datapack')) candidates.push('datapack')
 	if (projectTypes.includes('shader')) candidates.push('iris')
 	if (projectTypes.includes('plugin')) candidates.push('paper')
-	candidates.push('fabric', 'minecraft')
+	candidates.push('fabric', 'enshrouded')
 
 	for (const candidate of candidates) {
 		if (localMetadata.loaders.has(candidate)) return [candidate]
@@ -746,7 +746,7 @@ function projectName(project) {
 }
 
 function projectSummary(project) {
-	return project.summary || (project.body ? project.description : null) || 'Imported from production Modrinth.'
+	return project.summary || (project.body ? project.description : null) || 'Imported from production ShroudEdit.'
 }
 
 function projectBody(project) {

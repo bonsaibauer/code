@@ -1,4 +1,4 @@
-import { compareImportSources } from '@modrinth/tooling-config/script-utils/import-sort'
+import { compareImportSources } from '@shroudedit/tooling-config/script-utils/import-sort'
 import fs from 'fs'
 import path from 'path'
 
@@ -197,7 +197,6 @@ function runTests(): void {
 		{ input: 'test-name_final.icon', expected: 'TestNameFinalIcon' },
 		{ input: 'downloads-500m', expected: 'Downloads500mBadge', suffix: 'Badge' },
 		{ input: 'early-modpack', expected: 'EarlyModpackBadge', suffix: 'Badge' },
-		{ input: 'plus', expected: 'PlusBadge', suffix: 'Badge' },
 	]
 
 	let passed = 0

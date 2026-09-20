@@ -3,19 +3,19 @@ import {
 	AuthFeature,
 	type FeatureConfig,
 	type NuxtClientConfig,
-	NuxtModrinthClient,
-} from '@modrinth/api-client'
+	NuxtShroudEditClient,
+} from '@shroudedit/api-client'
 import { getRequestHeader, type H3Event } from 'h3'
 
 import { readEnv } from '~/helpers/env'
 import { getFrontendUserAgent, VISITOR_USER_AGENT_HEADER } from '~/helpers/user-agent'
 
-export interface ServerModrinthClientOptions {
+export interface ServerShroudEditClientOptions {
 	event?: H3Event
 	authToken?: string
 }
 
-export function useServerModrinthClient(options?: ServerModrinthClientOptions): NuxtModrinthClient {
+export function useServerShroudEditClient(options?: ServerShroudEditClientOptions): NuxtShroudEditClient {
 	const config = useRuntimeConfig(options?.event)
 	const apiBaseUrl = (config.apiBaseUrl || config.public.apiBaseUrl).replace('/v2/', '/')
 	const sharedInstancesBaseUrl =
@@ -45,5 +45,5 @@ export function useServerModrinthClient(options?: ServerModrinthClientOptions): 
 		features,
 	}
 
-	return new NuxtModrinthClient(clientConfig)
+	return new NuxtShroudEditClient(clientConfig)
 }

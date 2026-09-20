@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LeftArrowIcon, TagCategoryGamepad2Icon as Gamepad2Icon } from '@modrinth/assets'
+import { LeftArrowIcon, TagCategoryGamepad2Icon as Gamepad2Icon } from '@shroudedit/assets'
 import type { Component } from 'vue'
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -18,7 +18,7 @@ import SelectedProjectsLeaveModal from './components/SelectedProjectsLeaveModal.
 import { injectBrowseManager } from './providers/browse-manager'
 import type { BrowseInstallContext } from './types'
 
-const MEDAL_ICON_URL = 'https://cdn.modrinth.com/medal_icon.webp'
+const MEDAL_ICON_URL = 'https://cdn.shroudedit.com/medal_icon.webp'
 
 const router = useRouter()
 const props = defineProps<{
@@ -68,7 +68,7 @@ const metadataItems = computed(() => {
 	if (context.gameVersion) {
 		items.push({
 			id: 'game-version',
-			label: `Minecraft ${context.gameVersion}`,
+			label: `Enshrouded ${context.gameVersion}`,
 			icon: Gamepad2Icon,
 			class: '!text-primary',
 		})

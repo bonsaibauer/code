@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { MessageIcon } from '@modrinth/assets'
-import { ButtonLink, defineMessages, PagewideBanner, useVIntl } from '@modrinth/ui'
+import { MessageIcon } from '@shroudedit/assets'
+import { ButtonLink, defineMessages, PagewideBanner, useVIntl } from '@shroudedit/ui'
 
 const { formatMessage } = useVIntl()
 
@@ -34,7 +34,7 @@ const messages = defineMessages({
 				<ButtonLink
 					type="colored"
 					color="red"
-					to="https://support.modrinth.com"
+					to="https://support.shroudedit.com"
 					target="_blank"
 					rel="noopener"
 				>

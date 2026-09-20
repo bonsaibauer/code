@@ -87,22 +87,22 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { ArrowLeftIcon, HashIcon, TrashIcon } from '@modrinth/assets'
+import type { Labrinth } from '@shroudedit/api-client'
+import { ArrowLeftIcon, HashIcon, TrashIcon } from '@shroudedit/assets'
 import {
 	Badge,
 	Button,
 	ButtonLink,
 	EmptyState,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	Pagination,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 
 import GlobalDetailLocalTraceCard from '~/components/ui/moderation/GlobalDetailLocalTraceCard.vue'
 import IssueDetailPath from '~/components/ui/moderation/IssueDetailPath.vue'
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const { addNotification } = injectNotificationManager()
 const route = useRoute()
 const router = useRouter()
@@ -112,7 +112,7 @@ const detailKey = computed(() => {
 	return Array.isArray(key) ? key.join('/') : String(key)
 })
 
-useHead({ title: () => `Global trace - ${detailKey.value} - Modrinth` })
+useHead({ title: () => `Global trace - ${detailKey.value} - ShroudEdit` })
 
 const localTracePageSize = 20
 const isLoading = ref(false)

@@ -1,4 +1,4 @@
-import type { Archon } from '@modrinth/api-client'
+import type { Archon } from '@shroudedit/api-client'
 import type { ComputedRef, Ref } from 'vue'
 import { computed, ref, watch } from 'vue'
 
@@ -35,8 +35,8 @@ function installationKeyId(key: ServerInstallationKey) {
 	switch (key.type) {
 		case 'platform':
 			return `platform:${key.platform}:${key.platform_version}:${key.game_version}`
-		case 'modrinth_modpack':
-			return `modrinth-modpack:${key.project_id}:${key.version_id}`
+		case 'shroudedit_modpack':
+			return `shroudedit-modpack:${key.project_id}:${key.version_id}`
 		case 'local_modpack':
 			return `local-modpack:${key.filename}`
 		case 'unknown':
@@ -71,9 +71,9 @@ function contentPlatform(modloader: string | null): ServerInstallationPlatform |
 function contentInstallationKey(content: Archon.Content.v1.Addons): ServerInstallationKey {
 	if (content.installing === 'modpack' || (content.error && content.modpack)) {
 		const spec = content.modpack?.spec
-		if (spec?.platform === 'modrinth') {
+		if (spec?.platform === 'shroudedit') {
 			return {
-				type: 'modrinth_modpack',
+				type: 'shroudedit_modpack',
 				project_id: spec.project_id,
 				version_id: spec.version_id,
 			}

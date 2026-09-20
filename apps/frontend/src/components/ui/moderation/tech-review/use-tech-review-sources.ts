@@ -1,5 +1,5 @@
-import type { Labrinth } from '@modrinth/api-client'
-import { injectModrinthClient } from '@modrinth/ui'
+import type { Labrinth } from '@shroudedit/api-client'
+import { injectShroudEditClient } from '@shroudedit/ui'
 import { type MaybeRefOrGetter, reactive, toValue } from 'vue'
 
 const CACHE_TTL = 24 * 60 * 60 * 1000
@@ -66,7 +66,7 @@ export function useTechReviewSources(
 	issues: MaybeRefOrGetter<Labrinth.TechReview.Internal.FileIssue[]>,
 	includeHidden: MaybeRefOrGetter<boolean> = false,
 ) {
-	const client = injectModrinthClient()
+	const client = injectShroudEditClient()
 
 	if (import.meta.client) {
 		clearExpiredCache()

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CircleDollarSignIcon, ListPlusIcon, XIcon } from '@modrinth/assets'
+import { CircleDollarSignIcon, ListPlusIcon, XIcon } from '@shroudedit/assets'
 import {
 	Button,
 	commonMessages,
@@ -8,7 +8,7 @@ import {
 	Input,
 	SettingsFormGroup,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { watch } from 'vue'
 
 import DisclosureToggleCard from './DisclosureToggleCard.vue'
@@ -70,7 +70,7 @@ function removeFeature(index: number) {
 		:icon="CircleDollarSignIcon"
 		:title="formatMessage(messages.title)"
 		:description="formatMessage(messages.description)"
-		info-link="https://support.modrinth.com/en/articles/16567675#h_37c3b31394"
+		info-link="https://support.shroudedit.com/en/articles/16567675#h_37c3b31394"
 		@set-lock-status="emit('setLockStatus', $event)"
 	>
 		<template #expanded>

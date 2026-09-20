@@ -7,6 +7,7 @@ export type DisplayLocation =
 	| 'plugin'
 	| 'resourcepack'
 	| 'modpack'
+	| 'schematic'
 	| 'shader'
 	| 'datapack'
 	| 'server'
@@ -19,7 +20,7 @@ export interface Cosmetics {
 	advancedRendering: boolean
 	externalLinksNewTab: boolean
 	notUsingBlockers: boolean
-	hideModrinthAppPromos: boolean
+	hideShroudEditAppPromos: boolean
 	preferredDarkTheme: DarkTheme
 	searchDisplayMode: Record<DisplayLocation, DisplayMode>
 	hideStagingBanner: boolean
@@ -41,13 +42,14 @@ export default defineNuxtPlugin({
 				advancedRendering: true,
 				externalLinksNewTab: true,
 				notUsingBlockers: false,
-				hideModrinthAppPromos: false,
+				hideShroudEditAppPromos: false,
 				preferredDarkTheme: 'dark',
 				searchDisplayMode: {
 					mod: 'list',
 					plugin: 'list',
 					resourcepack: 'gallery',
 					modpack: 'list',
+					schematic: 'gallery',
 					shader: 'gallery',
 					datapack: 'list',
 					server: 'list',

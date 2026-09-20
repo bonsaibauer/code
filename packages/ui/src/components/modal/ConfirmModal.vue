@@ -52,8 +52,8 @@
 </template>
 
 <script setup>
-import { TrashIcon, XIcon } from '@modrinth/assets'
-import { renderString } from '@modrinth/utils'
+import { TrashIcon, XIcon } from '@shroudedit/assets'
+import { renderString } from '@shroudedit/utils'
 import { computed, ref } from 'vue'
 
 import { Button } from '#ui/components/base/buttons'

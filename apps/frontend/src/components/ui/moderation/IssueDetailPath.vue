@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { ChevronRightIcon } from '@modrinth/assets'
+import { ChevronRightIcon } from '@shroudedit/assets'
 
 const props = withDefaults(
 	defineProps<{

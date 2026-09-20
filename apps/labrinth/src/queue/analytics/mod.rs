@@ -1,9 +1,9 @@
 use crate::database::PgPool;
 use crate::models::analytics::{
-    AffiliateCodeClick, Download, MinecraftServerPlay, PageView, Playtime,
+    AffiliateCodeClick, Download, EnshroudedServerPlay, PageView, Playtime,
 };
 use crate::routes::ApiError;
-use crate::routes::analytics::MINECRAFT_SERVER_PLAYS;
+use crate::routes::analytics::ENSHROUDED_SERVER_PLAYS;
 use crate::util::error::Context as _;
 use dashmap::{DashMap, DashSet};
 use std::collections::HashMap;
@@ -14,15 +14,15 @@ pub mod cache;
 
 const DOWNLOADS_NAMESPACE: &str = "downloads:v4";
 const VIEWS_NAMESPACE: &str = "views:v4";
-const MINECRAFT_SERVER_PLAYS_NAMESPACE: &str = "minecraft_server_plays:v4";
-const MINECRAFT_SERVER_PLAYS_EXPIRY: u64 = 86_400; // 24 hours
-const MINECRAFT_SERVER_PLAYS_LIMIT: u32 = 5;
+const ENSHROUDED_SERVER_PLAYS_NAMESPACE: &str = "enshrouded_server_plays:v4";
+const ENSHROUDED_SERVER_PLAYS_EXPIRY: u64 = 86_400; // 24 hours
+const ENSHROUDED_SERVER_PLAYS_LIMIT: u32 = 5;
 
 pub struct AnalyticsQueue {
     views_queue: DashMap<(u64, u64), Vec<PageView>>,
     downloads_queue: DashMap<(u64, u64), Download>,
     playtime_queue: DashSet<Playtime>,
-    minecraft_server_plays_queue: DashMap<(u128, u64), MinecraftServerPlay>,
+    enshrouded_server_plays_queue: DashMap<(u128, u64), EnshroudedServerPlay>,
     affiliate_code_clicks_queue: DashMap<(u64, u64), Vec<AffiliateCodeClick>>,
 }
 
@@ -39,7 +39,7 @@ impl AnalyticsQueue {
             views_queue: DashMap::with_capacity(1000),
             downloads_queue: DashMap::with_capacity(1000),
             playtime_queue: DashSet::with_capacity(1000),
-            minecraft_server_plays_queue: DashMap::with_capacity(1000),
+            enshrouded_server_plays_queue: DashMap::with_capacity(1000),
             affiliate_code_clicks_queue: DashMap::with_capacity(1000),
         }
     }
@@ -62,9 +62,9 @@ impl AnalyticsQueue {
         self.playtime_queue.insert(playtime);
     }
 
-    pub fn add_minecraft_server_play(&self, play: MinecraftServerPlay) {
-        self.minecraft_server_plays_queue
-            .insert((play.minecraft_uuid.as_u128(), play.project_id), play);
+    pub fn add_enshrouded_server_play(&self, play: EnshroudedServerPlay) {
+        self.enshrouded_server_plays_queue
+            .insert((play.enshrouded_uuid.as_u128(), play.project_id), play);
     }
 
     pub fn add_affiliate_code_click(&self, click: AffiliateCodeClick) {
@@ -89,9 +89,9 @@ impl AnalyticsQueue {
         let playtime_queue = self.playtime_queue.clone();
         self.playtime_queue.clear();
 
-        let minecraft_server_plays_queue =
-            self.minecraft_server_plays_queue.clone();
-        self.minecraft_server_plays_queue.clear();
+        let enshrouded_server_plays_queue =
+            self.enshrouded_server_plays_queue.clone();
+        self.enshrouded_server_plays_queue.clear();
 
         let affiliate_code_clicks_queue =
             self.affiliate_code_clicks_queue.clone();
@@ -135,12 +135,12 @@ impl AnalyticsQueue {
                 .wrap_internal_err("writing analytics data to ClickHouse")?;
         }
 
-        if !minecraft_server_plays_queue.is_empty() {
+        if !enshrouded_server_plays_queue.is_empty() {
             let mut plays_keys = Vec::new();
             let raw_plays = DashMap::new();
 
             for (index, (key, play)) in
-                minecraft_server_plays_queue.into_iter().enumerate()
+                enshrouded_server_plays_queue.into_iter().enumerate()
             {
                 plays_keys.push(key);
                 raw_plays.insert(index, play);
@@ -151,7 +151,7 @@ impl AnalyticsQueue {
                 .map(|key| {
                     let logical_key = format!("{}-{}", key.0, key.1);
                     redis.key().with_slot(
-                        MINECRAFT_SERVER_PLAYS_NAMESPACE,
+                        ENSHROUDED_SERVER_PLAYS_NAMESPACE,
                         &logical_key,
                         &logical_key,
                     )
@@ -168,7 +168,7 @@ impl AnalyticsQueue {
                 .wrap_internal_err("fetching server play counts from redis")?;
             for (idx, count) in results.into_iter().enumerate() {
                 let new_count = if let Some(count) = count {
-                    if count >= MINECRAFT_SERVER_PLAYS_LIMIT {
+                    if count >= ENSHROUDED_SERVER_PLAYS_LIMIT {
                         raw_plays.remove(&idx);
                         continue;
                     }
@@ -182,14 +182,14 @@ impl AnalyticsQueue {
                     .set(
                         key,
                         new_count,
-                        Some(MINECRAFT_SERVER_PLAYS_EXPIRY as i64),
+                        Some(ENSHROUDED_SERVER_PLAYS_EXPIRY as i64),
                     )
                     .await
                     .wrap_internal_err("writing server play count to redis")?;
             }
 
             let mut plays = client
-                .insert::<MinecraftServerPlay>(MINECRAFT_SERVER_PLAYS)
+                .insert::<EnshroudedServerPlay>(ENSHROUDED_SERVER_PLAYS)
                 .await
                 .wrap_internal_err("writing analytics data to ClickHouse")?;
 

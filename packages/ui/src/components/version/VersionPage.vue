@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { DownloadIcon, ExternalIcon, FileIcon, SearchIcon } from '@modrinth/assets'
+import type { Labrinth } from '@shroudedit/api-client'
+import { DownloadIcon, ExternalIcon, FileIcon, SearchIcon } from '@shroudedit/assets'
 import {
 	capitalizeString,
 	formatVersionsForDisplay,
 	type GameVersionTag,
 	renderHighlightedString,
-} from '@modrinth/utils'
+} from '@shroudedit/utils'
 import { useQuery } from '@tanstack/vue-query'
 import { computed, ref } from 'vue'
 
@@ -15,7 +15,7 @@ import { useFormatDateTime } from '#ui/composables/format-date-time.ts'
 import { useCompactNumber, useFormatNumber } from '#ui/composables/format-number.ts'
 import { useRelativeTime } from '#ui/composables/how-ago.ts'
 import { defineMessage, defineMessages, useVIntl } from '#ui/composables/i18n.ts'
-import { injectModrinthClient } from '#ui/providers/api-client.ts'
+import { injectShroudEditClient } from '#ui/providers/api-client.ts'
 import { injectTags } from '#ui/providers/tags.ts'
 import {
 	commonMessages,
@@ -53,7 +53,7 @@ const props = defineProps<{
 	userLinkCreator?: (user: Labrinth.Users.v3.User) => string | undefined
 }>()
 
-const api = injectModrinthClient()
+const api = injectShroudEditClient()
 const tags = injectTags(null)
 
 const gameVersionsToDisplay = computed(() =>
@@ -78,7 +78,7 @@ const noModpackLoader = computed(
 	() =>
 		(isModpack.value &&
 			props.version.mrpack_loaders?.length === 1 &&
-			props.version.mrpack_loaders?.[0] === 'minecraft') ||
+			props.version.mrpack_loaders?.[0] === 'enshrouded') ||
 		props.version.mrpack_loaders?.length === 0,
 )
 const primaryFile = computed(
@@ -396,7 +396,7 @@ const authorLink = computed(() =>
 				<div
 					class="md:bg-surface-3 md:border md:border-solid md:border-surface-4 md:p-4 md:rounded-2xl"
 				>
-					{{ formatMessage(projectCompatibilityMessages.minecraftJava) }}
+					{{ formatMessage(projectCompatibilityMessages.gameVersion) }}
 					<div class="flex gap-1 flex-wrap mt-2">
 						<TagItem
 							v-for="gameVersion in gameVersionsToDisplay"

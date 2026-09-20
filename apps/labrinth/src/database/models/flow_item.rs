@@ -42,7 +42,7 @@ pub enum DBFlow {
         user_id: DBUserId,
         confirm_email: String,
     },
-    MinecraftAuth,
+    EnshroudedAuth,
     InitOAuthAppApproval {
         user_id: DBUserId,
         client_id: DBOAuthClientId,

@@ -367,7 +367,7 @@ import {
 	UpdatedIcon,
 	UploadIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	Avatar,
 	Button,
@@ -383,7 +383,7 @@ import {
 	FileInput,
 	filterProjectsByType,
 	HorizontalRule,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	Input,
 	IntlFormatted,
@@ -402,8 +402,8 @@ import {
 	useRelativeTime,
 	useSavable,
 	useVIntl,
-} from '@modrinth/ui'
-import { isAdmin, renderString } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { isAdmin, renderString } from '@shroudedit/utils'
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import dayjs from 'dayjs'
 import { onServerPrefetch } from 'vue'
@@ -415,7 +415,7 @@ useSeoMeta({
 })
 
 const { handleError } = injectNotificationManager()
-const api = injectModrinthClient()
+const api = injectShroudEditClient()
 const { formatMessage } = useVIntl()
 const formatRelativeTime = useRelativeTime()
 const { formatCompactNumber, formatCompactNumberPlural } = useCompactNumber()
@@ -426,6 +426,7 @@ const formatDateTime = useFormatDateTime({
 
 const route = useNativeRoute()
 const router = useRouter()
+const config = useRuntimeConfig()
 const auth = await useAuth()
 const cosmetics = useCosmetics()
 const queryClient = useQueryClient()
@@ -448,7 +449,7 @@ async function fetchFollowedProjects(userId) {
 const messages = defineMessages({
 	collectionDescription: {
 		id: 'collection.description',
-		defaultMessage: '{description} - View the collection {name} by {username} on Modrinth',
+		defaultMessage: '{description} - View the collection {name} by {username} on ShroudEdit',
 	},
 	collectionTitle: {
 		id: 'collection.title',
@@ -558,7 +559,7 @@ const followingCollection = computed(() =>
 	isFollowingCollection.value
 		? {
 				id: 'following',
-				icon_url: 'https://cdn.modrinth.com/follow-collection.png',
+				icon_url: 'https://cdn.shroudedit.com/follow-collection.png',
 				name: formatMessage(commonMessages.followedProjectsLabel),
 				description: formatMessage(messages.followingCollectionDescription),
 				status: 'private',
@@ -726,7 +727,7 @@ watch(
 	[collection, creator, creatorHasPublicProjects],
 	([col, cre, hasPublicProjects]) => {
 		if (col && cre) {
-			const canonicalUrl = col ? `https://modrinth.com/collection/${col.id}` : undefined
+			const canonicalUrl = col ? `${config.public.siteUrl}/collection/${col.id}` : undefined
 			useSeoMeta({
 				title: formatMessage(messages.collectionTitle, { name: col.name }),
 				description: formatMessage(messages.collectionDescription, {
@@ -736,7 +737,7 @@ watch(
 				}),
 				ogTitle: formatMessage(messages.collectionTitle, { name: col.name }),
 				ogDescription: col.description,
-				ogImage: col.icon_url ?? 'https://cdn.modrinth.com/placeholder-square.png',
+				ogImage: col.icon_url ?? 'https://cdn.shroudedit.com/placeholder-square.png',
 				ogUrl: canonicalUrl,
 				robots: col.status === 'listed' && hasPublicProjects ? 'all' : 'noindex',
 			})

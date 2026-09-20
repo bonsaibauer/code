@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { XIcon } from '@modrinth/assets'
-import { commonMessages, defineMessages, IconButton, PagewideBanner, useVIntl } from '@modrinth/ui'
+import { XIcon } from '@shroudedit/assets'
+import { commonMessages, defineMessages, IconButton, PagewideBanner, useVIntl } from '@shroudedit/ui'
 
 const { formatMessage } = useVIntl()
 const cosmetics = useCosmetics()
@@ -9,12 +9,12 @@ const flags = useFeatureFlags()
 const messages = defineMessages({
 	title: {
 		id: 'layout.banner.staging.title',
-		defaultMessage: 'You’re viewing Modrinth’s staging environment',
+		defaultMessage: 'You’re viewing ShroudEdit’s staging environment',
 	},
 	description: {
 		id: 'layout.banner.staging.description',
 		defaultMessage:
-			'The staging environment is completely separate from the production Modrinth database. This is used for testing and debugging purposes, and may be running in-development versions of the Modrinth backend or frontend newer than the production instance.',
+			'The staging environment is completely separate from the production ShroudEdit database. It is used for testing and may run newer backend or frontend versions than production.',
 	},
 })
 

@@ -1,4 +1,4 @@
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 
 export function expandVariables(
 	template: string,
@@ -99,8 +99,7 @@ export function formatProjectTypes(type: string, lower: boolean = false) {
 			.replaceAll('datapack', 'Data Pack')
 			.replaceAll('plugin', 'Plugin')
 			.replaceAll('shader', 'Shaders')
-			.replaceAll('minecraft_java_server', 'Server')
-			.replaceAll('minecraft_server', 'Server')
+			.replaceAll('enshrouded_server', 'Server')
 	} catch {
 		return 'No project type'
 	}
@@ -116,112 +115,112 @@ export function requiresEnvironmentInfo(projectTypes): boolean {
 export function flattenStaticVariables(): Record<string, string> {
 	const vars: Record<string, string> = {}
 
-	vars[`RULES`] = `[Modrinth's Content Rules](https://modrinth.com/legal/rules)`
+	vars[`RULES`] = `[ShroudEdit's Content Rules](https://shroudedit.com/legal/rules)`
 	vars[`R1`] =
-		`Per section 1 of [Modrinth's Content Rules](https://modrinth.com/legal/rules#prohibited-content)`
+		`Per section 1 of [ShroudEdit's Content Rules](https://shroudedit.com/legal/rules#prohibited-content)`
 	const rule1subs = 12
 	for (let n = 1; n <= rule1subs; n++) {
 		vars[`R1.${n}`] =
-			`Per section 1.${n} of [Modrinth's Content Rules](https://modrinth.com/legal/rules#prohibited-content)`
+			`Per section 1.${n} of [ShroudEdit's Content Rules](https://shroudedit.com/legal/rules#prohibited-content)`
 	}
 	vars[`R2`] =
-		`Per section 2 of [Modrinth's Content Rules](https://modrinth.com/legal/rules#clear-and-honest-function)`
+		`Per section 2 of [ShroudEdit's Content Rules](https://shroudedit.com/legal/rules#clear-and-honest-function)`
 	vars[`R2.1`] =
-		`Per section 2.1 of [Modrinth's Content Rules](https://modrinth.com/legal/rules#general-expectations)`
+		`Per section 2.1 of [ShroudEdit's Content Rules](https://shroudedit.com/legal/rules#general-expectations)`
 	const rule2sub1subs = 3
 	for (let n = 1; n <= rule2sub1subs; n++) {
 		const l = String.fromCharCode(96 + n)
 		vars[`R2.1${l}`] =
-			`Per section 2.1${l} of [Modrinth's Content Rules](https://modrinth.com/legal/rules#general-expectations)`
+			`Per section 2.1${l} of [ShroudEdit's Content Rules](https://shroudedit.com/legal/rules#general-expectations)`
 	}
 	vars[`R2.2`] =
-		`Per section 2.2 of [Modrinth's Content Rules](https://modrinth.com/legal/rules#accessibility)`
+		`Per section 2.2 of [ShroudEdit's Content Rules](https://shroudedit.com/legal/rules#accessibility)`
 	vars[`R3`] =
-		`Per section 3 of [Modrinth's Content Rules](https://modrinth.com/legal/rules#cheats-and-hacks)`
+		`Per section 3 of [ShroudEdit's Content Rules](https://shroudedit.com/legal/rules#cheats-and-hacks)`
 	const rule3subs = 3
 	for (let n = 1; n <= rule3subs; n++) {
 		vars[`R3.${n}`] =
-			`Per section 3.${n} of [Modrinth's Content Rules](https://modrinth.com/legal/rules#cheats-and-hacks)`
+			`Per section 3.${n} of [ShroudEdit's Content Rules](https://shroudedit.com/legal/rules#cheats-and-hacks)`
 	}
 	const rule3sub3subs = 6
 	for (let n = 1; n <= rule3sub3subs; n++) {
 		const l = String.fromCharCode(96 + n)
 		vars[`R3.3${l}`] =
-			`Per section 3.3${l} of [Modrinth's Content Rules](https://modrinth.com/legal/rules#cheats-and-hacks)`
+			`Per section 3.3${l} of [ShroudEdit's Content Rules](https://shroudedit.com/legal/rules#cheats-and-hacks)`
 	}
 	vars[`R4`] =
-		`Per section 4 of [Modrinth's Content Rules](https://modrinth.com/legal/rules#copyright-and-legality-of-content)`
+		`Per section 4 of [ShroudEdit's Content Rules](https://shroudedit.com/legal/rules#copyright-and-legality-of-content)`
 	vars[`R5`] =
-		`Per section 5 of [Modrinth's Content Rules](https://modrinth.com/legal/rules#miscellaneous)`
+		`Per section 5 of [ShroudEdit's Content Rules](https://shroudedit.com/legal/rules#miscellaneous)`
 	const rule5subs = 9
 	for (let n = 1; n <= rule5subs; n++) {
 		vars[`R5.${n}`] =
-			`Per section 5.${n} of [Modrinth's Content Rules](https://modrinth.com/legal/rules#miscellaneous)`
+			`Per section 5.${n} of [ShroudEdit's Content Rules](https://shroudedit.com/legal/rules#miscellaneous)`
 	}
 	vars[`R6`] =
-		`Per section 6 of [Modrinth's Content Rules](https://modrinth.com/legal/rules#generative-ai)`
+		`Per section 6 of [ShroudEdit's Content Rules](https://shroudedit.com/legal/rules#generative-ai)`
 	vars[`R6.1`] =
-		`Per section 6.1 of [Modrinth's Content Rules](https://modrinth.com/legal/rules#disclosure-of-ai-generated-content)`
+		`Per section 6.1 of [ShroudEdit's Content Rules](https://shroudedit.com/legal/rules#disclosure-of-ai-generated-content)`
 	const rule6sub1subs = 2
 	for (let n = 1; n <= rule6sub1subs; n++) {
 		const l = String.fromCharCode(96 + n)
 		vars[`R6.1${l}`] =
-			`Per section 6.1${l} of [Modrinth's Content Rules](https://modrinth.com/legal/rules#disclosure-of-ai-generated-content)`
+			`Per section 6.1${l} of [ShroudEdit's Content Rules](https://shroudedit.com/legal/rules#disclosure-of-ai-generated-content)`
 	}
 	vars[`R6.2`] =
-		`Per section 6.2 of [Modrinth's Content Rules](https://modrinth.com/legal/rules#prohibited-usage-of-ai)`
+		`Per section 6.2 of [ShroudEdit's Content Rules](https://shroudedit.com/legal/rules#prohibited-usage-of-ai)`
 	const rule6sub2subs = 4
 	for (let n = 1; n <= rule6sub2subs; n++) {
 		const l = String.fromCharCode(96 + n)
 		vars[`R6.2${l}`] =
-			`Per section 6.2${l} of [Modrinth's Content Rules](https://modrinth.com/legal/rules#prohibited-usage-of-ai)`
+			`Per section 6.2${l} of [ShroudEdit's Content Rules](https://shroudedit.com/legal/rules#prohibited-usage-of-ai)`
 	}
-	vars[`TOS`] = `[Terms of Use](https://modrinth.com/legal/terms)`
-	vars[`COPYRIGHT_POLICY`] = `[Copyright Policy](https://modrinth.com/legal/copyright)`
+	vars[`TOS`] = `[Terms of Use](https://shroudedit.com/legal/terms)`
+	vars[`COPYRIGHT_POLICY`] = `[Copyright Policy](https://shroudedit.com/legal/copyright)`
 	vars[`SUPPORT`] =
-		`please visit the [Modrinth Help Center](https://support.modrinth.com/) and click the blue bubble to contact support.`
+		`please visit the [ShroudEdit Help Center](https://support.shroudedit.com/) and click the blue bubble to contact support.`
 	vars[`MODPACK_PERMISSIONS_GUIDE`] =
-		`our guide to [Obtaining Modpack Permissions](https://support.modrinth.com/en/articles/8797527)`
-	vars[`MODPACKS_ON_MODRINTH`] =
-		`[Modpacks on Modrinth](https://support.modrinth.com/en/articles/8802250)`
+		`our guide to [Obtaining Modpack Permissions](https://support.shroudedit.com/en/articles/8797527)`
+	vars[`MODPACKS_ON_SHROUDEDIT`] =
+		`[Modpacks on ShroudEdit](https://support.shroudedit.com/en/articles/8802250)`
 	vars[`ADVANCED_MARKDOWN`] =
-		`[Markdown Formatting Guide](https://support.modrinth.com/en/articles/8801962)`
+		`[Markdown Formatting Guide](https://support.shroudedit.com/en/articles/8801962)`
 	vars[`DISCLOSURES_FAQ_FLINK`] =
-		`[Content Disclosures FAQ](https://support.modrinth.com/en/articles/16567675)`
+		`[Content Disclosures FAQ](https://support.shroudedit.com/en/articles/16567675)`
 	vars[`DISCLOSURES_FAQ_AI_CONTENT_LINK`] =
-		`https://support.modrinth.com/en/articles/16567675#h_ec72dfca13`
+		`https://support.shroudedit.com/en/articles/16567675#h_ec72dfca13`
 	vars[`DISCLOSURES_FAQ_AI_CODE_LINK`] =
-		`https://support.modrinth.com/en/articles/16567675#h_281356a403`
+		`https://support.shroudedit.com/en/articles/16567675#h_281356a403`
 	vars[`DISCLOSURES_FAQ_AI_ASSETS_LINK`] =
-		`https://support.modrinth.com/en/articles/16567675#h_e5f38e66a1`
+		`https://support.shroudedit.com/en/articles/16567675#h_e5f38e66a1`
 	vars[`DISCLOSURES_FAQ_AI_TEXT_LINK`] =
-		`https://support.modrinth.com/en/articles/16567675#h_6e56d3fe64`
+		`https://support.shroudedit.com/en/articles/16567675#h_6e56d3fe64`
 	vars[`DISCLOSURES_FAQ_AI_FUNCTIONALITY_LINK`] =
-		`https://support.modrinth.com/en/articles/16567675#h_9be39a38e2`
+		`https://support.shroudedit.com/en/articles/16567675#h_9be39a38e2`
 	vars[`DISCLOSURES_FAQ_ADS_LINK`] =
-		`https://support.modrinth.com/en/articles/16567675#h_d486036510`
+		`https://support.shroudedit.com/en/articles/16567675#h_d486036510`
 	vars[`DISCLOSURES_FAQ_PAID_LINK`] =
-		`https://support.modrinth.com/en/articles/16567675#h_37c3b31394`
+		`https://support.shroudedit.com/en/articles/16567675#h_37c3b31394`
 	vars[`DISCLOSURES_FAQ_TELEMETRY_LINK`] =
-		`https://support.modrinth.com/en/articles/16567675#h_490dcf364b`
+		`https://support.shroudedit.com/en/articles/16567675#h_490dcf364b`
 	vars[`DISCLOSURES_FAQ_TELEMETRY_CONSENT_LINK`] =
-		`https://support.modrinth.com/en/articles/16567675#h_d209c4c04c`
+		`https://support.shroudedit.com/en/articles/16567675#h_d209c4c04c`
 	vars[`DISCLOSURES_FAQ_DERIVATIVE_LINK`] =
-		`https://support.modrinth.com/en/articles/16567675#h_6422cc821e`
+		`https://support.shroudedit.com/en/articles/16567675#h_6422cc821e`
 	vars[`DISCLOSURES_FAQ_PHOTOSENSITIVITY_LINK`] =
-		`https://support.modrinth.com/en/articles/16567675#h_22ffae0bb1`
+		`https://support.shroudedit.com/en/articles/16567675#h_22ffae0bb1`
 	vars[`DISCLOSURES_FAQ_EXTERNAL_LINK`] =
-		`https://support.modrinth.com/en/articles/16567675#h_4a6264f07c`
+		`https://support.shroudedit.com/en/articles/16567675#h_4a6264f07c`
 	vars[`DISCLOSURES_FAQ_ARCHIVE_LINK`] =
-		`https://support.modrinth.com/en/articles/16567675#h_76b62c699c`
-	vars[`AI_USAGE_FLINK`] = `[AI Usage](https://support.modrinth.com/en/articles/16551575)`
+		`https://support.shroudedit.com/en/articles/16567675#h_76b62c699c`
+	vars[`AI_USAGE_FLINK`] = `[AI Usage](https://support.shroudedit.com/en/articles/16551575)`
 	vars[`LICENSING_GUIDE`] =
-		`our guide to [Licensing your Mods](https://modrinth.com/news/article/licensing-guide)`
-	vars[`NEW_ENVIRONMENTS_LINK`] = `https://modrinth.com/news/article/new-environments`
+		`our guide to [Licensing your Mods](https://shroudedit.com/news/article/licensing-guide)`
+	vars[`NEW_ENVIRONMENTS_LINK`] = `https://shroudedit.com/news/article/new-environments`
 	vars[`LEARN_MORE_ABOUT_SERVERS_FLINK`] =
-		`[learn more about server projects from our news feed](https://modrinth.com/news/article/introducing-server-projects/)`
+		`[learn more about server projects from our news feed](https://shroudedit.com/news/article/introducing-server-projects/)`
 	vars[`SHARED_INSTANCES_FLINK`] =
-		`[Shared Instances](https://modrinth.com/news/article/shared-instances/)`
+		`[Shared Instances](https://shroudedit.com/news/article/shared-instances/)`
 
 	return vars
 }
@@ -294,53 +293,55 @@ export function flattenProjectVariables(
 	})
 
 	// Navigation related variables
-	vars[`PROJECT_PERMANENT_LINK`] = `https://modrinth.com/project/${project.id}`
-	vars[`PROJECT_SETTINGS_LINK`] = `https://modrinth.com/project/${project.id}/settings`
-	vars[`PROJECT_SETTINGS_FLINK`] = `[Settings](https://modrinth.com/project/${project.id}/settings)`
-	vars[`PROJECT_ICON_FLINK`] = `[Icon](https://modrinth.com/project/${project.id}/settings)`
-	vars[`PROJECT_TITLE_FLINK`] = `[Name](https://modrinth.com/project/${project.id}/settings)`
-	vars[`PROJECT_SLUG_FLINK`] = `[URL](https://modrinth.com/project/${project.id}/settings)`
-	vars[`PROJECT_SUMMARY_FLINK`] = `[Summary](https://modrinth.com/project/${project.id}/settings)`
+	vars[`PROJECT_PERMANENT_LINK`] = `https://shroudedit.com/project/${project.id}`
+	vars[`PROJECT_SETTINGS_LINK`] = `https://shroudedit.com/project/${project.id}/settings`
+	vars[`PROJECT_SETTINGS_FLINK`] =
+		`[Settings](https://shroudedit.com/project/${project.id}/settings)`
+	vars[`PROJECT_ICON_FLINK`] = `[Icon](https://shroudedit.com/project/${project.id}/settings)`
+	vars[`PROJECT_TITLE_FLINK`] = `[Name](https://shroudedit.com/project/${project.id}/settings)`
+	vars[`PROJECT_SLUG_FLINK`] = `[URL](https://shroudedit.com/project/${project.id}/settings)`
+	vars[`PROJECT_SUMMARY_FLINK`] = `[Summary](https://shroudedit.com/project/${project.id}/settings)`
 	vars[`PROJECT_ENVIRONMENT_FLINK`] =
-		`[Environment Information](https://modrinth.com/project/${project.id}/settings/environment)` // Depreciated
-	vars[`PROJECT_TAGS_LINK`] = `https://modrinth.com/project/${project.id}/settings/tags`
-	vars[`PROJECT_TAGS_FLINK`] = `[Tags](https://modrinth.com/project/${project.id}/settings/tags)`
+		`[Environment Information](https://shroudedit.com/project/${project.id}/settings/environment)` // Depreciated
+	vars[`PROJECT_TAGS_LINK`] = `https://shroudedit.com/project/${project.id}/settings/tags`
+	vars[`PROJECT_TAGS_FLINK`] = `[Tags](https://shroudedit.com/project/${project.id}/settings/tags)`
 	vars[`PROJECT_DESCRIPTION_LINK`] =
-		`https://modrinth.com/project/${project.id}/settings/description`
+		`https://shroudedit.com/project/${project.id}/settings/description`
 	vars[`PROJECT_DESCRIPTION_FLINK`] =
-		`[Description](https://modrinth.com/project/${project.id}/settings/description)`
-	vars[`PROJECT_LICENSE_LINK`] = `https://modrinth.com/project/${project.id}/settings/license`
+		`[Description](https://shroudedit.com/project/${project.id}/settings/description)`
+	vars[`PROJECT_LICENSE_LINK`] = `https://shroudedit.com/project/${project.id}/settings/license`
 	vars[`PROJECT_LICENSE_FLINK`] =
-		`[License](https://modrinth.com/project/${project.id}/settings/license)`
-	vars[`PROJECT_LINKS_LINK`] = `https://modrinth.com/project/${project.id}/settings/links`
+		`[License](https://shroudedit.com/project/${project.id}/settings/license)`
+	vars[`PROJECT_LINKS_LINK`] = `https://shroudedit.com/project/${project.id}/settings/links`
 	vars[`PROJECT_LINKS_FLINK`] =
-		`[External Links](https://modrinth.com/project/${project.id}/settings/links)`
-	vars[`PROJECT_GALLERY_LINK`] = `https://modrinth.com/project/${project.id}/gallery`
+		`[External Links](https://shroudedit.com/project/${project.id}/settings/links)`
+	vars[`PROJECT_GALLERY_LINK`] = `https://shroudedit.com/project/${project.id}/gallery`
 	vars[`PROJECT_GALLERY_FLINK`] =
-		`[Gallery](https://modrinth.com/project/${project.id}/settings/gallery)`
-	vars[`PROJECT_VERSIONS_LINK`] = `https://modrinth.com/project/${project.id}/versions`
+		`[Gallery](https://shroudedit.com/project/${project.id}/settings/gallery)`
+	vars[`PROJECT_VERSIONS_LINK`] = `https://shroudedit.com/project/${project.id}/versions`
 	vars[`PROJECT_VERSIONS_FLINK`] =
-		`[Versions](https://modrinth.com/project/${project.id}/settings/versions)`
-	vars[`PROJECT_MODERATION_LINK`] = `https://modrinth.com/project/${project.id}/moderation`
+		`[Versions](https://shroudedit.com/project/${project.id}/settings/versions)`
+	vars[`PROJECT_MODERATION_LINK`] = `https://shroudedit.com/project/${project.id}/moderation`
 	vars[`PROJECT_MODERATION_FLINK`] =
-		`[moderation tab](https://modrinth.com/project/${project.id}/moderation)`
-	vars[`PROJECT_SERVER_SETTINGS`] = `https://modrinth.com/project/${project.id}/settings/server`
+		`[moderation tab](https://shroudedit.com/project/${project.id}/moderation)`
+	vars[`PROJECT_SERVER_SETTINGS`] = `https://shroudedit.com/project/${project.id}/settings/server`
 	vars[`PROJECT_SERVER_SETTINGS_FLINK`] =
-		`[Server Settings](https://modrinth.com/project/${project.id}/settings/server)`
-	vars[`PROJECT_LANGUAGE_SETTINGS`] = `https://modrinth.com/project/${project.id}/settings/server`
+		`[Server Settings](https://shroudedit.com/project/${project.id}/settings/server)`
+	vars[`PROJECT_LANGUAGE_SETTINGS`] = `https://shroudedit.com/project/${project.id}/settings/server`
 	vars[`PROJECT_LANGUAGE_SETTINGS_FLINK`] =
-		`[Language Settings](https://modrinth.com/project/${project.id}/settings/server)`
+		`[Language Settings](https://shroudedit.com/project/${project.id}/settings/server)`
 	vars[`PROJECT_PERMISSIONS_LINK`] =
-		`https://modrinth.com/project/${project.id}/settings/permissions`
+		`https://shroudedit.com/project/${project.id}/settings/permissions`
 	vars[`PROJECT_PERMISSIONS_FLINK`] =
-		`[Permissions settings](https://modrinth.com/project/${project.id}/settings/permissions)`
-	vars[`PROJECT_MONETIZATION_SETTINGS_LINK`] = `https://modrinth.com/project/${project.id}/settings`
+		`[Permissions settings](https://shroudedit.com/project/${project.id}/settings/permissions)`
+	vars[`PROJECT_MONETIZATION_SETTINGS_LINK`] =
+		`https://shroudedit.com/project/${project.id}/settings`
 	vars[`PROJECT_MONETIZATION_SETTINGS_FLINK`] =
-		`[Monetization settings](https://modrinth.com/project/${project.id}/settings)`
+		`[Monetization settings](https://shroudedit.com/project/${project.id}/settings)`
 	vars[`PROJECT_CONTENT_DISCLOSURES_LINK`] =
-		`https://modrinth.com/project/${project.id}/settings/disclosures`
+		`https://shroudedit.com/project/${project.id}/settings/disclosures`
 	vars[`PROJECT_CONTENT_DISCLOSURES_FLINK`] =
-		`[Content Disclosures](https://modrinth.com/project/${project.id}/settings/disclosures)`
+		`[Content Disclosures](https://shroudedit.com/project/${project.id}/settings/disclosures)`
 
 	return vars
 }
@@ -371,8 +372,8 @@ export function flattenProjectV3Variables(
 	vars['PROJECT_SITE_URL'] = projectV3.link_urls?.site?.url || 'None'
 	vars['PROJECT_STORE_URL'] = projectV3.link_urls?.store?.url || 'None'
 
-	vars['PROJECT_LANGUAGES'] = projectV3.minecraft_server?.languages?.toString() || 'None'
-	vars['PROJECT_LANGUAGE_COUNT'] = (projectV3.minecraft_server?.languages?.length || 0).toString()
+	vars['PROJECT_LANGUAGES'] = projectV3.enshrouded_server?.languages?.toString() || 'None'
+	vars['PROJECT_LANGUAGE_COUNT'] = (projectV3.enshrouded_server?.languages?.length || 0).toString()
 
 	return vars
 }

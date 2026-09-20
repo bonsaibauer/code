@@ -23,7 +23,7 @@ concurrency:
 jobs:
   build:
     name: Build frontend
-    runs-on: namespace-profile-modrinth-frontend
+    runs-on: namespace-profile-shroudedit-frontend
     permissions:
       contents: read
     steps:

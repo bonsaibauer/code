@@ -161,10 +161,10 @@
   "nags.long-headers.title": {
     "defaultMessage": "Скоротіть заголовки"
   },
-  "nags.minecraft-title-clause.description": {
-    "defaultMessage": "Проєкти не мають використовувати торгові марки Minecraft, або містити «Minecraft» як показову частину назви."
+  "nags.enshrouded-title-clause.description": {
+    "defaultMessage": "Проєкти не мають використовувати торгові марки Enshrouded, або містити «Enshrouded» як показову частину назви."
   },
-  "nags.minecraft-title-clause.title": {
+  "nags.enshrouded-title-clause.title": {
     "defaultMessage": "Уникайте порушення прав"
   },
   "nags.missing-alt-text.description": {

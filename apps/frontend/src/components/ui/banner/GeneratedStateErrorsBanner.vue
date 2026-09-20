@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { XCircleIcon, XIcon } from '@modrinth/assets'
-import { Button, defineMessages, PagewideBanner, useVIntl } from '@modrinth/ui'
+import { XCircleIcon, XIcon } from '@shroudedit/assets'
+import { Button, defineMessages, PagewideBanner, useVIntl } from '@shroudedit/ui'
 
 const { formatMessage } = useVIntl()
 const flags = useFeatureFlags()
@@ -15,7 +15,7 @@ const messages = defineMessages({
 	description: {
 		id: 'layout.banner.build-fail.description',
 		defaultMessage:
-			"This deploy of Modrinth's frontend failed to generate state from the API. This may be due to an outage or an error in configuration. Rebuild when the API is available. Error codes: {errors}; Current API URL is: {url}",
+			"This ShroudEdit frontend deploy failed to generate state from the API. This may be due to an outage or a configuration error. Rebuild when the API is available. Error codes: {errors}; Current API URL is: {url}",
 	},
 	ignoreErrors: {
 		id: 'layout.banner.build-fail.ignore',

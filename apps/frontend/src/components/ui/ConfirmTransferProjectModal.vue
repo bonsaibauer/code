@@ -17,7 +17,7 @@
 				Do not transfer projects to buyers. This is a common scam and against our TOS. If you
 				encounter a buyer, please
 				<a
-					href="https://support.modrinth.com"
+					href="https://support.shroudedit.com"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="underline"
@@ -83,8 +83,8 @@
 </template>
 
 <script setup lang="ts">
-import { RightArrowIcon, TransferIcon, XIcon } from '@modrinth/assets'
-import { Admonition, Avatar, Button, Input, NewModal } from '@modrinth/ui'
+import { RightArrowIcon, TransferIcon, XIcon } from '@shroudedit/assets'
+import { Admonition, Avatar, Button, Input, NewModal } from '@shroudedit/ui'
 import { computed, ref } from 'vue'
 
 const props = defineProps<{

@@ -1,5 +1,5 @@
-// Pack format to Minecraft version mappings
-// See: https://minecraft.wiki/w/Pack_format
+// Pack format to Enshrouded version mappings
+// See: https://enshrouded.wiki/w/Pack_format
 
 // NOTE: This needs to be continuously updated as new versions are released.
 

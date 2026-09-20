@@ -13,7 +13,7 @@
 			<template v-if="hasHitLimit">
 				{{ formatMessage(messages.limitReachedDescription, { type: typeName.singular, max }) }}
 				<div class="w-min">
-					<ButtonLink type="colored" color="red" to="https://support.modrinth.com" target="_blank">
+					<ButtonLink type="colored" color="red" to="https://support.shroudedit.com" target="_blank">
 						<MessageIcon />{{ formatMessage(messages.contactSupport) }}</ButtonLink
 					>
 				</div>
@@ -30,7 +30,7 @@
 					<ButtonLink
 						type="colored"
 						color="orange"
-						to="https://support.modrinth.com"
+						to="https://support.shroudedit.com"
 						target="_blank"
 					>
 						<MessageIcon />{{ formatMessage(messages.contactSupport) }}</ButtonLink
@@ -42,19 +42,19 @@
 </template>
 
 <script setup lang="ts">
-import { MessageIcon } from '@modrinth/assets'
+import { MessageIcon } from '@shroudedit/assets'
 import {
 	Admonition,
 	ButtonLink,
 	defineMessages,
-	injectModrinthClient,
+	injectShroudEditClient,
 	useVIntl,
-} from '@modrinth/ui'
-import { capitalizeString } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { capitalizeString } from '@shroudedit/utils'
 import { useQuery } from '@tanstack/vue-query'
 import { computed, watch } from 'vue'
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const { formatMessage } = useVIntl()
 
 const messages = defineMessages({

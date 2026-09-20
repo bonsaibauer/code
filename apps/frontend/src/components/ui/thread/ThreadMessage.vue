@@ -28,9 +28,9 @@
 					{{ members[message.author_id].username }}
 				</AutoLink>
 				<ScaleIcon v-if="members[message.author_id].role === 'moderator'" v-tooltip="'Moderator'" />
-				<ModrinthIcon
+				<ShroudEditIcon
 					v-else-if="members[message.author_id].role === 'admin'"
-					v-tooltip="'Modrinth Team'"
+					v-tooltip="'ShroudEdit Team'"
 				/>
 				<EyeOffIcon
 					v-if="isPrivateMessage"
@@ -88,7 +88,7 @@
 		/>
 		<div v-else class="message__body status-message">
 			<span v-if="message.body.type === 'legacy_project_message'">
-				This project was published on Modrinth before moderation threads existed and may be missing
+				This project was published on ShroudEdit before moderation threads existed and may be missing
 				moderation history.
 			</span>
 			<span v-if="message.body.type === 'deleted'"> posted a message that has been deleted. </span>
@@ -156,12 +156,12 @@ import {
 	EyeOffIcon,
 	InfoIcon,
 	MicrophoneIcon,
-	ModrinthIcon,
+	ShroudEditIcon,
 	MoreHorizontalIcon,
 	ScaleIcon,
 	TrashIcon,
-} from '@modrinth/assets'
-import { moderationSettings } from '@modrinth/moderation'
+} from '@shroudedit/assets'
+import { moderationSettings } from '@shroudedit/moderation'
 import {
 	AutoLink,
 	Avatar,
@@ -169,8 +169,8 @@ import {
 	TeleportOverflowMenu,
 	useFormatDateTime,
 	useRelativeTime,
-} from '@modrinth/ui'
-import { renderString } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { renderString } from '@shroudedit/utils'
 
 import { isStaff } from '~/helpers/users.js'
 

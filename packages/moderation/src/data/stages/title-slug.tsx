@@ -1,18 +1,18 @@
-import type { Labrinth } from '@modrinth/api-client'
-import { ModrinthApiError } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
+import { ShroudEditApiError } from '@shroudedit/api-client'
 import {
 	BookOpenIcon,
 	TagCategoryRefreshCcwIcon,
 	TagCategoryWandSparklesIcon,
 	UserPlusIcon,
 	WrenchIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	Alert,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectProjectPageContext,
 	ProjectStatusLink,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { useQueryClient } from '@tanstack/vue-query'
 import { computed, ref, watch } from 'vue'
 
@@ -40,7 +40,7 @@ function hasCustomSlug(project: Labrinth.Projects.v3.Project) {
 
 export default function () {
 	const { projectV3: project } = injectProjectPageContext()
-	const client = injectModrinthClient()
+	const client = injectShroudEditClient()
 	const queryClient = useQueryClient()
 
 	const autoSlugStatus = ref<AutoSlugStatus>('loading')
@@ -59,7 +59,7 @@ export default function () {
 				staleTime: STALE_TIME,
 			})
 		} catch (e) {
-			if (e instanceof ModrinthApiError && e.statusCode === 404) return null
+			if (e instanceof ShroudEditApiError && e.statusCode === 404) return null
 			throw e
 		}
 	}
@@ -215,7 +215,7 @@ export default function () {
 				.children(
 					toggle('useless-info', 'Contains Useless Info').suggestedStatus('flagged').message(),
 
-					toggle('minecraft-branding', 'Minecraft Title').suggestedStatus('flagged').message(),
+					toggle('enshrouded-branding', 'Enshrouded Title').suggestedStatus('flagged').message(),
 
 					toggle('similarities', 'Title Similarities')
 						.suggestedStatus('flagged')
@@ -229,7 +229,7 @@ export default function () {
 										.message(),
 
 									check('fork', 'Forked Project')
-										.shown(computed(() => !project.value?.minecraft_server))
+										.shown(computed(() => !project.value?.enshrouded_server))
 										.message(),
 								),
 						)

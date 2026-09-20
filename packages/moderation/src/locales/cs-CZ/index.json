@@ -80,10 +80,10 @@
   "nags.long-headers.title": {
     "defaultMessage": "Zkrácení záhlaví"
   },
-  "nags.minecraft-title-clause.description": {
-    "defaultMessage": "Projekty nesmí používat značku Minecraftu ani nesmí obsahovat \"Minecraft\" jako významnou součást názvu."
+  "nags.enshrouded-title-clause.description": {
+    "defaultMessage": "Projekty nesmí používat značku Enshroudedu ani nesmí obsahovat \"Enshrouded\" jako významnou součást názvu."
   },
-  "nags.minecraft-title-clause.title": {
+  "nags.enshrouded-title-clause.title": {
     "defaultMessage": "Vyhněte se porušení značky"
   },
   "nags.missing-alt-text.description": {

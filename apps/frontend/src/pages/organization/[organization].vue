@@ -150,7 +150,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	BoxIcon,
 	ChartIcon,
@@ -160,7 +160,7 @@ import {
 	SpinnerIcon,
 	UsersIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	Avatar,
 	Button,
@@ -168,7 +168,7 @@ import {
 	commonMessages,
 	defineMessages,
 	filterProjectsByType,
-	injectModrinthClient,
+	injectShroudEditClient,
 	IntlFormatted,
 	NavTabs,
 	normalizeChildren,
@@ -177,8 +177,8 @@ import {
 	SidebarCard,
 	useCompactNumber,
 	useVIntl,
-} from '@modrinth/ui'
-import type { Organization, ProjectType } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import type { Organization, ProjectType } from '@shroudedit/utils'
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
 
 import UpToDate from '~/assets/images/illustrations/up_to_date.svg?component'
@@ -234,7 +234,7 @@ if (route.path.includes('settings')) {
 const routeHasSettings = computed(() => route.path.includes('settings'))
 useFavicon(() => (routeHasSettings.value ? 'settings' : 'default'))
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const queryClient = useQueryClient()
 
 const {
@@ -388,15 +388,15 @@ watch(
 	(org) => {
 		if (org) {
 			const title = `${org.name} - Organization`
-			const description = `${org.description} - View the organization ${org.name} on Modrinth`
-			const canonicalUrl = org ? `https://modrinth.com/organization/${org.id}` : undefined
+			const description = `${org.description} - View the organization ${org.name} on ShroudEdit`
+			const canonicalUrl = org ? `${config.public.siteUrl}/organization/${org.id}` : undefined
 
 			useSeoMeta({
 				title,
 				description,
 				ogTitle: title,
 				ogDescription: org.description,
-				ogImage: org.icon_url ?? 'https://cdn.modrinth.com/placeholder-square.png',
+				ogImage: org.icon_url ?? 'https://cdn.shroudedit.com/placeholder-square.png',
 				ogUrl: canonicalUrl,
 			})
 			useHead({

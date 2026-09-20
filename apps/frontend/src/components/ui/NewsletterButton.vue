@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { CheckIcon, MailIcon } from '@modrinth/assets'
-import { Button, defineMessages, injectModrinthClient, useVIntl } from '@modrinth/ui'
+import { CheckIcon, MailIcon } from '@shroudedit/assets'
+import { Button, defineMessages, injectShroudEditClient, useVIntl } from '@shroudedit/ui'
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, ref } from 'vue'
 
@@ -9,7 +9,7 @@ const { formatMessage } = useVIntl()
 const messages = defineMessages({
 	tooltipSubscribe: {
 		id: 'ui.newsletter-button.tooltip',
-		defaultMessage: 'Subscribe to the Modrinth newsletter',
+		defaultMessage: 'Subscribe to the ShroudEdit newsletter',
 	},
 	subscribe: {
 		id: 'ui.newsletter-button.subscribe',
@@ -24,7 +24,7 @@ const messages = defineMessages({
 const auth = (await useAuth()) as unknown as {
 	value: { user: { id: string; username: string; email: string; created: string } }
 }
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const queryClient = useQueryClient()
 const showSubscriptionConfirmation = ref(false)
 

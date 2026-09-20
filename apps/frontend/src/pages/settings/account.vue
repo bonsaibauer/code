@@ -253,7 +253,7 @@
 							v-if="twoFactorSecret"
 							:value="`otpauth://totp/${encodeURIComponent(
 								auth.user.email,
-							)}?secret=${twoFactorSecret}&issuer=Modrinth`"
+							)}?secret=${twoFactorSecret}&issuer=ShroudEdit`"
 							:size="250"
 							:margin="2"
 							level="H"
@@ -513,7 +513,7 @@ import {
 	TrashIcon,
 	UpdatedIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	Admonition,
 	Button,
@@ -527,7 +527,7 @@ import {
 	NewModal,
 	Table,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import KeyIcon from 'assets/icons/auth/key.svg'
 import DiscordIcon from 'assets/icons/auth/sso-discord.svg'
 import GithubIcon from 'assets/icons/auth/sso-github.svg'
@@ -561,7 +561,7 @@ const messages = defineMessages({
 	deleteAccountConfirmDescription: {
 		id: 'settings.account.delete.confirm.description',
 		defaultMessage:
-			'This will **immediately delete all of your user data and follows**. This will not delete your projects. Deleting your account cannot be reversed.<br><br>If you need help with your account, get support on the [Modrinth Discord](https://discord.modrinth.com).',
+			'This will **immediately delete all of your user data and follows**. This will not delete your projects. Deleting your account cannot be reversed.<br><br>If you need help with your account, get support on the [ShroudEdit Discord](https://discord.shroudedit.com).',
 	},
 	deleteAccountConfirmProceed: {
 		id: 'settings.account.delete.confirm.proceed',
@@ -802,7 +802,7 @@ const messages = defineMessages({
 	dataExportDescription: {
 		id: 'settings.account.data-export.description',
 		defaultMessage:
-			'Request a copy of all your personal data you have uploaded to Modrinth. This may take several minutes to complete.',
+			'Request a copy of all your personal data you have uploaded to ShroudEdit. This may take several minutes to complete.',
 	},
 	downloadExportButton: {
 		id: 'settings.account.data-export.action.download',

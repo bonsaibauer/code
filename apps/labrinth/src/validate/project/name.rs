@@ -58,11 +58,11 @@ pub(super) fn validate(project: &Project) -> Vec<ProjectNag> {
             ProjectNagSeverity::Required,
         ));
     }
-    if normalized.contains("minecraft")
+    if normalized.contains("enshrouded")
         && normalized.split_whitespace().count() <= 3
     {
         nags.push(ProjectNag::new(
-            ProjectNagKind::MinecraftTitleClause,
+            ProjectNagKind::EnshroudedTitleClause,
             ProjectNagSeverity::Required,
         ));
     }

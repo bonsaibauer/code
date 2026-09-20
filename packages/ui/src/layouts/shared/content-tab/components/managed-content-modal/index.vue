@@ -8,7 +8,7 @@ import {
 	PaintbrushIcon,
 	SearchIcon,
 	SpinnerIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import Fuse from 'fuse.js'
 import { computed, nextTick, ref, watchSyncEffect } from 'vue'
 
@@ -107,7 +107,7 @@ const messages = defineMessages({
 	},
 	externalContentDescription: {
 		id: 'instances.managed-content-modal.external-content-description',
-		defaultMessage: 'This file is not published on Modrinth.',
+		defaultMessage: 'This file is not published on ShroudEdit.',
 	},
 	openInSlicer: {
 		id: 'instances.managed-content-modal.open-in-slicer',
@@ -298,7 +298,7 @@ const tableItems = computed<ContentCardTableItem[]>(() =>
 					link:
 						item.owner.type === 'user'
 							? `/user/${encodeURIComponent(item.owner.id)}`
-							: `https://modrinth.com/organization/${item.owner.id}`,
+							: `https://shroudedit.com/organization/${item.owner.id}`,
 				}
 			: undefined,
 		source: item.source
@@ -388,7 +388,7 @@ function itemDisplayName(item: ContentItem) {
 
 function sourceProjectLink(project: ContentCardProject) {
 	const projectId = project.slug ?? project.id
-	const url = `https://modrinth.com/modpack/${encodeURIComponent(projectId)}`
+	const url = `https://shroudedit.com/modpack/${encodeURIComponent(projectId)}`
 	return pageContext ? () => pageContext.openExternalUrl(url) : url
 }
 

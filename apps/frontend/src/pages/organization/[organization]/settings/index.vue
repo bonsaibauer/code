@@ -1,5 +1,5 @@
 <script setup>
-import { TrashIcon, UploadIcon } from '@modrinth/assets'
+import { TrashIcon, UploadIcon } from '@shroudedit/assets'
 import {
 	Avatar,
 	Button,
@@ -10,11 +10,12 @@ import {
 	Textarea,
 	UnsavedChangesPopup,
 	useSavable,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 
 import { injectOrganizationContext } from '~/providers/organization-context.ts'
 
 const { addNotification } = injectNotificationManager()
+const config = useRuntimeConfig()
 const {
 	organization,
 	refresh: refreshOrganization,
@@ -199,7 +200,7 @@ const onDeleteOrganization = useClientTry(async () => {
 				<span class="label__title">URL</span>
 			</label>
 			<div class="text-input-wrapper">
-				<div class="text-input-wrapper__before">https://modrinth.com/organization/</div>
+				<div class="text-input-wrapper__before">{{ config.public.siteUrl }}/organization/</div>
 				<Input
 					id="project-slug"
 					v-model="current.slug"

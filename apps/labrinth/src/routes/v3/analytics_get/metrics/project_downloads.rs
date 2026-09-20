@@ -136,9 +136,9 @@ pub struct ProjectDownloads {
 #[derive(Debug, Clone, PartialEq, Eq, Hash, utoipa::ToSchema)]
 pub enum DownloadSource {
     Website,
-    ModrinthApp,
-    ModrinthHosting,
-    ModrinthMaven,
+    ShroudEditApp,
+    ShroudEditHosting,
+    ShroudEditMaven,
     Other,
     Named(String),
 }
@@ -151,11 +151,13 @@ impl Serialize for DownloadSource {
         match self {
             Self::Named(name) => serializer.serialize_str(name),
             Self::Website => serializer.serialize_str("website"),
-            Self::ModrinthApp => serializer.serialize_str("modrinth_app"),
-            Self::ModrinthHosting => {
-                serializer.serialize_str("modrinth_hosting")
+            Self::ShroudEditApp => serializer.serialize_str("shroudedit_app"),
+            Self::ShroudEditHosting => {
+                serializer.serialize_str("shroudedit_hosting")
             }
-            Self::ModrinthMaven => serializer.serialize_str("modrinth_maven"),
+            Self::ShroudEditMaven => {
+                serializer.serialize_str("shroudedit_maven")
+            }
             Self::Other => serializer.serialize_str("other"),
         }
     }
@@ -169,9 +171,9 @@ impl<'de> Deserialize<'de> for DownloadSource {
         let source = String::deserialize(deserializer)?;
         Ok(match source.as_str() {
             "website" => Self::Website,
-            "modrinth_app" => Self::ModrinthApp,
-            "modrinth_hosting" => Self::ModrinthHosting,
-            "modrinth_maven" => Self::ModrinthMaven,
+            "shroudedit_app" => Self::ShroudEditApp,
+            "shroudedit_hosting" => Self::ShroudEditHosting,
+            "shroudedit_maven" => Self::ShroudEditMaven,
             "other" => Self::Other,
             _ if !source.is_empty() => Self::Named(source),
             _ => {
@@ -338,7 +340,7 @@ async fn fetch_dependent_version_projects(
         INNER JOIN mods m ON m.id = v.mod_id
         WHERE
             v.id = ANY($1)
-            AND jsonb_typeof(m.components -> 'minecraft_server') IS DISTINCT FROM 'object'
+            AND jsonb_typeof(m.components -> 'enshrouded_server') IS DISTINCT FROM 'object'
         ",
         &dependent_on_version_ids,
     )
@@ -589,9 +591,9 @@ pub(crate) async fn fetch(
 enum DownloadSourcePattern {
     Named(&'static str),
     Website,
-    ModrinthApp,
-    ModrinthHosting,
-    ModrinthMaven,
+    ShroudEditApp,
+    ShroudEditHosting,
+    ShroudEditMaven,
 }
 
 impl DownloadSourcePattern {
@@ -599,9 +601,9 @@ impl DownloadSourcePattern {
         match self {
             Self::Named(name) => DownloadSource::Named(name.into()),
             Self::Website => DownloadSource::Website,
-            Self::ModrinthApp => DownloadSource::ModrinthApp,
-            Self::ModrinthHosting => DownloadSource::ModrinthHosting,
-            Self::ModrinthMaven => DownloadSource::ModrinthMaven,
+            Self::ShroudEditApp => DownloadSource::ShroudEditApp,
+            Self::ShroudEditHosting => DownloadSource::ShroudEditHosting,
+            Self::ShroudEditMaven => DownloadSource::ShroudEditMaven,
         }
     }
 }
@@ -623,9 +625,9 @@ fn download_source_sort_key(source: &DownloadSource) -> &str {
     match source {
         DownloadSource::Named(name) => name,
         DownloadSource::Website => "website",
-        DownloadSource::ModrinthApp => "modrinth_app",
-        DownloadSource::ModrinthHosting => "modrinth_hosting",
-        DownloadSource::ModrinthMaven => "modrinth_maven",
+        DownloadSource::ShroudEditApp => "shroudedit_app",
+        DownloadSource::ShroudEditHosting => "shroudedit_hosting",
+        DownloadSource::ShroudEditMaven => "shroudedit_maven",
         DownloadSource::Other => "other",
     }
 }
@@ -635,9 +637,9 @@ static DOWNLOAD_SOURCE_PATTERNS: LazyLock<Vec<(Regex, DownloadSourcePattern)>> =
         use DownloadSourcePattern as P;
 
         [
-            (r"^modrinth/kyros/", P::ModrinthHosting),
-            (r"^modrinth/theseus/", P::ModrinthApp),
-            (r"^(Gradle/|Apache-Maven/)", P::ModrinthMaven),
+            (r"^shroudedit/kyros/", P::ShroudEditHosting),
+            (r"^shroudedit/theseus/", P::ShroudEditApp),
+            (r"^(Gradle/|Apache-Maven/)", P::ShroudEditMaven),
             (r"^MultiMC/", P::Named("MultiMC")),
             (r"^PrismLauncher/", P::Named("Prism Launcher")),
             (r"^PolyMC/", P::Named("PolyMC")),

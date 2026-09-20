@@ -6,7 +6,7 @@ INSERT INTO users (
 	id, username, email, role, badges, balance, email_verified
 )
 VALUES (
-	103587649610509, 'Analytics Admin', 'analytics-admin@modrinth.com',
+	103587649610509, 'Analytics Admin', 'analytics-admin@shroudedit.com',
 	'admin', 0, 0, TRUE
 )
 ON CONFLICT (id) DO UPDATE SET
@@ -75,7 +75,7 @@ VALUES
 		910000000000101,
 		'{
 			"title": "Downloads launch",
-			"announcement_url": "https://modrinth.com/news/downloads-launch",
+			"announcement_url": "https://shroudedit.com/news/downloads-launch",
 			"for_metric_kind": ["downloads"]
 		}'::jsonb,
 		'2026-05-13T00:00:00Z',
@@ -85,7 +85,7 @@ VALUES
 		910000000000102,
 		'{
 			"title": "Revenue promo",
-			"announcement_url": "https://modrinth.com/news/revenue-promo",
+			"announcement_url": "https://shroudedit.com/news/revenue-promo",
 			"for_metric_kind": ["revenue"]
 		}'::jsonb,
 		'2026-05-14T00:00:00Z',

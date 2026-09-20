@@ -128,7 +128,7 @@ vars! {
     SENTRY_ENVIRONMENT: String = "development";
     SENTRY_TRACES_SAMPLE_RATE: f32 = 0.1f32;
     SITE_URL: String = "http://localhost:3000";
-    CDN_URL: String = "file:///tmp/modrinth";
+    CDN_URL: String = "file:///tmp/shroudedit";
     LABRINTH_ADMIN_KEY: String = "";
     LABRINTH_MEDAL_KEY: String = "";
     LABRINTH_EXTERNAL_NOTIFICATION_KEY: String = "";
@@ -187,21 +187,21 @@ vars! {
     VERSION_INDEX_INTERVAL: u64 = 1800u64;
 
     WHITELISTED_MODPACK_DOMAINS: Json<Vec<String>> = Json(vec![
-        "cdn.modrinth.com".into(),
+        "cdn.shroudedit.com".into(),
         "github.com".into(),
         "raw.githubusercontent.com".into(),
     ]);
     ALLOWED_CALLBACK_URLS: Json<Vec<String>> = Json(vec![
         "localhost".into(),
-        ".modrinth.com".into(),
+        ".shroudedit.com".into(),
         "127.0.0.1".into(),
         "[::1]".into(),
     ]);
     ANALYTICS_ALLOWED_ORIGINS: Json<Vec<String>> = Json(vec![
         "http://127.0.0.1:3000".into(),
         "http://localhost:3000".into(),
-        "https://modrinth.com".into(),
-        "https://www.modrinth.com".into(),
+        "https://shroudedit.com".into(),
+        "https://www.shroudedit.com".into(),
         "*".into(),
     ]);
 
@@ -211,7 +211,7 @@ vars! {
     SEARCH_INCREMENTAL_INDEX_BATCH_DELAY_SECONDS: u64 = 5u64;
     SEARCH_INCREMENTAL_INDEX_BATCH_MAX_SIZE: usize = 1000usize;
     TYPESENSE_URL: String = "http://localhost:8108";
-    TYPESENSE_API_KEY: String = "modrinth";
+    TYPESENSE_API_KEY: String = "shroudedit";
     TYPESENSE_INDEX_PREFIX: String = "labrinth";
     TYPESENSE_IMPORT_BATCH_SIZE: usize = 5000usize;
     TYPESENSE_DELETE_BATCH_SIZE: usize = 10_000usize;
@@ -263,7 +263,7 @@ vars! {
     S3_PRIVATE_SECRET: String = "";
 
     // local
-    MOCK_FILE_PATH: String = "/tmp/modrinth";
+    MOCK_FILE_PATH: String = "/tmp/shroudedit";
 
     GITHUB_CLIENT_ID: String = "none";
     GITHUB_CLIENT_SECRET: String = "none";
@@ -271,7 +271,7 @@ vars! {
     GITLAB_CLIENT_SECRET: String = "none";
     DISCORD_CLIENT_ID: String = "none";
     DISCORD_CLIENT_SECRET: String = "none";
-    DISCORD_COMMUNITY_BOT_HANDOFF_URL: String = "http://localhost:3000/modrinth/handoff";
+    DISCORD_COMMUNITY_BOT_HANDOFF_URL: String = "http://localhost:3000/shroudedit/handoff";
     DISCORD_COMMUNITY_LINK_SECRET: String = "";
     MICROSOFT_CLIENT_ID: String = "none";
     MICROSOFT_CLIENT_SECRET: String = "none";
@@ -303,8 +303,8 @@ vars! {
     SMTP_HOST: String = "localhost";
     SMTP_PORT: u16 = 1025u16;
     SMTP_TLS: String = "none";
-    SMTP_FROM_NAME: String = "Modrinth";
-    SMTP_FROM_ADDRESS: String = "no-reply@mail.modrinth.com";
+    SMTP_FROM_NAME: String = "ShroudEdit";
+    SMTP_FROM_ADDRESS: String = "no-reply@mail.shroudedit.com";
 
     SITE_VERIFY_EMAIL_PATH: String = "auth/verify-email";
     SITE_RESET_PASSWORD_PATH: String = "auth/reset-password";
@@ -402,5 +402,5 @@ vars! {
     SERVER_PING_TIMEOUT_MS: u64 = 3u64 * 1000;
     SERVER_PING_MAX_FAIL_COUNT: u64 = 3u64;
 
-    WEBAUTHN_RP_NAME: String = "Modrinth";
+    WEBAUTHN_RP_NAME: String = "ShroudEdit";
 }

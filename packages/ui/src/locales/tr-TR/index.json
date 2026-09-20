@@ -114,7 +114,7 @@
     "defaultMessage": "Sorgunuz için sonuç bulunamadı!"
   },
   "browse.offline": {
-    "defaultMessage": "Şu anda çevrimdışısınız. Modrinth'de gezinmek için internet'e bağlanın!"
+    "defaultMessage": "Şu anda çevrimdışısınız. ShroudEdit'de gezinmek için internet'e bağlanın!"
   },
   "browse.search.placeholder": {
     "defaultMessage": "{projectType} araştır..."
@@ -254,8 +254,8 @@
   "button.open-in-folder": {
     "defaultMessage": "Klasörde aç"
   },
-  "button.open-in-modrinth": {
-    "defaultMessage": "Modrinth'de aç"
+  "button.open-in-shroudedit": {
+    "defaultMessage": "ShroudEdit'de aç"
   },
   "button.play": {
     "defaultMessage": "Oyna"
@@ -552,13 +552,13 @@
     "defaultMessage": "{count} kaldırıldı (devre dışı)"
   },
   "content.diff-modal.reviewed-files": {
-    "defaultMessage": "Modrinth üzerinde yayınlanmayan dosyalar incelemez."
+    "defaultMessage": "ShroudEdit üzerinde yayınlanmayan dosyalar incelemez."
   },
   "content.diff-modal.unknown-content-body": {
     "defaultMessage": "Sunucundaki bazı içerikler analiz edilemedi ve bu değişiklikten etkilenebilir."
   },
   "content.diff-modal.unknown-files-description": {
-    "defaultMessage": "Bu güncelleme Modrinth'te yayınlanmamış doysalar barındırıyor. Yalnızca güvendiğiniz kaynaklardan dosya indirmenizi önemle tavsiye ederiz."
+    "defaultMessage": "Bu güncelleme ShroudEdit'te yayınlanmamış doysalar barındırıyor. Yalnızca güvendiğiniz kaynaklardan dosya indirmenizi önemle tavsiye ederiz."
   },
   "content.diff-modal.unknown-files-warning": {
     "defaultMessage": "Bilinmeyen dosya uyarısı"
@@ -1079,11 +1079,11 @@
   "creation-flow.modal.setup-type.option.upload-modpack.title": {
     "defaultMessage": "Mod paketi yükle"
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.description": {
-    "defaultMessage": "Mod yada plugin olmayan classic Minecraft."
+  "creation-flow.modal.setup-type.option.vanilla-enshrouded.description": {
+    "defaultMessage": "Mod yada plugin olmayan classic Enshrouded."
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.title": {
-    "defaultMessage": "Vanilla Minecraft"
+  "creation-flow.modal.setup-type.option.vanilla-enshrouded.title": {
+    "defaultMessage": "Vanilla Enshrouded"
   },
   "creation-flow.modal.setup-type.title.installation": {
     "defaultMessage": "Yükleme Şeklini seçin"
@@ -1205,8 +1205,8 @@
   "external-files.permissions-card.editor.link-to-work-url-placeholder": {
     "defaultMessage": "çalışma-linki"
   },
-  "external-files.permissions-card.editor.modrinth-link-to-work": {
-    "defaultMessage": "Bu görünüşe göre bir Modrinth linkine benziyor. Eğer bu içerik Modrinth'te varsa, paketin muhtemelen hatalı aktarılmıştır. Eğer farklı bir siteden indirdiyseniz, Modrinth versiyonunu indirmeyi deneyin; bazen iki dosya aynı olmayabiliyor."
+  "external-files.permissions-card.editor.shroudedit-link-to-work": {
+    "defaultMessage": "Bu görünüşe göre bir ShroudEdit linkine benziyor. Eğer bu içerik ShroudEdit'te varsa, paketin muhtemelen hatalı aktarılmıştır. Eğer farklı bir siteden indirdiyseniz, ShroudEdit versiyonunu indirmeyi deneyin; bazen iki dosya aynı olmayabiliyor."
   },
   "external-files.permissions-card.editor.notes-label": {
     "defaultMessage": "Notlar"
@@ -1230,7 +1230,7 @@
     "defaultMessage": "Eğer ki yüklediğin fotoğraflarla yalan söylediğin veya manipüle edildiğin tespit edilirse, projen veya hesabın devre dışı bırakılabilir."
   },
   "external-files.permissions-card.editor.proof-warning.title": {
-    "defaultMessage": "Modrinth çalışanları senin kanıtını doğrulayabilir"
+    "defaultMessage": "ShroudEdit çalışanları senin kanıtını doğrulayabilir"
   },
   "external-files.permissions-card.editor.save": {
     "defaultMessage": "Kaynak gösterme bilgisini sakla"
@@ -1317,7 +1317,7 @@
     "defaultMessage": "Otomatik olarak kaynak gösterildi"
   },
   "external-files.permissions-card.reason.globally-allowed.description": {
-    "defaultMessage": "Bu dosyayı daha önce gördük ve sizin için bir kaynak gösterdik. Bir şey yanlış görünürse, lütfen Modrinth Desteğinden üzerinden Yardım Merkezine ulaşın"
+    "defaultMessage": "Bu dosyayı daha önce gördük ve sizin için bir kaynak gösterdik. Bir şey yanlış görünürse, lütfen ShroudEdit Desteğinden üzerinden Yardım Merkezine ulaşın"
   },
   "external-files.permissions-card.reason.license": {
     "defaultMessage": "Lisans"
@@ -1937,16 +1937,16 @@
   "header.category.feature": {
     "defaultMessage": "Özellikler"
   },
-  "header.category.minecraft-server-community": {
+  "header.category.enshrouded-server-community": {
     "defaultMessage": "Topluluk"
   },
-  "header.category.minecraft-server-features": {
+  "header.category.enshrouded-server-features": {
     "defaultMessage": "Özellikler"
   },
-  "header.category.minecraft-server-gameplay": {
+  "header.category.enshrouded-server-gameplay": {
     "defaultMessage": "Oynanış"
   },
-  "header.category.minecraft-server-meta": {
+  "header.category.enshrouded-server-meta": {
     "defaultMessage": "Meta"
   },
   "header.category.performance-impact": {
@@ -2274,13 +2274,13 @@
     "defaultMessage": "Kaldırıldı (uyumsuz)"
   },
   "installation-settings.repair.instance-description": {
-    "defaultMessage": "Minecraft'ın gereksinimlerini yeniden kurar ve bozuklukları arar. Bu eğer oyununuz başlatıcı nedenli hatalardan dolayı açılmıyorsa sorunu düzeltebilir."
+    "defaultMessage": "Enshrouded'ın gereksinimlerini yeniden kurar ve bozuklukları arar. Bu eğer oyununuz başlatıcı nedenli hatalardan dolayı açılmıyorsa sorunu düzeltebilir."
   },
   "installation-settings.repair.instance-title": {
     "defaultMessage": "Kurulumu tamir et"
   },
   "installation-settings.repair.server-description": {
-    "defaultMessage": "Mod yükleyicisini ve Minecraft gereksinimlerini, içeriğinizi silmeden tekrar yükler. Bu sunucunuzun düzgün başlamaması sorununu çözebilir."
+    "defaultMessage": "Mod yükleyicisini ve Enshrouded gereksinimlerini, içeriğinizi silmeden tekrar yükler. Bu sunucunuzun düzgün başlamaması sorununu çözebilir."
   },
   "installation-settings.repair.server-title": {
     "defaultMessage": "Sunucuyu tamir et"
@@ -2307,7 +2307,7 @@
     "defaultMessage": "Bağlantıyı kopar"
   },
   "installation-settings.unlink.description": {
-    "defaultMessage": "Sürekli olarak bağlantıyı kesmek, bu {type} öğesini {projectType} projesinden kalıcı olarak ayırır ve yükleyiciyi ve Minecraft sürümünü değiştirmene olanak tanır, ancak gelecekteki güncellemeleri alamazsın."
+    "defaultMessage": "Sürekli olarak bağlantıyı kesmek, bu {type} öğesini {projectType} projesinden kalıcı olarak ayırır ve yükleyiciyi ve Enshrouded sürümünü değiştirmene olanak tanır, ancak gelecekteki güncellemeleri alamazsın."
   },
   "installation-settings.verifying": {
     "defaultMessage": "Doğrulanıyor..."
@@ -2325,10 +2325,10 @@
     "defaultMessage": "Mod paketini yeniden kur"
   },
   "instance.confirm-repair.body.instance": {
-    "defaultMessage": "Onarım işlemi, içeriğinizi silmeden yükleyiciyi ve Minecraft bağımlılıklarını yeniden yükler. Bu, oyununuzun başlatıcıyla ilgili hatalar nedeniyle başlatılamaması durumunda sorunları çözebilir."
+    "defaultMessage": "Onarım işlemi, içeriğinizi silmeden yükleyiciyi ve Enshrouded bağımlılıklarını yeniden yükler. Bu, oyununuzun başlatıcıyla ilgili hatalar nedeniyle başlatılamaması durumunda sorunları çözebilir."
   },
   "instance.confirm-repair.body.server": {
-    "defaultMessage": "Onarım işlemi, içeriğinizi silmeden yükleyiciyi ve Minecraft bağımlılıklarını yeniden yükler. Bu, sunucunuz doğru şekilde başlatılmıyorsa sorunları çözebilir."
+    "defaultMessage": "Onarım işlemi, içeriğinizi silmeden yükleyiciyi ve Enshrouded bağımlılıklarını yeniden yükler. Bu, sunucunuz doğru şekilde başlatılmıyorsa sorunları çözebilir."
   },
   "instance.confirm-repair.header": {
     "defaultMessage": "{type}'i onar"
@@ -2424,7 +2424,7 @@
     "defaultMessage": "Harici"
   },
   "instances.managed-content-modal.external-content-description": {
-    "defaultMessage": "Bu dosya Modrinth üzerinde yayınlanmamıştır."
+    "defaultMessage": "Bu dosya ShroudEdit üzerinde yayınlanmamıştır."
   },
   "instances.managed-content-modal.header": {
     "defaultMessage": "Yönetilen içerik"
@@ -3036,16 +3036,16 @@
     "defaultMessage": "Sunucu değiştiğinde dosyaları güncel tut"
   },
   "modal.open-in-app.get-app": {
-    "defaultMessage": "Modrinth Uygulaması Edin"
+    "defaultMessage": "ShroudEdit Uygulaması Edin"
   },
   "modal.open-in-app.opening-automatically": {
-    "defaultMessage": "Modrinth App otomatik olarak açılacak..."
+    "defaultMessage": "ShroudEdit App otomatik olarak açılacak..."
   },
   "modal.open-in-app.title": {
-    "defaultMessage": "Modrinth App açılıyor"
+    "defaultMessage": "ShroudEdit App açılıyor"
   },
   "modal.open-in-app.why-use": {
-    "defaultMessage": "Neden Modrinth App kullanmalısın"
+    "defaultMessage": "Neden ShroudEdit App kullanmalısın"
   },
   "notification.error.title": {
     "defaultMessage": "Bir hata oluştu"
@@ -3110,8 +3110,8 @@
   "omorphia.component.badge.label.moderator": {
     "defaultMessage": "Moderatör"
   },
-  "omorphia.component.badge.label.modrinth-team": {
-    "defaultMessage": "Modrinth Ekibi"
+  "omorphia.component.badge.label.shroudedit-team": {
+    "defaultMessage": "ShroudEdit Ekibi"
   },
   "omorphia.component.badge.label.pending": {
     "defaultMessage": "Beklemede"
@@ -3231,13 +3231,13 @@
     "defaultMessage": "Visa"
   },
   "profile.bio.fallback.creator": {
-    "defaultMessage": "Bir Modrinth içerik üreticisi."
+    "defaultMessage": "Bir ShroudEdit içerik üreticisi."
   },
   "profile.bio.fallback.user": {
-    "defaultMessage": "Bir Modrinth kullanıcısı."
+    "defaultMessage": "Bir ShroudEdit kullanıcısı."
   },
   "profile.block-user.admonition-body": {
-    "defaultMessage": "{username} size arkadaşlık isteği gönderemeyecek, sizi paylaşılan örneklere veya Modrinth Hosting sunucularına davet edemeyecek."
+    "defaultMessage": "{username} size arkadaşlık isteği gönderemeyecek, sizi paylaşılan örneklere veya ShroudEdit Hosting sunucularına davet edemeyecek."
   },
   "profile.block-user.admonition-title": {
     "defaultMessage": "Bu kullanıcıyı engellemek istediğinize emin misiniz?"
@@ -3294,7 +3294,7 @@
     "defaultMessage": "{count, plural,one{# proje} other{# proje}}"
   },
   "profile.details.error.github-popup-blocked": {
-    "defaultMessage": "Modrinth için açılır pencerelere izin verin, ardından tekrar deneyin."
+    "defaultMessage": "ShroudEdit için açılır pencerelere izin verin, ardından tekrar deneyin."
   },
   "profile.details.error.github-profile-message": {
     "defaultMessage": "GitHub profili alınamadı. Lütfen tekrar deneyin."
@@ -3372,7 +3372,7 @@
     "defaultMessage": "{count, plural, one {proje} other {proje}}"
   },
   "profile.official-account": {
-    "defaultMessage": "Resmi Modrinth hesabı"
+    "defaultMessage": "Resmi ShroudEdit hesabı"
   },
   "profile.unblock-user.error-description": {
     "defaultMessage": "Bu kullanıcının engelini kaldırırken bir hata oluştu. Lütfen tekrar deneyin."
@@ -3509,8 +3509,8 @@
   "project.about.compatibility.environments.singleplayer-only": {
     "defaultMessage": "Sadece Tek Oyunculu"
   },
-  "project.about.compatibility.game.minecraftJava": {
-    "defaultMessage": "Minecraft: Java Edition"
+  "project.about.compatibility.game.enshroudedJava": {
+    "defaultMessage": "Enshrouded: Java Edition"
   },
   "project.about.compatibility.platforms": {
     "defaultMessage": "Platformlar"
@@ -3747,7 +3747,7 @@
     "defaultMessage": "{count} oynama"
   },
   "project.recent-plays.tooltip": {
-    "defaultMessage": "Modrinth'den son 2 haftada {count} oynama"
+    "defaultMessage": "ShroudEdit'den son 2 haftada {count} oynama"
   },
   "project.server.customModpackTooltip": {
     "defaultMessage": "Bu proje özel bir mod paketi kullanmaktadır"
@@ -4080,7 +4080,7 @@
     "defaultMessage": "Projenizin birden fazla ortamı var"
   },
   "project.settings.environment.notice.review-options.description": {
-    "defaultMessage": "Daha yeni Modrinth'in Ortam sistemini tamamen yeniledik ve yeni ayarlar var. Lütfen aşağıda doğru ayarın şeçili olduğundan emin olun ve 'Doğrula' tuşuna basın!"
+    "defaultMessage": "Daha yeni ShroudEdit'in Ortam sistemini tamamen yeniledik ve yeni ayarlar var. Lütfen aşağıda doğru ayarın şeçili olduğundan emin olun ve 'Doğrula' tuşuna basın!"
   },
   "project.settings.environment.notice.review-options.title": {
     "defaultMessage": "Lütfen aşağıdaki ayarları inceleyin"
@@ -4452,13 +4452,13 @@
     "defaultMessage": "Yükleyici"
   },
   "search.photosensitivity-warning-modal.body.1": {
-    "defaultMessage": "Modrinth üzerindeki tüm içeriklerin uygun şekilde etiketlendiğini garanti edemeyiz."
+    "defaultMessage": "ShroudEdit üzerindeki tüm içeriklerin uygun şekilde etiketlendiğini garanti edemeyiz."
   },
   "search.photosensitivity-warning-modal.body.2": {
-    "defaultMessage": "Işığa duyarlılık tetikleyicileri için içerik etiketleri, içeriklerini Modrinth'e yükleyen oluşturucular tarafından kendilerince atanır. Bu projeler güvenlik testinden geçmemiştir."
+    "defaultMessage": "Işığa duyarlılık tetikleyicileri için içerik etiketleri, içeriklerini ShroudEdit'e yükleyen oluşturucular tarafından kendilerince atanır. Bu projeler güvenlik testinden geçmemiştir."
   },
   "search.photosensitivity-warning-modal.body.3": {
-    "defaultMessage": "Modrinth üzerindeki herhangi bir içeriği kullanmak sizin sorumluluğunuzdadır. Lütfen güvende kalın! 💚"
+    "defaultMessage": "ShroudEdit üzerindeki herhangi bir içeriği kullanmak sizin sorumluluğunuzdadır. Lütfen güvende kalın! 💚"
   },
   "search.photosensitivity-warning-modal.dont-show-again": {
     "defaultMessage": "Bir daha gösterme"
@@ -4554,7 +4554,7 @@
     "defaultMessage": "Yüklenen dosya"
   },
   "servers.access-page.activity-log-filter.action.game-version-edited": {
-    "defaultMessage": "Minecraft sürümü değiştirildi"
+    "defaultMessage": "Enshrouded sürümü değiştirildi"
   },
   "servers.access-page.activity-log-filter.action.java-runtime-modified": {
     "defaultMessage": "Java çalışma zamanı değiştirildi"
@@ -4884,7 +4884,7 @@
     "defaultMessage": "Yüklenen dosya <file></file>"
   },
   "servers.audit-log.event.game-version-changed": {
-    "defaultMessage": "Minecraft sürümünü <version></version> olarak değiştirdim"
+    "defaultMessage": "Enshrouded sürümünü <version></version> olarak değiştirdim"
   },
   "servers.audit-log.event.java-runtime-modified": {
     "defaultMessage": "Java çalışma zamanını <vendor></vendor> olarak değiştirdim"
@@ -5232,16 +5232,16 @@
     "defaultMessage": "{username} ın avatarı"
   },
   "servers.grant-access-modal.target.help": {
-    "defaultMessage": "Onların Minecraft kullanıcı adlarını kullanmayın."
+    "defaultMessage": "Onların Enshrouded kullanıcı adlarını kullanmayın."
   },
   "servers.grant-access-modal.target.label": {
-    "defaultMessage": "Modrinth kullanıcı adı"
+    "defaultMessage": "ShroudEdit kullanıcı adı"
   },
   "servers.grant-access-modal.target.no-suggestions": {
     "defaultMessage": "Eşleşen kullanıcı bulunamadı."
   },
   "servers.grant-access-modal.target.placeholder": {
-    "defaultMessage": "Modrinth kullanıcı adınızı girin"
+    "defaultMessage": "ShroudEdit kullanıcı adınızı girin"
   },
   "servers.grant-access-modal.target.searching": {
     "defaultMessage": "Arama yapılıyor..."
@@ -5267,17 +5267,17 @@
   "servers.installing-banner.error.header.local-modpack": {
     "defaultMessage": "{filename} indirilemedi"
   },
-  "servers.installing-banner.error.header.minecraft": {
-    "defaultMessage": "Minecraft {version} indirilemedi"
+  "servers.installing-banner.error.header.enshrouded": {
+    "defaultMessage": "Enshrouded {version} indirilemedi"
   },
   "servers.installing-banner.error.header.modpack": {
     "defaultMessage": "Mod paketi indirilemedi"
   },
   "servers.installing-banner.error.header.platform": {
-    "defaultMessage": "Minecraft {gameVersion} için {loader} {loaderVersion} indirilimedi"
+    "defaultMessage": "Enshrouded {gameVersion} için {loader} {loaderVersion} indirilimedi"
   },
   "servers.installing-banner.error.header.platform-without-version": {
-    "defaultMessage": "Minecraft {gameVersion} için {loader} indirilemedi"
+    "defaultMessage": "Enshrouded {gameVersion} için {loader} indirilemedi"
   },
   "servers.installing-banner.error.unknown": {
     "defaultMessage": "Kurulum sırasında beklenmeyen bir hata oluştu."
@@ -5285,14 +5285,14 @@
   "servers.installing-banner.installing-local-modpack": {
     "defaultMessage": "{filename} İndiriliyor"
   },
-  "servers.installing-banner.installing-minecraft": {
-    "defaultMessage": "Minecraft {version} İndirliyor"
+  "servers.installing-banner.installing-enshrouded": {
+    "defaultMessage": "Enshrouded {version} İndirliyor"
   },
   "servers.installing-banner.installing-modpack": {
     "defaultMessage": "Mod paketi indiriliyor"
   },
   "servers.installing-banner.installing-platform": {
-    "defaultMessage": "Minecraft {version} için {loader} İndiriliyor"
+    "defaultMessage": "Enshrouded {version} için {loader} İndiriliyor"
   },
   "servers.installing-banner.preparing.header": {
     "defaultMessage": "Sunucunuz hazırlanıyor"
@@ -5303,14 +5303,14 @@
   "servers.list-empty.learn-more-link": {
     "defaultMessage": "Daha fazla bilgi edinin"
   },
-  "servers.list-empty.modrinth-hosting-label": {
-    "defaultMessage": "Modrinth Hosting"
+  "servers.list-empty.shroudedit-hosting-label": {
+    "defaultMessage": "ShroudEdit Hosting"
   },
   "servers.list-empty.new-server-button": {
     "defaultMessage": "Yeni sunucu"
   },
   "servers.list-empty.no-servers-description": {
-    "defaultMessage": "Mod kur, arkadaş davet et, birlikte oyna ve hepsini Modrinth App'ten yap."
+    "defaultMessage": "Mod kur, arkadaş davet et, birlikte oyna ve hepsini ShroudEdit App'ten yap."
   },
   "servers.list-empty.one-click-mod-installs-description": {
     "defaultMessage": "Beğendiğiniz modları seçin ve biz geri kalan işi hallederiz."
@@ -5319,13 +5319,13 @@
     "defaultMessage": "Tek-tıklamada mod kurma"
   },
   "servers.list-empty.play-with-friends-description": {
-    "defaultMessage": "Arkadaşlarınızın sunucunuzda oynamak için tek tıkla Modrinth App'den davet edebilirsiniz."
+    "defaultMessage": "Arkadaşlarınızın sunucunuzda oynamak için tek tıkla ShroudEdit App'den davet edebilirsiniz."
   },
   "servers.list-empty.play-with-friends-title": {
     "defaultMessage": "Arkadaşlarınızla oynayın"
   },
   "servers.list-empty.sign-in-button": {
-    "defaultMessage": "Modrinth'e giriş yap"
+    "defaultMessage": "ShroudEdit'e giriş yap"
   },
   "servers.list-empty.simple-setup-description": {
     "defaultMessage": "Sunucunuzu tıpkı tek oyunculu bir dünya gibi kurun."
@@ -5376,7 +5376,7 @@
     "defaultMessage": "Aboneliğiniz <date>{formattedDate}</date> tarihinde iptal edilmek üzere ayarlanmıştır. "
   },
   "servers.listing.notice.suspended": {
-    "defaultMessage": "Sunucunuz askıya alındı. Daha fazla bilgi için lütfen Modrinth Destek ile iletişime geçin."
+    "defaultMessage": "Sunucunuz askıya alındı. Daha fazla bilgi için lütfen ShroudEdit Destek ile iletişime geçin."
   },
   "servers.listing.notice.upgrading": {
     "defaultMessage": "Sunucunuzun donanımı şu anda yükseltilmektedir ve kısa süre içinde tekrar çevrimiçi olacaktır."
@@ -5409,7 +5409,7 @@
     "defaultMessage": "Yükleme devam etmekte"
   },
   "servers.manage.contact-support-button": {
-    "defaultMessage": "Modrinth Destek ile İletişime Geçin"
+    "defaultMessage": "ShroudEdit Destek ile İletişime Geçin"
   },
   "servers.manage.error.alert-notice": {
     "defaultMessage": "Sistemlerimiz bir sorun olduğunda ekibimizi otomatik olarak uyarır. Onları tekrar çevrimiçi hale getirmek için zaten çalışıyoruz."
@@ -5421,10 +5421,10 @@
     "defaultMessage": "Hata detayları:"
   },
   "servers.manage.error.queue-notice": {
-    "defaultMessage": "Modrinth Hosting sunucunuzu yakın zamanda satın aldıysanız, şu anda bir kuyruktadır ve hazır olur olmaz burada görünecektir. <warning>Yeni bir sunucu satın almaya çalışmayın</warning>"
+    "defaultMessage": "ShroudEdit Hosting sunucunuzu yakın zamanda satın aldıysanız, şu anda bir kuyruktadır ve hazır olur olmaz burada görünecektir. <warning>Yeni bir sunucu satın almaya çalışmayın</warning>"
   },
   "servers.manage.error.support-notice": {
-    "defaultMessage": "Sunucunuzun durumu ile ilgili kişiselleştirilmiş desteğe ihtiyacınız varsa, lütfen Modrinth Destek ile iletişime geçin."
+    "defaultMessage": "Sunucunuzun durumu ile ilgili kişiselleştirilmiş desteğe ihtiyacınız varsa, lütfen ShroudEdit Destek ile iletişime geçin."
   },
   "servers.manage.error.title": {
     "defaultMessage": "Sunucular yüklenemedi"
@@ -5457,7 +5457,7 @@
     "defaultMessage": "Yeniden başlat"
   },
   "servers.manage.resubscribe-error.text": {
-    "defaultMessage": "Modrinth sunucuna yeniden abone olurken hata oluştu."
+    "defaultMessage": "ShroudEdit sunucuna yeniden abone olurken hata oluştu."
   },
   "servers.manage.resubscribe-error.title": {
     "defaultMessage": "Yeniden abone olurken hata"
@@ -5478,7 +5478,7 @@
     "defaultMessage": "{count} {count, plural, one {server} other {servers}} sonuç bulundu..."
   },
   "servers.manage.servers-title": {
-    "defaultMessage": "Modrinth Hosting"
+    "defaultMessage": "ShroudEdit Hosting"
   },
   "servers.manage.settings-hint.description": {
     "defaultMessage": "Artık burada bulunabilirler!"
@@ -5505,10 +5505,10 @@
     "defaultMessage": "Medal sunucu denemeniz sona erdi ve sunucunuz askıya alındı. Sunucunuzu kullanmaya devam etmek için lütfen yükseltin."
   },
   "servers.medal-listing.notice.suspended": {
-    "defaultMessage": "Sunucunuz askıya alındı. Lütfen fatura bilgilerinizi güncelleyin veya daha fazla bilgi için Modrinth Destek ile iletişime geçin."
+    "defaultMessage": "Sunucunuz askıya alındı. Lütfen fatura bilgilerinizi güncelleyin veya daha fazla bilgi için ShroudEdit Destek ile iletişime geçin."
   },
   "servers.medal-listing.notice.suspended-with-reason": {
-    "defaultMessage": "Sunucunuz şu sebepten askıya alındı: {reason}. Lütfen fatura bilgilerinizi güncelleyin veya daha fazla bilgi için Modrinth Destek ile iletişime geçin."
+    "defaultMessage": "Sunucunuz şu sebepten askıya alındı: {reason}. Lütfen fatura bilgilerinizi güncelleyin veya daha fazla bilgi için ShroudEdit Destek ile iletişime geçin."
   },
   "servers.medal-listing.notice.upgrading": {
     "defaultMessage": "Sunucunuzun donanımı şu anda yükseltilmektedir ve kısa süre içinde tekrar çevrimiçi olacaktır."
@@ -5556,7 +5556,7 @@
     "defaultMessage": "Görmezden gelinemez"
   },
   "servers.purchase.notification.success.text": {
-    "defaultMessage": "Modrinth Hosting satın alma işleminiz başarıyla tamamlandı."
+    "defaultMessage": "ShroudEdit Hosting satın alma işleminiz başarıyla tamamlandı."
   },
   "servers.purchase.notification.success.title": {
     "defaultMessage": "Satın alım başarılı"
@@ -5646,7 +5646,7 @@
     "defaultMessage": "Sunucunun nerede bulunmasını istersin?"
   },
   "servers.region.region-unsupported": {
-    "defaultMessage": "Bölgen listede yok mu? <link>Modrinth Hosting'i gelecekte nerede görmek istediğini bize söyle!</link>"
+    "defaultMessage": "Bölgen listede yok mu? <link>ShroudEdit Hosting'i gelecekte nerede görmek istediğini bize söyle!</link>"
   },
   "servers.region.southeast-asia": {
     "defaultMessage": "Güneydoğu Asya"
@@ -5739,7 +5739,7 @@
     "defaultMessage": "Sunucu kur"
   },
   "servers.setup.onboarding.step.choose.description": {
-    "defaultMessage": "Modrinth'ten favori mod paketinizi seçin veya bir yükleyici seçin ve istediğiniz modları ekleyin."
+    "defaultMessage": "ShroudEdit'ten favori mod paketinizi seçin veya bir yükleyici seçin ve istediğiniz modları ekleyin."
   },
   "servers.setup.onboarding.step.choose.title": {
     "defaultMessage": "Ne oynayacağınızı seçin"
@@ -5766,7 +5766,7 @@
     "defaultMessage": "Sunucunuz hazır. İşte oynamaya başlamak için yapmanız gerekenler!"
   },
   "servers.setup.onboarding.welcome.title": {
-    "defaultMessage": "Modrinth Hosting'e Hoş Geldiniz"
+    "defaultMessage": "ShroudEdit Hosting'e Hoş Geldiniz"
   },
   "servers.setup.rate-limit.text": {
     "defaultMessage": "Sınırlandırılıyorsunuz. Lütfen sonra tekrar deneyin."
@@ -5844,7 +5844,7 @@
     "defaultMessage": "Gelişmiş işleme"
   },
   "settings.display.sidebar.external-links-new-tab.description": {
-    "defaultMessage": "Modrinth dışına çıkan bağlantıların yeni bir sekmede açılmasını sağlayın. Bu ayardan bağımsız olarak, aynı alandaki ve Markdown açıklamalarındaki bağlantılar aynı sekmede; reklam ve düzenleme sayfalarındaki bağlantılar ise yeni sekmede açılır."
+    "defaultMessage": "ShroudEdit dışına çıkan bağlantıların yeni bir sekmede açılmasını sağlayın. Bu ayardan bağımsız olarak, aynı alandaki ve Markdown açıklamalarındaki bağlantılar aynı sekmede; reklam ve düzenleme sayfalarındaki bağlantılar ise yeni sekmede açılır."
   },
   "settings.display.sidebar.external-links-new-tab.title": {
     "defaultMessage": "Dış bağlantıları yeni sekmede aç"
@@ -5865,7 +5865,7 @@
     "defaultMessage": "Karanlık"
   },
   "settings.display.theme.description": {
-    "defaultMessage": "Modrinth genelinde tercih ettiğiniz renk temasını seçin."
+    "defaultMessage": "ShroudEdit genelinde tercih ettiğiniz renk temasını seçin."
   },
   "settings.display.theme.light": {
     "defaultMessage": "Aydınlık"
@@ -5889,7 +5889,7 @@
     "defaultMessage": "Oturum açtığınız her yerde bu temayı kullanın. Bu cihazda ayrı bir tema tutmak için bunu kapatın."
   },
   "settings.display.theme.sync-across-devices.sign-in-tooltip": {
-    "defaultMessage": "Temayı senkronize etmek için Modrinth'e giriş yapın"
+    "defaultMessage": "Temayı senkronize etmek için ShroudEdit'e giriş yapın"
   },
   "settings.display.theme.system": {
     "defaultMessage": "Sistemle eşle"
@@ -5910,7 +5910,7 @@
     "defaultMessage": "Arama sonuçları"
   },
   "settings.language.coverage.app-tooltip": {
-    "defaultMessage": "Modrinth Uygulamasının yaklaşık %{percentage} kadarı bu dilde mevcuttur."
+    "defaultMessage": "ShroudEdit Uygulamasının yaklaşık %{percentage} kadarı bu dilde mevcuttur."
   },
   "settings.language.coverage.label": {
     "defaultMessage": "{percentage}% destekleniyor"
@@ -5946,7 +5946,7 @@
     "defaultMessage": "Kişisel erişim tokenleri"
   },
   "settings.preferences.update-failed.description": {
-    "defaultMessage": "Ayarlarınız Modrinth hesabınıza kaydedilemedi. Lütfen tekrar deneyin."
+    "defaultMessage": "Ayarlarınız ShroudEdit hesabınıza kaydedilemedi. Lütfen tekrar deneyin."
   },
   "settings.preferences.update-failed.title": {
     "defaultMessage": "Ayarlar senkronize edilemedi"
@@ -5964,7 +5964,7 @@
     "defaultMessage": "Profil resmi"
   },
   "settings.profile.public-information.description": {
-    "defaultMessage": "Profil bilgileriniz Modrinth üzerinde <profile-link>herkese açık olarak görüntülenebilir</profile-link> ve <docs-link>Modrinth API</docs-link> aracılığıyla erişilebilir."
+    "defaultMessage": "Profil bilgileriniz ShroudEdit üzerinde <profile-link>herkese açık olarak görüntülenebilir</profile-link> ve <docs-link>ShroudEdit API</docs-link> aracılığıyla erişilebilir."
   },
   "settings.profile.save-error": {
     "defaultMessage": "Profil güncellenemedi"
@@ -5973,10 +5973,10 @@
     "defaultMessage": "Profiliniz güncellenirken bir hata oluştu. Lütfen tekrar deneyin."
   },
   "settings.profile.sign-in-required.description": {
-    "defaultMessage": "Modrinth hesabınızla giriş yaparak herekese açık profilinizi özelleştirebilirsiniz."
+    "defaultMessage": "ShroudEdit hesabınızla giriş yaparak herekese açık profilinizi özelleştirebilirsiniz."
   },
   "settings.profile.sign-in-required.title": {
-    "defaultMessage": "Modrinth hesabı gerekli"
+    "defaultMessage": "ShroudEdit hesabı gerekli"
   },
   "settings.profile.username.description": {
     "defaultMessage": "Profilinizi tanımlayan, büyük/küçük harfe duyarsız benzersiz bir isim."
@@ -5991,7 +5991,7 @@
     "defaultMessage": "Kullanıcı"
   },
   "settings.social.blocked-users.description": {
-    "defaultMessage": "Bunlar Modrinth üzerinde engellediğiniz kullanıcılardır. Şunları yapamazlar:"
+    "defaultMessage": "Bunlar ShroudEdit üzerinde engellediğiniz kullanıcılardır. Şunları yapamazlar:"
   },
   "settings.social.blocked-users.empty": {
     "defaultMessage": "Henüz kimseyi engellemediniz."
@@ -6006,7 +6006,7 @@
     "defaultMessage": "Arkadaşlık isteği"
   },
   "settings.social.blocked-users.restriction.hosting": {
-    "defaultMessage": "Modrinth Hosting sunucusu yönetme daveti."
+    "defaultMessage": "ShroudEdit Hosting sunucusu yönetme daveti."
   },
   "settings.social.blocked-users.restriction.shared-instances": {
     "defaultMessage": "Sizi paylaşılan örneklere davet etme"
@@ -6030,13 +6030,13 @@
     "defaultMessage": "{username}'in avatarı"
   },
   "settings.social.friend-requests.description": {
-    "defaultMessage": "Modrinth'te kimlerin size arkadaşlık isteği gönderebileceğini kontrol edin."
+    "defaultMessage": "ShroudEdit'te kimlerin size arkadaşlık isteği gönderebileceğini kontrol edin."
   },
   "settings.social.friend-requests.title": {
     "defaultMessage": "Arkadaş istekleri"
   },
   "settings.social.hosting-access.description": {
-    "defaultMessage": "Modrinth Hosting'de kimlerin size sunucu yönetme isteği gönderebileceğini kontrol edin."
+    "defaultMessage": "ShroudEdit Hosting'de kimlerin size sunucu yönetme isteği gönderebileceğini kontrol edin."
   },
   "settings.social.hosting-access.title": {
     "defaultMessage": "Hosting erişim davetleri"
@@ -6069,10 +6069,10 @@
     "defaultMessage": "Paylaşılan örnek davetleri"
   },
   "settings.social.sign-in-required.description": {
-    "defaultMessage": "Bir Modrinth Hesabı ile sizinle kimlerin etkileşime girebileceğini kontrol edebilir ve engellenen kullanıcıları yönetebilirsiniz"
+    "defaultMessage": "Bir ShroudEdit Hesabı ile sizinle kimlerin etkileşime girebileceğini kontrol edebilir ve engellenen kullanıcıları yönetebilirsiniz"
   },
   "settings.social.sign-in-required.title": {
-    "defaultMessage": "Modrinth hesabı gerekli"
+    "defaultMessage": "ShroudEdit hesabı gerekli"
   },
   "settings.social.title": {
     "defaultMessage": "Sosyal"
@@ -6171,7 +6171,7 @@
     "defaultMessage": "Kaydet"
   },
   "sharing.invite-players-modal.search-placeholder": {
-    "defaultMessage": "Modrinth kullanıcı adı girin"
+    "defaultMessage": "ShroudEdit kullanıcı adı girin"
   },
   "sharing.invite-players-modal.searching": {
     "defaultMessage": "Aranıyor..."
@@ -6572,7 +6572,7 @@
   "tag.loader.liteloader": {
     "defaultMessage": "LiteLoader"
   },
-  "tag.loader.minecraft": {
+  "tag.loader.enshrouded": {
     "defaultMessage": "Kaynak Paketi"
   },
   "tag.loader.modloader": {
@@ -6753,34 +6753,34 @@
     "defaultMessage": "Kötü amaçlı yazılımlar, genellikle Discord gibi platformlarda paylaşılan mod dosyaları aracılığıyla yayılmaktadır."
   },
   "unknown-file-warning-modal.mod-warning-body": {
-    "defaultMessage": " Modrinth'te paylaşılmamış. Yalnızca güvendiğiniz kaynaklardan gelen dosyaları yüklemenizi önemle tavsiye ederiz."
+    "defaultMessage": " ShroudEdit'te paylaşılmamış. Yalnızca güvendiğiniz kaynaklardan gelen dosyaları yüklemenizi önemle tavsiye ederiz."
   },
   "unknown-file-warning-modal.mod-warning-title": {
     "defaultMessage": "Bilinmeyen dosya uyarısı"
   },
   "unknown-file-warning-modal.modpack-warning-body": {
-    "defaultMessage": " Modrinth'te yayınlanmamış doysalar barındırıyor. Yalnızca güvendiğiniz kaynaklardan dosya indirmenizi önemle tavsiye ederiz."
+    "defaultMessage": " ShroudEdit'te yayınlanmamış doysalar barındırıyor. Yalnızca güvendiğiniz kaynaklardan dosya indirmenizi önemle tavsiye ederiz."
   },
   "unknown-file-warning-modal.modpack-warning-title": {
     "defaultMessage": "Bilinmeyen dosya uyarısı"
   },
   "unknown-file-warning-modal.reviewed-files": {
-    "defaultMessage": "Modrinth üzerinde yayınlanmayan dosyalar incelenmez."
+    "defaultMessage": "ShroudEdit üzerinde yayınlanmayan dosyalar incelenmez."
   },
   "unknown-file-warning-modal.unrecognized-files": {
     "defaultMessage": "Tanımlanamayan dosyalar"
   },
   "user.profile.badge.alpha.about.1": {
-    "defaultMessage": "Bu kullanıcı, Modrinth Alpha'nın başladığı tarihten beri aktif durumda; bu dönem Kasım 2020 itibarıyla sona ermiştir."
+    "defaultMessage": "Bu kullanıcı, ShroudEdit Alpha'nın başladığı tarihten beri aktif durumda; bu dönem Kasım 2020 itibarıyla sona ermiştir."
   },
   "user.profile.badge.alpha.name": {
     "defaultMessage": "Alfa Test Kullanıcısı"
   },
   "user.profile.badge.beta.about.1": {
-    "defaultMessage": "Bu kullanıcı, Şubat 2022'de sona eren Modrinth Beta sürümünden beri aktif durumda."
+    "defaultMessage": "Bu kullanıcı, Şubat 2022'de sona eren ShroudEdit Beta sürümünden beri aktif durumda."
   },
   "user.profile.badge.beta.link": {
-    "defaultMessage": "Modrinth Beta'nın lansmanı hakkında bilgi edinmek için tıklayın."
+    "defaultMessage": "ShroudEdit Beta'nın lansmanı hakkında bilgi edinmek için tıklayın."
   },
   "user.profile.badge.beta.name": {
     "defaultMessage": "Deneme Kullanıcısı"
@@ -6792,19 +6792,19 @@
     "defaultMessage": "{download_sum} İndirme"
   },
   "user.profile.badge.early-datapack-adopter.about.1": {
-    "defaultMessage": "Bu kullanıcı, Ocak 2023'te yayınlamadan önce Modrinth üzerinde Data Pack projelerini test etmemize yardımcı oldu."
+    "defaultMessage": "Bu kullanıcı, Ocak 2023'te yayınlamadan önce ShroudEdit üzerinde Data Pack projelerini test etmemize yardımcı oldu."
   },
   "user.profile.badge.early-datapack-adopter.name": {
     "defaultMessage": "Erken Veri Paketı Kullanıcısı"
   },
   "user.profile.badge.early-modpack-adopter.about.1": {
-    "defaultMessage": "Bu kullanıcı, Mayıs 2022'de yayınlamadan önce Modrinth üzerinde Modpack projelerini test etmemize yardımcı oldu."
+    "defaultMessage": "Bu kullanıcı, Mayıs 2022'de yayınlamadan önce ShroudEdit üzerinde Modpack projelerini test etmemize yardımcı oldu."
   },
   "user.profile.badge.early-modpack-adopter.name": {
     "defaultMessage": "Erken Mod Paket Kullanıcısı"
   },
   "user.profile.badge.early-plugin-adopter.about.1": {
-    "defaultMessage": "Bu kullanıcı, modları Ağustos 2022'de yayınlamadan önce Modrinth üzerinde Plugin projelerini test etmemize yardımcı oldu."
+    "defaultMessage": "Bu kullanıcı, modları Ağustos 2022'de yayınlamadan önce ShroudEdit üzerinde Plugin projelerini test etmemize yardımcı oldu."
   },
   "user.profile.badge.early-plugin-adopter.name": {
     "defaultMessage": "Erken Dönemde Eklenti Kullanıcısı"
@@ -6816,43 +6816,43 @@
     "defaultMessage": ""
   },
   "user.profile.badge.early-server-adopter.about.1": {
-    "defaultMessage": "Bu kullanıcı, sunucu projelerini Mart 2026'da yayınlamadan önce Modrinth üzerinde test etmemize yardımcı oldu."
+    "defaultMessage": "Bu kullanıcı, sunucu projelerini Mart 2026'da yayınlamadan önce ShroudEdit üzerinde test etmemize yardımcı oldu."
   },
   "user.profile.badge.early-server-adopter.name": {
     "defaultMessage": "Erken Sunucu Benimseyen"
   },
   "user.profile.badge.early-shader-adopter.about.1": {
-    "defaultMessage": "Bu kullanıcı, modları Ocak 2023'te yayınlamadan önce Shader projelerini Modrinth üzerinde test etmemize yardımcı oldu."
+    "defaultMessage": "Bu kullanıcı, modları Ocak 2023'te yayınlamadan önce Shader projelerini ShroudEdit üzerinde test etmemize yardımcı oldu."
   },
   "user.profile.badge.early-shader-adopter.name": {
     "defaultMessage": "Erken Shader Kullanıcısı"
   },
   "user.profile.badge.hosting-alpha.about.1": {
-    "defaultMessage": "Bu kullanıcı, Modrinth Hosting'in Kasım 2024'te yayınlanacak beta sürümünü piyasaya sürmeden önce gerçekleştirdiğimiz kapalı alfa testine katılmıştır."
+    "defaultMessage": "Bu kullanıcı, ShroudEdit Hosting'in Kasım 2024'te yayınlanacak beta sürümünü piyasaya sürmeden önce gerçekleştirdiğimiz kapalı alfa testine katılmıştır."
   },
   "user.profile.badge.hosting-alpha.name": {
-    "defaultMessage": "Modrinth Barındırma Alfa Testi"
+    "defaultMessage": "ShroudEdit Barındırma Alfa Testi"
   },
   "user.profile.badge.moderator.about.1": {
-    "defaultMessage": "Bu kullanıcı, Modrinth için içerik moderatörü olarak çalışmaktadır."
+    "defaultMessage": "Bu kullanıcı, ShroudEdit için içerik moderatörü olarak çalışmaktadır."
   },
   "user.profile.badge.moderator.about.2": {
-    "defaultMessage": "Modrinth'daki içerik denetleyicileri, projeleri inceler, raporları işler ve Modrinth'in güvenliğini sağlamaya yardımcı olur."
+    "defaultMessage": "ShroudEdit'daki içerik denetleyicileri, projeleri inceler, raporları işler ve ShroudEdit'in güvenliğini sağlamaya yardımcı olur."
   },
   "user.profile.badge.moderator.name": {
     "defaultMessage": "İçerik Moderatörü"
   },
   "user.profile.badge.plus.about.1": {
-    "defaultMessage": "Bu kullanıcı, Modrinth ve platformdaki yaratıcıları desteklemek için elinden geleni yapmaktadır."
+    "defaultMessage": "Bu kullanıcı, ShroudEdit ve platformdaki yaratıcıları desteklemek için elinden geleni yapmaktadır."
   },
   "user.profile.badge.plus.link": {
     "defaultMessage": "Üyeliğe nasıl katılabileceğiniz hakkında daha fazla bilgi edinmek için tıklayın."
   },
   "user.profile.badge.plus.name": {
-    "defaultMessage": "Modrinth+ Üyesi"
+    "defaultMessage": "ShroudEdit+ Üyesi"
   },
   "user.profile.badge.pride.about.1": {
-    "defaultMessage": "Bu kullanıcı, Modrinth'in LGBTQ+ topluluğu için düzenlediği en az bir Pride bağış kampanyasına katılmıştır."
+    "defaultMessage": "Bu kullanıcı, ShroudEdit'in LGBTQ+ topluluğu için düzenlediği en az bir Pride bağış kampanyasına katılmıştır."
   },
   "user.profile.badge.pride.link": {
     "defaultMessage": "En son Onur Ayı bağış kampanyamızı ziyaret etmek için tıklayın."
@@ -6861,16 +6861,16 @@
     "defaultMessage": "Onur Ayı Bağış Toplama Etkinliği Destekçisi"
   },
   "user.profile.badge.staff.about.1": {
-    "defaultMessage": "Bu kullanıcı Modrinth'te çalışıyor."
+    "defaultMessage": "Bu kullanıcı ShroudEdit'te çalışıyor."
   },
   "user.profile.badge.staff.name": {
-    "defaultMessage": "Modrinth Ekibi"
+    "defaultMessage": "ShroudEdit Ekibi"
   },
   "user.role.moderator": {
     "defaultMessage": "İçerik Moderatörü"
   },
-  "user.role.modrinth-team": {
-    "defaultMessage": "Modrinth Ekibi"
+  "user.role.shroudedit-team": {
+    "defaultMessage": "ShroudEdit Ekibi"
   },
   "version.content.name": {
     "defaultMessage": "İsim"

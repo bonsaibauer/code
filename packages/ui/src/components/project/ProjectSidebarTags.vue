@@ -26,9 +26,7 @@ const handleClickTag = (tag: string) => {
 	if (!props.project.actualProjectType) return
 
 	const projectType =
-		props.project.actualProjectType === 'minecraft_java_server'
-			? 'server'
-			: props.project.actualProjectType
+		props.project.actualProjectType === 'server' ? 'server' : props.project.actualProjectType
 
 	const params = projectType === 'server' ? `sc=${tag}` : `f=categories:${tag}`
 

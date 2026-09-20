@@ -114,7 +114,7 @@
     "defaultMessage": "Не знайдено результатів за вашим запитом!"
   },
   "browse.offline": {
-    "defaultMessage": "Ви наразі не в мережі. Під'єднайтеся до інтернету, щоб шукати на Modrinth!"
+    "defaultMessage": "Ви наразі не в мережі. Під'єднайтеся до інтернету, щоб шукати на ShroudEdit!"
   },
   "browse.search.placeholder": {
     "defaultMessage": "Шукати {projectType}…"
@@ -254,8 +254,8 @@
   "button.open-in-folder": {
     "defaultMessage": "Відкрити в теці"
   },
-  "button.open-in-modrinth": {
-    "defaultMessage": "Відкрити в Modrinth"
+  "button.open-in-shroudedit": {
+    "defaultMessage": "Відкрити в ShroudEdit"
   },
   "button.play": {
     "defaultMessage": "Грати"
@@ -552,13 +552,13 @@
     "defaultMessage": "Видалено (вимкнено): {count}"
   },
   "content.diff-modal.reviewed-files": {
-    "defaultMessage": "Розглядатимуть лише ті файли, які опубліковані на Modrinth."
+    "defaultMessage": "Розглядатимуть лише ті файли, які опубліковані на ShroudEdit."
   },
   "content.diff-modal.unknown-content-body": {
     "defaultMessage": "Деякий уміст на вашому сервері не вдалося проаналізувати, тож ця зміна може вплинути на нього."
   },
   "content.diff-modal.unknown-files-description": {
-    "defaultMessage": "Це оновлення містить файли, які не опубліковані на Modrinth. Наполегливо радимо встановлювати вміст лише з тих джерел, яким ви довіряєте."
+    "defaultMessage": "Це оновлення містить файли, які не опубліковані на ShroudEdit. Наполегливо радимо встановлювати вміст лише з тих джерел, яким ви довіряєте."
   },
   "content.diff-modal.unknown-files-warning": {
     "defaultMessage": "Попередження про невідомі файли"
@@ -1034,11 +1034,11 @@
   "creation-flow.modal.setup-type.option.upload-modpack.title": {
     "defaultMessage": "Вивантажити збірку"
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.description": {
-    "defaultMessage": "Класичний Minecraft без модів і плагінів."
+  "creation-flow.modal.setup-type.option.vanilla-enshrouded.description": {
+    "defaultMessage": "Класичний Enshrouded без модів і плагінів."
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.title": {
-    "defaultMessage": "Стандартний Minecraft"
+  "creation-flow.modal.setup-type.option.vanilla-enshrouded.title": {
+    "defaultMessage": "Стандартний Enshrouded"
   },
   "creation-flow.modal.setup-type.title.installation": {
     "defaultMessage": "Виберіть спосіб установлення"
@@ -1160,8 +1160,8 @@
   "external-files.permissions-card.editor.link-to-work-url-placeholder": {
     "defaultMessage": "посилання-на-роботу"
   },
-  "external-files.permissions-card.editor.modrinth-link-to-work": {
-    "defaultMessage": "Схоже, що це посилання від Modrinth. Якщо цей уміст доступний на Modrinth, ваш пакет, імовірно, експортовано неправильно. Якщо ви завантажили його з іншого сайту, спробуйте завантажити версію Modrinth: інколи вони не є ідентичними файлами."
+  "external-files.permissions-card.editor.shroudedit-link-to-work": {
+    "defaultMessage": "Схоже, що це посилання від ShroudEdit. Якщо цей уміст доступний на ShroudEdit, ваш пакет, імовірно, експортовано неправильно. Якщо ви завантажили його з іншого сайту, спробуйте завантажити версію ShroudEdit: інколи вони не є ідентичними файлами."
   },
   "external-files.permissions-card.editor.notes-label": {
     "defaultMessage": "Нотатки"
@@ -1185,7 +1185,7 @@
     "defaultMessage": "Якщо ми виявимо, що ви відправили несправжні чи змінені зображення, то ваш проєкт та обліковий запис можуть стати заблокованими."
   },
   "external-files.permissions-card.editor.proof-warning.title": {
-    "defaultMessage": "Персонал Modrinth може перевіряти відправлені докази"
+    "defaultMessage": "Персонал ShroudEdit може перевіряти відправлені докази"
   },
   "external-files.permissions-card.editor.save": {
     "defaultMessage": "Зберегти атрибуцію"
@@ -1272,7 +1272,7 @@
     "defaultMessage": "Автоматично додано атрибуцію"
   },
   "external-files.permissions-card.reason.globally-allowed.description": {
-    "defaultMessage": "Ми вже бачили цей файл і підготували для вас атрибуцію. Якщо щось не так, зв'яжіться з підтримкою Modrinth через центр допомоги"
+    "defaultMessage": "Ми вже бачили цей файл і підготували для вас атрибуцію. Якщо щось не так, зв'яжіться з підтримкою ShroudEdit через центр допомоги"
   },
   "external-files.permissions-card.reason.license": {
     "defaultMessage": "Ліцензія"
@@ -1892,16 +1892,16 @@
   "header.category.feature": {
     "defaultMessage": "Особливість"
   },
-  "header.category.minecraft-server-community": {
+  "header.category.enshrouded-server-community": {
     "defaultMessage": "Спільнота"
   },
-  "header.category.minecraft-server-features": {
+  "header.category.enshrouded-server-features": {
     "defaultMessage": "Особливості"
   },
-  "header.category.minecraft-server-gameplay": {
+  "header.category.enshrouded-server-gameplay": {
     "defaultMessage": "Ігровий процес"
   },
-  "header.category.minecraft-server-meta": {
+  "header.category.enshrouded-server-meta": {
     "defaultMessage": "Властивості"
   },
   "header.category.performance-impact": {
@@ -2229,13 +2229,13 @@
     "defaultMessage": "Видалено (несумісно)"
   },
   "installation-settings.repair.instance-description": {
-    "defaultMessage": "Перевстановлює залежності Minecraft та перевіряє їх на наявність пошкоджень. Це може розв’язати проблеми, якщо ваша гра не запускається через помилки запускача."
+    "defaultMessage": "Перевстановлює залежності Enshrouded та перевіряє їх на наявність пошкоджень. Це може розв’язати проблеми, якщо ваша гра не запускається через помилки запускача."
   },
   "installation-settings.repair.instance-title": {
     "defaultMessage": "Відновити примірник"
   },
   "installation-settings.repair.server-description": {
-    "defaultMessage": "Перевстановлює завантажувач та залежності Minecraft без видалення вашого вмісту. Це може розв’язати проблеми, якщо ваш сервер не запускається належним чином."
+    "defaultMessage": "Перевстановлює завантажувач та залежності Enshrouded без видалення вашого вмісту. Це може розв’язати проблеми, якщо ваш сервер не запускається належним чином."
   },
   "installation-settings.repair.server-title": {
     "defaultMessage": "Лагодження сервера"
@@ -2262,7 +2262,7 @@
     "defaultMessage": "Відв’язати"
   },
   "installation-settings.unlink.description": {
-    "defaultMessage": "Відв'язання назавжди від'єднає {type} від проєкту {projectType}, дозволивши вам змінити завантажувач та версію Minecraft, але ви не зможете отримувати подальші оновлення."
+    "defaultMessage": "Відв'язання назавжди від'єднає {type} від проєкту {projectType}, дозволивши вам змінити завантажувач та версію Enshrouded, але ви не зможете отримувати подальші оновлення."
   },
   "installation-settings.verifying": {
     "defaultMessage": "Перевірка…"
@@ -2280,10 +2280,10 @@
     "defaultMessage": "Перевстановити збірку"
   },
   "instance.confirm-repair.body.instance": {
-    "defaultMessage": "Лагодження перевстановить завантажувач та залежності Minecraft без видалення вашого вмісту. Це може розв’язати проблеми, якщо ваша гра не запускається через помилки запускача."
+    "defaultMessage": "Лагодження перевстановить завантажувач та залежності Enshrouded без видалення вашого вмісту. Це може розв’язати проблеми, якщо ваша гра не запускається через помилки запускача."
   },
   "instance.confirm-repair.body.server": {
-    "defaultMessage": "Лагодження перевстановлює завантажувач та залежності Minecraft без видалення вашого вмісту. Це може розв’язати проблеми, якщо ваш сервер не запускається належним чином."
+    "defaultMessage": "Лагодження перевстановлює завантажувач та залежності Enshrouded без видалення вашого вмісту. Це може розв’язати проблеми, якщо ваш сервер не запускається належним чином."
   },
   "instance.confirm-repair.header": {
     "defaultMessage": "Полагодити {type}"
@@ -2379,7 +2379,7 @@
     "defaultMessage": "Зовнішнє"
   },
   "instances.managed-content-modal.external-content-description": {
-    "defaultMessage": "Цей файл не опубліковано на Modrinth."
+    "defaultMessage": "Цей файл не опубліковано на ShroudEdit."
   },
   "instances.managed-content-modal.header": {
     "defaultMessage": "Керований уміст"
@@ -2991,16 +2991,16 @@
     "defaultMessage": "Зберігання файлів оновленими, попри зміни сервера"
   },
   "modal.open-in-app.get-app": {
-    "defaultMessage": "Отримати Modrinth App"
+    "defaultMessage": "Отримати ShroudEdit App"
   },
   "modal.open-in-app.opening-automatically": {
-    "defaultMessage": "Modrinth App відкриється автоматично…"
+    "defaultMessage": "ShroudEdit App відкриється автоматично…"
   },
   "modal.open-in-app.title": {
-    "defaultMessage": "Відкриття Modrinth App"
+    "defaultMessage": "Відкриття ShroudEdit App"
   },
   "modal.open-in-app.why-use": {
-    "defaultMessage": "Навіщо використовувати Modrinth App"
+    "defaultMessage": "Навіщо використовувати ShroudEdit App"
   },
   "notification.error.title": {
     "defaultMessage": "Виникла помилка"
@@ -3065,8 +3065,8 @@
   "omorphia.component.badge.label.moderator": {
     "defaultMessage": "Модератор"
   },
-  "omorphia.component.badge.label.modrinth-team": {
-    "defaultMessage": "Команда Modrinth"
+  "omorphia.component.badge.label.shroudedit-team": {
+    "defaultMessage": "Команда ShroudEdit"
   },
   "omorphia.component.badge.label.pending": {
     "defaultMessage": "На розгляді"
@@ -3186,13 +3186,13 @@
     "defaultMessage": "Visa"
   },
   "profile.bio.fallback.creator": {
-    "defaultMessage": "Творець Modrinth."
+    "defaultMessage": "Творець ShroudEdit."
   },
   "profile.bio.fallback.user": {
-    "defaultMessage": "Користувач Modrinth."
+    "defaultMessage": "Користувач ShroudEdit."
   },
   "profile.block-user.admonition-body": {
-    "defaultMessage": "{username} не зможе надсилати вам запити в друзі, запрошувати до спільних збірок або запрошувати на сервери Modrinth Hosting."
+    "defaultMessage": "{username} не зможе надсилати вам запити в друзі, запрошувати до спільних збірок або запрошувати на сервери ShroudEdit Hosting."
   },
   "profile.block-user.admonition-title": {
     "defaultMessage": "Справді бажаєте заблокувати цього користувача?"
@@ -3249,7 +3249,7 @@
     "defaultMessage": "{count, plural, one {# проєкт} few {# проєкти} many {# проєктів} other {# проєкту}}"
   },
   "profile.details.error.github-popup-blocked": {
-    "defaultMessage": "Дозвольте спливні вікна для Modrinth, потім спробуйте знову."
+    "defaultMessage": "Дозвольте спливні вікна для ShroudEdit, потім спробуйте знову."
   },
   "profile.details.error.github-profile-message": {
     "defaultMessage": "Не вдалося отримати профіль GitHub. Спробуйте знову."
@@ -3327,10 +3327,10 @@
     "defaultMessage": "{count, plural, one {проєкт} few {проєкти} many {проєктів} other {проєктів}}"
   },
   "profile.official-account": {
-    "defaultMessage": "Офіційний обліковий запис Modrinth"
+    "defaultMessage": "Офіційний обліковий запис ShroudEdit"
   },
   "profile.official-account.bio": {
-    "defaultMessage": "Офіційний обліковий запис Modrinth. Зв'язатися з підтримкою можна за <support-link></support-link> або через електронну пошту за <email></email>"
+    "defaultMessage": "Офіційний обліковий запис ShroudEdit. Зв'язатися з підтримкою можна за <support-link></support-link> або через електронну пошту за <email></email>"
   },
   "profile.unblock-user.error-description": {
     "defaultMessage": "Виникла помилка під час розблокування користувача. Спробуйте знову."
@@ -3467,8 +3467,8 @@
   "project.about.compatibility.environments.singleplayer-only": {
     "defaultMessage": "Лише гра наодинці"
   },
-  "project.about.compatibility.game.minecraftJava": {
-    "defaultMessage": "Minecraft: Java Edition"
+  "project.about.compatibility.game.enshroudedJava": {
+    "defaultMessage": "Enshrouded: Java Edition"
   },
   "project.about.compatibility.platforms": {
     "defaultMessage": "Платформи"
@@ -3705,7 +3705,7 @@
     "defaultMessage": "{count} {countPlural, plural, one {нещодавно грав} few {нещодавно грали} many {нещодавно грали} other {нещодавно грали}}"
   },
   "project.recent-plays.tooltip": {
-    "defaultMessage": "{count} {countPlural, plural, one {нещодавно грав} other {нещодавно грали}} з Modrinth за останні 2 тижні"
+    "defaultMessage": "{count} {countPlural, plural, one {нещодавно грав} other {нещодавно грали}} з ShroudEdit за останні 2 тижні"
   },
   "project.server.customModpackTooltip": {
     "defaultMessage": "Цей проєкт використовує власну збірку"
@@ -4038,7 +4038,7 @@
     "defaultMessage": "Ваш проєкт має кілька середовищ"
   },
   "project.settings.environment.notice.review-options.description": {
-    "defaultMessage": "Нещодавно ми оновили систему середовищ у Modrinth і вам тепер доступні нові налаштування. Переконайтесь, що вибрано правильні налаштування й натисніть «Підтвердити» коли закінчите!"
+    "defaultMessage": "Нещодавно ми оновили систему середовищ у ShroudEdit і вам тепер доступні нові налаштування. Переконайтесь, що вибрано правильні налаштування й натисніть «Підтвердити» коли закінчите!"
   },
   "project.settings.environment.notice.review-options.title": {
     "defaultMessage": "Перегляньте налаштування нижче"
@@ -4410,13 +4410,13 @@
     "defaultMessage": "Завантажувач"
   },
   "search.photosensitivity-warning-modal.body.1": {
-    "defaultMessage": "Ми не можемо гарантувати, що весь вміст на Modrinth позначено належним чином."
+    "defaultMessage": "Ми не можемо гарантувати, що весь вміст на ShroudEdit позначено належним чином."
   },
   "search.photosensitivity-warning-modal.body.2": {
-    "defaultMessage": "Інформація щодо наявності тригерів світлочутливості встановлюються самими авторами, які завантажують уміст на Modrinth. Ці проєкти не проходили жодних перевірок безпеки."
+    "defaultMessage": "Інформація щодо наявності тригерів світлочутливості встановлюються самими авторами, які завантажують уміст на ShroudEdit. Ці проєкти не проходили жодних перевірок безпеки."
   },
   "search.photosensitivity-warning-modal.body.3": {
-    "defaultMessage": "Використання будь-якого вмісту з Modrinth здійснюється на ваш власний ризик. Бережіть себе! 💚"
+    "defaultMessage": "Використання будь-якого вмісту з ShroudEdit здійснюється на ваш власний ризик. Бережіть себе! 💚"
   },
   "search.photosensitivity-warning-modal.dont-show-again": {
     "defaultMessage": "Більше не показувати"
@@ -4512,7 +4512,7 @@
     "defaultMessage": "Завантажити файл"
   },
   "servers.access-page.activity-log-filter.action.game-version-edited": {
-    "defaultMessage": "Оберіть версію Minecraft"
+    "defaultMessage": "Оберіть версію Enshrouded"
   },
   "servers.access-page.activity-log-filter.action.java-runtime-modified": {
     "defaultMessage": "Змінено середовище виконання Java"
@@ -4842,7 +4842,7 @@
     "defaultMessage": "Завантажено файл <file></file>"
   },
   "servers.audit-log.event.game-version-changed": {
-    "defaultMessage": "Змінено версію Minecraft на <version></version>"
+    "defaultMessage": "Змінено версію Enshrouded на <version></version>"
   },
   "servers.audit-log.event.java-runtime-modified": {
     "defaultMessage": "Змінено середовище виконання Java на <vendor></vendor>"
@@ -5196,16 +5196,16 @@
     "defaultMessage": "Аватар {username}"
   },
   "servers.grant-access-modal.target.help": {
-    "defaultMessage": "Не використовуйте їхнє ім’я користувача Minecraft."
+    "defaultMessage": "Не використовуйте їхнє ім’я користувача Enshrouded."
   },
   "servers.grant-access-modal.target.label": {
-    "defaultMessage": "Ім’я користувача Modrinth"
+    "defaultMessage": "Ім’я користувача ShroudEdit"
   },
   "servers.grant-access-modal.target.no-suggestions": {
     "defaultMessage": "За вашим запитом користувачів не знайдено."
   },
   "servers.grant-access-modal.target.placeholder": {
-    "defaultMessage": "Уведіть ім’я користувача Modrinth"
+    "defaultMessage": "Уведіть ім’я користувача ShroudEdit"
   },
   "servers.grant-access-modal.target.searching": {
     "defaultMessage": "Пошук…"
@@ -5231,17 +5231,17 @@
   "servers.installing-banner.error.header.local-modpack": {
     "defaultMessage": "Не вдалося встановити {filename}"
   },
-  "servers.installing-banner.error.header.minecraft": {
-    "defaultMessage": "Не вдалося встановити Minecraft {version}"
+  "servers.installing-banner.error.header.enshrouded": {
+    "defaultMessage": "Не вдалося встановити Enshrouded {version}"
   },
   "servers.installing-banner.error.header.modpack": {
     "defaultMessage": "Не вдалося встановити збірку"
   },
   "servers.installing-banner.error.header.platform": {
-    "defaultMessage": "Не вдалося встановити {loader} {loaderVersion} для Minecraft {gameVersion}"
+    "defaultMessage": "Не вдалося встановити {loader} {loaderVersion} для Enshrouded {gameVersion}"
   },
   "servers.installing-banner.error.header.platform-without-version": {
-    "defaultMessage": "Не вдалося встановити {loader} для Minecraft {gameVersion}"
+    "defaultMessage": "Не вдалося встановити {loader} для Enshrouded {gameVersion}"
   },
   "servers.installing-banner.error.unknown": {
     "defaultMessage": "Під час установлення сталася несподівана помилка."
@@ -5249,14 +5249,14 @@
   "servers.installing-banner.installing-local-modpack": {
     "defaultMessage": "Встановлення {filename}"
   },
-  "servers.installing-banner.installing-minecraft": {
-    "defaultMessage": "Установлення Minecraft {version}"
+  "servers.installing-banner.installing-enshrouded": {
+    "defaultMessage": "Установлення Enshrouded {version}"
   },
   "servers.installing-banner.installing-modpack": {
     "defaultMessage": "Установлення збірки"
   },
   "servers.installing-banner.installing-platform": {
-    "defaultMessage": "Установлення {loader} для Minecraft {version}"
+    "defaultMessage": "Установлення {loader} для Enshrouded {version}"
   },
   "servers.installing-banner.preparing.header": {
     "defaultMessage": "Підготовка вашого сервера"
@@ -5267,14 +5267,14 @@
   "servers.list-empty.learn-more-link": {
     "defaultMessage": "Детальніше"
   },
-  "servers.list-empty.modrinth-hosting-label": {
-    "defaultMessage": "Modrinth Hosting"
+  "servers.list-empty.shroudedit-hosting-label": {
+    "defaultMessage": "ShroudEdit Hosting"
   },
   "servers.list-empty.new-server-button": {
     "defaultMessage": "Новий сервер"
   },
   "servers.list-empty.no-servers-description": {
-    "defaultMessage": "Установлюйте моди, запрошуйте друзів і грайте разом із Modrinth App."
+    "defaultMessage": "Установлюйте моди, запрошуйте друзів і грайте разом із ShroudEdit App."
   },
   "servers.list-empty.one-click-mod-installs-description": {
     "defaultMessage": "Виберіть свої улюблені моди, а ми подбаємо про решту."
@@ -5283,13 +5283,13 @@
     "defaultMessage": "Установлення в одне натискання"
   },
   "servers.list-empty.play-with-friends-description": {
-    "defaultMessage": "Запросіть друзів грати на вашому сервері в один клік через Modrinth App."
+    "defaultMessage": "Запросіть друзів грати на вашому сервері в один клік через ShroudEdit App."
   },
   "servers.list-empty.play-with-friends-title": {
     "defaultMessage": "Грайте з друзями"
   },
   "servers.list-empty.sign-in-button": {
-    "defaultMessage": "Увійти до Modrinth"
+    "defaultMessage": "Увійти до ShroudEdit"
   },
   "servers.list-empty.simple-setup-description": {
     "defaultMessage": "Налаштуйте свій сервер так само, як світ для гри наодинці."
@@ -5346,7 +5346,7 @@
     "defaultMessage": "Вашу передплату встановлено на скасовання <date>{formattedDate}</date>. "
   },
   "servers.listing.notice.suspended": {
-    "defaultMessage": "Ваш сервер призупинено. Для подробиць зверніться до служби підтримки Modrinth."
+    "defaultMessage": "Ваш сервер призупинено. Для подробиць зверніться до служби підтримки ShroudEdit."
   },
   "servers.listing.notice.upgrading": {
     "defaultMessage": "Апаратне забезпечення вашого сервера зараз покращується і незабаром відновиться."
@@ -5379,7 +5379,7 @@
     "defaultMessage": "Вивантаження триває"
   },
   "servers.manage.contact-support-button": {
-    "defaultMessage": "Зв'язатися зі службою підтримки Modrinth"
+    "defaultMessage": "Зв'язатися зі службою підтримки ShroudEdit"
   },
   "servers.manage.error.alert-notice": {
     "defaultMessage": "Наші системи автоматично сповіщають нашу команду про проблему. Ми вже працюємо над тим, щоб повернути їх у мережу."
@@ -5391,10 +5391,10 @@
     "defaultMessage": "Подробиці помилки:"
   },
   "servers.manage.error.queue-notice": {
-    "defaultMessage": "Якщо ви нещодавно придбали свій сервер Modrinth Hosting, він зараз у черзі та з’явиться тут, щойно буде готовий. <warning>Не намагайтеся придбати новий сервер.</warning>"
+    "defaultMessage": "Якщо ви нещодавно придбали свій сервер ShroudEdit Hosting, він зараз у черзі та з’явиться тут, щойно буде готовий. <warning>Не намагайтеся придбати новий сервер.</warning>"
   },
   "servers.manage.error.support-notice": {
-    "defaultMessage": "Якщо вам потрібна персональна підтримка щодо стану вашого сервера, зверніться до служби підтримки Modrinth."
+    "defaultMessage": "Якщо вам потрібна персональна підтримка щодо стану вашого сервера, зверніться до служби підтримки ShroudEdit."
   },
   "servers.manage.error.title": {
     "defaultMessage": "Не вдалося завантажити сервера"
@@ -5427,7 +5427,7 @@
     "defaultMessage": "Перезавантажити"
   },
   "servers.manage.resubscribe-error.text": {
-    "defaultMessage": "Під час поновлення передплати на сервер Modrinth сталася помилка."
+    "defaultMessage": "Під час поновлення передплати на сервер ShroudEdit сталася помилка."
   },
   "servers.manage.resubscribe-error.title": {
     "defaultMessage": "Помилка поновлення передплати"
@@ -5448,7 +5448,7 @@
     "defaultMessage": "Пошук {count} {count, plural, one {сервера} few {серверів} many {серверів} other {серверів}}…"
   },
   "servers.manage.servers-title": {
-    "defaultMessage": "Modrinth Hosting"
+    "defaultMessage": "ShroudEdit Hosting"
   },
   "servers.manage.settings-hint.description": {
     "defaultMessage": "Тепер їх можна знайти тут!"
@@ -5475,10 +5475,10 @@
     "defaultMessage": "Пробна версія вашого сервера Medal закінчилася, а роботу сервера призупинено. Покращте, щоб продовжувати використовувати свій сервер."
   },
   "servers.medal-listing.notice.suspended": {
-    "defaultMessage": "Ваш сервер призупинено. Оновіть свою платіжну інформацію або зверніться до служби підтримки Modrinth для подробиць."
+    "defaultMessage": "Ваш сервер призупинено. Оновіть свою платіжну інформацію або зверніться до служби підтримки ShroudEdit для подробиць."
   },
   "servers.medal-listing.notice.suspended-with-reason": {
-    "defaultMessage": "Ваш сервер призупинено: {reason}. Оновіть свою платіжну інформацію або зверніться до служби підтримки Modrinth для подробиць."
+    "defaultMessage": "Ваш сервер призупинено: {reason}. Оновіть свою платіжну інформацію або зверніться до служби підтримки ShroudEdit для подробиць."
   },
   "servers.medal-listing.notice.upgrading": {
     "defaultMessage": "Апаратне забезпечення вашого сервера зараз покращується і незабаром відновиться."
@@ -5526,7 +5526,7 @@
     "defaultMessage": "Не можна відхилити"
   },
   "servers.purchase.notification.success.text": {
-    "defaultMessage": "Ваша покупка Modrinth Hosting була успішно завершена."
+    "defaultMessage": "Ваша покупка ShroudEdit Hosting була успішно завершена."
   },
   "servers.purchase.notification.success.title": {
     "defaultMessage": "Успішна покупка"
@@ -5616,7 +5616,7 @@
     "defaultMessage": "Де б ви хотіли розмістити свій сервер?"
   },
   "servers.region.region-unsupported": {
-    "defaultMessage": "Регіону немає в списку? <link>Повідомте нам, де ви ще хотіли б побачити Modrinth Hosting!</link>"
+    "defaultMessage": "Регіону немає в списку? <link>Повідомте нам, де ви ще хотіли б побачити ShroudEdit Hosting!</link>"
   },
   "servers.region.southeast-asia": {
     "defaultMessage": "Південно-східна Азія"
@@ -5709,7 +5709,7 @@
     "defaultMessage": "Налаштування сервера"
   },
   "servers.setup.onboarding.step.choose.description": {
-    "defaultMessage": "Виберіть свою улюблену збірку із Modrinth або виберіть завантажувач і додайте потрібні моди."
+    "defaultMessage": "Виберіть свою улюблену збірку із ShroudEdit або виберіть завантажувач і додайте потрібні моди."
   },
   "servers.setup.onboarding.step.choose.title": {
     "defaultMessage": "Виберіть в що грати"
@@ -5736,7 +5736,7 @@
     "defaultMessage": "Ваш сервер готовий. Ось що вам потрібно зробити, щоб почати грати!"
   },
   "servers.setup.onboarding.welcome.title": {
-    "defaultMessage": "Ласкаво просимо до Modrinth Hosting"
+    "defaultMessage": "Ласкаво просимо до ShroudEdit Hosting"
   },
   "servers.setup.rate-limit.text": {
     "defaultMessage": "На вас накладено обмеження через кількість запитів. Спробуйте ще раз пізніше."
@@ -5814,7 +5814,7 @@
     "defaultMessage": "Розширене промальовування"
   },
   "settings.display.sidebar.external-links-new-tab.description": {
-    "defaultMessage": "Робить так, щоб посилання за межі Modrinth, відкривалися в новій вкладці. Незалежно від цього налаштування, посилання в одному домені й в описах з Markdown відкриватимуться в тій же вкладці, а посилання в рекламах і на сторінках редагування — в новій вкладці."
+    "defaultMessage": "Робить так, щоб посилання за межі ShroudEdit, відкривалися в новій вкладці. Незалежно від цього налаштування, посилання в одному домені й в описах з Markdown відкриватимуться в тій же вкладці, а посилання в рекламах і на сторінках редагування — в новій вкладці."
   },
   "settings.display.sidebar.external-links-new-tab.title": {
     "defaultMessage": "Відкривати зовнішні посилання в новій вкладці"
@@ -5835,7 +5835,7 @@
     "defaultMessage": "Темна"
   },
   "settings.display.theme.description": {
-    "defaultMessage": "Оберіть бажану колірну тему для Modrinth App."
+    "defaultMessage": "Оберіть бажану колірну тему для ShroudEdit App."
   },
   "settings.display.theme.light": {
     "defaultMessage": "Світла"
@@ -5859,7 +5859,7 @@
     "defaultMessage": "Використовуватиме цю тему всюди, де ви ввійшли. Вимкніть її, щоб зберегти окрему тему на цьому пристрої."
   },
   "settings.display.theme.sync-across-devices.sign-in-tooltip": {
-    "defaultMessage": "Увійдіть до Modrinth, щоб синхронізувати тему"
+    "defaultMessage": "Увійдіть до ShroudEdit, щоб синхронізувати тему"
   },
   "settings.display.theme.system": {
     "defaultMessage": "Системна"
@@ -5880,7 +5880,7 @@
     "defaultMessage": "Результати пошуку"
   },
   "settings.language.coverage.app-tooltip": {
-    "defaultMessage": "Близько {percentage}% Modrinth App доступно цією мовою."
+    "defaultMessage": "Близько {percentage}% ShroudEdit App доступно цією мовою."
   },
   "settings.language.coverage.label": {
     "defaultMessage": "Підтримується {percentage}%"
@@ -5916,7 +5916,7 @@
     "defaultMessage": "Особистий токен доступу"
   },
   "settings.preferences.update-failed.description": {
-    "defaultMessage": "Не вдалося зберегти ваші налаштування в обліковому записі Modrinth. Спробуйте знову."
+    "defaultMessage": "Не вдалося зберегти ваші налаштування в обліковому записі ShroudEdit. Спробуйте знову."
   },
   "settings.preferences.update-failed.title": {
     "defaultMessage": "Не вдалося синхронізувати налаштування"
@@ -5934,7 +5934,7 @@
     "defaultMessage": "Зображення профілю"
   },
   "settings.profile.public-information.description": {
-    "defaultMessage": "Інформація з вашого профілю є <profile-link>загальнодоступною на Modrinth</profile-link> та через <docs-link>Modrinth API</docs-link>."
+    "defaultMessage": "Інформація з вашого профілю є <profile-link>загальнодоступною на ShroudEdit</profile-link> та через <docs-link>ShroudEdit API</docs-link>."
   },
   "settings.profile.save-error": {
     "defaultMessage": "Не вдалося оновити профіль"
@@ -5943,10 +5943,10 @@
     "defaultMessage": "Виникла помилка під час оновлення вашого профілю Спробуйте знову."
   },
   "settings.profile.sign-in-required.description": {
-    "defaultMessage": "Увійдіть за допомогою облікового запису Modrinth, щоб налаштувати свій публічний профіль."
+    "defaultMessage": "Увійдіть за допомогою облікового запису ShroudEdit, щоб налаштувати свій публічний профіль."
   },
   "settings.profile.sign-in-required.title": {
-    "defaultMessage": "Потрібен обліковий запис Modrinth"
+    "defaultMessage": "Потрібен обліковий запис ShroudEdit"
   },
   "settings.profile.username.description": {
     "defaultMessage": "Унікальне ім'я для ідентифікації вашого профілю."
@@ -5961,7 +5961,7 @@
     "defaultMessage": "Користувач"
   },
   "settings.social.blocked-users.description": {
-    "defaultMessage": "Це користувачі, яких ви заблокували на Modrinth. Вони не можуть:"
+    "defaultMessage": "Це користувачі, яких ви заблокували на ShroudEdit. Вони не можуть:"
   },
   "settings.social.blocked-users.empty": {
     "defaultMessage": "Ви нікого не заблокували."
@@ -5976,7 +5976,7 @@
     "defaultMessage": "Надсилати вам запити в друзі"
   },
   "settings.social.blocked-users.restriction.hosting": {
-    "defaultMessage": "Запрошувати вас керувати сервером Modrinth Hosting."
+    "defaultMessage": "Запрошувати вас керувати сервером ShroudEdit Hosting."
   },
   "settings.social.blocked-users.restriction.shared-instances": {
     "defaultMessage": "Запрошувати вас до спільних примірників"
@@ -6000,13 +6000,13 @@
     "defaultMessage": "Аватар користувача {username}"
   },
   "settings.social.friend-requests.description": {
-    "defaultMessage": "Керуйте тим, хто може надсилати вам запити в друзі на Modrinth."
+    "defaultMessage": "Керуйте тим, хто може надсилати вам запити в друзі на ShroudEdit."
   },
   "settings.social.friend-requests.title": {
     "defaultMessage": "Запити в друзі"
   },
   "settings.social.hosting-access.description": {
-    "defaultMessage": "Керуйте тим, хто може надсилати вам запрошення до керування сервером у Modrinth Hosting."
+    "defaultMessage": "Керуйте тим, хто може надсилати вам запрошення до керування сервером у ShroudEdit Hosting."
   },
   "settings.social.hosting-access.title": {
     "defaultMessage": "Запрошення до керування серверами"
@@ -6039,10 +6039,10 @@
     "defaultMessage": "Запрошення до примірників"
   },
   "settings.social.sign-in-required.description": {
-    "defaultMessage": "З обліковим записом Modrinth ви можете налаштувати, хто може взаємодіяти з вами, або керувати заблокованими користувачами"
+    "defaultMessage": "З обліковим записом ShroudEdit ви можете налаштувати, хто може взаємодіяти з вами, або керувати заблокованими користувачами"
   },
   "settings.social.sign-in-required.title": {
-    "defaultMessage": "Потрібен обліковий запис Modrinth"
+    "defaultMessage": "Потрібен обліковий запис ShroudEdit"
   },
   "settings.social.title": {
     "defaultMessage": "Взаємодія"
@@ -6542,7 +6542,7 @@
   "tag.loader.liteloader": {
     "defaultMessage": "LiteLoader"
   },
-  "tag.loader.minecraft": {
+  "tag.loader.enshrouded": {
     "defaultMessage": "Пакет ресурсів"
   },
   "tag.loader.modloader": {
@@ -6726,34 +6726,34 @@
     "defaultMessage": "Шкідливе програмне забезпечення часто поширюють через моди, які публікуються на таких платформах, як Discord."
   },
   "unknown-file-warning-modal.mod-warning-body": {
-    "defaultMessage": " не опубліковано на Modrinth. Наполегливо радимо встановлювати вміст лише з тих джерел, яким ви довіряєте."
+    "defaultMessage": " не опубліковано на ShroudEdit. Наполегливо радимо встановлювати вміст лише з тих джерел, яким ви довіряєте."
   },
   "unknown-file-warning-modal.mod-warning-title": {
     "defaultMessage": "Попередження про невідомий файл"
   },
   "unknown-file-warning-modal.modpack-warning-body": {
-    "defaultMessage": " містить файли, які не опубліковані на Modrinth. Наполегливо радимо встановлювати вміст лише з тих джерел, яким ви довіряєте."
+    "defaultMessage": " містить файли, які не опубліковані на ShroudEdit. Наполегливо радимо встановлювати вміст лише з тих джерел, яким ви довіряєте."
   },
   "unknown-file-warning-modal.modpack-warning-title": {
     "defaultMessage": "Попередження про невідомі файли"
   },
   "unknown-file-warning-modal.reviewed-files": {
-    "defaultMessage": "Розглядатимуть лише ті файли, які опубліковані на Modrinth."
+    "defaultMessage": "Розглядатимуть лише ті файли, які опубліковані на ShroudEdit."
   },
   "unknown-file-warning-modal.unrecognized-files": {
     "defaultMessage": "Нерозпізнані файли"
   },
   "user.profile.badge.alpha.about.1": {
-    "defaultMessage": "Цей користувач з нами ще з альфа-версії Modrinth, яка завершилася в листопаді 2020."
+    "defaultMessage": "Цей користувач з нами ще з альфа-версії ShroudEdit, яка завершилася в листопаді 2020."
   },
   "user.profile.badge.alpha.name": {
     "defaultMessage": "Альфа-тестувальник"
   },
   "user.profile.badge.beta.about.1": {
-    "defaultMessage": "Цей користувач з нами ще з бета-версії Modrinth, яка завершилася в лютому 2022."
+    "defaultMessage": "Цей користувач з нами ще з бета-версії ShroudEdit, яка завершилася в лютому 2022."
   },
   "user.profile.badge.beta.link": {
-    "defaultMessage": "Натисніть, щоб прочитати про запуск бета-версії Modrinth."
+    "defaultMessage": "Натисніть, щоб прочитати про запуск бета-версії ShroudEdit."
   },
   "user.profile.badge.beta.name": {
     "defaultMessage": "Бета-тестувальник"
@@ -6765,67 +6765,67 @@
     "defaultMessage": "{download_sum} завантажень"
   },
   "user.profile.badge.early-datapack-adopter.about.1": {
-    "defaultMessage": "Цей користувач допомагав нам тестувати пакети даних на Modrinth перед їхнім запуском у січні 2023."
+    "defaultMessage": "Цей користувач допомагав нам тестувати пакети даних на ShroudEdit перед їхнім запуском у січні 2023."
   },
   "user.profile.badge.early-datapack-adopter.name": {
     "defaultMessage": "Ранній тестувальник пакетів даних"
   },
   "user.profile.badge.early-modpack-adopter.about.1": {
-    "defaultMessage": "Цей користувач допомагав нам тестувати збірки на Modrinth перед їхнім запуском у травні 2022."
+    "defaultMessage": "Цей користувач допомагав нам тестувати збірки на ShroudEdit перед їхнім запуском у травні 2022."
   },
   "user.profile.badge.early-modpack-adopter.name": {
     "defaultMessage": "Ранній тестувальник збірок"
   },
   "user.profile.badge.early-plugin-adopter.about.1": {
-    "defaultMessage": "Цей користувач допомагав нам тестувати плагіни на Modrinth перед їхнім запуском у серпні 2022."
+    "defaultMessage": "Цей користувач допомагав нам тестувати плагіни на ShroudEdit перед їхнім запуском у серпні 2022."
   },
   "user.profile.badge.early-plugin-adopter.name": {
     "defaultMessage": "Ранній тестувальник плагінів"
   },
   "user.profile.badge.early-resourcepack-adopter.about.1": {
-    "defaultMessage": "Цей користувач допомагав нам тестувати пакети ресурсів на Modrinth перед їхнім запуском у серпні 2022."
+    "defaultMessage": "Цей користувач допомагав нам тестувати пакети ресурсів на ShroudEdit перед їхнім запуском у серпні 2022."
   },
   "user.profile.badge.early-resourcepack-adopter.name": {
     "defaultMessage": "Ранній тестувальник пакетів ресурсів"
   },
   "user.profile.badge.early-server-adopter.about.1": {
-    "defaultMessage": "Цей користувач допомагав нам тестувати сервери на Modrinth перед їхнім запуском у березні 2026."
+    "defaultMessage": "Цей користувач допомагав нам тестувати сервери на ShroudEdit перед їхнім запуском у березні 2026."
   },
   "user.profile.badge.early-server-adopter.name": {
     "defaultMessage": "Ранній тестувальник серверів"
   },
   "user.profile.badge.early-shader-adopter.about.1": {
-    "defaultMessage": "Цей користувач допомагав нам тестувати шейдери на Modrinth перед їхнім запуском у січні 2023."
+    "defaultMessage": "Цей користувач допомагав нам тестувати шейдери на ShroudEdit перед їхнім запуском у січні 2023."
   },
   "user.profile.badge.early-shader-adopter.name": {
     "defaultMessage": "Ранній тестувальник шейдерів"
   },
   "user.profile.badge.hosting-alpha.about.1": {
-    "defaultMessage": "Цей користувач брав участь у закритому альфа-тестуванні Modrinth Hosting перед запуском бета-тестування в листопаді 2024."
+    "defaultMessage": "Цей користувач брав участь у закритому альфа-тестуванні ShroudEdit Hosting перед запуском бета-тестування в листопаді 2024."
   },
   "user.profile.badge.hosting-alpha.name": {
-    "defaultMessage": "Альфа-тестувальник Modrinth Hosting"
+    "defaultMessage": "Альфа-тестувальник ShroudEdit Hosting"
   },
   "user.profile.badge.moderator.about.1": {
-    "defaultMessage": "Цей користувач працює на Modrinth як модератор умісту."
+    "defaultMessage": "Цей користувач працює на ShroudEdit як модератор умісту."
   },
   "user.profile.badge.moderator.about.2": {
-    "defaultMessage": "Модератори вмісту на Modrinth розглядають проєкти, опрацьовують скарги та допомагають тримати Modrinth у безпеці."
+    "defaultMessage": "Модератори вмісту на ShroudEdit розглядають проєкти, опрацьовують скарги та допомагають тримати ShroudEdit у безпеці."
   },
   "user.profile.badge.moderator.name": {
     "defaultMessage": "Упорядник умісту"
   },
   "user.profile.badge.plus.about.1": {
-    "defaultMessage": "Цей користувач активно підтримує Modrinth і творців на платформі."
+    "defaultMessage": "Цей користувач активно підтримує ShroudEdit і творців на платформі."
   },
   "user.profile.badge.plus.link": {
     "defaultMessage": "Натисніть, щоб дізнатися, як стати нашим учасником."
   },
   "user.profile.badge.plus.name": {
-    "defaultMessage": "Учасник Modrinth+"
+    "defaultMessage": "Учасник ShroudEdit+"
   },
   "user.profile.badge.pride.about.1": {
-    "defaultMessage": "Цей користувач брав участь в одному із благодійних зборів на підтримку спільноти ЛГБТК+ від Modrinth."
+    "defaultMessage": "Цей користувач брав участь в одному із благодійних зборів на підтримку спільноти ЛГБТК+ від ShroudEdit."
   },
   "user.profile.badge.pride.link": {
     "defaultMessage": "Натисніть, щоб переглянути останній збір."
@@ -6834,16 +6834,16 @@
     "defaultMessage": "Підтримувач збору місяця гордості"
   },
   "user.profile.badge.staff.about.1": {
-    "defaultMessage": "Цей користувач працює на Modrinth."
+    "defaultMessage": "Цей користувач працює на ShroudEdit."
   },
   "user.profile.badge.staff.name": {
-    "defaultMessage": "Команда Modrinth"
+    "defaultMessage": "Команда ShroudEdit"
   },
   "user.role.moderator": {
     "defaultMessage": "Модератор умісту"
   },
-  "user.role.modrinth-team": {
-    "defaultMessage": "Команда Modrinth"
+  "user.role.shroudedit-team": {
+    "defaultMessage": "Команда ShroudEdit"
   },
   "version.content.name": {
     "defaultMessage": "Назва"

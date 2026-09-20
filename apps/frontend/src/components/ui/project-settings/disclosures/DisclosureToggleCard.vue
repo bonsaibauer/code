@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CircleSlashIcon, LockIcon, LockOpenIcon, UnknownIcon } from '@modrinth/assets'
+import { CircleSlashIcon, LockIcon, LockOpenIcon, UnknownIcon } from '@shroudedit/assets'
 import {
 	Button,
 	ButtonGroup,
@@ -9,7 +9,7 @@ import {
 	SettingsInlineWarning,
 	SettingsToggleCard,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import type { Component } from 'vue'
 import { computed } from 'vue'
 
@@ -121,7 +121,7 @@ function setLockStatus(status: DisclosureLockStatus) {
 						<template #contact-support-link="{ children }">
 							<a
 								class="smart-clickable:allow-pointer-events text-orange underline hover:brightness-110"
-								href="https://support.modrinth.com"
+								href="https://support.shroudedit.com"
 								target="_blank"
 								rel="noopener noreferrer"
 							>

@@ -819,10 +819,10 @@ pub async fn search_projects(
             (
                 cardinality($4::text[]) = 0
                 OR (
-                    'minecraft_java_server' = ANY($4::text[])
+                    'enshrouded_server' = ANY($4::text[])
                     AND (
-                        m.components ? 'minecraft_server'
-                        OR m.components ? 'minecraft_java_server'
+                        m.components ? 'enshrouded_server'
+                        OR m.components ? 'enshrouded_server'
                     )
                 )
                 OR EXISTS (
@@ -840,8 +840,8 @@ pub async fn search_projects(
                         AND (
                             type_pt.name != 'modpack'
                             OR NOT (
-                                m.components ? 'minecraft_server'
-                                OR m.components ? 'minecraft_java_server'
+                                m.components ? 'enshrouded_server'
+                                OR m.components ? 'enshrouded_server'
                             )
                         )
                 )

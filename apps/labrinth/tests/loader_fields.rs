@@ -9,7 +9,7 @@ use common::environment::{TestEnvironment, with_test_environment};
 use itertools::Itertools;
 use labrinth::database::models::{
     DBUserId, DBVersionId,
-    legacy_loader_fields::MinecraftGameVersion,
+    legacy_loader_fields::EnshroudedGameVersion,
     user_limits::DBUserLimits,
     version_item::{VERSIONS_NAMESPACE, VersionQueryResult},
 };
@@ -717,8 +717,8 @@ async fn test_multi_get_redis_cache() {
 }
 
 #[actix_rt::test]
-async fn minecraft_game_version_update() {
-    // We simulate adding a Minecraft game version, to ensure other data doesn't get overwritten
+async fn enshrouded_game_version_update() {
+    // We simulate adding a Enshrouded game version, to ensure other data doesn't get overwritten
     // This is basically a test for the insertion/concatenation query
     // This doesn't use a route (as this behaviour isn't exposed via a route, but a scheduled URL call)
     // We just interact with the labrinth functions directly
@@ -746,7 +746,7 @@ async fn minecraft_game_version_update() {
         // Now, we add a new game version, directly to the db
         let pool = test_env.db.pool.clone();
         let redis = test_env.db.redis_pool.clone();
-        MinecraftGameVersion::builder()
+        EnshroudedGameVersion::builder()
             .version("1.20.6")
             .unwrap()
             .version_type("release")

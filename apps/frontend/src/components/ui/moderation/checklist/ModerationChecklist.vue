@@ -418,15 +418,15 @@ import {
 	ToggleRightIcon,
 	UndoIcon,
 	XIcon,
-} from '@modrinth/assets'
-import type { Priority } from '@modrinth/moderation'
+} from '@shroudedit/assets'
+import type { Priority } from '@shroudedit/moderation'
 import {
 	expandVariables,
 	kebabToTitleCase,
 	moderationSettings,
 	useStages,
-} from '@modrinth/moderation'
-import type { ActiveAction, NodeState, StageNode } from '@modrinth/moderation/src/types/node'
+} from '@shroudedit/moderation'
+import type { ActiveAction, NodeState, StageNode } from '@shroudedit/moderation/src/types/node'
 import {
 	CHECKLIST_META_KEY,
 	collectActiveActions,
@@ -440,10 +440,10 @@ import {
 	resolveChildren,
 	setMessageProject,
 	setMissingMdHandler,
-} from '@modrinth/moderation/src/types/node'
-import NodeRenderer from '@modrinth/moderation/src/types/node/components/NodeRenderer.vue'
-import type { FixBuilder } from '@modrinth/moderation/src/types/node/fix'
-import type { Writer } from '@modrinth/moderation/src/types/node/mutate'
+} from '@shroudedit/moderation/src/types/node'
+import NodeRenderer from '@shroudedit/moderation/src/types/node/components/NodeRenderer.vue'
+import type { FixBuilder } from '@shroudedit/moderation/src/types/node/fix'
+import type { Writer } from '@shroudedit/moderation/src/types/node/mutate'
 import {
 	Avatar,
 	Button,
@@ -451,16 +451,16 @@ import {
 	Collapsible,
 	ConfirmModal,
 	IconButton,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	injectProjectPageContext,
 	MarkdownEditor,
 	TeleportOverflowMenu,
 	Textarea,
 	useDebugLogger,
-} from '@modrinth/ui'
-import type { ProjectStatus } from '@modrinth/utils'
-import { renderHighlightedString } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import type { ProjectStatus } from '@shroudedit/utils'
+import { renderHighlightedString } from '@shroudedit/utils'
 import { useQueryClient } from '@tanstack/vue-query'
 import { useDebounceFn } from '@vueuse/core'
 import type { Component } from 'vue'
@@ -512,7 +512,7 @@ setMissingMdHandler((path) => missingMdPaths.add(path))
 
 const nodeStates = ref<Record<string, Record<string, NodeState>>>({})
 const resolvedStages = ref(useStages(nodeStates))
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 
 const moderationQueue = useModerationQueue()
 const queryClient = useQueryClient()

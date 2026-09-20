@@ -1,115 +1,80 @@
 <template>
 	<div class="markdown-body">
 		<h1>Copyright Policy</h1>
-		<h2>Reporting Claims of Copyright Infringement</h2>
+		<p><em>Last updated: September 20, 2026</em></p>
+
+		<h2>Respect for intellectual property</h2>
 		<p>
-			We take claims of copyright infringement seriously. We will respond to notices of alleged
-			copyright infringement that comply with applicable law. If you believe any materials
-			accessible on or from this site (the <strong>"Website"</strong>) infringe your copyright, you
-			may request removal of those materials (or access to them) from the Website by submitting
-			written notification to our copyright agent designated below. In accordance with the Online
-			Copyright Infringement Liability Limitation Act of the Digital Millennium Copyright Act (17
-			U.S.C. § 512) (<strong>"DMCA"</strong>), the written notice (the
-			<strong>"DMCA Notice"</strong>) must include substantially the following:
+			ShroudEdit respects copyright, open-source licences and other intellectual property rights.
+			Users may upload or distribute content only if they own the necessary rights or have permission
+			under an applicable licence or other legal basis.
 		</p>
+
+		<h2>Reporting copyright infringement</h2>
+		<p>
+			If you believe content available through ShroudEdit infringes your rights, send a sufficiently
+			precise notice to
+			<a href="mailto:copyright@shroudedit.com">copyright@shroudedit.com</a>. You may also use the
+			reporting function available on the relevant project or file page.
+		</p>
+		<p>A notice should include:</p>
 		<ul>
-			<li>Your physical or electronic signature.</li>
-			<li>
-				Identification of the copyrighted work you believe to have been infringed or, if the claim
-				involves multiple works on the Website, a representative list of such works.
-			</li>
-			<li>
-				Identification of the material you believe to be infringing in a sufficiently precise manner
-				to allow us to locate that material.
-			</li>
-			<li>
-				Adequate information by which we can contact you (including your name, postal address,
-				telephone number, and, if available, email address).
-			</li>
-			<li>
-				A statement that you have a good faith belief that use of the copyrighted material is not
-				authorized by the copyright owner, its agent, or the law.
-			</li>
-			<li>A statement that the information in the written notice is accurate.</li>
-			<li>
-				A statement, under penalty of perjury, that you are authorized to act on behalf of the
-				copyright owner.
-			</li>
+			<li>your name and reliable contact details;</li>
+			<li>identification of the protected work or other right concerned;</li>
+			<li>the exact URL and a clear identification of the allegedly infringing content;</li>
+			<li>an explanation of why the use is not authorised by you, a licence or the law;</li>
+			<li>evidence that you are the rightsholder or authorised to act for the rightsholder;</li>
+			<li>a statement that the information supplied is accurate to the best of your knowledge.</li>
 		</ul>
-		<p>Our designated copyright agent to receive DMCA Notices is:</p>
+
+		<h2>Review and action</h2>
 		<p>
-			&emsp;DMCA Designated Agent<br />
-			&emsp;Rinth, Inc.<br />
-			&emsp;800 N King St<br />
-			&emsp;Suite 304 #3133<br />
-			&emsp;Wilmington, DE 19801<br />
-			&emsp;Phone: +1 (201) 431-5015<br />
-			&emsp;<a href="mailto:dmca@modrinth.com">dmca@modrinth.com</a><br />
+			We assess notices promptly, carefully and impartially. We may request further information,
+			restrict access while a claim is reviewed, remove content or reject an unsupported notice. Our
+			action will be limited to what is reasonably necessary. Where legally required, we will notify
+			the uploader of the decision and its reasons.
 		</p>
+
+		<h2>Response by the uploader</h2>
 		<p>
-			If you fail to comply with all of the requirements of Section 512(c)(3) of the DMCA, your DMCA
-			Notice may not be effective.
+			If your content was restricted following a copyright notice and you believe the decision was
+			incorrect, you may respond to
+			<a href="mailto:copyright@shroudedit.com">copyright@shroudedit.com</a>. Your response should
+			identify the affected content, explain the basis for your right to publish it and include
+			supporting evidence such as authorship, permission, licence terms or an applicable statutory
+			exception. We may forward the response to the complainant where necessary to resolve the claim.
 		</p>
+
+		<h2>Repeated or serious infringement</h2>
 		<p>
-			Please be aware that if you knowingly materially misrepresent that material or activity on the
-			Website is infringing your copyright, you may be held liable for damages (including costs and
-			attorneys' fees) under Section 512(f) of the DMCA.
+			We may suspend or terminate accounts that repeatedly or seriously infringe intellectual
+			property rights. Decisions take account of the nature, severity, frequency and reliability of
+			the reports as well as any successful objections.
 		</p>
-		<h2>Counter Notification Procedures</h2>
+
+		<h2>Misuse of the reporting process</h2>
 		<p>
-			If you believe that material you posted on the Website was removed or access to it was
-			disabled by mistake or misidentification, you may file a counter notification with us (a
-			<strong>"Counter Notice"</strong>) by submitting written notification to our copyright agent
-			designated above. Pursuant to the DMCA, the Counter Notice must include substantially the
-			following:
+			Do not knowingly submit false or misleading notices. Persons making reports remain responsible
+			for their statements and may be liable under applicable law for abusive claims. This policy
+			does not replace legal advice or prevent either party from seeking judicial relief.
 		</p>
-		<ul>
-			<li>Your physical or electronic signature.</li>
-			<li>
-				An identification of the material that has been removed or to which access has been disabled
-				and the location at which the material appeared before it was removed or access disabled.
-			</li>
-			<li>
-				Adequate information by which we can contact you (including your name, postal address,
-				telephone number, and, if available, email address).
-			</li>
-			<li>
-				A statement under penalty of perjury by you that you have a good faith belief that the
-				material identified above was removed or disabled as a result of a mistake or
-				misidentification of the material to be removed or disabled.
-			</li>
-			<li>
-				A statement that you will consent to the jurisdiction of the Federal District Court for the
-				judicial district in which your address is located (or if you reside outside the United
-				States for any judicial district in which the Website may be found) and that you will accept
-				service from the person (or an agent of that person) who provided the Website with the
-				complaint at issue.
-			</li>
-		</ul>
+
+		<h2>Contact</h2>
 		<p>
-			The DMCA allows us to restore the removed content if the party filing the original DMCA Notice
-			does not file a court action against you within ten business days of receiving the copy of
-			your Counter Notice.
-		</p>
-		<p>
-			Please be aware that if you knowingly materially misrepresent that material or activity on the
-			Website was removed or disabled by mistake or misidentification, you may be held liable for
-			damages (including costs and attorneys' fees) under Section 512(f) of the DMCA.
-		</p>
-		<h2>Repeat Infringers</h2>
-		<p>
-			It is our policy in appropriate circumstances to disable and/or terminate the accounts of
-			users who are repeat infringers.
+			<strong>Operator:</strong> Philipp Feierabend<br />
+			Straße, Hausnummer<br />
+			PLZ, Stadt<br />
+			Germany<br />
+			Email: <a href="mailto:copyright@shroudedit.com">copyright@shroudedit.com</a>
 		</p>
 	</div>
 </template>
 
 <script setup>
-const description =
-	'The Copyright Policy of Modrinth, an open source modding platform focused on Minecraft.'
+const description = 'The Copyright Policy and rights-reporting process for ShroudEdit.'
 
 useSeoMeta({
-	title: 'Copyright Policy - Modrinth',
+	title: 'Copyright Policy - ShroudEdit',
 	description,
 	ogTitle: 'Copyright Policy',
 	ogDescription: description,

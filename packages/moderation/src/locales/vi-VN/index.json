@@ -77,10 +77,10 @@
   "nags.long-headers.title": {
     "defaultMessage": "Rút gọn tiêu đề"
   },
-  "nags.minecraft-title-clause.description": {
-    "defaultMessage": "Dự án không được sử dụng thương hiệu của Minecraft hoặc đưa “Minecraft” làm một phần quan trọng trong tên dự án."
+  "nags.enshrouded-title-clause.description": {
+    "defaultMessage": "Dự án không được sử dụng thương hiệu của Enshrouded hoặc đưa “Enshrouded” làm một phần quan trọng trong tên dự án."
   },
-  "nags.minecraft-title-clause.title": {
+  "nags.enshrouded-title-clause.title": {
     "defaultMessage": "Tránh vi phạm thương hiệu"
   },
   "nags.missing-alt-text.description": {

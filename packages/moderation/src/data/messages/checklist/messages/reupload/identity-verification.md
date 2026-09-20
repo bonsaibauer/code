@@ -1,6 +1,6 @@
 ## Identity Verification
 
-**Welcome to Modrinth!**
+**Welcome to ShroudEdit!**
 
 We're happy to see you here, we just want to make sure you're you.
 

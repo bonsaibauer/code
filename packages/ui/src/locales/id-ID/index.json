@@ -96,7 +96,7 @@
     "defaultMessage": "Hasil tidak ditemukan untuk pencarian Anda!"
   },
   "browse.offline": {
-    "defaultMessage": "Anda saat ini luring. Sambungkan ke internet untuk menelusuri Modrinth!"
+    "defaultMessage": "Anda saat ini luring. Sambungkan ke internet untuk menelusuri ShroudEdit!"
   },
   "browse.search.placeholder": {
     "defaultMessage": "Cari {projectType}..."
@@ -221,8 +221,8 @@
   "button.open-in-folder": {
     "defaultMessage": "Buka di folder"
   },
-  "button.open-in-modrinth": {
-    "defaultMessage": "Buka di Modrinth"
+  "button.open-in-shroudedit": {
+    "defaultMessage": "Buka di ShroudEdit"
   },
   "button.play": {
     "defaultMessage": "Mainkan"
@@ -734,11 +734,11 @@
   "creation-flow.modal.modpack.search.no-results": {
     "defaultMessage": "Hasil pencarian tidak ditemukan"
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.description": {
-    "defaultMessage": "Minecraft klasik tanpa mod atau pasang-masuk."
+  "creation-flow.modal.setup-type.option.vanilla-enshrouded.description": {
+    "defaultMessage": "Enshrouded klasik tanpa mod atau pasang-masuk."
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.title": {
-    "defaultMessage": "Minecraft Vanila"
+  "creation-flow.modal.setup-type.option.vanilla-enshrouded.title": {
+    "defaultMessage": "Enshrouded Vanila"
   },
   "creation-flow.modal.setup-type.title.installation": {
     "defaultMessage": "Pilih jenis pemasangan"
@@ -1091,16 +1091,16 @@
   "header.category.feature": {
     "defaultMessage": "Fitur"
   },
-  "header.category.minecraft-server-community": {
+  "header.category.enshrouded-server-community": {
     "defaultMessage": "Komunitas"
   },
-  "header.category.minecraft-server-features": {
+  "header.category.enshrouded-server-features": {
     "defaultMessage": "Fitur"
   },
-  "header.category.minecraft-server-gameplay": {
+  "header.category.enshrouded-server-gameplay": {
     "defaultMessage": "Tata Permainan"
   },
-  "header.category.minecraft-server-meta": {
+  "header.category.enshrouded-server-meta": {
     "defaultMessage": "Meta"
   },
   "header.category.performance-impact": {
@@ -1440,16 +1440,16 @@
     "defaultMessage": "Berkas-berkas selalu diperbarui ketika server berubah"
   },
   "modal.open-in-app.get-app": {
-    "defaultMessage": "Dapatkan Modrinth App"
+    "defaultMessage": "Dapatkan ShroudEdit App"
   },
   "modal.open-in-app.opening-automatically": {
-    "defaultMessage": "Modrinth App akan buka secara otomatis..."
+    "defaultMessage": "ShroudEdit App akan buka secara otomatis..."
   },
   "modal.open-in-app.title": {
-    "defaultMessage": "Membuka Modrinth App"
+    "defaultMessage": "Membuka ShroudEdit App"
   },
   "modal.open-in-app.why-use": {
-    "defaultMessage": "Mengapa harus Modrinth App?"
+    "defaultMessage": "Mengapa harus ShroudEdit App?"
   },
   "notification.error.title": {
     "defaultMessage": "Terjadi kesalahan"
@@ -1478,8 +1478,8 @@
   "omorphia.component.badge.label.moderator": {
     "defaultMessage": "Moderator"
   },
-  "omorphia.component.badge.label.modrinth-team": {
-    "defaultMessage": "Tim Modrinth"
+  "omorphia.component.badge.label.shroudedit-team": {
+    "defaultMessage": "Tim ShroudEdit"
   },
   "omorphia.component.badge.label.pending": {
     "defaultMessage": "Menunggu"
@@ -1706,8 +1706,8 @@
   "project.about.compatibility.environments.singleplayer-only": {
     "defaultMessage": "Bermain sendiri saja"
   },
-  "project.about.compatibility.game.minecraftJava": {
-    "defaultMessage": "Minecraft: Java Edition"
+  "project.about.compatibility.game.enshroudedJava": {
+    "defaultMessage": "Enshrouded: Java Edition"
   },
   "project.about.compatibility.platforms": {
     "defaultMessage": "Platform"
@@ -2151,7 +2151,7 @@
     "defaultMessage": "Proyek Anda memiliki beberapa lingkungan"
   },
   "project.settings.environment.notice.review-options.description": {
-    "defaultMessage": "Kamu baru saja memperbaiki sistem Lingkungan di Modrinth dan pilihan baru kini tersedia. Mohon pastikan untuk memilih pilihan yang benar dan klik 'Verifikasi' bila Anda selesai!"
+    "defaultMessage": "Kamu baru saja memperbaiki sistem Lingkungan di ShroudEdit dan pilihan baru kini tersedia. Mohon pastikan untuk memilih pilihan yang benar dan klik 'Verifikasi' bila Anda selesai!"
   },
   "project.settings.environment.notice.review-options.title": {
     "defaultMessage": "Mohon tinjau pilihan di bawah"
@@ -2454,7 +2454,7 @@
     "defaultMessage": "Lokasi manakah yang Anda inginkan untuk server Anda?"
   },
   "servers.region.region-unsupported": {
-    "defaultMessage": "Wilayah tidak terdaftar? <link>Beri tahu kami di mana Anda ingin melihat Modrinth Hosting untuk kedepannya!</link>"
+    "defaultMessage": "Wilayah tidak terdaftar? <link>Beri tahu kami di mana Anda ingin melihat ShroudEdit Hosting untuk kedepannya!</link>"
   },
   "servers.region.southeast-asia": {
     "defaultMessage": "Asia Tenggara"
@@ -2900,7 +2900,7 @@
   "tag.loader.liteloader": {
     "defaultMessage": "LiteLoader"
   },
-  "tag.loader.minecraft": {
+  "tag.loader.enshrouded": {
     "defaultMessage": "Paket Sumber"
   },
   "tag.loader.modloader": {

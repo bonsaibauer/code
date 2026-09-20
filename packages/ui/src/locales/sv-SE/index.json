@@ -108,7 +108,7 @@
     "defaultMessage": "Inga resultat hittades för din sökning!"
   },
   "browse.offline": {
-    "defaultMessage": "Du är för nuvarande offline. Koppla upp dig till internet för att bläddra bland Modrinth!"
+    "defaultMessage": "Du är för nuvarande offline. Koppla upp dig till internet för att bläddra bland ShroudEdit!"
   },
   "browse.search.placeholder": {
     "defaultMessage": "Sök {projectType}..."
@@ -248,8 +248,8 @@
   "button.open-in-folder": {
     "defaultMessage": "Öppna i mapp"
   },
-  "button.open-in-modrinth": {
-    "defaultMessage": "Öppna i Modrinth"
+  "button.open-in-shroudedit": {
+    "defaultMessage": "Öppna i ShroudEdit"
   },
   "button.play": {
     "defaultMessage": "Spela"
@@ -540,13 +540,13 @@
     "defaultMessage": "{count} borttagna"
   },
   "content.diff-modal.reviewed-files": {
-    "defaultMessage": "Filer som inte publiceras på Modrinth granskas inte."
+    "defaultMessage": "Filer som inte publiceras på ShroudEdit granskas inte."
   },
   "content.diff-modal.unknown-content-body": {
     "defaultMessage": "Något innehåll på din server kunde inte analyseras och kommer kanske påverkas av denna ändring."
   },
   "content.diff-modal.unknown-files-description": {
-    "defaultMessage": "Denna uppdatering innehåller filer som inte är utgivna på Modrinth. Vi rekommenderar att endast installera filer från källor du litar på."
+    "defaultMessage": "Denna uppdatering innehåller filer som inte är utgivna på ShroudEdit. Vi rekommenderar att endast installera filer från källor du litar på."
   },
   "content.diff-modal.unknown-files-warning": {
     "defaultMessage": "Okända filvarningar"
@@ -1043,11 +1043,11 @@
   "creation-flow.modal.setup-type.option.upload-modpack.title": {
     "defaultMessage": "Ladda upp modpaket"
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.description": {
-    "defaultMessage": "Klassiska Minecraft, utan moddar eller plugin."
+  "creation-flow.modal.setup-type.option.vanilla-enshrouded.description": {
+    "defaultMessage": "Klassiska Enshrouded, utan moddar eller plugin."
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.title": {
-    "defaultMessage": "Vanilla Minecraft"
+  "creation-flow.modal.setup-type.option.vanilla-enshrouded.title": {
+    "defaultMessage": "Vanilla Enshrouded"
   },
   "creation-flow.modal.setup-type.title.installation": {
     "defaultMessage": "Välj installationstyp"
@@ -1185,7 +1185,7 @@
     "defaultMessage": "Om det visar sig att du har ljugit eller manipulerat de uppladdade bilderna, kan ditt projekt och konto termineras."
   },
   "external-files.permissions-card.editor.proof-warning.title": {
-    "defaultMessage": "Modrinth-personal kan verifiera inskickat bevis"
+    "defaultMessage": "ShroudEdit-personal kan verifiera inskickat bevis"
   },
   "external-files.permissions-card.editor.save": {
     "defaultMessage": "Spara tillskrivning"
@@ -1266,7 +1266,7 @@
     "defaultMessage": "Automatiskt tillskriven"
   },
   "external-files.permissions-card.reason.globally-allowed.description": {
-    "defaultMessage": "Vi har sett den här filen tidigare och har förberett en tillskrivning för dig. Om något verkar fel, vänligen kontakta Modrinth support genom hjälpcentret"
+    "defaultMessage": "Vi har sett den här filen tidigare och har förberett en tillskrivning för dig. Om något verkar fel, vänligen kontakta ShroudEdit support genom hjälpcentret"
   },
   "external-files.permissions-card.reason.license": {
     "defaultMessage": "Licens"
@@ -1850,16 +1850,16 @@
   "header.category.feature": {
     "defaultMessage": "Funktion"
   },
-  "header.category.minecraft-server-community": {
+  "header.category.enshrouded-server-community": {
     "defaultMessage": "Community"
   },
-  "header.category.minecraft-server-features": {
+  "header.category.enshrouded-server-features": {
     "defaultMessage": "Funktioner"
   },
-  "header.category.minecraft-server-gameplay": {
+  "header.category.enshrouded-server-gameplay": {
     "defaultMessage": "Spelstil"
   },
-  "header.category.minecraft-server-meta": {
+  "header.category.enshrouded-server-meta": {
     "defaultMessage": "Meta"
   },
   "header.category.performance-impact": {
@@ -2127,13 +2127,13 @@
     "defaultMessage": "Tog bort (inkompatibel)"
   },
   "installation-settings.repair.instance-description": {
-    "defaultMessage": "Ominstallerar Minecraft-beroenden och kollationerar efter korruption. Det här kan lösa problem ifall ditt spel inte startar på grund av startprograms-relaterade fel."
+    "defaultMessage": "Ominstallerar Enshrouded-beroenden och kollationerar efter korruption. Det här kan lösa problem ifall ditt spel inte startar på grund av startprograms-relaterade fel."
   },
   "installation-settings.repair.instance-title": {
     "defaultMessage": "Reparera instans"
   },
   "installation-settings.repair.server-description": {
-    "defaultMessage": "Ominstallerar loadern och Minecraft-beroenden utan att radera ditt innehåll. Detta kan lösa problem om din server inte startar rätt."
+    "defaultMessage": "Ominstallerar loadern och Enshrouded-beroenden utan att radera ditt innehåll. Detta kan lösa problem om din server inte startar rätt."
   },
   "installation-settings.repair.server-title": {
     "defaultMessage": "Laga server"
@@ -2175,10 +2175,10 @@
     "defaultMessage": "Ominstallera modpack"
   },
   "instance.confirm-repair.body.instance": {
-    "defaultMessage": "Att reparera ominstallerar startprogrammet och Minecraft-beroenden, utan att radera ditt innehåll. Det här kan lösa problem ifall ditt spel inte startar på grund av startprograms-relaterade fel."
+    "defaultMessage": "Att reparera ominstallerar startprogrammet och Enshrouded-beroenden, utan att radera ditt innehåll. Det här kan lösa problem ifall ditt spel inte startar på grund av startprograms-relaterade fel."
   },
   "instance.confirm-repair.body.server": {
-    "defaultMessage": "Att reparera ominstallerar läsaren och Minecraft-beroenden utan att radera ditt innehåll. Det här kan lösa problem ifall din server inte startar som den ska."
+    "defaultMessage": "Att reparera ominstallerar läsaren och Enshrouded-beroenden utan att radera ditt innehåll. Det här kan lösa problem ifall din server inte startar som den ska."
   },
   "instance.confirm-repair.header": {
     "defaultMessage": "Reparera {type}"
@@ -2271,7 +2271,7 @@
     "defaultMessage": "Extern"
   },
   "instances.managed-content-modal.external-content-description": {
-    "defaultMessage": "Den här filer är inte publicerad på Modrinth."
+    "defaultMessage": "Den här filer är inte publicerad på ShroudEdit."
   },
   "instances.managed-content-modal.loading": {
     "defaultMessage": "Läser in innehåll..."
@@ -2871,16 +2871,16 @@
     "defaultMessage": "Håll filer uppdaterade när servern ändras"
   },
   "modal.open-in-app.get-app": {
-    "defaultMessage": "Skaffa Modrinth App"
+    "defaultMessage": "Skaffa ShroudEdit App"
   },
   "modal.open-in-app.opening-automatically": {
-    "defaultMessage": "Modrinth App kommer att öppnas automatiskt..."
+    "defaultMessage": "ShroudEdit App kommer att öppnas automatiskt..."
   },
   "modal.open-in-app.title": {
-    "defaultMessage": "Öppnar Modrinth App"
+    "defaultMessage": "Öppnar ShroudEdit App"
   },
   "modal.open-in-app.why-use": {
-    "defaultMessage": "Varför använda Modrinth App"
+    "defaultMessage": "Varför använda ShroudEdit App"
   },
   "notification.error.title": {
     "defaultMessage": "Ett fel inträffade"
@@ -2942,8 +2942,8 @@
   "omorphia.component.badge.label.moderator": {
     "defaultMessage": "Moderator"
   },
-  "omorphia.component.badge.label.modrinth-team": {
-    "defaultMessage": "Modrinth-teamet"
+  "omorphia.component.badge.label.shroudedit-team": {
+    "defaultMessage": "ShroudEdit-teamet"
   },
   "omorphia.component.badge.label.pending": {
     "defaultMessage": "Väntar"
@@ -3060,13 +3060,13 @@
     "defaultMessage": "Visa"
   },
   "profile.bio.fallback.creator": {
-    "defaultMessage": "En Modrinth-skapare"
+    "defaultMessage": "En ShroudEdit-skapare"
   },
   "profile.bio.fallback.user": {
-    "defaultMessage": "En Modrinth-användare."
+    "defaultMessage": "En ShroudEdit-användare."
   },
   "profile.block-user.admonition-body": {
-    "defaultMessage": "{username} kommer inte att kunna skicka vänförfrågningar eller bjuda in dig till delade instanser och Modrinth Hosting-servrar."
+    "defaultMessage": "{username} kommer inte att kunna skicka vänförfrågningar eller bjuda in dig till delade instanser och ShroudEdit Hosting-servrar."
   },
   "profile.block-user.admonition-title": {
     "defaultMessage": "Är du säker på att du vill blocka den här användaren?"
@@ -3177,10 +3177,10 @@
     "defaultMessage": "{count} projekt"
   },
   "profile.official-account": {
-    "defaultMessage": "Officiellt Modrinth-konto"
+    "defaultMessage": "Officiellt ShroudEdit-konto"
   },
   "profile.official-account.bio": {
-    "defaultMessage": "Modrinths officiella användarkonto. Få hjälp på <support-link></support-link> eller via e-post hos <email></email>"
+    "defaultMessage": "ShroudEdits officiella användarkonto. Få hjälp på <support-link></support-link> eller via e-post hos <email></email>"
   },
   "profile.unblock-user.error-description": {
     "defaultMessage": "Ett fel inträffade under avblockeringen av den här användaren. Vänligen försök igen."
@@ -3314,8 +3314,8 @@
   "project.about.compatibility.environments.singleplayer-only": {
     "defaultMessage": "Endast enspelarläge"
   },
-  "project.about.compatibility.game.minecraftJava": {
-    "defaultMessage": "Minecraft: Java Edition"
+  "project.about.compatibility.game.enshroudedJava": {
+    "defaultMessage": "Enshrouded: Java Edition"
   },
   "project.about.compatibility.platforms": {
     "defaultMessage": "Plattformar"
@@ -3543,7 +3543,7 @@
     "defaultMessage": "Spelades senast {count} {countPlural, plural, one {gång} other {gånger}}"
   },
   "project.recent-plays.tooltip": {
-    "defaultMessage": "Spelades på Modrinth {count} {countPlural, plural, one {gång} other {gånger}} i de 2 sista veckorna"
+    "defaultMessage": "Spelades på ShroudEdit {count} {countPlural, plural, one {gång} other {gånger}} i de 2 sista veckorna"
   },
   "project.server.customModpackTooltip": {
     "defaultMessage": "Detta projektet använder ett modpaket"
@@ -3873,7 +3873,7 @@
     "defaultMessage": "Ditt projekt har flera miljöer"
   },
   "project.settings.environment.notice.review-options.description": {
-    "defaultMessage": "Vi har just gjort om miljösystemet på Modrinth och nya alternativ finns nu tillgängliga. Vänligen kontrollera att rätt alternativ är valt nedan och klicka sedan på 'Verifiera' när du är klar!"
+    "defaultMessage": "Vi har just gjort om miljösystemet på ShroudEdit och nya alternativ finns nu tillgängliga. Vänligen kontrollera att rätt alternativ är valt nedan och klicka sedan på 'Verifiera' när du är klar!"
   },
   "project.settings.environment.notice.review-options.title": {
     "defaultMessage": "Vänligen granska alternativen nedan"
@@ -4212,13 +4212,13 @@
     "defaultMessage": "Shaderläsare"
   },
   "search.photosensitivity-warning-modal.body.1": {
-    "defaultMessage": "Vi kan inte garantera att allt innehåll på Modrinth har lämpliga etiketter."
+    "defaultMessage": "Vi kan inte garantera att allt innehåll på ShroudEdit har lämpliga etiketter."
   },
   "search.photosensitivity-warning-modal.body.2": {
-    "defaultMessage": "Innehållsetiketter för ljuskänslighetsutlösare är självtilldelade av skaparna som laddar upp deras innehåll på Modrinth. De här projekten har inte gått igenom någon säkerhetstest."
+    "defaultMessage": "Innehållsetiketter för ljuskänslighetsutlösare är självtilldelade av skaparna som laddar upp deras innehåll på ShroudEdit. De här projekten har inte gått igenom någon säkerhetstest."
   },
   "search.photosensitivity-warning-modal.body.3": {
-    "defaultMessage": "Att använda innehåll på Modrinth görs på egen risk. Håll dig säker! 💚"
+    "defaultMessage": "Att använda innehåll på ShroudEdit görs på egen risk. Håll dig säker! 💚"
   },
   "search.photosensitivity-warning-modal.dont-show-again": {
     "defaultMessage": "Visa inte det här igen"
@@ -4305,7 +4305,7 @@
     "defaultMessage": "Laddade upp fil"
   },
   "servers.access-page.activity-log-filter.action.game-version-edited": {
-    "defaultMessage": "Ändrade Minecraft-version"
+    "defaultMessage": "Ändrade Enshrouded-version"
   },
   "servers.access-page.activity-log-filter.action.java-version-modified": {
     "defaultMessage": "Ändrade Java-version"
@@ -4617,7 +4617,7 @@
     "defaultMessage": "Laddade upp fil <file></file>"
   },
   "servers.audit-log.event.game-version-changed": {
-    "defaultMessage": "Ändrade Minecraft-version till <version></version>"
+    "defaultMessage": "Ändrade Enshrouded-version till <version></version>"
   },
   "servers.audit-log.event.java-version-modified": {
     "defaultMessage": "Ändrade Java-version till <java-version></java-version>"
@@ -4923,16 +4923,16 @@
     "defaultMessage": "{username}s avatar"
   },
   "servers.grant-access-modal.target.help": {
-    "defaultMessage": "Använd inte deras Minecraft-användarnamn."
+    "defaultMessage": "Använd inte deras Enshrouded-användarnamn."
   },
   "servers.grant-access-modal.target.label": {
-    "defaultMessage": "Modrinth-användarnamn"
+    "defaultMessage": "ShroudEdit-användarnamn"
   },
   "servers.grant-access-modal.target.no-suggestions": {
     "defaultMessage": "Inga matchande användare hittades."
   },
   "servers.grant-access-modal.target.placeholder": {
-    "defaultMessage": "Ange Modrinth-användarnamn"
+    "defaultMessage": "Ange ShroudEdit-användarnamn"
   },
   "servers.grant-access-modal.target.searching": {
     "defaultMessage": "Söker..."
@@ -4958,14 +4958,14 @@
   "servers.installing-banner.error.header.local-modpack": {
     "defaultMessage": "Kunde inte installera {filename}"
   },
-  "servers.installing-banner.error.header.minecraft": {
-    "defaultMessage": "Kunde inte installera Minecraft {version}"
+  "servers.installing-banner.error.header.enshrouded": {
+    "defaultMessage": "Kunde inte installera Enshrouded {version}"
   },
   "servers.installing-banner.error.header.modpack": {
     "defaultMessage": "Kunde inte installera modpaket"
   },
   "servers.installing-banner.error.header.platform": {
-    "defaultMessage": "Kunde inte installera {loader} {loaderVersion} för Minecraft {gameVersion}"
+    "defaultMessage": "Kunde inte installera {loader} {loaderVersion} för Enshrouded {gameVersion}"
   },
   "servers.installing-banner.error.header.platform-without-version": {
     "defaultMessage": "Kunde inte installera {loader} för {gameVersion}"
@@ -4976,14 +4976,14 @@
   "servers.installing-banner.installing-local-modpack": {
     "defaultMessage": "Installerar {filename}"
   },
-  "servers.installing-banner.installing-minecraft": {
-    "defaultMessage": "Installerar Minecraft {version}"
+  "servers.installing-banner.installing-enshrouded": {
+    "defaultMessage": "Installerar Enshrouded {version}"
   },
   "servers.installing-banner.installing-modpack": {
     "defaultMessage": "Installerar modpaket"
   },
   "servers.installing-banner.installing-platform": {
-    "defaultMessage": "Installerar {loader} för Minecraft {version}"
+    "defaultMessage": "Installerar {loader} för Enshrouded {version}"
   },
   "servers.installing-banner.preparing.header": {
     "defaultMessage": "Förbereder din server"
@@ -4994,14 +4994,14 @@
   "servers.list-empty.learn-more-link": {
     "defaultMessage": "Läs mer"
   },
-  "servers.list-empty.modrinth-hosting-label": {
-    "defaultMessage": "Modrinth Hosting"
+  "servers.list-empty.shroudedit-hosting-label": {
+    "defaultMessage": "ShroudEdit Hosting"
   },
   "servers.list-empty.new-server-button": {
     "defaultMessage": "Ny server"
   },
   "servers.list-empty.no-servers-description": {
-    "defaultMessage": "Installera moddar, bjud in vänner och spela tillsammans, allt från Modrinth App."
+    "defaultMessage": "Installera moddar, bjud in vänner och spela tillsammans, allt från ShroudEdit App."
   },
   "servers.list-empty.one-click-mod-installs-description": {
     "defaultMessage": "Välj dina favorit moddar så hanterar vi resten."
@@ -5010,7 +5010,7 @@
     "defaultMessage": "Spela med vänner"
   },
   "servers.list-empty.sign-in-button": {
-    "defaultMessage": "Logga in på Modrinth"
+    "defaultMessage": "Logga in på ShroudEdit"
   },
   "servers.list-empty.simple-setup-description": {
     "defaultMessage": "Ställ in din server precis som en enspelarvärld."
@@ -5085,7 +5085,7 @@
     "defaultMessage": "Uppladdning pågår"
   },
   "servers.manage.contact-support-button": {
-    "defaultMessage": "Kontakta Modrinth-support"
+    "defaultMessage": "Kontakta ShroudEdit-support"
   },
   "servers.manage.error.description": {
     "defaultMessage": "Vi kan ha tillfälliga problem med våra servrar."
@@ -5124,7 +5124,7 @@
     "defaultMessage": "Ladda om"
   },
   "servers.manage.resubscribe-error.text": {
-    "defaultMessage": "Ett fel inträffade när du återprenumererade till din Modrinth server."
+    "defaultMessage": "Ett fel inträffade när du återprenumererade till din ShroudEdit server."
   },
   "servers.manage.resubscribe-error.title": {
     "defaultMessage": "Fel vid återprenumerering"
@@ -5136,7 +5136,7 @@
     "defaultMessage": "Sök {count} {count, plural,one {server}other {servrar}}..."
   },
   "servers.manage.servers-title": {
-    "defaultMessage": "Modrinth Hosting"
+    "defaultMessage": "ShroudEdit Hosting"
   },
   "servers.manage.settings-hint.description": {
     "defaultMessage": "De kan nu hittas här!"
@@ -5286,7 +5286,7 @@
     "defaultMessage": "Vart vill du att din server ska vara placerad?"
   },
   "servers.region.region-unsupported": {
-    "defaultMessage": "Är området inte med i listan? <link>Berätta vart du vill se Modrinth Hosting härnäst!</link>"
+    "defaultMessage": "Är området inte med i listan? <link>Berätta vart du vill se ShroudEdit Hosting härnäst!</link>"
   },
   "servers.region.southeast-asia": {
     "defaultMessage": "Sydostasien"
@@ -5361,7 +5361,7 @@
     "defaultMessage": "Ställ in server"
   },
   "servers.setup.onboarding.step.choose.description": {
-    "defaultMessage": "Välj ditt favoritmodpaket från Modrinth eller välj en moddläsare och lägg till moddarna du vill ha."
+    "defaultMessage": "Välj ditt favoritmodpaket från ShroudEdit eller välj en moddläsare och lägg till moddarna du vill ha."
   },
   "servers.setup.onboarding.step.choose.title": {
     "defaultMessage": "Välj vad du vill spela"
@@ -5385,7 +5385,7 @@
     "defaultMessage": "Din server är redo. Här är vad du behöver göra för att börja spela!"
   },
   "servers.setup.onboarding.welcome.title": {
-    "defaultMessage": "Välkommen till Modrinth Hosting"
+    "defaultMessage": "Välkommen till ShroudEdit Hosting"
   },
   "servers.setup.rate-limit.text": {
     "defaultMessage": "Du blir hastighetsbegränsad. Vänligen försök igen senare."
@@ -5460,7 +5460,7 @@
     "defaultMessage": "Mörkt"
   },
   "settings.display.theme.description": {
-    "defaultMessage": "Välj ditt föredragna färgtema på Modrinth."
+    "defaultMessage": "Välj ditt föredragna färgtema på ShroudEdit."
   },
   "settings.display.theme.light": {
     "defaultMessage": "Ljust"
@@ -5481,7 +5481,7 @@
     "defaultMessage": "Synkronisera tema mellan enheter"
   },
   "settings.display.theme.sync-across-devices.sign-in-tooltip": {
-    "defaultMessage": "Logga in på Modrinth för att synkronisera tema"
+    "defaultMessage": "Logga in på ShroudEdit för att synkronisera tema"
   },
   "settings.display.theme.system": {
     "defaultMessage": "Synka med system"
@@ -5499,7 +5499,7 @@
     "defaultMessage": "Sökresultat"
   },
   "settings.language.coverage.app-tooltip": {
-    "defaultMessage": "Runt {percentage} % av Modrinth App finns tillgängligt i det här språket."
+    "defaultMessage": "Runt {percentage} % av ShroudEdit App finns tillgängligt i det här språket."
   },
   "settings.language.coverage.label": {
     "defaultMessage": "{percentage} % stött"
@@ -5535,7 +5535,7 @@
     "defaultMessage": "Personliga åtkomstnycklar"
   },
   "settings.preferences.update-failed.description": {
-    "defaultMessage": "Dina inställningar kunde inte sparas till ditt Modrinth-konto. Vänligen försök igen."
+    "defaultMessage": "Dina inställningar kunde inte sparas till ditt ShroudEdit-konto. Vänligen försök igen."
   },
   "settings.preferences.update-failed.title": {
     "defaultMessage": "Kunde inte synkronisera inställningar"
@@ -5553,7 +5553,7 @@
     "defaultMessage": "Profilbild"
   },
   "settings.profile.public-information.description": {
-    "defaultMessage": "Din profilinformation är offentligt <profile-link>synlig på Modrinth</profile-link> och genom <docs-link>Modrinth API</docs-link>:et."
+    "defaultMessage": "Din profilinformation är offentligt <profile-link>synlig på ShroudEdit</profile-link> och genom <docs-link>ShroudEdit API</docs-link>:et."
   },
   "settings.profile.save-error": {
     "defaultMessage": "Kunde inte att uppdatera profil"
@@ -5562,10 +5562,10 @@
     "defaultMessage": "Ett fel inträffade när din profil uppdaterades. Vänligen försök igen."
   },
   "settings.profile.sign-in-required.description": {
-    "defaultMessage": "Logga in på ett Modrinth-konto för att anpassa din offentliga profil."
+    "defaultMessage": "Logga in på ett ShroudEdit-konto för att anpassa din offentliga profil."
   },
   "settings.profile.sign-in-required.title": {
-    "defaultMessage": "Modrinth-konto krävs"
+    "defaultMessage": "ShroudEdit-konto krävs"
   },
   "settings.profile.username.description": {
     "defaultMessage": "Ett unikt versalkänsligt namn för att identifiera din profil."
@@ -5580,7 +5580,7 @@
     "defaultMessage": "Användare"
   },
   "settings.social.blocked-users.description": {
-    "defaultMessage": "Det här är användare du har blockat på Modrinth. De kan inte:"
+    "defaultMessage": "Det här är användare du har blockat på ShroudEdit. De kan inte:"
   },
   "settings.social.blocked-users.empty": {
     "defaultMessage": "Du har inte blockerat någon."
@@ -5595,7 +5595,7 @@
     "defaultMessage": "Skicka vänförfrågan till dig"
   },
   "settings.social.blocked-users.restriction.hosting": {
-    "defaultMessage": "Bjuda in dig till att hantera en Modrinth Hosting-server."
+    "defaultMessage": "Bjuda in dig till att hantera en ShroudEdit Hosting-server."
   },
   "settings.social.blocked-users.restriction.shared-instances": {
     "defaultMessage": "Bjuda in dig till en delad instans"
@@ -5616,7 +5616,7 @@
     "defaultMessage": "{username}s avatar"
   },
   "settings.social.friend-requests.description": {
-    "defaultMessage": "Bestäm vilka som kan skicka vänförfrågningar på Modrinth."
+    "defaultMessage": "Bestäm vilka som kan skicka vänförfrågningar på ShroudEdit."
   },
   "settings.social.friend-requests.title": {
     "defaultMessage": "Vänförfrågningar"
@@ -5640,10 +5640,10 @@
     "defaultMessage": "Sparar dina preferenser…"
   },
   "settings.social.sign-in-required.description": {
-    "defaultMessage": "Med ett Modrinth-konto kan du bestämma vem som kan interagera med dig och hantera blockade användare"
+    "defaultMessage": "Med ett ShroudEdit-konto kan du bestämma vem som kan interagera med dig och hantera blockade användare"
   },
   "settings.social.sign-in-required.title": {
-    "defaultMessage": "Modrinth-konto krävs"
+    "defaultMessage": "ShroudEdit-konto krävs"
   },
   "settings.social.title": {
     "defaultMessage": "Socialt"
@@ -5742,7 +5742,7 @@
     "defaultMessage": "Spara"
   },
   "sharing.invite-players-modal.search-placeholder": {
-    "defaultMessage": "Ange Modrinth-användarnamn"
+    "defaultMessage": "Ange ShroudEdit-användarnamn"
   },
   "sharing.invite-players-modal.searching": {
     "defaultMessage": "Söker..."
@@ -6122,7 +6122,7 @@
   "tag.loader.liteloader": {
     "defaultMessage": "LiteLoader"
   },
-  "tag.loader.minecraft": {
+  "tag.loader.enshrouded": {
     "defaultMessage": "Resurspaket"
   },
   "tag.loader.modloader": {
@@ -6306,34 +6306,34 @@
     "defaultMessage": "Skadeprogram distribueras ofta via moddfiler genom att dela dem på plattformar som Discord."
   },
   "unknown-file-warning-modal.mod-warning-body": {
-    "defaultMessage": " är inte publiserad på Modrinth. Vi rekommenderar starkt att endast installera filer från källor du litar på."
+    "defaultMessage": " är inte publiserad på ShroudEdit. Vi rekommenderar starkt att endast installera filer från källor du litar på."
   },
   "unknown-file-warning-modal.mod-warning-title": {
     "defaultMessage": "Okänd filvarning"
   },
   "unknown-file-warning-modal.modpack-warning-body": {
-    "defaultMessage": " innehåller filer som inte är utgivna på Modrinth. Vi rekommenderar starkt att endast installera filer från källor du litar på."
+    "defaultMessage": " innehåller filer som inte är utgivna på ShroudEdit. Vi rekommenderar starkt att endast installera filer från källor du litar på."
   },
   "unknown-file-warning-modal.modpack-warning-title": {
     "defaultMessage": "Okända filvarningar"
   },
   "unknown-file-warning-modal.reviewed-files": {
-    "defaultMessage": "Filer som inte publiceras på Modrinth granskas inte."
+    "defaultMessage": "Filer som inte publiceras på ShroudEdit granskas inte."
   },
   "unknown-file-warning-modal.unrecognized-files": {
     "defaultMessage": "Okända filer"
   },
   "user.profile.badge.alpha.about.1": {
-    "defaultMessage": "Den här användaren har funnits sedan Modrinth alfa, som avslutades i november 2020."
+    "defaultMessage": "Den här användaren har funnits sedan ShroudEdit alfa, som avslutades i november 2020."
   },
   "user.profile.badge.alpha.name": {
     "defaultMessage": "Alfa-testare"
   },
   "user.profile.badge.beta.about.1": {
-    "defaultMessage": "Den här användaren har funnits sedan Modrinth beta, som avslutades i februari 2022."
+    "defaultMessage": "Den här användaren har funnits sedan ShroudEdit beta, som avslutades i februari 2022."
   },
   "user.profile.badge.beta.link": {
-    "defaultMessage": "Klicka för att läsa om lanseringen av Modrinth Beta."
+    "defaultMessage": "Klicka för att läsa om lanseringen av ShroudEdit Beta."
   },
   "user.profile.badge.beta.name": {
     "defaultMessage": "Beta-testare"
@@ -6345,7 +6345,7 @@
     "defaultMessage": "{download_sum} nedladdningar"
   },
   "user.profile.badge.moderator.about.1": {
-    "defaultMessage": "Den här användaren arbetar för Modrinth som en innehållsmoderator."
+    "defaultMessage": "Den här användaren arbetar för ShroudEdit som en innehållsmoderator."
   },
   "user.profile.badge.moderator.name": {
     "defaultMessage": "Innehållsmoderator"
@@ -6354,25 +6354,25 @@
     "defaultMessage": "Klicka för att läsa mer om hur du kan bli en medlem."
   },
   "user.profile.badge.plus.name": {
-    "defaultMessage": "Modrinth+ medlem"
+    "defaultMessage": "ShroudEdit+ medlem"
   },
   "user.profile.badge.pride.about.1": {
-    "defaultMessage": "Den här användaren har deltagit i minst en av Modrinths pride-insamlningar för LGTBQ+ gemenskapen."
+    "defaultMessage": "Den här användaren har deltagit i minst en av ShroudEdits pride-insamlningar för LGTBQ+ gemenskapen."
   },
   "user.profile.badge.pride.link": {
     "defaultMessage": "Klicka för att besöka vår senaste Pride-insamling."
   },
   "user.profile.badge.staff.about.1": {
-    "defaultMessage": "Den här användaren arbetar för Modrinth."
+    "defaultMessage": "Den här användaren arbetar för ShroudEdit."
   },
   "user.profile.badge.staff.name": {
-    "defaultMessage": "Modrinth-team"
+    "defaultMessage": "ShroudEdit-team"
   },
   "user.role.moderator": {
     "defaultMessage": "Innehållsmoderator"
   },
-  "user.role.modrinth-team": {
-    "defaultMessage": "Modrinth-team"
+  "user.role.shroudedit-team": {
+    "defaultMessage": "ShroudEdit-team"
   },
   "version.content.name": {
     "defaultMessage": "Namn"

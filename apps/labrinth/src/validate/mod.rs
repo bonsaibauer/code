@@ -1,5 +1,5 @@
 use crate::database::PgTransaction;
-use crate::database::models::legacy_loader_fields::MinecraftGameVersion;
+use crate::database::models::legacy_loader_fields::EnshroudedGameVersion;
 use crate::database::models::loader_fields::VersionField;
 use crate::models::pack::PackFormat;
 use crate::models::projects::{FileType, Loader};
@@ -37,6 +37,7 @@ pub mod project;
 mod quilt;
 mod resourcepack;
 mod rift;
+mod schematic;
 mod shader;
 
 #[derive(Error, Debug)]
@@ -82,7 +83,7 @@ pub enum SupportedGameVersions {
     All,
     PastDate(DateTime<Utc>),
     Range(DateTime<Utc>, DateTime<Utc>),
-    Custom(Vec<MinecraftGameVersion>),
+    Custom(Vec<EnshroudedGameVersion>),
 }
 
 pub enum MaybeProtectedZipFile {
@@ -148,11 +149,11 @@ static VALIDATORS: &[&dyn Validator] = &[
 ];
 
 /// A regex that matches a potentially protected ZIP archive containing
-/// a vanilla Minecraft pack, with a requisite `pack.mcmeta` file.
+/// a vanilla Enshrouded pack, with a requisite `pack.mcmeta` file.
 ///
 /// Please note that this regex avoids false negatives at the cost of false
 /// positives being possible, i.e. it may match files that are not actually
-/// Minecraft packs, but it will not miss packs that the game can load.
+/// Enshrouded packs, but it will not miss packs that the game can load.
 static PLAUSIBLE_PACK_REGEX: LazyLock<regex::bytes::Regex> =
     LazyLock::new(|| {
         regex::bytes::RegexBuilder::new(concat!(
@@ -181,15 +182,23 @@ pub async fn validate_file(
     transaction: &mut PgTransaction<'_>,
     redis: &RedisPool,
 ) -> Result<ValidationResult, ValidationError> {
+    if file_extension == "schematic"
+        && loaders.iter().any(|loader| {
+            ["shroudtopia", "shroudforge", "eml"].contains(&loader.0.as_str())
+        })
+    {
+        return schematic::validate_file(data, loaders, version_fields).await;
+    }
+
     let game_versions = version_fields
         .into_iter()
-        .find_map(|v| MinecraftGameVersion::try_from_version_field(&v).ok())
+        .find_map(|v| EnshroudedGameVersion::try_from_version_field(&v).ok())
         .unwrap_or_default();
     let all_game_versions =
-        MinecraftGameVersion::list(None, None, &mut *transaction, redis)
+        EnshroudedGameVersion::list(None, None, &mut *transaction, redis)
             .await?;
 
-    validate_minecraft_file(
+    validate_enshrouded_file(
         data,
         file_extension,
         loaders,
@@ -200,12 +209,12 @@ pub async fn validate_file(
     .await
 }
 
-async fn validate_minecraft_file(
+async fn validate_enshrouded_file(
     data: Bytes,
     file_extension: String,
     loaders: Vec<Loader>,
-    game_versions: Vec<MinecraftGameVersion>,
-    all_game_versions: Vec<MinecraftGameVersion>,
+    game_versions: Vec<EnshroudedGameVersion>,
+    all_game_versions: Vec<EnshroudedGameVersion>,
     file_type: Option<FileType>,
 ) -> Result<ValidationResult, ValidationError> {
     actix_web::web::block(move || {
@@ -294,8 +303,8 @@ async fn validate_minecraft_file(
 
 // Write tests for this
 fn game_version_supported(
-    game_versions: &[MinecraftGameVersion],
-    all_game_versions: &[MinecraftGameVersion],
+    game_versions: &[EnshroudedGameVersion],
+    all_game_versions: &[EnshroudedGameVersion],
     supported_game_versions: SupportedGameVersions,
 ) -> bool {
     match supported_game_versions {

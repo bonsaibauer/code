@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Avatar } from '@modrinth/ui'
+import { Avatar } from '@shroudedit/ui'
 
 import ModerationOwnerLink, { type ModerationOwner } from './ModerationOwnerLink.vue'
 export type { ModerationOwner }

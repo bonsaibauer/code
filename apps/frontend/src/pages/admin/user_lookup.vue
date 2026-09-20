@@ -74,10 +74,10 @@
 	</div>
 </template>
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { DiscordIcon, MailIcon } from '@modrinth/assets'
-import { Button, injectNotificationManager, Input } from '@modrinth/ui'
-import { isAdmin } from '@modrinth/utils'
+import type { Labrinth } from '@shroudedit/api-client'
+import { DiscordIcon, MailIcon } from '@shroudedit/assets'
+import { Button, injectNotificationManager, Input } from '@shroudedit/ui'
+import { isAdmin } from '@shroudedit/utils'
 import { useQuery } from '@tanstack/vue-query'
 
 const { addNotification } = injectNotificationManager()

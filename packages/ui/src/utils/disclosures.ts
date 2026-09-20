@@ -1,4 +1,4 @@
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 
 export const PROJECT_DISCLOSURE_TYPES = [
 	'ai_content',
@@ -50,7 +50,7 @@ export const DISCLOSURE_SUPPORTED_PROJECT_TYPES: Record<
 }
 
 function normalizeProjectType(type: string): string {
-	return type === 'minecraft_java_server' ? 'server' : type
+	return type
 }
 
 export function isDisclosureCompatibleWithProjectTypes(

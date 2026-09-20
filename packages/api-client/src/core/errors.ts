@@ -1,10 +1,10 @@
-import type { ApiErrorData, ModrinthErrorResponse } from '../types/errors'
-import { isModrinthErrorResponse } from '../types/errors'
+import type { ApiErrorData, ShroudEditErrorResponse } from '../types/errors'
+import { isShroudEditErrorResponse } from '../types/errors'
 
 /**
- * Base error class for all Modrinth API errors
+ * Base error class for all ShroudEdit API errors
  */
-export class ModrinthApiError extends Error {
+export class ShroudEditApiError extends Error {
 	/**
 	 * HTTP status code (if available)
 	 */
@@ -27,7 +27,7 @@ export class ModrinthApiError extends Error {
 
 	constructor(message: string, data?: ApiErrorData) {
 		super(message)
-		this.name = 'ModrinthApiError'
+		this.name = 'ShroudEditApiError'
 
 		this.statusCode = data?.statusCode
 		this.originalError = data?.originalError
@@ -36,40 +36,40 @@ export class ModrinthApiError extends Error {
 
 		// Maintains proper stack trace for where our error was thrown (only available on V8)
 		if (Error.captureStackTrace) {
-			Error.captureStackTrace(this, ModrinthApiError)
+			Error.captureStackTrace(this, ShroudEditApiError)
 		}
 	}
 
 	/**
-	 * Create a ModrinthApiError from an unknown error
+	 * Create a ShroudEditApiError from an unknown error
 	 */
-	static fromUnknown(error: unknown, context?: string): ModrinthApiError {
-		if (error instanceof ModrinthApiError) {
+	static fromUnknown(error: unknown, context?: string): ShroudEditApiError {
+		if (error instanceof ShroudEditApiError) {
 			return error
 		}
 
 		if (error instanceof Error) {
-			return new ModrinthApiError(error.message, {
+			return new ShroudEditApiError(error.message, {
 				originalError: error,
 				context,
 			})
 		}
 
-		return new ModrinthApiError(String(error), { context })
+		return new ShroudEditApiError(String(error), { context })
 	}
 }
 
 /**
- * Error class for Modrinth server errors (kyros/archon)
- * Extends ModrinthApiError with V1 error response parsing
+ * Error class for ShroudEdit server errors (kyros/archon)
+ * Extends ShroudEditApiError with V1 error response parsing
  */
-export class ModrinthServerError extends ModrinthApiError {
+export class ShroudEditServerError extends ShroudEditApiError {
 	/**
 	 * V1 error information (if available)
 	 */
-	readonly v1Error?: ModrinthErrorResponse
+	readonly v1Error?: ShroudEditErrorResponse
 
-	constructor(message: string, data?: ApiErrorData & { v1Error?: ModrinthErrorResponse }) {
+	constructor(message: string, data?: ApiErrorData & { v1Error?: ShroudEditErrorResponse }) {
 		// If we have a V1 error, format the message nicely
 		let errorMessage = message
 		if (data?.v1Error) {
@@ -80,23 +80,23 @@ export class ModrinthServerError extends ModrinthApiError {
 		}
 
 		super(errorMessage, data)
-		this.name = 'ModrinthServerError'
+		this.name = 'ShroudEditServerError'
 		this.v1Error = data?.v1Error
 
 		if (Error.captureStackTrace) {
-			Error.captureStackTrace(this, ModrinthServerError)
+			Error.captureStackTrace(this, ShroudEditServerError)
 		}
 	}
 
 	/**
-	 * Create a ModrinthServerError from response data
+	 * Create a ShroudEditServerError from response data
 	 */
 	static fromResponse(
 		statusCode: number,
 		responseData: unknown,
 		context?: string,
-	): ModrinthServerError {
-		const v1Error = isModrinthErrorResponse(responseData) ? responseData : undefined
+	): ShroudEditServerError {
+		const v1Error = isShroudEditErrorResponse(responseData) ? responseData : undefined
 
 		let message = `HTTP ${statusCode}`
 		if (v1Error) {
@@ -105,7 +105,7 @@ export class ModrinthServerError extends ModrinthApiError {
 			message = responseData
 		}
 
-		return new ModrinthServerError(message, {
+		return new ShroudEditServerError(message, {
 			statusCode,
 			responseData,
 			context,
@@ -114,15 +114,15 @@ export class ModrinthServerError extends ModrinthApiError {
 	}
 
 	/**
-	 * Create a ModrinthServerError from an unknown error
+	 * Create a ShroudEditServerError from an unknown error
 	 */
-	static fromUnknown(error: unknown, context?: string): ModrinthServerError {
-		if (error instanceof ModrinthServerError) {
+	static fromUnknown(error: unknown, context?: string): ShroudEditServerError {
+		if (error instanceof ShroudEditServerError) {
 			return error
 		}
 
-		if (error instanceof ModrinthApiError) {
-			return new ModrinthServerError(error.message, {
+		if (error instanceof ShroudEditApiError) {
+			return new ShroudEditServerError(error.message, {
 				statusCode: error.statusCode,
 				originalError: error.originalError,
 				responseData: error.responseData,
@@ -131,12 +131,12 @@ export class ModrinthServerError extends ModrinthApiError {
 		}
 
 		if (error instanceof Error) {
-			return new ModrinthServerError(error.message, {
+			return new ShroudEditServerError(error.message, {
 				originalError: error,
 				context,
 			})
 		}
 
-		return new ModrinthServerError(String(error), { context })
+		return new ShroudEditServerError(String(error), { context })
 	}
 }

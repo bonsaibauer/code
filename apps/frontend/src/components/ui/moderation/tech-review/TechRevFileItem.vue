@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { RightArrowIcon, VersionIcon } from '@modrinth/assets'
-import { Button, ButtonLink, useFormatBytes } from '@modrinth/ui'
+import { RightArrowIcon, VersionIcon } from '@shroudedit/assets'
+import { Button, ButtonLink, useFormatBytes } from '@shroudedit/ui'
 import { computed } from 'vue'
 
 import { getFileDetailCount, getVersionPageHref, truncateMiddle } from './helpers'

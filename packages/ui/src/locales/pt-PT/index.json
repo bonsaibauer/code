@@ -734,16 +734,16 @@
   "header.category.feature": {
     "defaultMessage": "Características"
   },
-  "header.category.minecraft-server-community": {
+  "header.category.enshrouded-server-community": {
     "defaultMessage": "Comunidade"
   },
-  "header.category.minecraft-server-features": {
+  "header.category.enshrouded-server-features": {
     "defaultMessage": "Funcionalidades"
   },
-  "header.category.minecraft-server-gameplay": {
+  "header.category.enshrouded-server-gameplay": {
     "defaultMessage": "Modo de jogo"
   },
-  "header.category.minecraft-server-meta": {
+  "header.category.enshrouded-server-meta": {
     "defaultMessage": "Meta"
   },
   "header.category.performance-impact": {
@@ -1137,16 +1137,16 @@
     "defaultMessage": "Mantém ficheiros atualizados quando o servidor muda"
   },
   "modal.open-in-app.get-app": {
-    "defaultMessage": "Obter a Modrinth App"
+    "defaultMessage": "Obter a ShroudEdit App"
   },
   "modal.open-in-app.opening-automatically": {
-    "defaultMessage": "A Modrinth App vai abrir automaticamente..."
+    "defaultMessage": "A ShroudEdit App vai abrir automaticamente..."
   },
   "modal.open-in-app.title": {
-    "defaultMessage": "A abrir a Modrinth App"
+    "defaultMessage": "A abrir a ShroudEdit App"
   },
   "modal.open-in-app.why-use": {
-    "defaultMessage": "Razões para usar a Modrinth App"
+    "defaultMessage": "Razões para usar a ShroudEdit App"
   },
   "notification.error.title": {
     "defaultMessage": "Ocorreu um erro"
@@ -1175,8 +1175,8 @@
   "omorphia.component.badge.label.moderator": {
     "defaultMessage": "Moderador"
   },
-  "omorphia.component.badge.label.modrinth-team": {
-    "defaultMessage": "Equipa do Modrinth"
+  "omorphia.component.badge.label.shroudedit-team": {
+    "defaultMessage": "Equipa do ShroudEdit"
   },
   "omorphia.component.badge.label.pending": {
     "defaultMessage": "Pendente"
@@ -1290,10 +1290,10 @@
     "defaultMessage": "Visa"
   },
   "profile.bio.fallback.creator": {
-    "defaultMessage": "Um criador Modrinth."
+    "defaultMessage": "Um criador ShroudEdit."
   },
   "profile.bio.fallback.user": {
-    "defaultMessage": "Um utilizador Modrinth."
+    "defaultMessage": "Um utilizador ShroudEdit."
   },
   "profile.button.block": {
     "defaultMessage": "Bloquear"
@@ -1412,8 +1412,8 @@
   "project.about.compatibility.environments.singleplayer-only": {
     "defaultMessage": "Um jogador apenas"
   },
-  "project.about.compatibility.game.minecraftJava": {
-    "defaultMessage": "Minecraft: Java Edition"
+  "project.about.compatibility.game.enshroudedJava": {
+    "defaultMessage": "Enshrouded: Java Edition"
   },
   "project.about.compatibility.platforms": {
     "defaultMessage": "Plataformas"
@@ -1851,7 +1851,7 @@
     "defaultMessage": "O teu projeto tem múltiplos ambientes"
   },
   "project.settings.environment.notice.review-options.description": {
-    "defaultMessage": "Reformulámos o sistema de Ambientes no Modrinth e estão agora disponíveis novas opções. Certifica-te de que a opção correta está selecionada abaixo e clica em \"Verificar\" quando terminares!"
+    "defaultMessage": "Reformulámos o sistema de Ambientes no ShroudEdit e estão agora disponíveis novas opções. Certifica-te de que a opção correta está selecionada abaixo e clica em \"Verificar\" quando terminares!"
   },
   "project.settings.environment.notice.review-options.title": {
     "defaultMessage": "Por favor, revê as opções abaixo"
@@ -1968,7 +1968,7 @@
     "defaultMessage": "Não listado"
   },
   "project.visibility.unlisted-by-staff": {
-    "defaultMessage": "Não listado pelo modrinth"
+    "defaultMessage": "Não listado pelo shroudedit"
   },
   "report.item-type.user": {
     "defaultMessage": "utilizador"
@@ -2217,7 +2217,7 @@
     "defaultMessage": "Onde queres que o teu servidor esteja localizado?"
   },
   "servers.region.region-unsupported": {
-    "defaultMessage": "Região não listada? <link>Deixa-nos saber onde gostarias de ver Modrinth Hosting a seguir!</link>"
+    "defaultMessage": "Região não listada? <link>Deixa-nos saber onde gostarias de ver ShroudEdit Hosting a seguir!</link>"
   },
   "servers.region.southeast-asia": {
     "defaultMessage": "Sudeste Asiático"
@@ -2684,7 +2684,7 @@
   "tag.loader.liteloader": {
     "defaultMessage": "LiteLoader"
   },
-  "tag.loader.minecraft": {
+  "tag.loader.enshrouded": {
     "defaultMessage": "Pacote de Recursos"
   },
   "tag.loader.modloader": {
@@ -2754,10 +2754,10 @@
     "defaultMessage": "Tens alterações por guardar."
   },
   "unknown-file-warning-modal.mod-warning-body": {
-    "defaultMessage": " não está publicado no Modrinth. Recomendamos fortemente que apenas instales ficheiros de fontes que confies."
+    "defaultMessage": " não está publicado no ShroudEdit. Recomendamos fortemente que apenas instales ficheiros de fontes que confies."
   },
   "unknown-file-warning-modal.modpack-warning-body": {
-    "defaultMessage": " contém ficheiros que não foram publicados no Modrinth. Recomendamos fortemente que apenas instales ficheiros de fontes que confies."
+    "defaultMessage": " contém ficheiros que não foram publicados no ShroudEdit. Recomendamos fortemente que apenas instales ficheiros de fontes que confies."
   },
   "version.content.name": {
     "defaultMessage": "Nome"

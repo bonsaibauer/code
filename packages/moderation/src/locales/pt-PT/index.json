@@ -71,10 +71,10 @@
   "nags.long-headers.title": {
     "defaultMessage": "Encurta os cabeçalhos"
   },
-  "nags.minecraft-title-clause.description": {
-    "defaultMessage": "Projetos não devem usar a marca do Minecraft ou incluir \"Minecraft\" como uma parte significante do nome."
+  "nags.enshrouded-title-clause.description": {
+    "defaultMessage": "Projetos não devem usar a marca do Enshrouded ou incluir \"Enshrouded\" como uma parte significante do nome."
   },
-  "nags.minecraft-title-clause.title": {
+  "nags.enshrouded-title-clause.title": {
     "defaultMessage": "Evita infrigir direitos de marca"
   },
   "nags.missing-alt-text.description": {

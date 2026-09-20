@@ -1,9 +1,9 @@
 <template>
 	<div>
 		<div class="landing-hero">
-			<ModrinthIcon class="modrinth-icon text-brand" />
+			<ShroudEditIcon class="brand-icon" />
 			<h1 class="main-header">
-				<IntlFormatted :message-id="messages.thePlaceForMinecraft">
+				<IntlFormatted :message-id="messages.thePlaceForEnshrouded">
 					<template #~content>
 						<div class="animate-strong">
 							<span>
@@ -212,7 +212,10 @@
 						<p>
 							<IntlFormatted :message-id="messages.playWithLauncherDescription">
 								<template #link="{ children }">
-									<nuxt-link class="underline hover:brightness-[--hover-brightness]" to="/app">
+									<nuxt-link
+										class="underline hover:brightness-[--hover-brightness]"
+										to="/discover/schematics"
+									>
 										<component :is="() => children" />
 									</nuxt-link>
 								</template>
@@ -236,7 +239,7 @@
 							<div class="launcher-graphics">
 								<a
 									rel="noopener"
-									href="https://prismlauncher.org/"
+									href="https://shroudedit.com/placeholder/shroudtopia"
 									class="graphic gradient-border"
 									:title="formatMessage(messages.prismLauncherLabel)"
 									:aria-label="formatMessage(messages.prismLauncherLabel)"
@@ -244,15 +247,15 @@
 									<PrismLauncherLogo aria-hidden="true" />
 								</a>
 								<nuxt-link
-									to="/app"
+									to="/discover/schematics"
 									class="graphic gradient-border text-brand"
 									:aria-label="formatMessage(messages.modrinthAppLabel)"
 								>
-									<ModrinthIcon aria-hidden="true" />
+									<ShroudEditIcon aria-hidden="true" />
 								</nuxt-link>
 								<a
 									rel="noopener"
-									href="https://atlauncher.com/"
+									href="https://shroudedit.com/placeholder/shroudforge"
 									class="graphic gradient-border"
 									:title="formatMessage(messages.atlauncherLabel)"
 									:aria-label="formatMessage(messages.atlauncherLabel)"
@@ -290,8 +293,8 @@
 									y2="37"
 									gradientUnits="userSpaceOnUse"
 								>
-									<stop stop-color="#C1E1B1" />
-									<stop offset="1" stop-color="#A7BDE6" />
+									<stop stop-color="#63C9F5" />
+									<stop offset="1" stop-color="#F8FFFF" />
 								</linearGradient>
 							</defs>
 						</svg>
@@ -317,8 +320,8 @@
 									y2="23.5"
 									gradientUnits="userSpaceOnUse"
 								>
-									<stop stop-color="#C1E1B1" />
-									<stop offset="1" stop-color="#A7BDE6" />
+									<stop stop-color="#63C9F5" />
+									<stop offset="1" stop-color="#F8FFFF" />
 								</linearGradient>
 							</defs>
 						</svg>
@@ -342,8 +345,8 @@
 									y2="29.375"
 									gradientUnits="userSpaceOnUse"
 								>
-									<stop stop-color="#C1E1B1" />
-									<stop offset="1" stop-color="#A7BDE6" />
+									<stop stop-color="#63C9F5" />
+									<stop offset="1" stop-color="#F8FFFF" />
 								</linearGradient>
 							</defs>
 						</svg>
@@ -367,8 +370,8 @@
 									y2="38.25"
 									gradientUnits="userSpaceOnUse"
 								>
-									<stop stop-color="#C1E1B1" />
-									<stop offset="1" stop-color="#A7BDE6" />
+									<stop stop-color="#63C9F5" />
+									<stop offset="1" stop-color="#F8FFFF" />
 								</linearGradient>
 							</defs>
 						</svg>
@@ -394,8 +397,8 @@
 									y2="38.25"
 									gradientUnits="userSpaceOnUse"
 								>
-									<stop stop-color="#C1E1B1" />
-									<stop offset="1" stop-color="#A7BDE6" />
+									<stop stop-color="#63C9F5" />
+									<stop offset="1" stop-color="#F8FFFF" />
 								</linearGradient>
 							</defs>
 						</svg>
@@ -419,8 +422,8 @@
 									y2="31.5"
 									gradientUnits="userSpaceOnUse"
 								>
-									<stop stop-color="#C1E1B1" />
-									<stop offset="1" stop-color="#A7BDE6" />
+									<stop stop-color="#63C9F5" />
+									<stop offset="1" stop-color="#F8FFFF" />
 								</linearGradient>
 							</defs>
 						</svg>
@@ -443,22 +446,22 @@ import {
 	CompassIcon,
 	DashboardIcon,
 	LogInIcon,
-	ModrinthIcon,
+	ShroudEditIcon,
 	SearchIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	Avatar,
 	ButtonLink,
 	commonMessages,
 	defineMessages,
 	DropdownSelect,
-	injectModrinthClient,
+	injectShroudEditClient,
 	Input,
 	IntlFormatted,
 	ProjectCard,
 	useRelativeTime,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { ref } from 'vue'
 
 import ATLauncherLogo from '~/assets/images/external/atlauncher.svg?component'
@@ -469,7 +472,7 @@ import { homePageNotifs, homePageProjects, homePageSearch } from '~/generated/st
 const formatRelativeTime = useRelativeTime()
 
 const { formatMessage } = useVIntl()
-const { labrinth } = injectModrinthClient()
+const { labrinth } = injectShroudEditClient()
 
 const searchQuery = ref('leave')
 const sortType = ref('relevance')
@@ -517,14 +520,14 @@ if (searchProjects.value.length === 0) {
 }
 
 const messages = defineMessages({
-	thePlaceForMinecraft: {
-		id: 'landing.heading.the-place-for-minecraft',
-		defaultMessage: 'The place for Minecraft {content}',
+	thePlaceForEnshrouded: {
+		id: 'landing.heading.the-place-for-enshrouded',
+		defaultMessage: 'The place for Enshrouded {content}',
 	},
 	discoverHeading: {
-		id: 'landing.subheading',
+		id: 'landing.subheading.enshrouded',
 		defaultMessage:
-			'Discover, play, and share Minecraft content through our open-source platform built for the community.',
+			'Discover, use, and share Enshrouded content through our open-source platform built for the community.',
 	},
 	discoverMods: {
 		id: 'landing.button.discover-mods',
@@ -535,8 +538,8 @@ const messages = defineMessages({
 		defaultMessage: 'Go to dashboard',
 	},
 	failedToLoadRandomProjects: {
-		id: 'landing.error.failedToLoadRandomProjects',
-		defaultMessage: 'Failed to load random projects :(',
+		id: 'landing.empty.projects.enshrouded',
+		defaultMessage: 'Community projects will appear here as they are published.',
 	},
 	forPlayersLabel: {
 		id: 'landing.section.for-players.label',
@@ -547,8 +550,8 @@ const messages = defineMessages({
 		defaultMessage: 'For Creators',
 	},
 	discoverCreationsTagline: {
-		id: 'landing.section.for-players.tagline',
-		defaultMessage: 'Discover over {count, number} creations',
+		id: 'landing.section.for-players.tagline.enshrouded',
+		defaultMessage: 'Discover Enshrouded community creations',
 	},
 	shareContentTagline: {
 		id: 'landing.section.for-creators.tagline',
@@ -571,7 +574,7 @@ const messages = defineMessages({
 	findWhatYouWantDescription: {
 		id: 'landing.feature.search.description',
 		defaultMessage:
-			"Modrinth's lightning-fast search and powerful filters let you find what you want as you type.",
+			"ShroudEdit's lightning-fast search and powerful filters let you find what you want as you type.",
 	},
 	followProjectsHeading: {
 		id: 'landing.feature.follow.heading',
@@ -582,13 +585,13 @@ const messages = defineMessages({
 		defaultMessage: 'Get notified every time your favorite projects update and stay in the loop.',
 	},
 	playWithLauncherHeading: {
-		id: 'landing.feature.launcher.heading',
-		defaultMessage: 'Play with your favorite launcher',
+		id: 'landing.feature.tools.heading.enshrouded',
+		defaultMessage: 'Connect your favorite community tools',
 	},
 	playWithLauncherDescription: {
-		id: 'landing.feature.launcher.description',
+		id: 'landing.feature.tools.description.enshrouded',
 		defaultMessage:
-			"Modrinth's open-source API lets launchers add deep integration with Modrinth. You can use Modrinth through <link>our own app</link> and some of the most popular launchers like ATLauncher, MultiMC, and Prism Launcher.",
+			"ShroudEdit's open-source API lets community tools add deep integration. You can also <link>discover and share World Editor schematics</link> through the same platform.",
 	},
 	notificationsHeading: {
 		id: 'landing.notifications.heading',
@@ -607,51 +610,38 @@ const messages = defineMessages({
 		defaultMessage: 'Received {time}',
 	},
 	launcherGraphicAlt: {
-		id: 'landing.launcher.graphic-alt',
-		defaultMessage:
-			'A simplified representation of a Minecraft window, with the Mojang Studios logo in Modrinth green.',
+		id: 'landing.tools.graphic-alt.enshrouded',
+		defaultMessage: 'A preview of the current ShroudEdit integration experience.',
 	},
 	prismLauncherLabel: {
-		id: 'landing.launcher.prism-launcher-label',
-		defaultMessage: 'Prism Launcher',
+		id: 'landing.tools.shroudtopia-label',
+		defaultMessage: 'Shroudtopia',
 	},
 	modrinthAppLabel: {
-		id: 'landing.launcher.modrinth-app-label',
-		defaultMessage: 'Modrinth App',
+		id: 'landing.tools.world-editor-label',
+		defaultMessage: 'ShroudEdit schematics',
 	},
 	atlauncherLabel: {
-		id: 'landing.launcher.atlauncher-label',
-		defaultMessage: 'ATLauncher',
+		id: 'landing.tools.shroudforge-label',
+		defaultMessage: 'Shroudforge',
 	},
 })
 
 const contentTypeMessages = defineMessages({
 	mods: {
-		id: 'landing.heading.the-place-for-minecraft.mods',
+		id: 'landing.heading.the-place-for-enshrouded.mods',
 		defaultMessage: 'mods',
 	},
-	resourcePacks: {
-		id: 'landing.heading.the-place-for-minecraft.resource-packs',
-		defaultMessage: 'resource packs',
-	},
-	dataPacks: {
-		id: 'landing.heading.the-place-for-minecraft.data-packs',
-		defaultMessage: 'data packs',
-	},
-	shaders: {
-		id: 'landing.heading.the-place-for-minecraft.shaders',
-		defaultMessage: 'shaders',
+	schematics: {
+		id: 'landing.heading.the-place-for-enshrouded.schematics',
+		defaultMessage: 'schematics',
 	},
 	modpacks: {
-		id: 'landing.heading.the-place-for-minecraft.modpacks',
+		id: 'landing.heading.the-place-for-enshrouded.modpacks',
 		defaultMessage: 'modpacks',
 	},
-	plugins: {
-		id: 'landing.heading.the-place-for-minecraft.plugins',
-		defaultMessage: 'plugins',
-	},
 	servers: {
-		id: 'landing.heading.the-place-for-minecraft.servers',
+		id: 'landing.heading.the-place-for-enshrouded.servers',
 		defaultMessage: 'servers',
 	},
 })
@@ -688,9 +678,9 @@ const creatorFeatureMessages = defineMessages({
 		defaultMessage: 'Diverse Ecosystem',
 	},
 	diverseEcosystemDescription: {
-		id: 'landing.creator.feature.diverse-ecosystem.description',
+		id: 'landing.creator.feature.diverse-ecosystem.description.enshrouded',
 		defaultMessage:
-			'Integrate with your build tools through Minotaur for automatic uploads right when you release a new version',
+			'Integrate your tools with the open API for automatic uploads when you release a new version',
 	},
 	dataStatisticsTitle: {
 		id: 'landing.creator.feature.data-statistics.title',
@@ -705,9 +695,9 @@ const creatorFeatureMessages = defineMessages({
 		defaultMessage: 'Constantly Evolving',
 	},
 	constantlyEvolvingDescription: {
-		id: 'landing.creator.feature.constantly-evolving.description',
+		id: 'landing.creator.feature.constantly-evolving.description.enshrouded',
 		defaultMessage:
-			'Get the best modding experience possible with constant updates from the Modrinth team',
+			'Get the best Enshrouded modding experience possible with constant updates from the ShroudEdit team',
 	},
 })
 </script>
@@ -725,7 +715,7 @@ const creatorFeatureMessages = defineMessages({
 	text-align: center;
 	flex-direction: column;
 
-	.modrinth-icon {
+	.brand-icon {
 		width: 13rem;
 		height: 13rem;
 		margin-bottom: 2.5rem;
@@ -957,7 +947,7 @@ const creatorFeatureMessages = defineMessages({
 					z-index: -1;
 					inset: 0 0 -0.75rem -0.75rem;
 
-					background: linear-gradient(0deg, #05ce45 0%, rgba(5, 206, 69, 0) 100%);
+					background: linear-gradient(0deg, #63c9f5 0%, rgba(99, 201, 245, 0) 100%);
 					opacity: 0.2;
 					border-radius: 1rem;
 					margin-top: auto;
@@ -1141,10 +1131,10 @@ const creatorFeatureMessages = defineMessages({
 				justify-content: center;
 				width: 4rem;
 				height: 4rem;
-				background: #020305;
+				background: #050b14;
 				box-shadow:
 					2px 2px 12px rgba(0, 0, 0, 0.16),
-					inset 2px 2px 32px #393d5e;
+					inset 2px 2px 32px rgba(99, 201, 245, 0.28);
 				border-radius: 1rem;
 
 				svg {
@@ -1194,7 +1184,7 @@ const creatorFeatureMessages = defineMessages({
 	padding: 1rem 1rem 2rem 1rem;
 	overflow: hidden;
 
-	.modrinth-icon {
+	.brand-icon {
 		z-index: 2;
 		width: auto;
 		height: 32rem;
@@ -1291,8 +1281,8 @@ const creatorFeatureMessages = defineMessages({
 
 .main-header-strong {
 	font-weight: 600;
-	background-color: #00bd3c;
-	background-image: linear-gradient(180deg, #a7d0ff 0%, var(--color-brand) 60%);
+	background-color: #18344d;
+	background-image: linear-gradient(180deg, #f8ffff 0%, #63c9f5 60%);
 	background-size: 100%;
 	background-clip: text;
 	-webkit-text-fill-color: transparent;

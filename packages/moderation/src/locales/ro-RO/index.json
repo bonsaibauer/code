@@ -104,10 +104,10 @@
   "nags.long-headers.title": {
     "defaultMessage": "Scurtează antetul"
   },
-  "nags.minecraft-title-clause.description": {
-    "defaultMessage": "Proiectele nu pot folosi brandul Minecraft sau include \"Minecraft\" ca o parte semnificativă din nume."
+  "nags.enshrouded-title-clause.description": {
+    "defaultMessage": "Proiectele nu pot folosi brandul Enshrouded sau include \"Enshrouded\" ca o parte semnificativă din nume."
   },
-  "nags.minecraft-title-clause.title": {
+  "nags.enshrouded-title-clause.title": {
     "defaultMessage": "Evită încălcarea brandurilor"
   },
   "nags.missing-alt-text.description": {

@@ -1,5 +1,5 @@
-import { TagsIcon } from '@modrinth/assets'
-import { injectProjectPageContext } from '@modrinth/ui'
+import { TagsIcon } from '@shroudedit/assets'
+import { injectProjectPageContext } from '@shroudedit/ui'
 import { computed } from 'vue'
 
 import { fix, group, md, stage, toggle } from '../../types/node'

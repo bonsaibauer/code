@@ -1,5 +1,5 @@
-import { XIcon } from '@modrinth/assets'
-import { injectProjectPageContext } from '@modrinth/ui'
+import { XIcon } from '@shroudedit/assets'
+import { injectProjectPageContext } from '@shroudedit/ui'
 import { computed } from 'vue'
 
 import { group, stage, toggle } from '../../types/node'
@@ -15,7 +15,7 @@ export default function () {
 		.icon(XIcon)
 		.navigate('/versions')
 		.shown(
-			computed(() => projectV2.value.versions.length === 0 && !project.value?.minecraft_server),
+			computed(() => projectV2.value.versions.length === 0 && !project.value?.enshrouded_server),
 		)
 		.children(
 			group().children(toggle('no-versions', 'No Versions').suggestedStatus('rejected').message()),

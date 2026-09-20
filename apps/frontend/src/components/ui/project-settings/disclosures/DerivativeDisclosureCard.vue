@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GitForkIcon, PlusIcon, TrashIcon } from '@modrinth/assets'
+import { GitForkIcon, PlusIcon, TrashIcon } from '@shroudedit/assets'
 import {
 	Button,
 	commonMessages,
@@ -8,7 +8,7 @@ import {
 	SettingsFormGroup,
 	Textarea,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { watch } from 'vue'
 
 import DisclosureToggleCard from './DisclosureToggleCard.vue'
@@ -62,7 +62,7 @@ const messages = defineMessages({
 	notePlaceholder: {
 		id: 'project.settings.disclosures.derivative.note-placeholder',
 		defaultMessage:
-			'This is a fork that adds a few new biomes and ports it to newer Minecraft versions.',
+			'This is a fork that adds a few new biomes and ports it to newer Enshrouded versions.',
 	},
 })
 
@@ -112,7 +112,7 @@ function setOptionalField(
 		:icon="GitForkIcon"
 		:title="formatMessage(messages.title)"
 		:description="formatMessage(messages.description)"
-		info-link="https://support.modrinth.com/en/articles/16567675#h_6422cc821e"
+		info-link="https://support.shroudedit.com/en/articles/16567675#h_6422cc821e"
 		@set-lock-status="emit('setLockStatus', $event)"
 	>
 		<template #expanded>

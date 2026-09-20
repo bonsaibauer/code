@@ -61,10 +61,10 @@ export const computeVersions = (versions, members) => {
 }
 
 const SERVER_HEADER_ORDER = [
-	'minecraft_server_features',
-	'minecraft_server_gameplay',
-	'minecraft_server_meta',
-	'minecraft_server_community',
+	'enshrouded_server_features',
+	'enshrouded_server_gameplay',
+	'enshrouded_server_meta',
+	'enshrouded_server_community',
 ]
 
 export const sortedCategories = (tags, formatCategoryName, locale) => {
@@ -113,13 +113,15 @@ export const formatProjectType = (name, short = false) => {
 			return 'MOD'
 		} else if (name === 'modpack') {
 			return 'MPK'
+		} else if (name === 'schematic') {
+			return 'SCH'
 		} else if (name === 'shader') {
 			return 'SHD'
 		} else if (name === 'plugin') {
 			return 'PLG'
 		} else if (name === 'datapack') {
 			return 'DPK'
-		} else if (name === 'minecraft_java_server') {
+		} else if (name === 'server') {
 			return 'SRV'
 		}
 	}
@@ -130,7 +132,9 @@ export const formatProjectType = (name, short = false) => {
 		return 'Data Pack'
 	} else if (name === 'modpack') {
 		return 'Modpack'
-	} else if (name === 'minecraft_java_server') {
+	} else if (name === 'schematic') {
+		return 'Schematic'
+	} else if (name === 'server') {
 		return 'Server'
 	}
 
@@ -255,6 +259,8 @@ export const acceptFileFromProjectType = (projectType) => {
 			return `.jar,.zip,.litemod,application/java-archive,application/x-java-archive,application/zip,${commonTypes}`
 		case 'modpack':
 			return `.mrpack,application/x-modrinth-modpack+zip,application/zip,${commonTypes}`
+		case 'schematic':
+			return `.schematic,application/octet-stream,${commonTypes}`
 		default:
 			// all of the above
 			return `.jar,.zip,.litemod,.mrpack,application/java-archive,application/x-java-archive,application/zip,application/x-modrinth-modpack+zip,${commonTypes}`

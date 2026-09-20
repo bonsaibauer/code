@@ -16,7 +16,7 @@
 
 # Dependency Injection
 
-Modrinth uses a small dependency-injection (DI) layer that uses Vue `provide` and `inject`.
+ShroudEdit uses a small dependency-injection (DI) layer that uses Vue `provide` and `inject`.
 
 This layer shares platform capabilities and page state with common UI components.
 
@@ -27,7 +27,7 @@ Define all providers with `createContext` from `packages/ui/src/providers/index.
 The factory returns a typed `[inject, provide]` tuple:
 
 ```ts
-import { createContext } from '@modrinth/ui'
+import { createContext } from '@shroudedit/ui'
 
 interface MyContext {
 	someValue: Ref<string>
@@ -116,7 +116,7 @@ Make a setup function in `apps/app-frontend/src/providers/setup/`:
 ```ts
 // apps/app-frontend/src/providers/setup/my-feature.ts
 import { ref } from 'vue'
-import { provideMyFeature } from '@modrinth/ui'
+import { provideMyFeature } from '@shroudedit/ui'
 
 export function setupMyFeatureProvider() {
 	const items = ref<Item[]>([])
@@ -159,7 +159,7 @@ Inject the provider in a component in `packages/ui`, `apps/frontend`, or `apps/a
 
 ```vue
 <script setup lang="ts">
-import { injectMyFeature } from '@modrinth/ui'
+import { injectMyFeature } from '@shroudedit/ui'
 
 const { items, addItem } = injectMyFeature()
 </script>
@@ -183,7 +183,7 @@ Use props and emits by default. DI adds an indirect layer, so use it only for a 
 
 | Provider                     | File                             | Purpose                       |
 | ---------------------------- | -------------------------------- | ----------------------------- |
-| `provideModrinthClient`      | `providers/api-client.ts`        | Supplies the API client.      |
+| `provideShroudEditClient`      | `providers/api-client.ts`        | Supplies the API client.      |
 | `provideNotificationManager` | `providers/web-notifications.ts` | Manages notifications.        |
 | `providePageContext`         | `providers/page-context.ts`      | Supplies page configuration.  |
 | `provideProjectPageContext`  | `providers/project-page.ts`      | Manages project page state.   |

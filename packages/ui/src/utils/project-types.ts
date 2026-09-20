@@ -4,6 +4,7 @@ export const PROJECT_TYPE_ORDER = [
 	'datapack',
 	'shader',
 	'modpack',
+	'schematic',
 	'plugin',
 	'server',
 	'collection',
@@ -12,7 +13,6 @@ export const PROJECT_TYPE_ORDER = [
 export type OrderedProjectType = (typeof PROJECT_TYPE_ORDER)[number]
 
 const PROJECT_TYPE_SORT_ALIASES: Record<string, string> = {
-	minecraft_java_server: 'server',
 	shaderpack: 'shader',
 }
 

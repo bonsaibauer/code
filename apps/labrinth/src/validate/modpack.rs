@@ -45,7 +45,7 @@ impl super::Validator for ModpackValidator {
             )
         })?;
 
-        if pack.game != "minecraft" {
+        if pack.game != "enshrouded" {
             return Err(ValidationError::InvalidInput(
                 format!("Game {0} does not exist!", pack.game).into(),
             ));

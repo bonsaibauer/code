@@ -90,7 +90,7 @@
     "defaultMessage": "Niciun rezultat găsit pentru query-ul tău!"
   },
   "browse.offline": {
-    "defaultMessage": "Sunteți offline! Conectați-vă la internet ca să puteți căuta pe Modrinth!"
+    "defaultMessage": "Sunteți offline! Conectați-vă la internet ca să puteți căuta pe ShroudEdit!"
   },
   "browse.search.placeholder": {
     "defaultMessage": "Caută {projectType}..."
@@ -221,8 +221,8 @@
   "button.open-in-folder": {
     "defaultMessage": "Deschide în folder"
   },
-  "button.open-in-modrinth": {
-    "defaultMessage": "Deschide în Modrinth"
+  "button.open-in-shroudedit": {
+    "defaultMessage": "Deschide în ShroudEdit"
   },
   "button.play": {
     "defaultMessage": "Joacă"
@@ -833,16 +833,16 @@
   "header.category.feature": {
     "defaultMessage": "Caracteristici"
   },
-  "header.category.minecraft-server-community": {
+  "header.category.enshrouded-server-community": {
     "defaultMessage": "Comunitate"
   },
-  "header.category.minecraft-server-features": {
+  "header.category.enshrouded-server-features": {
     "defaultMessage": "Caracteristici"
   },
-  "header.category.minecraft-server-gameplay": {
+  "header.category.enshrouded-server-gameplay": {
     "defaultMessage": "Stil de joc"
   },
-  "header.category.minecraft-server-meta": {
+  "header.category.enshrouded-server-meta": {
     "defaultMessage": "Meta"
   },
   "header.category.performance-impact": {
@@ -969,7 +969,7 @@
     "defaultMessage": "Reinstalează pachetul de moduri"
   },
   "instance.confirm-repair.body.instance": {
-    "defaultMessage": "Se repară reinstalările leaderului si dependentele Minecraft-ului fără a șterge conținutul tău. Acest lucru poate rezolva problemele daca jocul tău nu se lansează de la probleme legate de launcher."
+    "defaultMessage": "Se repară reinstalările leaderului si dependentele Enshrouded-ului fără a șterge conținutul tău. Acest lucru poate rezolva problemele daca jocul tău nu se lansează de la probleme legate de launcher."
   },
   "instance.confirm-repair.header": {
     "defaultMessage": "Reparare {type}"
@@ -1599,16 +1599,16 @@
     "defaultMessage": "Mențineți fișierele actualizate atunci când serverul se modifică"
   },
   "modal.open-in-app.get-app": {
-    "defaultMessage": "Descărcați aplicația Modrinth"
+    "defaultMessage": "Descărcați aplicația ShroudEdit"
   },
   "modal.open-in-app.opening-automatically": {
-    "defaultMessage": "Aplicația Modrinth se va deschide automat..."
+    "defaultMessage": "Aplicația ShroudEdit se va deschide automat..."
   },
   "modal.open-in-app.title": {
-    "defaultMessage": "Deschiderea aplicației Modrinth"
+    "defaultMessage": "Deschiderea aplicației ShroudEdit"
   },
   "modal.open-in-app.why-use": {
-    "defaultMessage": "De ce să folosiți aplicația Modrinth"
+    "defaultMessage": "De ce să folosiți aplicația ShroudEdit"
   },
   "notification.error.title": {
     "defaultMessage": "A avut loc o eroare"
@@ -1640,8 +1640,8 @@
   "omorphia.component.badge.label.moderator": {
     "defaultMessage": "Moderator"
   },
-  "omorphia.component.badge.label.modrinth-team": {
-    "defaultMessage": "Echipa Modrinth"
+  "omorphia.component.badge.label.shroudedit-team": {
+    "defaultMessage": "Echipa ShroudEdit"
   },
   "omorphia.component.badge.label.pending": {
     "defaultMessage": "În așteptare"
@@ -1877,8 +1877,8 @@
   "project.about.compatibility.environments.singleplayer-only": {
     "defaultMessage": "Doar singleplayer"
   },
-  "project.about.compatibility.game.minecraftJava": {
-    "defaultMessage": "Minecraft: Java Edition"
+  "project.about.compatibility.game.enshroudedJava": {
+    "defaultMessage": "Enshrouded: Java Edition"
   },
   "project.about.compatibility.platforms": {
     "defaultMessage": "Platforme"
@@ -2061,7 +2061,7 @@
     "defaultMessage": "{count} {countPlural, plural, one {recent jucat} other {recent jucate}}"
   },
   "project.recent-plays.tooltip": {
-    "defaultMessage": "{count} {countPlural, plural, one {recent jucat} other {recent jucate}} de la Modrinth în ultimele 2 săptămâni"
+    "defaultMessage": "{count} {countPlural, plural, one {recent jucat} other {recent jucate}} de la ShroudEdit în ultimele 2 săptămâni"
   },
   "project.server.customModpackTooltip": {
     "defaultMessage": "Acest proiect folosește un pachet de resurse personalizat"
@@ -2226,7 +2226,7 @@
     "defaultMessage": "Proiectul tău are mai multe environment-uri"
   },
   "project.settings.environment.notice.review-options.description": {
-    "defaultMessage": "Tocmai am revizuit sistemul Environments pe Modrinth și acum sunt disponibile noi opțiuni. Asigurați-vă că ați selectat opțiunea corectă mai jos și apoi faceți clic pe „Verificați” când ați terminat!"
+    "defaultMessage": "Tocmai am revizuit sistemul Environments pe ShroudEdit și acum sunt disponibile noi opțiuni. Asigurați-vă că ați selectat opțiunea corectă mai jos și apoi faceți clic pe „Verificați” când ați terminat!"
   },
   "project.settings.environment.notice.review-options.title": {
     "defaultMessage": "Vă rugăm să examinați opțiunile de mai jos"
@@ -2529,7 +2529,7 @@
     "defaultMessage": "Fișier postat"
   },
   "servers.access-page.activity-log-filter.action.game-version-edited": {
-    "defaultMessage": "Versiune Minecraft modificată"
+    "defaultMessage": "Versiune Enshrouded modificată"
   },
   "servers.access-page.activity-log-filter.action.java-runtime-modified": {
     "defaultMessage": "Rularea in timp real Java s-a modificat"
@@ -2943,7 +2943,7 @@
     "defaultMessage": "Unde ți-ar plăcea ca serverul să fie localizat?"
   },
   "servers.region.region-unsupported": {
-    "defaultMessage": "Regiunea nu este listată? <link>Spuneți-ne unde doriți să vedeți în continuare Modrinth Hosting!</link>"
+    "defaultMessage": "Regiunea nu este listată? <link>Spuneți-ne unde doriți să vedeți în continuare ShroudEdit Hosting!</link>"
   },
   "servers.region.southeast-asia": {
     "defaultMessage": "Asia Sud-Estică"
@@ -3389,7 +3389,7 @@
   "tag.loader.liteloader": {
     "defaultMessage": "LiteLoader"
   },
-  "tag.loader.minecraft": {
+  "tag.loader.enshrouded": {
     "defaultMessage": "Resource Pack"
   },
   "tag.loader.modloader": {

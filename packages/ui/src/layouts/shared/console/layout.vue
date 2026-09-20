@@ -96,7 +96,7 @@
 </template>
 
 <script setup lang="ts">
-import { SearchIcon, TrashIcon, XIcon } from '@modrinth/assets'
+import { SearchIcon, TrashIcon, XIcon } from '@shroudedit/assets'
 import type { Terminal } from '@xterm/xterm'
 import { computed, isRef, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
@@ -110,7 +110,7 @@ import Input from '#ui/components/base/inputs/Input.vue'
 import NewModal from '#ui/components/modal/NewModal.vue'
 import ShareModal from '#ui/components/modal/ShareModal.vue'
 import { useModalStack } from '#ui/composables/modal-stack'
-import { injectModrinthClient } from '#ui/providers'
+import { injectShroudEditClient } from '#ui/providers'
 import { injectModalBehavior } from '#ui/providers/modal-behavior'
 import { injectPageContext } from '#ui/providers/page-context'
 import { injectNotificationManager } from '#ui/providers/web-notifications.ts'
@@ -130,7 +130,7 @@ import { injectConsoleManager } from './providers'
 import type { LogLevel, LogLine } from './types'
 
 const ctx = injectConsoleManager()
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const modalBehavior = injectModalBehavior()
 const pageContext = injectPageContext(null)
 const { addNotification } = injectNotificationManager()
@@ -156,7 +156,7 @@ const deleteModal = ref<InstanceType<typeof NewModal> | null>(null)
 const isDeleting = ref(false)
 const searchQuery = ref('')
 const isFullscreen = ref(false)
-const fullscreenBodyClass = 'modrinth-console-fullscreen-active'
+const fullscreenBodyClass = 'shroudedit-console-fullscreen-active'
 const fullscreenIntercomPadding = 20
 const fullscreenIntercomPaddingRequestId = Symbol('console-fullscreen')
 const isApp =
@@ -459,25 +459,25 @@ async function handleShare() {
 </script>
 
 <style>
-.modrinth-console-fullscreen-active .intercom-lightweight-app,
-.modrinth-console-fullscreen-active .intercom-lightweight-app-launcher,
-.modrinth-console-fullscreen-active .intercom-lightweight-app-messenger,
-.modrinth-console-fullscreen-active .intercom-launcher-frame,
-.modrinth-console-fullscreen-active .intercom-messenger-frame,
-.modrinth-console-fullscreen-active #intercom-container,
-.modrinth-console-fullscreen-active #intercom-frame,
-.modrinth-console-fullscreen-active iframe[name='intercom-launcher-frame'],
-.modrinth-console-fullscreen-active iframe[name='intercom-messenger-frame'] {
+.shroudedit-console-fullscreen-active .intercom-lightweight-app,
+.shroudedit-console-fullscreen-active .intercom-lightweight-app-launcher,
+.shroudedit-console-fullscreen-active .intercom-lightweight-app-messenger,
+.shroudedit-console-fullscreen-active .intercom-launcher-frame,
+.shroudedit-console-fullscreen-active .intercom-messenger-frame,
+.shroudedit-console-fullscreen-active #intercom-container,
+.shroudedit-console-fullscreen-active #intercom-frame,
+.shroudedit-console-fullscreen-active iframe[name='intercom-launcher-frame'],
+.shroudedit-console-fullscreen-active iframe[name='intercom-messenger-frame'] {
 	z-index: 14 !important;
 }
 
-.modrinth-console-fullscreen-active .loading-indicator-container,
-.modrinth-console-fullscreen-active .app-contents::before {
+.shroudedit-console-fullscreen-active .loading-indicator-container,
+.shroudedit-console-fullscreen-active .app-contents::before {
 	z-index: 14 !important;
 }
 
-.modrinth-console-fullscreen-active .app-grid-navbar,
-.modrinth-console-fullscreen-active .app-grid-statusbar {
+.shroudedit-console-fullscreen-active .app-grid-navbar,
+.shroudedit-console-fullscreen-active .app-grid-statusbar {
 	z-index: 0 !important;
 }
 </style>

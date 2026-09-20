@@ -16,13 +16,9 @@ async fn get_games() {
 
             let games = api.get_games_deserialized().await;
 
-            // There should be 2 games in the dummy data
-            assert_eq!(games.len(), 2);
-            assert_eq!(games[0].name, "minecraft-java");
-            assert_eq!(games[1].name, "minecraft-bedrock");
-
-            assert_eq!(games[0].slug, "minecraft-java");
-            assert_eq!(games[1].slug, "minecraft-bedrock");
+            assert_eq!(games.len(), 1);
+            assert_eq!(games[0].name, "enshrouded");
+            assert_eq!(games[0].slug, "enshrouded");
         },
     )
     .await;

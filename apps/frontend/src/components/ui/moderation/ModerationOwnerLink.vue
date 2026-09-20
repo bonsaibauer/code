@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Avatar, CopyCode } from '@modrinth/ui'
+import { Avatar, CopyCode } from '@shroudedit/ui'
 
 export type ModerationOwner = {
 	kind: 'user' | 'organization'

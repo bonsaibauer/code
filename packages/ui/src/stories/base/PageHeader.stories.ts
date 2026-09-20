@@ -15,7 +15,7 @@ import {
 	StopCircleIcon,
 	TagCategoryGamepad2Icon as Gamepad2Icon,
 	TimerIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 import AutoLink from '../../components/base/AutoLink.vue'
@@ -186,7 +186,7 @@ export const CreatorHeader: Story = {
 			}
 		},
 		template: `
-			<PageHeader title="Prospector" summary="A Modrinth creator with a handful of popular projects.">
+			<PageHeader title="Prospector" summary="A ShroudEdit creator with a handful of popular projects.">
 				<template #leading>
 					<Avatar src="" alt="Prospector" size="96px" tint-by="Prospector" circle />
 				</template>
@@ -237,7 +237,7 @@ export const AppInstanceHeader: Story = {
 
 				<template #metadata>
 					<PageHeaderMetadata>
-						<PageHeaderMetadataItem :icon="Gamepad2Icon" tooltip="Minecraft version">Minecraft 1.20.1</PageHeaderMetadataItem>
+						<PageHeaderMetadataItem :icon="Gamepad2Icon" tooltip="Enshrouded version">Enshrouded 1.20.1</PageHeaderMetadataItem>
 						<PageHeaderMetadataItem :icon="TagIcon" :icon-props="{ tag: 'Fabric', enforceType: 'loader' }" tooltip="Mod loader">
 							Fabric 0.16.14
 						</PageHeaderMetadataItem>
@@ -286,8 +286,8 @@ export const BrowseHeader: Story = {
 				<template #metadata>
 					<PageHeaderMetadata>
 						<PageHeaderMetadataItem class="!text-primary">Installing content</PageHeaderMetadataItem>
-						<PageHeaderMetadataItem class="!text-primary" :icon="Gamepad2Icon" tooltip="Minecraft version">
-							Minecraft 1.20.1
+						<PageHeaderMetadataItem class="!text-primary" :icon="Gamepad2Icon" tooltip="Enshrouded version">
+							Enshrouded 1.20.1
 						</PageHeaderMetadataItem>
 						<PageHeaderMetadataItem class="!text-primary" :icon="TagIcon" :icon-props="{ tag: 'Fabric', enforceType: 'loader' }" tooltip="Mod loader">
 							Fabric
@@ -320,7 +320,7 @@ export const ServerPanelRootHeader: Story = {
 					<PageHeaderMetadata>
 						<PageHeaderMetadataItem :icon="GlobeIcon" tooltip="Active instance">My World</PageHeaderMetadataItem>
 						<PageHeaderMetadataItem :icon="LinkIcon" tooltip="Copy server address" :action="noop">
-							play.modrinth.gg
+							play.shroudedit.gg
 						</PageHeaderMetadataItem>
 					</PageHeaderMetadata>
 				</template>
@@ -362,7 +362,7 @@ export const ServerPanelInstanceHeader: Story = {
 
 				<template #metadata>
 					<PageHeaderMetadata>
-						<PageHeaderMetadataItem :icon="Gamepad2Icon" tooltip="Minecraft version">Minecraft 1.20.1</PageHeaderMetadataItem>
+						<PageHeaderMetadataItem :icon="Gamepad2Icon" tooltip="Enshrouded version">Enshrouded 1.20.1</PageHeaderMetadataItem>
 						<PageHeaderMetadataItem :icon="TagIcon" :icon-props="{ tag: 'Fabric', enforceType: 'loader' }" tooltip="Mod loader">
 							Fabric 0.19.2
 						</PageHeaderMetadataItem>

@@ -88,7 +88,7 @@ pub enum PackDependency {
     Neoforge,
     FabricLoader,
     QuiltLoader,
-    Minecraft,
+    Enshrouded,
 }
 
 impl std::fmt::Display for PackDependency {
@@ -104,7 +104,7 @@ impl PackDependency {
             PackDependency::Forge => "forge",
             PackDependency::Neoforge => "neoforge",
             PackDependency::FabricLoader => "fabric-loader",
-            PackDependency::Minecraft => "minecraft",
+            PackDependency::Enshrouded => "enshrouded",
             PackDependency::QuiltLoader => "quilt-loader",
         }
     }

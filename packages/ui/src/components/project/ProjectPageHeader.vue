@@ -20,12 +20,12 @@
 
 		<template #metadata>
 			<PageHeaderMetadata>
-				<template v-if="projectV3?.minecraft_server != null">
+				<template v-if="projectV3?.enshrouded_server != null">
 					<ServerDetails
 						v-if="projectV3?.status !== 'draft'"
-						:online-players="projectV3?.minecraft_java_server?.ping?.data?.players_online ?? 0"
-						:status-online="!!projectV3?.minecraft_java_server?.ping?.data"
-						:recent-plays="projectV3?.minecraft_java_server?.verified_plays_2w ?? 0"
+						:online-players="projectV3?.enshrouded_server?.ping?.data?.players_online ?? 0"
+						:status-online="!!projectV3?.enshrouded_server?.ping?.data"
+						:recent-plays="0"
 					/>
 				</template>
 				<template v-else>
@@ -63,8 +63,8 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { DownloadIcon, HeartIcon } from '@modrinth/assets'
+import type { Labrinth } from '@shroudedit/api-client'
+import { DownloadIcon, HeartIcon } from '@shroudedit/assets'
 
 import { defineMessages, useFormatNumber, useVIntl } from '../../composables'
 import Avatar from '../base/Avatar.vue'
@@ -87,7 +87,7 @@ type HeaderProject = Pick<
 
 type HeaderProjectV3 = Pick<
 	Labrinth.Projects.v3.Project,
-	'status' | 'minecraft_server' | 'minecraft_java_server'
+	'status' | 'enshrouded_server'
 >
 
 withDefaults(

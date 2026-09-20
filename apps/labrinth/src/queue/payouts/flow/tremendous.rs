@@ -1,11 +1,11 @@
 use crate::util::error::ApiContext as _;
 use chrono::Utc;
 use eyre::eyre;
-use modrinth_util::decimal::Decimal2dp;
 use reqwest::Method;
 use rust_decimal::{Decimal, RoundingStrategy, dec};
 use serde::Deserialize;
 use serde_json::json;
+use shroudedit_util::decimal::Decimal2dp;
 
 use crate::{
     database::models::payout_item::DBPayout,

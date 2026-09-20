@@ -1,4 +1,4 @@
-import { defineMessages } from '@modrinth/ui'
+import { defineMessages } from '@shroudedit/ui'
 
 import type { NagDefinitions } from './types.ts'
 

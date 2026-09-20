@@ -59,7 +59,7 @@ async fn user_scopes() {
             .test(req_gen, read_email)
             .await
             .unwrap();
-        assert_eq!(success["email"], json!("user@modrinth.com")); // email should be present
+        assert_eq!(success["email"], json!("user@shroudedit.com")); // email should be present
 
         // Payout reading
         let read_payout = Scopes::USER_READ | Scopes::PAYOUTS_READ;
@@ -399,7 +399,7 @@ pub async fn project_version_reads_scopes() {
         let req_gen = |pat: Option<String>| async move {
             let req = test::TestRequest::get()
                 .uri(&format!(
-                    "/maven/maven/modrinth/{beta_project_id}/maven-metadata.xml"
+                    "/maven/maven/shroudedit/{beta_project_id}/maven-metadata.xml"
                 ))
                 .append_pat(pat.as_deref())
                 .to_request();

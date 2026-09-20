@@ -1,5 +1,5 @@
 import { AbstractModule } from '../../../core/abstract-module'
-import { ModrinthApiError } from '../../../core/errors'
+import { ShroudEditApiError } from '../../../core/errors'
 import type { Labrinth } from '../types'
 
 export class LabrinthProjectsV3Module extends AbstractModule {
@@ -130,6 +130,25 @@ export class LabrinthProjectsV3Module extends AbstractModule {
 		})
 	}
 
+	public async getServerAccess(id: string): Promise<Labrinth.Projects.v3.PublicServerPassword[]> {
+		return this.client.request<Labrinth.Projects.v3.PublicServerPassword[]>(
+			`/project/${id}/server-access`,
+			{ api: 'labrinth', version: 3, method: 'GET' },
+		)
+	}
+
+	public async setServerAccess(
+		id: string,
+		passwords: Labrinth.Projects.v3.PublicServerPassword[],
+	): Promise<void> {
+		return this.client.request(`/project/${id}/server-access`, {
+			api: 'labrinth',
+			version: 3,
+			method: 'PUT',
+			body: { passwords },
+		})
+	}
+
 	/**
 	 * Get the organization that owns a project
 	 *
@@ -144,7 +163,7 @@ export class LabrinthProjectsV3Module extends AbstractModule {
 			)
 		} catch (error) {
 			// 404 means the project is not owned by an organization
-			if (error instanceof ModrinthApiError && error.statusCode === 404) {
+			if (error instanceof ShroudEditApiError && error.statusCode === 404) {
 				return null
 			}
 			throw error
@@ -286,7 +305,7 @@ export class LabrinthProjectsV3Module extends AbstractModule {
 	 *
 	 * @example
 	 * ```typescript
-	 * await client.labrinth.projects_v3.deleteGalleryImage('sodium', 'https://cdn.modrinth.com/...')
+	 * await client.labrinth.projects_v3.deleteGalleryImage('sodium', 'https://cdn.shroudedit.com/...')
 	 * ```
 	 */
 	public async deleteGalleryImage(id: string, url: string): Promise<void> {

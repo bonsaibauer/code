@@ -1,5 +1,5 @@
-import { attributionQuickReplies } from '@modrinth/moderation'
-import { provideAttributionModeration } from '@modrinth/ui'
+import { attributionQuickReplies } from '@shroudedit/moderation'
+import { provideAttributionModeration } from '@shroudedit/ui'
 
 export function setupAttributionModerationProvider() {
 	provideAttributionModeration({ attributionQuickReplies })

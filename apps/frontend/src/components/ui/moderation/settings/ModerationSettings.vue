@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { moderationSettings, type SettingDefinition } from '@modrinth/moderation'
-import { Button, Combobox, Input, Toggle } from '@modrinth/ui'
+import { moderationSettings, type SettingDefinition } from '@shroudedit/moderation'
+import { Button, Combobox, Input, Toggle } from '@shroudedit/ui'
 
 const localhostHostname = 'localhost:3000'
 

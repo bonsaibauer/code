@@ -673,9 +673,7 @@ pub async fn project_edit(
         side_types_migration_review_status: None, // Not to be exposed in v2
         // None of the below is present in v2
         loader_fields: HashMap::new(),
-        minecraft_server: None,
-        minecraft_java_server: None,
-        minecraft_bedrock_server: None,
+        enshrouded_server: None,
     };
 
     // This returns 204 or failure so we don't need to do anything with it

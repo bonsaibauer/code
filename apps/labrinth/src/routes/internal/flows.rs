@@ -112,10 +112,10 @@ pub struct TempUser {
 #[derive(Debug, Error)]
 pub enum CreateAccountError {
     #[error(
-        "User email is already registered on Modrinth. Try 'Forgot password' to access your account."
+        "User email is already registered on ShroudEdit. Try 'Forgot password' to access your account."
     )]
     DuplicateEmail,
-    #[error("Username is already taken on Modrinth.")]
+    #[error("Username is already taken on ShroudEdit.")]
     UsernameTaken,
     #[error("{}", match .0 {
         Some(feedback) => format!("Password too weak: {feedback}"),
@@ -652,7 +652,7 @@ impl AuthProvider {
             AuthProvider::GitHub => {
                 let response = reqwest::Client::new()
                     .get("https://api.github.com/user")
-                    .header(reqwest::header::USER_AGENT, "Modrinth")
+                    .header(reqwest::header::USER_AGENT, "ShroudEdit")
                     .header(AUTHORIZATION, format!("token {token}"))
                     .send()
                     .await?;
@@ -701,7 +701,7 @@ impl AuthProvider {
 
                 let discord_user: DiscordUser = reqwest::Client::new()
                     .get("https://discord.com/api/v10/users/@me")
-                    .header(reqwest::header::USER_AGENT, "Modrinth")
+                    .header(reqwest::header::USER_AGENT, "ShroudEdit")
                     .header(AUTHORIZATION, format!("Bearer {token}"))
                     .send()
                     .await?
@@ -733,7 +733,7 @@ impl AuthProvider {
 
                 let microsoft_user: MicrosoftUser = reqwest::Client::new()
                     .get("https://graph.microsoft.com/v1.0/me?$select=id,displayName,mail,userPrincipalName")
-                    .header(reqwest::header::USER_AGENT, "Modrinth")
+                    .header(reqwest::header::USER_AGENT, "ShroudEdit")
                     .header(AUTHORIZATION, format!("Bearer {token}"))
                     .send()
                     .await?.json().await?;
@@ -765,7 +765,7 @@ impl AuthProvider {
 
                 let gitlab_user: GitLabUser = reqwest::Client::new()
                     .get("https://gitlab.com/api/v4/user")
-                    .header(reqwest::header::USER_AGENT, "Modrinth")
+                    .header(reqwest::header::USER_AGENT, "ShroudEdit")
                     .header(AUTHORIZATION, format!("Bearer {token}"))
                     .send()
                     .await?
@@ -791,7 +791,7 @@ impl AuthProvider {
 
                 let google_user: GoogleUser = reqwest::Client::new()
                     .get("https://www.googleapis.com/userinfo/v2/me")
-                    .header(reqwest::header::USER_AGENT, "Modrinth")
+                    .header(reqwest::header::USER_AGENT, "ShroudEdit")
                     .header(AUTHORIZATION, format!("Bearer {token}"))
                     .send()
                     .await?
@@ -884,7 +884,7 @@ impl AuthProvider {
                     .get(format!(
                         "{api_url}identity/openidconnect/userinfo?schema=openid"
                     ))
-                    .header(reqwest::header::USER_AGENT, "Modrinth")
+                    .header(reqwest::header::USER_AGENT, "ShroudEdit")
                     .header(AUTHORIZATION, format!("Bearer {token}"))
                     .send()
                     .await?
@@ -1142,7 +1142,7 @@ pub struct Authorization {
 }
 
 // Init link takes us to GitHub API and calls back to callback endpoint with a code and state
-// http://localhost:8000/auth/init?url=https://modrinth.com
+// http://localhost:8000/auth/init?url=https://shroudedit.com
 #[utoipa::path(
 	context_path = "/auth",
 	tag = "auth",
@@ -1196,7 +1196,7 @@ pub async fn init(
         .ALLOWED_CALLBACK_URLS
         .iter()
         .any(|x| domain.ends_with(x))
-        && domain != "modrinth.com"
+        && domain != "shroudedit.com"
     {
         return Err(AuthenticationError::Url);
     }
@@ -1351,7 +1351,7 @@ pub async fn auth_callback(
             .wrap_err("failed to begin transaction")?;
 
         // PayPal isn't actually an SSO method; we allow users to link their PayPal
-        // account to their Modrinth account via this OAuth flow. However, we MUST
+        // account to their ShroudEdit account via this OAuth flow. However, we MUST
         // NOT actually create an account with their username.
         //
         // Instead, we check who they're already logged in as, and just update
@@ -1462,7 +1462,7 @@ pub async fn auth_callback(
                     .json(serde_json::json!({ "url": redirect_url })))
             }
         } else {
-            // user doesn't already exist; the user wants to create a new Modrinth account
+            // user doesn't already exist; the user wants to create a new ShroudEdit account
             // linked to their OAuth account.
             // for this, we redirect them to a frontend page which lets them set a username.
             // then frontend will call `/create/oauth` with the same state parameter and
@@ -1683,7 +1683,7 @@ pub struct DiscordCommunityLinkResponse {
 #[derive(Serialize)]
 struct DiscordCommunityHandoffPayload {
     v: u8,
-    modrinth_user_id: String,
+    shroudedit_user_id: String,
     discord_user_id: String,
     iat: i64,
     exp: i64,
@@ -1741,7 +1741,7 @@ pub async fn discord_community_link(
 
     let payload = DiscordCommunityHandoffPayload {
         v: 1,
-        modrinth_user_id: ariadne::ids::UserId::from(db_user.id).to_string(),
+        shroudedit_user_id: ariadne::ids::UserId::from(db_user.id).to_string(),
         discord_user_id: discord_id.to_string(),
         iat: now,
         exp: now + 600,
@@ -3198,7 +3198,7 @@ pub async fn set_email(
     .is_empty()
     {
         return Err(ApiError::Request(eyre::eyre!(
-            "Email is already registered on Modrinth! Try 'Forgot password' in incognito to access and delete your other account.",
+            "Email is already registered on ShroudEdit! Try 'Forgot password' in incognito to access and delete your other account.",
         )));
     }
 

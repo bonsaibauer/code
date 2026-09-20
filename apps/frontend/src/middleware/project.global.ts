@@ -3,9 +3,9 @@ import type { RouteLocationNormalized } from 'vue-router'
 import { useGeneratedState } from '~/composables/generated'
 import { projectQueryOptions, warmProjectCheckCaches } from '~/composables/queries/project'
 import { useAppQueryClient } from '~/composables/query-client'
-import { createModrinthClient } from '~/helpers/api.ts'
+import { createShroudEditClient } from '~/helpers/api.ts'
 import { getProjectTypeForUrlShorthand } from '~/helpers/projects.js'
-import { useServerModrinthClient } from '~/server/utils/api-client'
+import { useServerShroudEditClient } from '~/server/utils/api-client'
 
 // All valid project type URL segments
 const PROJECT_TYPES = [
@@ -17,7 +17,6 @@ const PROJECT_TYPES = [
 	'resourcepack',
 	'modpack',
 	'server',
-	'minecraft_java_server',
 ]
 
 export default defineNuxtRouteMiddleware(async (to) => {
@@ -54,7 +53,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
 
 		warmProjectCheckCaches(queryClient, project)
 
-		const projectType = projectV3.minecraft_server != null ? 'server' : project.project_type
+		const projectType = projectV3.enshrouded_server != null ? 'server' : project.project_type
 		// Determine the correct URL type
 		const correctType = getProjectTypeForUrlShorthand(projectType, project.loaders, tags.value)
 
@@ -90,13 +89,13 @@ export default defineNuxtRouteMiddleware(async (to) => {
 export async function getProjectMiddlewareClient(route: RouteLocationNormalized) {
 	if (import.meta.server) {
 		const authToken = useCookie('auth-token')
-		return useServerModrinthClient({ authToken: authToken.value || undefined })
+		return useServerShroudEditClient({ authToken: authToken.value || undefined })
 	}
 
 	const auth = await useAuth(null, route)
 	const config = useRuntimeConfig()
 
-	return createModrinthClient(auth, {
+	return createShroudEditClient(auth, {
 		apiBaseUrl: config.public.apiBaseUrl.replace('/v2/', '/'),
 		archonBaseUrl: config.public.pyroBaseUrl.replace('/v2/', '/'),
 		sharedInstancesBaseUrl: config.public.sharedInstancesBaseUrl,

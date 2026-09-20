@@ -7,8 +7,8 @@ import '../../assets/styles/defaults.scss'
 import '../../../apps/app-frontend/src/assets/stylesheets/global.scss'
 import './preview.scss'
 
-import type { Labrinth } from '@modrinth/api-client'
-import { GenericModrinthClient } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
+import { GenericShroudEditClient } from '@shroudedit/api-client'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import type { Preview } from '@storybook/vue3-vite'
 import { setup } from '@storybook/vue3-vite'
@@ -34,7 +34,7 @@ import {
 	type NotificationPanelLocation,
 	type PopupNotification,
 	provideFilePicker,
-	provideModrinthClient,
+	provideShroudEditClient,
 	provideNotificationManager,
 	providePopupNotificationManager,
 	provideTags,
@@ -203,14 +203,14 @@ const StorybookProvider = defineComponent({
 		provideNotificationManager(new StorybookNotificationManager())
 		providePopupNotificationManager(new StorybookPopupNotificationManager())
 
-		const modrinthClient = new GenericModrinthClient({
-			userAgent: 'modrinth-storybook/1.0.0',
+		const shroudeditClient = new GenericShroudEditClient({
+			userAgent: 'shroudedit-storybook/1.0.0',
 		})
-		provideModrinthClient(modrinthClient)
+		provideShroudEditClient(shroudeditClient)
 
 		const gameVersions = ref<Labrinth.Tags.v2.GameVersion[]>([])
 		const loaders = ref<Labrinth.Tags.v2.Loader[]>([])
-		modrinthClient.labrinth.state.build().then((state) => {
+		shroudeditClient.labrinth.state.build().then((state) => {
 			gameVersions.value = state.gameVersions
 			loaders.value = state.loaders
 		})

@@ -1,5 +1,5 @@
-import type { FilterValue } from '@modrinth/ui'
-import { LOADER_FILTER_TYPES } from '@modrinth/ui'
+import type { FilterValue } from '@shroudedit/ui'
+import { LOADER_FILTER_TYPES } from '@shroudedit/ui'
 
 const TEN_MINUTES = 600
 
@@ -71,7 +71,7 @@ export function useCdnDownloadContext() {
 		if (
 			typeof originalUrl !== 'string' ||
 			!originalUrl ||
-			!originalUrl.startsWith('https://cdn.modrinth.com')
+			!originalUrl.startsWith('https://cdn.shroudedit.com')
 		) {
 			return originalUrl
 		}

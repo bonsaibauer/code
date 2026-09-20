@@ -64,13 +64,6 @@
 										icon: MonitorSmartphoneIcon,
 									}
 								: null,
-							auth.user
-								? {
-										link: '/settings/billing',
-										label: formatMessage(commonSettingsMessages.billing),
-										icon: CardIcon,
-									}
-								: null,
 							auth.user ? { type: 'heading', label: formatMessage(messages.developer) } : null,
 							auth.user
 								? {
@@ -104,7 +97,6 @@
 </template>
 <script setup>
 import {
-	CardIcon,
 	GridIcon,
 	HeartHandshakeIcon,
 	KeyIcon,
@@ -116,15 +108,15 @@ import {
 	ShieldIcon,
 	ToggleRightIcon,
 	UserIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	commonMessages,
 	commonSettingsMessages,
 	defineMessages,
 	NormalPage,
 	useVIntl,
-} from '@modrinth/ui'
-import { isStaff } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { isStaff } from '@shroudedit/utils'
 
 import NavStack from '~/components/ui/NavStack.vue'
 

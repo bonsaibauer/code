@@ -65,10 +65,10 @@
   "nags.long-headers.title": {
     "defaultMessage": "Pendekkan tajuk"
   },
-  "nags.minecraft-title-clause.description": {
-    "defaultMessage": "Projek tidak boleh menggunakan penjenamaan Minecraft atau menyertakan \"Minecraft\" sebagai bahagian penting dalam nama tersebut."
+  "nags.enshrouded-title-clause.description": {
+    "defaultMessage": "Projek tidak boleh menggunakan penjenamaan Enshrouded atau menyertakan \"Enshrouded\" sebagai bahagian penting dalam nama tersebut."
   },
-  "nags.minecraft-title-clause.title": {
+  "nags.enshrouded-title-clause.title": {
     "defaultMessage": "Elakkan pelanggaran jenama"
   },
   "nags.missing-alt-text.description": {

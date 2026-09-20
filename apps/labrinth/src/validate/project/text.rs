@@ -8,7 +8,6 @@ use unicode_normalization::UnicodeNormalization;
 use unicode_segmentation::UnicodeSegmentation;
 use url::Url;
 
-use crate::models::exp::minecraft::Language;
 use crate::models::projects::Project;
 
 pub(super) use super::language::{
@@ -969,7 +968,7 @@ fn strip_command_arguments(text: &str) -> String {
 
 fn strip_technical_syntax(line: &str) -> String {
     static COMMAND: LazyLock<Regex> = LazyLock::new(|| {
-        // matches slash commands such as `/help` or `/minecraft:give`.
+        // matches slash commands such as `/help` or `/enshrouded:give`.
         Regex::new(r"(^|[\s|,(])/[A-Za-z][A-Za-z0-9_:./-]*").unwrap()
     });
 
@@ -1107,12 +1106,16 @@ pub(super) fn project_requires_english(project: &Project) -> bool {
         .any(|category| category == "locale");
     let is_english_server = project
         .components
-        .minecraft_server
+        .enshrouded_server
         .as_ref()
-        .is_some_and(|server| server.languages.contains(&Language::En));
+        .is_some_and(|server| {
+            server
+                .languages
+                .iter()
+                .any(|language| language.eq_ignore_ascii_case("en"))
+        });
 
-    (project.components.minecraft_java_server.is_none() && !has_locale_tag)
-        || is_english_server
+    !has_locale_tag || is_english_server
 }
 
 #[cfg(test)]
@@ -1123,7 +1126,7 @@ mod tests {
     fn summary_detects_markdown_emphasis() {
         for summary in [
             "*this*",
-            "Adds *new features* to Minecraft",
+            "Adds *new features* to Enshrouded",
             "*a*",
             "_this_",
         ] {

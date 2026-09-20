@@ -37,8 +37,8 @@
 </template>
 
 <script setup lang="ts">
-import { BlueskyIcon, MailIcon, MastodonIcon, TwitterIcon } from '@modrinth/assets'
-import { ButtonLink, CopyLinkButton } from '@modrinth/ui'
+import { BlueskyIcon, MailIcon, MastodonIcon, TwitterIcon } from '@shroudedit/assets'
+import { ButtonLink, CopyLinkButton } from '@shroudedit/ui'
 
 const props = defineProps<{
 	title?: string

@@ -6,7 +6,7 @@ import {
 	XIcon,
 	ZoomInIcon,
 	ZoomOutIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
 import Button from '#ui/components/base/buttons/Button.vue'
@@ -122,7 +122,7 @@ function isGifOrWebpSource(source?: string) {
 	if (!source) return false
 	let pathname = source
 	try {
-		pathname = new URL(source, 'https://modrinth.invalid').pathname
+		pathname = new URL(source, 'https://shroudedit.invalid').pathname
 	} catch {
 		// ... ignore
 	}

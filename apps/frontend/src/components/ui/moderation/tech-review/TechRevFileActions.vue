@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { DownloadIcon, ExternalIcon } from '@modrinth/assets'
-import { ButtonLink, useFormatBytes } from '@modrinth/ui'
+import { DownloadIcon, ExternalIcon } from '@shroudedit/assets'
+import { ButtonLink, useFormatBytes } from '@shroudedit/ui'
 
 import type { FlattenedFileReport } from './types'
 

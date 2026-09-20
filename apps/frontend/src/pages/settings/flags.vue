@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { SearchIcon } from '@modrinth/assets'
-import { Button, Input, Toggle } from '@modrinth/ui'
+import { SearchIcon } from '@shroudedit/assets'
+import { Button, Input, Toggle } from '@shroudedit/ui'
 import Fuse from 'fuse.js'
 import { computed, ref, shallowReactive } from 'vue'
 

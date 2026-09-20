@@ -98,7 +98,7 @@
 </template>
 
 <script setup lang="ts">
-import { RightArrowIcon } from '@modrinth/assets'
+import { RightArrowIcon } from '@shroudedit/assets'
 import {
 	Admonition,
 	Button,
@@ -108,7 +108,7 @@ import {
 	injectNotificationManager,
 	Input,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { computed, ref } from 'vue'
 
 import HCaptcha from '@/components/ui/auth/HCaptcha.vue'
@@ -133,7 +133,7 @@ const {
 } = defineProps<Props>()
 
 const SOURCE_CODE_URL =
-	'https://github.com/modrinth/code/blob/main/apps/frontend/src/components/ui/auth/CreateAccount.vue'
+	'https://github.com/bonsaibauer/shroudedit/blob/main/apps/frontend/src/components/ui/auth/CreateAccount.vue'
 
 const dateOfBirthModel = defineModel<string | null>('dateOfBirth', { default: '' })
 const usernameModel = defineModel<string>('username', { default: '' })
@@ -245,7 +245,7 @@ const messages = defineMessages({
 	},
 	under13HelperText: {
 		id: 'auth.create-account.date-of-birth.not-meet-age-requirement',
-		defaultMessage: 'You do not meet the age requirement to create an account at Modrinth.',
+		defaultMessage: 'You do not meet the age requirement to create a ShroudEdit account.',
 	},
 	ageRequirementWarningTitle: {
 		id: 'auth.create-account.age-requirement.warning-title',
@@ -274,7 +274,7 @@ const messages = defineMessages({
 	},
 	subscribeLabel: {
 		id: 'auth.create-account.subscribe.label',
-		defaultMessage: 'Keep me updated on the cool things Modrinth is working on via email',
+		defaultMessage: 'Keep me updated on ShroudEdit news via email',
 	},
 	completeSignUpButton: {
 		id: 'auth.create-account.complete-sign-up',

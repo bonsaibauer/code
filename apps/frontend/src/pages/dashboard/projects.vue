@@ -340,7 +340,7 @@ import {
 	TrashIcon,
 	TriangleAlertIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	Button,
 	ButtonLink,
@@ -357,8 +357,8 @@ import {
 	ProjectStatusBadge,
 	Table,
 	useVIntl,
-} from '@modrinth/ui'
-import { formatProjectType } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { formatProjectType } from '@shroudedit/utils'
 
 import ModalCreation from '~/components/ui/create/ProjectCreateModal.vue'
 import { getProjectTypeForUrl } from '~/helpers/projects.js'
@@ -508,7 +508,7 @@ const messages = defineMessages({
 	},
 })
 
-useHead({ title: () => `${formatMessage(messages.headTitle)} - Modrinth` })
+useHead({ title: () => `${formatMessage(messages.headTitle)} - ShroudEdit` })
 
 const user = await useUser()
 const projects = ref([])
@@ -595,7 +595,7 @@ function getLinkInputPlaceholder(clearLink, isDiscord = false) {
 function isProjectBulkEditDisabled(project) {
 	return (
 		(project.permissions & EDIT_DETAILS) === EDIT_DETAILS ||
-		project.project_type === 'minecraft_java_server'
+		project.project_type === 'server'
 	)
 }
 
@@ -660,7 +660,7 @@ function showEditLinksModal() {
 }
 
 function getBulkEditDisabledTooltip(project) {
-	if (project.project_type === 'minecraft_java_server') {
+	if (project.project_type === 'server') {
 		return formatMessage(messages.serverBulkEditDisabled)
 	}
 
@@ -735,11 +735,10 @@ await initUserProjects()
 if (user.value?.projects) {
 	projects.value = user.value.projects.slice()
 
-	// minecraft_java_server type determined from component on projectV3
+	// Server type is determined from the Enshrouded component on projectV3.
 	projects.value = projects.value.map((project) => {
 		const projectV3 = user.value?.projectsV3?.find((p) => p.id === project.id)
-		if (projectV3?.minecraft_server != null)
-			return { ...project, project_type: 'minecraft_java_server' }
+		if (projectV3?.enshrouded_server != null) return { ...project, project_type: 'server' }
 		return project
 	})
 	user.value?.projectsV3?.forEach((project) => {

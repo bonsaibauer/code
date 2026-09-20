@@ -1,5 +1,5 @@
-import { VersionIcon } from '@modrinth/assets'
-import { injectProjectPageContext } from '@modrinth/ui'
+import { VersionIcon } from '@shroudedit/assets'
+import { injectProjectPageContext } from '@shroudedit/ui'
 import { computed } from 'vue'
 
 import { dropdown, group, option, stage, text, toggle } from '../../types/node'
@@ -14,7 +14,7 @@ export default function () {
 		)
 		.icon(VersionIcon)
 		.navigate('/versions')
-		.shown(computed(() => !project.value?.minecraft_server))
+		.shown(computed(() => !project.value?.enshrouded_server))
 		.children(
 			group().children(
 				toggle('incorrect-additional-files', 'Incorrect additional files')

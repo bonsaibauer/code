@@ -102,8 +102,8 @@
 </template>
 
 <script setup lang="ts">
-import { InfoIcon } from '@modrinth/assets'
-import { FloatingMenu, useScrollIndicator, useVIntl } from '@modrinth/ui'
+import { InfoIcon } from '@shroudedit/assets'
+import { FloatingMenu, useScrollIndicator, useVIntl } from '@shroudedit/ui'
 
 import { analyticsChartMessages } from '../../analytics-messages'
 import type { AnalyticsChartLegendEntry } from '../analytics-chart-types'

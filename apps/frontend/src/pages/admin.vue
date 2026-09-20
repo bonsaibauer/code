@@ -89,9 +89,9 @@ import {
 	ServerSearchIcon,
 	TransferIcon,
 	UserSearchIcon,
-} from '@modrinth/assets'
-import { NormalPage } from '@modrinth/ui'
-import { isAdmin } from '@modrinth/utils'
+} from '@shroudedit/assets'
+import { NormalPage } from '@shroudedit/ui'
+import { isAdmin } from '@shroudedit/utils'
 
 import NavStack from '~/components/ui/NavStack.vue'
 

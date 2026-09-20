@@ -161,10 +161,10 @@
   "nags.long-headers.title": {
     "defaultMessage": "Verkort koppen"
   },
-  "nags.minecraft-title-clause.description": {
-    "defaultMessage": "Projecten mogen geen gebruik maken van de huisstijl van Minecraft en mogen het woord \"Minecraft\" niet als een belangrijk onderdeel van de naam bevatten."
+  "nags.enshrouded-title-clause.description": {
+    "defaultMessage": "Projecten mogen geen gebruik maken van de huisstijl van Enshrouded en mogen het woord \"Enshrouded\" niet als een belangrijk onderdeel van de naam bevatten."
   },
-  "nags.minecraft-title-clause.title": {
+  "nags.enshrouded-title-clause.title": {
     "defaultMessage": "Voorkom merkinbreuk"
   },
   "nags.missing-alt-text.description": {

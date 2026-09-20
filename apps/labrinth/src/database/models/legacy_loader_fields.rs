@@ -1,8 +1,7 @@
 // In V3, we switched to dynamic loader fields for a better support for more loaders, games, and potential metadata.
 // This file contains the legacy loader fields, which are still used by V2 projects.
-// They are still useful to have in several places where minecraft-java functionality is hardcoded- for example,
-// for fetching data from forge, maven, etc.
-// These fields only apply to minecraft-java, and are hardcoded to the minecraft-java game.
+// The compatibility wrapper remains useful where the v2 API exposes game versions directly.
+// New code should use dynamic loader fields whenever possible.
 
 use chrono::{DateTime, Utc};
 use eyre::{Result, WrapErr};
@@ -20,7 +19,7 @@ use super::{
 };
 
 #[derive(Clone, Serialize, Deserialize, Debug)]
-pub struct MinecraftGameVersion {
+pub struct EnshroudedGameVersion {
     pub id: LoaderFieldEnumValueId,
     pub version: String,
     #[serde(rename = "type")]
@@ -29,12 +28,12 @@ pub struct MinecraftGameVersion {
     pub major: bool,
 }
 
-impl MinecraftGameVersion {
+impl EnshroudedGameVersion {
     // The name under which this legacy field is stored as a LoaderField
     pub const FIELD_NAME: &'static str = "game_versions";
 
-    pub fn builder() -> MinecraftGameVersionBuilder<'static> {
-        MinecraftGameVersionBuilder::default()
+    pub fn builder() -> EnshroudedGameVersionBuilder<'static> {
+        EnshroudedGameVersionBuilder::default()
     }
 
     pub async fn list<'a, E>(
@@ -42,7 +41,7 @@ impl MinecraftGameVersion {
         major_option: Option<bool>,
         exec: E,
         redis: &RedisPool,
-    ) -> Result<Vec<MinecraftGameVersion>>
+    ) -> Result<Vec<EnshroudedGameVersion>>
     where
         E: crate::database::Acquire<'a, Database = sqlx::Postgres>,
     {
@@ -63,7 +62,7 @@ impl MinecraftGameVersion {
 
         let game_versions = game_version_enum_values
             .into_iter()
-            .map(MinecraftGameVersion::from_enum_value)
+            .map(EnshroudedGameVersion::from_enum_value)
             .filter(|x| {
                 let mut bool = true;
 
@@ -81,7 +80,7 @@ impl MinecraftGameVersion {
         Ok(game_versions)
     }
 
-    // Tries to create a MinecraftGameVersion from a VersionField
+    // Tries to create a EnshroudedGameVersion from a VersionField
     // Clones on success
     pub fn try_from_version_field(
         version_field: &VersionField,
@@ -115,8 +114,8 @@ impl MinecraftGameVersion {
 
     pub fn from_enum_value(
         loader_field_enum_value: LoaderFieldEnumValue,
-    ) -> MinecraftGameVersion {
-        MinecraftGameVersion {
+    ) -> EnshroudedGameVersion {
+        EnshroudedGameVersion {
             id: loader_field_enum_value.id,
             version: loader_field_enum_value.value,
             created: loader_field_enum_value.created,
@@ -127,13 +126,13 @@ impl MinecraftGameVersion {
 }
 
 #[derive(Default)]
-pub struct MinecraftGameVersionBuilder<'a> {
+pub struct EnshroudedGameVersionBuilder<'a> {
     pub version: Option<&'a str>,
     pub version_type: Option<&'a str>,
     pub date: Option<&'a DateTime<Utc>>,
 }
 
-impl<'a> MinecraftGameVersionBuilder<'a> {
+impl<'a> EnshroudedGameVersionBuilder<'a> {
     pub fn new() -> Self {
         Self::default()
     }
@@ -141,7 +140,7 @@ impl<'a> MinecraftGameVersionBuilder<'a> {
     pub fn version(
         self,
         version: &'a str,
-    ) -> Result<MinecraftGameVersionBuilder<'a>> {
+    ) -> Result<EnshroudedGameVersionBuilder<'a>> {
         Ok(Self {
             version: Some(version),
             ..self
@@ -151,7 +150,7 @@ impl<'a> MinecraftGameVersionBuilder<'a> {
     pub fn version_type(
         self,
         version_type: &'a str,
-    ) -> Result<MinecraftGameVersionBuilder<'a>> {
+    ) -> Result<EnshroudedGameVersionBuilder<'a>> {
         Ok(Self {
             version_type: Some(version_type),
             ..self
@@ -161,7 +160,7 @@ impl<'a> MinecraftGameVersionBuilder<'a> {
     pub fn created(
         self,
         created: &'a DateTime<Utc>,
-    ) -> MinecraftGameVersionBuilder<'a> {
+    ) -> EnshroudedGameVersionBuilder<'a> {
         Self {
             date: Some(created),
             ..self

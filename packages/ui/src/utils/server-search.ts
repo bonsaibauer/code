@@ -1,6 +1,6 @@
-import type { Labrinth } from '@modrinth/api-client'
-import { getCategoryIcon, GlobeIcon, SERVER_CATEGORY_ICON_MAP, UserIcon } from '@modrinth/assets'
-import { sortedCategories } from '@modrinth/utils'
+import type { Labrinth } from '@shroudedit/api-client'
+import { getCategoryIcon, GlobeIcon, SERVER_CATEGORY_ICON_MAP, UserIcon } from '@shroudedit/assets'
+import { sortedCategories } from '@shroudedit/utils'
 import { computed, type ComputedRef, type Ref, ref, shallowRef } from 'vue'
 import { useRoute } from 'vue-router'
 
@@ -104,19 +104,16 @@ export const SERVER_LANGUAGES = {
 
 export const SERVER_SORT_TYPES: SortType[] = [
 	{ display: 'Relevance', name: 'relevance' },
-	{ display: 'Verified Plays', name: 'minecraft_java_server.verified_plays_2w' },
-	{ display: 'Players', name: 'minecraft_java_server.ping.data.players_online' },
 	{ display: 'Followers', name: 'follows' },
 	{ display: 'Date Published', name: 'date_created' },
 	{ display: 'Date Updated', name: 'date_modified' },
 ]
 
 const FILTER_FIELD_MAP: Record<string, string> = {
-	server_content_type: 'minecraft_java_server.content.kind',
-	server_game_version: 'game_versions',
-	server_status: 'minecraft_java_server.ping.data',
-	server_region: 'minecraft_server.region',
-	server_language: 'minecraft_server.languages',
+	server_game_version: 'enshrouded_server.ping.data.game_version',
+	server_status: 'enshrouded_server.ping.data',
+	server_region: 'enshrouded_server.region',
+	server_language: 'enshrouded_server.languages',
 }
 
 function getFilterField(filterId: string): string | undefined {
@@ -147,7 +144,7 @@ export function useServerSearch(opts: {
 	const serverFilterTypes = computed<FilterType[]>(() => {
 		const categoryFilters: Record<string, FilterType> = {}
 		for (const c of sortedCategories(tags.value, formatCategoryName, locale.value).filter(
-			(c: Labrinth.Tags.v2.Category) => c.project_type === 'minecraft_java_server',
+			(c: Labrinth.Tags.v2.Category) => c.project_type === 'server',
 		)) {
 			const filterTypeId = `server_category_${c.header}`
 			if (!categoryFilters[filterTypeId]) {
@@ -232,10 +229,10 @@ export function useServerSearch(opts: {
 				],
 			},
 			...[
-				'minecraft_server_features',
-				'minecraft_server_gameplay',
-				'minecraft_server_meta',
-				'minecraft_server_community',
+				'enshrouded_server_features',
+				'enshrouded_server_gameplay',
+				'enshrouded_server_meta',
+				'enshrouded_server_community',
 			]
 				.map((h) => categoryFilters[`server_category_${h}`])
 				.filter(Boolean),
@@ -359,7 +356,7 @@ export function useServerSearch(opts: {
 	})
 
 	const newFilters = computed(() => {
-		const parts = ['project_types = minecraft_java_server']
+		const parts = ['project_types = server']
 
 		for (const filterType of serverFilterTypes.value) {
 			const matched = serverCurrentFilters.value.filter((f) => f.type === filterType.id)

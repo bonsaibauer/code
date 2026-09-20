@@ -1,4 +1,4 @@
-import { defineMessages } from '@modrinth/ui'
+import { defineMessages } from '@shroudedit/ui'
 
 const projectTypeMessages = defineMessages({
 	datapack: {
@@ -25,6 +25,14 @@ const projectTypeMessages = defineMessages({
 		id: 'project-type.modpack.plural',
 		defaultMessage: 'Modpacks',
 	},
+	schematic: {
+		id: 'project-type.schematic.singular',
+		defaultMessage: 'Schematic',
+	},
+	schematics: {
+		id: 'project-type.schematic.plural',
+		defaultMessage: 'Schematics',
+	},
 	plugin: {
 		id: 'project-type.plugin.singular',
 		defaultMessage: 'Plugin',
@@ -47,14 +55,6 @@ const projectTypeMessages = defineMessages({
 	},
 	servers: {
 		id: 'project-type.server.plural',
-		defaultMessage: 'Servers',
-	},
-	minecraft_java_server: {
-		id: 'project-type.minecraft_java_server.singular',
-		defaultMessage: 'Server',
-	},
-	minecraft_java_servers: {
-		id: 'project-type.minecraft_java_server.plural',
 		defaultMessage: 'Servers',
 	},
 	shader: {

@@ -1,7 +1,7 @@
 <template>
-	<ModrinthIcon
+	<ShroudEditIcon
 		v-if="role === 'admin'"
-		v-tooltip="formatMessage(messages.modrinthTeamLabel)"
+		v-tooltip="formatMessage(messages.shroudeditTeamLabel)"
 		role="img"
 		class="size-4 shrink-0 !text-green"
 	/>
@@ -14,8 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { ModrinthIcon, ScaleIcon } from '@modrinth/assets'
+import type { Labrinth } from '@shroudedit/api-client'
+import { ShroudEditIcon, ScaleIcon } from '@shroudedit/assets'
 
 import { defineMessages, useVIntl } from '#ui/composables/i18n'
 
@@ -26,9 +26,9 @@ defineProps<{
 const { formatMessage } = useVIntl()
 
 const messages = defineMessages({
-	modrinthTeamLabel: {
-		id: 'user.role.modrinth-team',
-		defaultMessage: 'Modrinth Team',
+	shroudeditTeamLabel: {
+		id: 'user.role.shroudedit-team',
+		defaultMessage: 'ShroudEdit Team',
 	},
 	moderatorLabel: {
 		id: 'user.role.moderator',

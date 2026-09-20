@@ -78,8 +78,8 @@
 	</div>
 </template>
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { PlusIcon, SearchIcon, XCircleIcon } from '@modrinth/assets'
+import type { Labrinth } from '@shroudedit/api-client'
+import { PlusIcon, SearchIcon, XCircleIcon } from '@shroudedit/assets'
 import {
 	Accordion,
 	Admonition,
@@ -88,15 +88,15 @@ import {
 	Avatar,
 	Button,
 	ConfirmModal,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	Input,
-} from '@modrinth/ui'
-import type { User } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import type { User } from '@shroudedit/utils'
 import { useQuery } from '@tanstack/vue-query'
 import { computed, ref } from 'vue'
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const { handleError } = injectNotificationManager()
 
 type UserGroup = {

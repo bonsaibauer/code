@@ -1,24 +1,17 @@
 <script setup lang="ts">
-import {
-	BlueskyIcon,
-	DiscordIcon,
-	MastodonIcon,
-	RedditIcon,
-	ToggleRightIcon,
-	TwitterIcon,
-	YouTubeIcon,
-} from '@modrinth/assets'
-import { Button, ButtonLink } from '@modrinth/ui'
+import { DiscordIcon, ToggleRightIcon } from '@shroudedit/assets'
 import {
 	AutoLink,
+	Button,
+	ButtonLink,
 	defineMessage,
 	defineMessages,
 	injectNotificationManager,
 	IntlFormatted,
 	type MessageDescriptor,
 	useVIntl,
-} from '@modrinth/ui'
-import { commonSettingsMessages } from '@modrinth/ui/src/utils/common-messages.js'
+} from '@shroudedit/ui'
+import { commonSettingsMessages } from '@shroudedit/ui/src/utils/common-messages.js'
 
 import TextLogo from '~/components/brand/TextLogo.vue'
 
@@ -28,18 +21,18 @@ const { addNotification } = injectNotificationManager()
 const config = useRuntimeConfig()
 
 const messages = defineMessages({
-	modrinthInformation: {
-		id: 'layout.footer.modrinth-information',
-		defaultMessage: 'Modrinth information',
+	shroudEditInformation: {
+		id: 'layout.footer.shroudedit-information',
+		defaultMessage: 'ShroudEdit information',
 	},
 	openSource: {
-		id: 'layout.footer.open-source',
-		defaultMessage: 'Modrinth is <github-link>open source</github-link>.',
+		id: 'layout.footer.shroudedit-open-source',
+		defaultMessage: 'ShroudEdit is <github-link>open source</github-link>.',
 	},
 	legalDisclaimer: {
-		id: 'layout.footer.legal-disclaimer',
+		id: 'layout.footer.shroudedit-legal-disclaimer',
 		defaultMessage:
-			'NOT AN OFFICIAL MINECRAFT SERVICE. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.',
+			'NOT AN OFFICIAL ENSHROUDED SERVICE. NOT APPROVED BY OR ASSOCIATED WITH KEEN GAMES.',
 	},
 	basedOnLabel: {
 		id: 'layout.footer.based-on-label',
@@ -75,34 +68,8 @@ const socialLinks: {
 }[] = [
 	{
 		label: defineMessage({ id: 'layout.footer.social.discord', defaultMessage: 'Discord' }),
-		href: 'https://discord.modrinth.com',
+		href: 'https://discord.gg/shroudedit',
 		icon: DiscordIcon,
-	},
-	{
-		label: defineMessage({ id: 'layout.footer.social.bluesky', defaultMessage: 'Bluesky' }),
-		href: 'https://bsky.app/profile/modrinth.com',
-		icon: BlueskyIcon,
-	},
-	{
-		label: defineMessage({ id: 'layout.footer.social.mastodon', defaultMessage: 'Mastodon' }),
-		href: 'https://floss.social/@modrinth',
-		icon: MastodonIcon,
-		rel: 'me',
-	},
-	{
-		label: defineMessage({ id: 'layout.footer.social.x', defaultMessage: 'X' }),
-		href: 'https://x.com/modrinth',
-		icon: TwitterIcon,
-	},
-	{
-		label: defineMessage({ id: 'layout.footer.social.youtube', defaultMessage: 'YouTube' }),
-		href: 'https://www.youtube.com/@modrinth',
-		icon: YouTubeIcon,
-	},
-	{
-		label: defineMessage({ id: 'layout.footer.social.reddit', defaultMessage: 'Reddit' }),
-		href: 'https://www.reddit.com/r/Modrinth',
-		icon: RedditIcon,
 	},
 ]
 
@@ -124,40 +91,32 @@ const footerLinks: {
 				href: '/news/changelog',
 				label: defineMessage({ id: 'layout.footer.about.changelog', defaultMessage: 'Changelog' }),
 			},
-			{
-				href: 'https://status.modrinth.com',
-				label: defineMessage({ id: 'layout.footer.about.status', defaultMessage: 'Status' }),
-			},
-			{
-				href: 'https://careers.modrinth.com',
-				label: defineMessage({ id: 'layout.footer.about.careers', defaultMessage: 'Careers' }),
-			},
-			{
-				href: '/legal/cmp-info',
-				label: defineMessage({
-					id: 'layout.footer.about.rewards-program',
-					defaultMessage: 'Rewards Program',
-				}),
-			},
 		],
 	},
 	{
-		label: defineMessage({ id: 'layout.footer.products', defaultMessage: 'Products' }),
+		label: defineMessage({ id: 'layout.footer.content', defaultMessage: 'Content' }),
 		links: [
 			{
-				href: '/plus',
-				label: defineMessage({ id: 'layout.footer.products.plus', defaultMessage: 'Modrinth+' }),
+				href: '/discover/mods',
+				label: defineMessage({ id: 'project-type.mod.category', defaultMessage: 'Mods' }),
 			},
 			{
-				href: '/app',
-				label: defineMessage({ id: 'layout.footer.products.app', defaultMessage: 'Modrinth App' }),
-			},
-			{
-				href: '/hosting',
+				href: '/discover/schematics',
 				label: defineMessage({
-					id: 'layout.footer.products.servers',
-					defaultMessage: 'Modrinth Hosting',
+					id: 'project-type.schematic.category',
+					defaultMessage: 'Schematics',
 				}),
+			},
+			{
+				href: '/discover/modpacks',
+				label: defineMessage({
+					id: 'project-type.modpack.category',
+					defaultMessage: 'Modpacks',
+				}),
+			},
+			{
+				href: '/discover/servers',
+				label: defineMessage({ id: 'project-type.server.category', defaultMessage: 'Servers' }),
 			},
 		],
 	},
@@ -165,28 +124,28 @@ const footerLinks: {
 		label: defineMessage({ id: 'layout.footer.resources', defaultMessage: 'Resources' }),
 		links: [
 			{
-				href: 'https://support.modrinth.com',
+				href: 'https://shroudedit.com/placeholder/help-center',
 				label: defineMessage({
 					id: 'layout.footer.resources.help-center',
 					defaultMessage: 'Help Center',
 				}),
 			},
 			{
-				href: 'https://translate.modrinth.com',
+				href: 'https://shroudedit.com/placeholder/translate',
 				label: defineMessage({
 					id: 'layout.footer.resources.translate',
 					defaultMessage: 'Translate',
 				}),
 			},
 			{
-				href: 'https://github.com/modrinth/code/issues',
+				href: 'https://shroudedit.com/placeholder/issues',
 				label: defineMessage({
 					id: 'layout.footer.resources.report-issues',
 					defaultMessage: 'Report issues',
 				}),
 			},
 			{
-				href: 'https://docs.modrinth.com/api/',
+				href: 'https://shroudedit.com/placeholder/api',
 				label: defineMessage({
 					id: 'layout.footer.resources.api-docs',
 					defaultMessage: 'API documentation',
@@ -197,6 +156,13 @@ const footerLinks: {
 	{
 		label: defineMessage({ id: 'layout.footer.legal', defaultMessage: 'Legal' }),
 		links: [
+			{
+				href: '/legal/imprint',
+				label: defineMessage({
+					id: 'layout.footer.legal.imprint',
+					defaultMessage: 'Impressum',
+				}),
+			},
 			{
 				href: '/legal/rules',
 				label: defineMessage({ id: 'layout.footer.legal.rules', defaultMessage: 'Content Rules' }),
@@ -226,7 +192,7 @@ const footerLinks: {
 				href: '/legal/copyright',
 				label: defineMessage({
 					id: 'layout.footer.legal.copyright-policy',
-					defaultMessage: 'Copyright Policy and DMCA',
+					defaultMessage: 'Copyright Policy',
 				}),
 			},
 		],
@@ -234,7 +200,6 @@ const footerLinks: {
 ]
 
 const developerModeCounter = ref(0)
-
 const state = useGeneratedState()
 
 function developerModeIncrement() {
@@ -269,13 +234,13 @@ function developerModeIncrement() {
 				<div
 					class="flex flex-col items-center gap-3 md:items-start"
 					role="region"
-					:aria-label="formatMessage(messages.modrinthInformation)"
+					:aria-label="formatMessage(messages.shroudEditInformation)"
 				>
 					<div class="flex items-center gap-2">
 						<Button
 							type="quiet"
 							interaction="none"
-							aria-label="Modrinth"
+							aria-label="ShroudEdit"
 							class="!h-auto !p-0"
 							@click="developerModeIncrement()"
 						>
@@ -313,7 +278,7 @@ function developerModeIncrement() {
 							<IntlFormatted :message-id="messages.openSource">
 								<template #github-link="{ children }">
 									<a
-										href="https://github.com/modrinth/code"
+										href="https://github.com/bonsaibauer/shroudedit"
 										class="text-brand hover:underline"
 										target="_blank"
 										rel="noopener"
@@ -323,7 +288,7 @@ function developerModeIncrement() {
 								</template>
 							</IntlFormatted>
 						</p>
-						<p class="m-0">© {{ state.buildYear ?? '2025' }} Rinth, Inc.</p>
+						<p class="m-0">© {{ state.buildYear ?? '2026' }} ShroudEdit</p>
 					</div>
 				</div>
 				<div class="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:contents">
@@ -383,6 +348,7 @@ function developerModeIncrement() {
 		</div>
 	</footer>
 </template>
+
 <style scoped lang="scss">
 .footer-brand-background {
 	background: var(--brand-gradient-strong-bg);

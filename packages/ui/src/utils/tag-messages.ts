@@ -1,4 +1,4 @@
-import { capitalizeString } from '@modrinth/utils'
+import { capitalizeString } from '@shroudedit/utils'
 
 import { defineMessages, type MessageDescriptor, type VIntlFormatters } from '../composables/i18n'
 
@@ -59,9 +59,13 @@ export const loaderMessages = defineMessages({
 		id: 'tag.loader.liteloader',
 		defaultMessage: 'LiteLoader',
 	},
-	minecraft: {
-		id: 'tag.loader.minecraft',
+	enshrouded: {
+		id: 'tag.loader.enshrouded',
 		defaultMessage: 'Resource Pack',
+	},
+	eml: {
+		id: 'tag.loader.eml',
+		defaultMessage: 'EML',
 	},
 	modloader: {
 		id: 'tag.loader.modloader',
@@ -106,6 +110,14 @@ export const loaderMessages = defineMessages({
 	spigot: {
 		id: 'tag.loader.spigot',
 		defaultMessage: 'Spigot',
+	},
+	shroudforge: {
+		id: 'tag.loader.shroudforge',
+		defaultMessage: 'Shroudforge',
+	},
+	shroudtopia: {
+		id: 'tag.loader.shroudtopia',
+		defaultMessage: 'Shroudtopia',
 	},
 	sponge: {
 		id: 'tag.loader.sponge',
@@ -572,7 +584,7 @@ export const categoryMessages = defineMessages({
 	},
 })
 
-export const DEFAULT_MOD_LOADERS: string[] = ['fabric', 'forge', 'neoforge']
+export const DEFAULT_MOD_LOADERS: string[] = ['shroudtopia', 'shroudforge', 'eml']
 export const DEFAULT_PLUGIN_LOADERS: string[] = ['paper', 'spigot']
 export const DEFAULT_SHADER_LOADERS: string[] = ['iris', 'optifine', 'vanilla']
 
@@ -613,20 +625,20 @@ export const categoryHeaderMessages = defineMessages({
 		id: 'header.category.performance-impact',
 		defaultMessage: 'Performance impact',
 	},
-	minecraft_server_community: {
-		id: 'header.category.minecraft-server-community',
+	enshrouded_server_community: {
+		id: 'header.category.enshrouded-server-community',
 		defaultMessage: 'Community',
 	},
-	minecraft_server_features: {
-		id: 'header.category.minecraft-server-features',
+	enshrouded_server_features: {
+		id: 'header.category.enshrouded-server-features',
 		defaultMessage: 'Features',
 	},
-	minecraft_server_gameplay: {
-		id: 'header.category.minecraft-server-gameplay',
+	enshrouded_server_gameplay: {
+		id: 'header.category.enshrouded-server-gameplay',
 		defaultMessage: 'Gameplay',
 	},
-	minecraft_server_meta: {
-		id: 'header.category.minecraft-server-meta',
+	enshrouded_server_meta: {
+		id: 'header.category.enshrouded-server-meta',
 		defaultMessage: 'Meta',
 	},
 })

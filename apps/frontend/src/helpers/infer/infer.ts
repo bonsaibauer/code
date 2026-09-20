@@ -17,6 +17,17 @@ export interface InferredVersionInfo {
 	version_type?: 'alpha' | 'beta' | 'release'
 	loaders?: string[]
 	game_versions?: string[]
+	dependencies?: Array<{
+		project_id?: string
+		version_id?: string
+		dependency_type: 'required' | 'optional'
+	}>
+	schematic_format_version?: number
+	world_editor_version?: string
+	schematic_width?: number
+	schematic_height?: number
+	schematic_depth?: number
+	schematic_installation?: string
 }
 
 async function readMrpackManifest(rawFile: RawFile): Promise<string> {
@@ -66,7 +77,7 @@ function fillMissingFromFilename(
 
 /**
  * Main function to infer version information from a file.
- * Analyzes mod loaders, packs, and other Minecraft-related file formats.
+ * Analyzes mod loaders, packs, and other Enshrouded-related file formats.
  */
 export const inferVersionInfo = async function (
 	rawFile: RawFile,
@@ -78,6 +89,17 @@ export const inferVersionInfo = async function (
 		.map((it) => it.version)
 	const loaderParsers = createLoaderParsers(project, gameVersions, simplifiedGameVersions)
 	const fileName = rawFile.name.toLowerCase()
+	if (project.actualProjectType === 'schematic') {
+		if (!fileName.endsWith('.schematic')) {
+			throw new Error('Schematics must use the .schematic file extension')
+		}
+
+		return fillMissingFromFilename(
+			{ schematic_format_version: 1 },
+			rawFile.name,
+			project.title,
+		)
+	}
 
 	if (fileName.endsWith('.mrpack') || fileName.endsWith('.mrpack-primary')) {
 		const manifest = await readMrpackManifest(rawFile)

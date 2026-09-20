@@ -4,7 +4,7 @@ import {
 	ConfirmLeaveModal,
 	defineMessages,
 	EmptyState,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectProjectPageContext,
 	IntlFormatted,
 	isDisclosureCompatibleWithProjectTypes,
@@ -14,8 +14,8 @@ import {
 	usePageLeaveSafety,
 	useSavable,
 	useVIntl,
-} from '@modrinth/ui'
-import { isAdmin, isStaff, TeamMemberPermission } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { isAdmin, isStaff, TeamMemberPermission } from '@shroudedit/utils'
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, watch } from 'vue'
 
@@ -46,7 +46,7 @@ import { useProjectNagMessages } from '~/composables/project-nag-validation'
 const DISCLOSURE_QUERY_STALE_TIME = 1000 * 60 * 5
 
 const { formatMessage } = useVIntl()
-const { labrinth } = injectModrinthClient()
+const { labrinth } = injectShroudEditClient()
 const {
 	projectV2: project,
 	projectV3,
@@ -59,7 +59,7 @@ const auth = await useAuth()
 
 const projectTypes = computed(() => projectV3.value?.project_types ?? [project.value.project_type])
 
-const isServerProject = computed(() => projectV3.value?.minecraft_server != null)
+const isServerProject = computed(() => projectV3.value?.enshrouded_server != null)
 
 const canEditDisclosures = computed(
 	() => project.value.versions.length > 0 || isServerProject.value,
@@ -80,7 +80,7 @@ const messages = defineMessages({
 	},
 	description: {
 		id: 'project.settings.disclosures.description',
-		defaultMessage: `You must add any applicable content disclosures to your project in compliance with <rules>Modrinth's Content Rules</rules>.`,
+		defaultMessage: `You must add any applicable content disclosures to your project in compliance with <rules>ShroudEdit's Content Rules</rules>.`,
 	},
 	description2: {
 		id: 'project.settings.disclosures.description.2',
@@ -301,7 +301,7 @@ const { confirmLeaveModal } = usePageLeaveSafety(hasChanges)
 			<IntlFormatted :message-id="messages.description2">
 				<template #faq-link="{ children }">
 					<a
-						href="https://support.modrinth.com/en/articles/16567675#h_29503820b1"
+						href="https://support.shroudedit.com/en/articles/16567675#h_29503820b1"
 						target="_blank"
 						class="underline hover:text-contrast"
 					>

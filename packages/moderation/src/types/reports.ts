@@ -1,5 +1,5 @@
-import type { Labrinth, SharedInstances } from '@modrinth/api-client'
-import type { Thread, User, Version } from '@modrinth/utils'
+import type { Labrinth, SharedInstances } from '@shroudedit/api-client'
+import type { Thread, User, Version } from '@shroudedit/utils'
 
 export interface OwnershipTarget {
 	id: string

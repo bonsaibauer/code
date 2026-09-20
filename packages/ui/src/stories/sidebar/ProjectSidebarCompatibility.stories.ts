@@ -1,4 +1,4 @@
-import type { GameVersionTag, PlatformTag } from '@modrinth/utils'
+import type { GameVersionTag, PlatformTag } from '@shroudedit/utils'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 import ProjectSidebarCompatibility from '../../components/project/ProjectSidebarCompatibility.vue'
@@ -111,7 +111,7 @@ export const ResourcePack: StoryObj = {
 					:project="{
 						actualProjectType: 'resourcepack',
 						project_type: 'resourcepack',
-						loaders: ['minecraft'],
+						loaders: ['enshrouded'],
 						client_side: 'required',
 						server_side: 'unsupported',
 						versions: [{ game_versions: ['1.21.4', '1.21.3', '1.21.1', '1.21', '1.20.6', '1.20.4'] }],

@@ -260,7 +260,7 @@
 					<template #markdown-link="{ children }">
 						<a
 							class="markdown-resource-link"
-							href="https://support.modrinth.com/en/articles/8801962-advanced-markdown-formatting"
+							href="https://support.shroudedit.com/en/articles/8801962-advanced-markdown-formatting"
 							target="_blank"
 						>
 							<component :is="() => children" />
@@ -323,9 +323,9 @@ import {
 	UploadIcon,
 	XIcon,
 	YouTubeIcon,
-} from '@modrinth/assets'
-import { markdownCommands, modrinthMarkdownEditorKeymap } from '@modrinth/utils/codemirror'
-import { renderHighlightedString } from '@modrinth/utils/highlightjs/index'
+} from '@shroudedit/assets'
+import { markdownCommands, shroudeditMarkdownEditorKeymap } from '@shroudedit/utils/codemirror'
+import { renderHighlightedString } from '@shroudedit/utils/highlightjs/index'
 import { type Component, computed, onBeforeUnmount, onMounted, ref, toRef, useId, watch } from 'vue'
 
 import Button from '#ui/components/base/buttons/Button.vue'
@@ -694,7 +694,7 @@ onMounted(() => {
 			eventHandlers,
 			updateListener,
 			keymap.of([indentWithTab]),
-			keymap.of(modrinthMarkdownEditorKeymap),
+			keymap.of(shroudeditMarkdownEditorKeymap),
 			history(),
 			markdown({
 				addKeymap: false,

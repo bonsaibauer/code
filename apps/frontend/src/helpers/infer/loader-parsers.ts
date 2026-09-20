@@ -32,15 +32,15 @@ export function createLoaderParsers(
 					.filter((dependency: any) => dependency.modId === 'neoforge')
 					.map((dependency: any) => dependency.versionRange)
 					.find((range) => range)
-				const minecraftDependency = Object.values(metadata.dependencies)
+				const enshroudedDependency = Object.values(metadata.dependencies)
 					.flat()
-					.filter((dependency: any) => dependency.modId === 'minecraft')
+					.filter((dependency: any) => dependency.modId === 'enshrouded')
 					.map((dependency: any) => dependency.versionRange)
 					.find((range) => range)
 
-				if (minecraftDependency) {
+				if (enshroudedDependency) {
 					newGameVersions = getGameVersionsMatchingMavenRange(
-						minecraftDependency,
+						enshroudedDependency,
 						simplifiedGameVersions,
 					)
 				} else if (neoForgeDependency) {
@@ -99,7 +99,7 @@ export function createLoaderParsers(
 				let newGameVersions: string[] = []
 				const mcDependencies = Object.values(metadata.dependencies)
 					.flat()
-					.filter((dependency: any) => dependency.modId === 'minecraft')
+					.filter((dependency: any) => dependency.modId === 'enshrouded')
 
 				if (mcDependencies.length > 0) {
 					newGameVersions = getGameVersionsMatchingMavenRange(
@@ -137,7 +137,7 @@ export function createLoaderParsers(
 		'fabric.mod.json': async (file: string, zip: JSZip): Promise<InferredVersionInfo> => {
 			const metadata = JSON.parse(file) as any
 
-			const mcDependency = metadata.depends?.minecraft
+			const mcDependency = metadata.depends?.enshrouded
 			const mcDependencies = Array.isArray(mcDependency) ? mcDependency : [mcDependency]
 
 			let detectedGameVersions = metadata.depends
@@ -172,7 +172,7 @@ export function createLoaderParsers(
 				// 2. if the dependency falls entirely in <=18w43a, assume Ornithe
 
 				// dependency version strings are normalized to be Semver 2.0.0 compliant through
-				// https://github.com/FabricMC/fabric-loader/blob/master/minecraft/src/main/java/net/fabricmc/loader/impl/game/minecraft/McVersionLookup.java
+				// https://github.com/FabricMC/fabric-loader/blob/master/enshrouded/src/main/java/net/fabricmc/loader/impl/game/enshrouded/McVersionLookup.java
 
 				// assume Babric only if dependent on b1.7.3 exactly
 				const hasBabricVersion = mcDependencies.every(
@@ -215,7 +215,7 @@ export function createLoaderParsers(
 			const metadata = JSON.parse(file) as any
 
 			const mcDependency = metadata.quilt_loader.depends?.find(
-				(x: any) => x.id === 'minecraft',
+				(x: any) => x.id === 'enshrouded',
 			)?.versions
 			const mcDependencies = Array.isArray(mcDependency) ? mcDependency : [mcDependency]
 
@@ -242,7 +242,7 @@ export function createLoaderParsers(
 				// we can simply prioritize Quilt for the small overlap range
 
 				// dependency version strings are normalized to be Semver 2.0.0 compliant through
-				// https://github.com/QuiltMC/quilt-loader/blob/develop/minecraft/src/main/java/org/quiltmc/loader/impl/game/minecraft/McVersionLookup.java
+				// https://github.com/QuiltMC/quilt-loader/blob/develop/enshrouded/src/main/java/org/quiltmc/loader/impl/game/enshrouded/McVersionLookup.java
 
 				// Assume Ornithe only if the dependency range falls entirely into <1.14.4`
 				const hasOrnitheVersions = !semverRangeIntersects(mcDependencies, '>=1.14.4')
@@ -374,7 +374,7 @@ export function createLoaderParsers(
 				version_type: versionType(metadata.versionId),
 				loaders,
 				game_versions: gameVersions
-					.filter((x) => x.version === metadata.dependencies.minecraft)
+					.filter((x) => x.version === metadata.dependencies.enshrouded)
 					.map((x) => x.version),
 			}
 		},

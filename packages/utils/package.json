@@ -1,5 +1,5 @@
 {
-	"name": "@modrinth/utils",
+	"name": "@shroudedit/utils",
 	"version": "0.0.0",
 	"private": true,
 	"main": "./index.ts",
@@ -9,8 +9,8 @@
 		"fix": "eslint . --fix && prettier --write ."
 	},
 	"devDependencies": {
-		"@modrinth/tooling-config": "workspace:*",
-		"@modrinth/api-client": "workspace:*"
+		"@shroudedit/tooling-config": "workspace:*",
+		"@shroudedit/api-client": "workspace:*"
 	},
 	"dependencies": {
 		"@codemirror/commands": "^6.3.2",
@@ -22,7 +22,6 @@
 		"@types/three": "^0.172.0",
 		"dayjs": "^1.11.10",
 		"highlight.js": "^11.9.0",
-		"highlightjs-mcfunction": "github:modrinth/better-highlightjs-mcfunction",
 		"markdown-it": "^14.1.0",
 		"ofetch": "^1.3.4",
 		"three": "^0.172.0",

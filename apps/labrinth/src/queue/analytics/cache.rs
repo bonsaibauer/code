@@ -9,13 +9,13 @@ use tracing::{debug, info};
 
 use crate::{
     database::DBProject, models::ids::ProjectId,
-    routes::analytics::MINECRAFT_SERVER_PLAYS, util::error::Context,
+    routes::analytics::ENSHROUDED_SERVER_PLAYS, util::error::Context,
 };
 
-pub const MINECRAFT_SERVER_ANALYTICS: &str = "minecraft_server_analytics:v4";
+pub const ENSHROUDED_SERVER_ANALYTICS: &str = "enshrouded_server_analytics:v4";
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct MinecraftServerAnalytics {
+pub struct EnshroudedServerAnalytics {
     pub verified_plays_2w: u64,
     pub verified_plays_4w: u64,
 }
@@ -39,7 +39,7 @@ pub async fn cache_analytics(
     // for each play row...
     // - build a per-actor key per project id
     //   - user_id` when `user_id != 0`
-    //   - otherwise `minecraft_uuid
+    //   - otherwise `enshrouded_uuid
     // - keep only rows where the rolling 24h count per actor is <= 3
     let rows = clickhouse
         .query(formatcp!(
@@ -62,12 +62,12 @@ pub async fn cache_analytics(
                             if(
                                 user_id != 0,
                                 concat('u:', toString(user_id)),
-                                concat('m:', toString(minecraft_uuid))
+                                concat('m:', toString(enshrouded_uuid))
                             )
                         ORDER BY toUnixTimestamp64Milli(recorded)
                         RANGE BETWEEN 86400000 PRECEDING AND CURRENT ROW
                     ) AS plays_per_actor_24h
-                FROM {MINECRAFT_SERVER_PLAYS}
+                FROM {ENSHROUDED_SERVER_PLAYS}
             )
             WHERE plays_per_actor_24h <= 3
             GROUP BY project_id
@@ -78,7 +78,7 @@ pub async fn cache_analytics(
         .wrap_err("failed to create cursor for total server plays")?;
 
     info!(
-        "Caching Minecraft server analytics for {} projects",
+        "Caching Enshrouded server analytics for {} projects",
         rows.len()
     );
 
@@ -109,13 +109,13 @@ pub async fn cache_analytics(
 
     for row in rows {
         let project_id = ProjectId(row.project_id);
-        let analytics = MinecraftServerAnalytics {
+        let analytics = EnshroudedServerAnalytics {
             verified_plays_2w: row.plays_2w,
             verified_plays_4w: row.plays_4w,
         };
 
         debug!("Caching analytics for {project_id}: {analytics:?}");
-        let key = redis.key().entity(MINECRAFT_SERVER_ANALYTICS, project_id);
+        let key = redis.key().entity(ENSHROUDED_SERVER_ANALYTICS, project_id);
         redis
             .set_serialized(&key, analytics, None)
             .await
@@ -135,6 +135,6 @@ pub async fn cache_analytics(
         })?;
     }
 
-    info!("Cached Minecraft server analytics");
+    info!("Cached Enshrouded server analytics");
     Ok(())
 }

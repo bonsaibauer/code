@@ -52,15 +52,15 @@
 </template>
 
 <script setup>
-import { PlusIcon, UsersIcon } from '@modrinth/assets'
+import { PlusIcon, UsersIcon } from '@shroudedit/assets'
 import {
 	Avatar,
 	Button,
 	ButtonLink,
 	defineMessages,
-	injectModrinthClient,
+	injectShroudEditClient,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { useQuery } from '@tanstack/vue-query'
 
 import OrganizationCreateModal from '~/components/ui/create/OrganizationCreateModal.vue'
@@ -93,7 +93,7 @@ const messages = defineMessages({
 const createOrgModal = ref(null)
 
 const auth = await useAuth()
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const uid = computed(() => auth.value.user?.id || null)
 
 const { data: orgs, error } = useQuery({

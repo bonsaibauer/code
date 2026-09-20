@@ -7,7 +7,7 @@ export class LabrinthGeoIpModule extends AbstractModule {
 
 	public async getCountry(): Promise<string | undefined> {
 		const trace = await this.client.request<string>('/trace', {
-			api: 'https://api.modrinth.com',
+			api: 'https://api.shroudedit.com',
 			version: 'cdn-cgi',
 			method: 'GET',
 			skipAuth: true,

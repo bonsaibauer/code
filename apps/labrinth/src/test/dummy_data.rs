@@ -66,9 +66,9 @@ impl TestFile {
               "user"
             ],
             "contact": {
-              "homepage": "https://www.modrinth.com",
-              "sources": "https://www.modrinth.com",
-              "issues": "https://www.modrinth.com"
+              "homepage": "https://www.shroudedit.com",
+              "sources": "https://www.shroudedit.com",
+              "issues": "https://www.shroudedit.com"
             },
 
             "license": "MIT",
@@ -77,11 +77,11 @@ impl TestFile {
             "environment": "client",
             "entrypoints": {
               "main": [
-                "io.github.modrinth.Modrinth"
+                "io.github.shroudedit.ShroudEdit"
               ]
             },
             "depends": {
-              "minecraft": ">=1.20-"
+              "enshrouded": ">=1.20-"
             }
           }
         )
@@ -118,9 +118,9 @@ impl TestFile {
         let filename =
             format!("random-modpack-{}.mrpack", rand::random::<u64>());
 
-        let modrinth_index_json = serde_json::json!({
+        let shroudedit_index_json = serde_json::json!({
             "formatVersion": 1,
-            "game": "minecraft",
+            "game": "enshrouded",
             "versionId": "1.20.1-9.6",
             "name": filename,
             "files": [
@@ -135,14 +135,14 @@ impl TestFile {
                         "server": "required"
                     },
                     "downloads": [
-                        "https://cdn.modrinth.com/data/PRN43VSY/versions/uNgEPb10/animatica-0.6%2B1.20.jar"
+                        "https://cdn.shroudedit.com/data/PRN43VSY/versions/uNgEPb10/animatica-0.6%2B1.20.jar"
                     ],
                     "fileSize": 69810
                 }
             ],
             "dependencies": {
                 "fabric-loader": "0.14.22",
-                "minecraft": "1.20.1"
+                "enshrouded": "1.20.1"
             }
         }
         )
@@ -158,7 +158,7 @@ impl TestFile {
                     .compression_method(CompressionMethod::Stored),
             )
             .unwrap();
-            zip.write_all(modrinth_index_json.as_bytes()).unwrap();
+            zip.write_all(shroudedit_index_json.as_bytes()).unwrap();
             zip.finish().unwrap();
         }
         let bytes = cursor.into_inner();

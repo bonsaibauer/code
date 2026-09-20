@@ -1,244 +1,141 @@
 <template>
 	<div class="markdown-body">
 		<h1>Content Rules</h1>
-		<p><em>Last modified: August 13, 2026</em></p>
+		<p><em>Last updated: September 20, 2026</em></p>
 
 		<p>
-			These Content Rules are to be considered part of our
-			<nuxt-link to="/legal/terms">Terms of Use</nuxt-link> and apply to any and all User
-			Contributions, Gaming Content, and use of Interactive Services (collectively, "Content").
+			These Content Rules form part of the
+			<nuxt-link to="/legal/terms">Terms of Use</nuxt-link> and apply to all projects, files,
+			schematics, modpacks, server listings, images, descriptions, comments and other material shared
+			through ShroudEdit (<strong>“Content”</strong>).
 		</p>
-
 		<p>
-			If you find any violations of these Rules on our website, you should make us aware. You may
-			use the Report button on any project, version, or user page, or you may email us at
-			<a href="mailto:support@modrinth.com">support@modrinth.com</a>.
+			Use the report button on the relevant page to report a violation. Reports of illegal content
+			may also be sent to
+			<a href="mailto:support@shroudedit.com">support@shroudedit.com</a>. Copyright reports are
+			handled under our <nuxt-link to="/legal/copyright">Copyright Policy</nuxt-link>.
 		</p>
 
-		<h2 id="prohibited-content">1. Prohibited Content</h2>
+		<h2 id="illegal-harmful-content">1. Illegal and harmful content</h2>
+		<p>Content must comply with applicable law and must not:</p>
+		<ol>
+			<li>promote, facilitate or contain unlawful activity or unlawful material;</li>
+			<li>
+				infringe copyright, trademarks, privacy, personality rights, trade secrets or other rights;
+			</li>
+			<li>
+				contain credible threats, targeted harassment, doxxing, incitement to violence or hateful
+				content directed at protected groups;
+			</li>
+			<li>contain sexual exploitation, sexualised content involving minors or grooming behaviour;</li>
+			<li>impersonate another person or falsely claim approval, authorship or affiliation;</li>
+			<li>publish personal or confidential information without a lawful basis;</li>
+			<li>deceive users about the nature, origin, safety or behaviour of a file or service.</li>
+		</ol>
 
-		<p>
-			Content must in their entirety comply with all applicable federal, state, local, and
-			international laws and regulations. Without limiting the foregoing, Content must not:
-		</p>
+		<h2 id="technical-safety">2. Technical safety</h2>
+		<p>Content must not:</p>
 		<ol>
 			<li>
-				Contain any material which is defamatory, obscene, indecent, abusive, offensive, harassing,
-				violent, hateful, inflammatory, harmful, damaging, disruptive, contradictory, or otherwise
-				objectionable.
+				contain malware, ransomware, credential theft, destructive payloads, cryptominers or code
+				designed to compromise a device, account, server or network;
 			</li>
 			<li>
-				Promote sexually explicit or pornographic material, violence, or discrimination based on
-				race, sex, gender, religion, nationality, disability, sexual orientation, or age.
+				collect, transmit or expose personal data, files, identifiers or telemetry without clear prior
+				disclosure and a lawful basis;
 			</li>
-			<li>
-				Infringe any patent, trademark, trade secret, copyright, or other intellectual property or
-				other rights of any other person.
-			</li>
-			<li>
-				Violate the legal rights (including the rights of publicity and privacy) of others or
-				contain any material that could give rise to any civil or criminal liability under
-				applicable laws or regulations or that otherwise may be in conflict with our
-				<nuxt-link to="/legal/terms">Terms of Use</nuxt-link> or
-				<nuxt-link to="/legal/privacy">Privacy Policy</nuxt-link>.
-			</li>
-			<li>
-				Promote any illegal activity, or advocate, promote or assist any unlawful act, including
-				real-life drugs or illicit substances.
-			</li>
-			<li>
-				Cause annoyance, inconvenience, or needless anxiety or be likely to upset, embarrass, alarm,
-				annoy, harm, or deceive any other person.
-			</li>
-			<li>Make or share intentionally wrong or misleading claims.</li>
-			<li>
-				Impersonate any person, or misrepresent your identity or affiliation with any person or
-				organization.
-			</li>
-			<li>
-				Give the impression that they emanate from or are endorsed by us or any other person or
-				entity, if this is not the case.
-			</li>
-			<li>Contain an excessive amount of profane language.</li>
-			<li>
-				Be designed to upload any data to a remote server (i.e. one that the user does not directly
-				choose to connect to in-game) without clear disclosure.
-			</li>
-			<li>
-				Bypass restrictions placed by Mojang to prevent users from joining certain in-game servers.
-			</li>
+			<li>download or execute undisclosed remote code or dependencies;</li>
+			<li>circumvent ShroudEdit security controls, moderation or download accounting;</li>
+			<li>interfere with Enshrouded servers or other users without their informed permission.</li>
 		</ol>
-
-		<h2 id="clear-and-honest-function">2. Clear and Honest Function</h2>
-
 		<p>
-			Projects, a form of Content, must make a clear and honest attempt to describe their purpose in
-			designated areas on the project page. Necessary information must not be obscured in any way or
-			use confusing language or technical jargon when it is unnecessary.
-		</p>
-		<p>
-			Important information like content disclosures must always be described accurately and
-			appropriately.
+			Network access, telemetry, external executables and elevated permissions must be explained
+			prominently on the project page. Disclosures must be accurate for every published version.
 		</p>
 
-		<h3 id="general-expectations">2.1. General Expectations</h3>
-
+		<h2 id="project-description">3. Clear and honest presentation</h2>
 		<p>
-			From a project description, users should be able to understand what the project does and how
-			to use it. Projects must attempt to describe the following three things within their
-			description:
+			A project page must clearly explain what the project does, how it is installed or used, what
+			game and loader versions it supports and any important limitations or risks. Titles, summaries,
+			categories, dependencies, licences and environment tags must be accurate and must not be used
+			to manipulate search or impersonate another project.
 		</p>
-		<ol type="a">
-			<li>what the project specifically does or adds</li>
-			<li>why someone should want to download the project</li>
-			<li>any other critical information the user must know before downloading</li>
-		</ol>
+		<ul>
+			<li>Images and videos must represent the actual project.</li>
+			<li>External links must be relevant, safe and publicly accessible where required.</li>
+			<li>Required dependencies must be declared for the affected versions.</li>
+			<li>Material differences in purpose should be published as a separate project.</li>
+			<li>Descriptions must remain readable without relying exclusively on images.</li>
+		</ul>
 
-		<h3 id="accessibility">2.2. Accessibility</h3>
-
+		<h2 id="content-types">4. Content-type requirements</h2>
+		<h3>4.1. Mods</h3>
 		<p>
-			Project descriptions must be accessible so that they can be read through a variety of mediums.
-			All descriptions must have a plain-text version, though images, videos, and other content can
-			take priority if desired. Headers must not be used for body text.
+			Mods must identify their supported Enshrouded versions and loader, including Shroudtopia,
+			Shroudforge or EML where applicable. Any client/server requirements and configuration steps
+			must be disclosed.
 		</p>
-
+		<h3>4.2. Schematics</h3>
 		<p>
-			Project descriptions must have an English-language translation unless they are exclusively
-			meant for use in a specific language, such as translation packs. Descriptions may provide
-			translations into other languages if desired.
+			Schematics must be genuine World Editor <code>.schematic</code> content and must provide the
+			relevant schematic format version, dimensions, compatible game and World Editor versions, and
+			installation or import instructions. A schematic must not include a world or asset that the
+			uploader is not permitted to redistribute.
 		</p>
-
-		<h2 id="cheats-and-hacks">3. Cheats and Hacks</h2>
-
+		<h3>4.3. Modpacks</h3>
 		<p>
-			Projects cannot contain or download "cheats", which we define as a client-side modification
-			that:
+			Modpacks must respect the licences and redistribution permissions of included projects. Every
+			required project or external file must be declared through the supported dependency and pack
+			metadata mechanisms.
 		</p>
-		<ol>
-			<li>is advertised as a "cheat", "hack", or "hacked client"</li>
-			<li>
-				gives an unfair advantage in a multiplayer setting over other players that do not have a
-				comparable modification and does not provide a server-side opt-out
-			</li>
-			<li>
-				contains any of the following functions without requiring a server-side opt-in:
-				<ol type="a">
-					<li>X-ray or the ability to see through opaque blocks</li>
-					<li>aim bot or aim assist</li>
-					<li>flight, speed, or other movement modifications</li>
-					<li>automatic or assisted PvP combat</li>
-					<li>
-						active client-side hiding of third party modifications that have server-side opt-outs
-					</li>
-					<li>item duplication</li>
-				</ol>
-			</li>
-		</ol>
-
-		<h2 id="copyright-and-legality-of-content">4. Copyright and Reuploads</h2>
-
+		<h3>4.4. Servers</h3>
 		<p>
-			You must own or have the necessary licenses, rights, consents, and permissions to store,
-			share, and distribute the Content that is uploaded under your Modrinth account.
+			Server listings must describe the actual server, access requirements and enabled communication
+			features. Passwords published for guest, friend or visitor roles are visible to users and must
+			not be reused for administrative access or other services. Listings must not conceal paywalls,
+			misrepresent player counts or redirect users to unrelated services.
 		</p>
 
+		<h2 id="copyright-reuploads">5. Copyright, licences and reuploads</h2>
 		<p>
-			Content may not be directly reuploaded from another source without explicit permission from
-			the original author. If explicit permission has been granted, or it is a license-abiding
-			"fork", this restriction does not apply. We define "forks" as modified copies of a project
-			which have diverged substantially from the original project.
+			You must own or have all licences, rights and permissions needed to publish and distribute your
+			Content. Direct reuploads are prohibited unless authorised by the rightsholder or permitted by
+			the applicable licence. Forks must comply with the original licence and clearly identify their
+			source and changes. Third-party assets and code must be credited where required.
 		</p>
 
+		<h2 id="cheats-abuse">6. Cheats and abusive functionality</h2>
 		<p>
-			When uploading content you have the necessary permissions to distribute but did not author
-			yourself, you must make a meaningful effort to credit each original source properly.
+			Projects designed primarily to gain an undisclosed unfair advantage, evade server rules,
+			interfere with other players or bypass access controls are not permitted. Tools with legitimate
+			administrative, accessibility, testing or single-player purposes must describe those purposes
+			and include safeguards appropriate to their risk.
 		</p>
 
-		<h2 id="miscellaneous">5. Miscellaneous</h2>
-
+		<h2 id="generative-ai">7. Generative AI</h2>
 		<p>
-			There are certain other small aspects to creating projects that all authors should attempt to
-			abide by. These will not be enforced as strictly, but abiding by all will result fewer
-			potential issues during project review, and a better project with more potential reach.
-		</p>
-		<ol>
-			<li>
-				All metadata, including license, environment information, tags, content disclosures, etc.
-				are filled out correctly and are consistent with information found elsewhere.
-			</li>
-			<li>
-				Project titles are only the name of the project, without any other unnecessary filler data.
-			</li>
-			<li>
-				Project summaries contain a small summary of the project without any formatting and without
-				repeating the project title.
-			</li>
-			<li>All external links lead to public resources that are relevant.</li>
-			<li>
-				Gallery images are relevant to the project and do not give a false impression of the
-				project's contents.
-			</li>
-			<li>All dependencies must be specified in the Dependencies section of each version.</li>
-			<li>
-				"Additional files" are only used for special designated purposes, such as source JAR files.
-				In other words, separate versions and/or projects are used where appropriate instead of
-				additional files.
-			</li>
-			<li>
-				Files uploaded to a project should be directly related to the content of the initial project
-				page or a direct linear upgrade. Files with different functionality should not be uploaded
-				as new versions within a single project; instead, they should be published as separate
-				projects.
-			</li>
-			<li>
-				All applicable content disclosures are filled out accurately and maintained with up-to-date
-				information.
-			</li>
-		</ol>
-
-		<h2 id="generative-ai">6. Usage of Generative "AI"</h2>
-
-		<p>
-			Projects must be forthright and honest about the usage of generative AI in their production,
-			publication, and within the project itself. Projects cannot be entirely or primarily comprised
-			of content created or derived from generative AI output.
+			Material use of generative AI in code, assets, descriptions or project functionality must be
+			disclosed accurately. AI-assisted Content remains subject to the same requirements for rights,
+			quality, safety and truthful attribution. Content that is predominantly mass-generated,
+			deceptive, infringing or published as spam may be rejected or removed.
 		</p>
 
-		<h3 id="disclosure-of-ai-generated-content">6.1. Disclosure of AI generated content</h3>
-
-		<p>You must apply the appropriate “Contains AI-generated content” content disclosure when:</p>
-		<ol type="a">
-			<li>a substantial portion of the project's code is a product of AI output.</li>
-			<li>
-				the project includes any assets that are primarily or entirely a product of AI output.
-			</li>
-			<li>the project's design or functionality relies on the use of generative AI.</li>
-			<li>
-				any element of the project's page such as description or publishing relies on generative AI.
-			</li>
-		</ol>
-
-		<h3 id="prohibited-usage-of-ai">6.2. Prohibited AI generated content</h3>
-
-		<ol type="a">
-			<li>
-				No images uploaded to a gallery, icon, description, or any other part of a project page may
-				be created or derived from generative AI output. Any such images may be removed.
-			</li>
-			<li>
-				Projects may not be published publicly if the contents are primarily or entirely a product
-				of AI output.
-			</li>
-		</ol>
+		<h2 id="moderation">8. Enforcement</h2>
+		<p>
+			Depending on severity and context, we may request changes, reject a submission, reduce
+			visibility, remove files, suspend distribution or restrict an account. We consider intent,
+			harm, recurrence, cooperation and the reliability of available evidence. Where required by law,
+			we provide reasons and an opportunity to request review. Appeals may be sent to
+			<a href="mailto:support@shroudedit.com">support@shroudedit.com</a>.
+		</p>
 	</div>
 </template>
 
 <script setup>
-const description =
-	'The Content Rules of Modrinth, an open source modding platform focused on Minecraft.'
+const description = 'The rules for content published and distributed through ShroudEdit.'
 
 useSeoMeta({
-	title: 'Content Rules - Modrinth',
+	title: 'Content Rules - ShroudEdit',
 	description,
 	ogTitle: 'Content Rules',
 	ogDescription: description,
@@ -261,12 +158,9 @@ useSeoMeta({
 	@apply leading-normal;
 }
 
-.markdown-body ol {
+.markdown-body ol,
+.markdown-body ul {
 	@apply mb-3;
-}
-
-.markdown-body ol ol {
-	@apply mb-2;
 }
 
 .markdown-body li {

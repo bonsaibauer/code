@@ -1,6 +1,6 @@
-# @modrinth/api-client
+# @shroudedit/api-client
 
-Platform-agnostic API client for Modrinth's services. Works in Nuxt (SSR + CSR), Tauri (desktop app), and plain Node/browser environments.
+Platform-agnostic API client for ShroudEdit's services. Works in Nuxt (SSR + CSR), Tauri (desktop app), and plain Node/browser environments.
 
 ## Architecture
 
@@ -11,7 +11,7 @@ Request Flow:
 
 ### Key Directories
 
-- **`src/core/`** — base classes (`AbstractModrinthClient`, `AbstractModule`, `AbstractFeature`, etc.)
+- **`src/core/`** — base classes (`AbstractShroudEditClient`, `AbstractModule`, `AbstractFeature`, etc.)
 - **`src/platform/`** — platform implementations (generic, nuxt, tauri, xhr-upload, websocket)
 - **`src/features/`** — middleware plugins (auth, retry, circuit-breaker, etc.)
 - **`src/modules/`** — API endpoint modules organized by service (`labrinth/`, `archon/`, `kyros/`, `iso3166/`)
@@ -19,11 +19,11 @@ Request Flow:
 
 ### Client Hierarchy
 
-All platform clients extend `XHRUploadClient` → `AbstractModrinthClient`:
+All platform clients extend `XHRUploadClient` → `AbstractShroudEditClient`:
 
-- **`GenericModrinthClient`** — uses `ofetch`, attaches WebSocket client to `archon.sockets`
-- **`NuxtModrinthClient`** — uses Nuxt's `$fetch`, SSR-aware, blocks `upload()` during SSR
-- **`TauriModrinthClient`** — uses `@tauri-apps/plugin-http`
+- **`GenericShroudEditClient`** — uses `ofetch`, attaches WebSocket client to `archon.sockets`
+- **`NuxtShroudEditClient`** — uses Nuxt's `$fetch`, SSR-aware, blocks `upload()` during SSR
+- **`TauriShroudEditClient`** — uses `@tauri-apps/plugin-http`
 
 ### Module Access
 
@@ -51,7 +51,7 @@ This structure is derived at runtime from the flat `MODULE_REGISTRY` in `modules
 
 API modules **must** use `this.client.request()` (or `.upload`) for all HTTP calls — never `$fetch`, `fetch`, or any other HTTP library directly. The request method routes through the platform-specific implementation (Nuxt `$fetch`, Tauri HTTP plugin, etc.) and the feature middleware chain (auth, retry, circuit breaker). Using `$fetch` directly bypasses the platform layer and will fail in Tauri (CORS/sandboxing). The only exception is the `ISO3166Module` which is explicitly node-only.
 
-For external APIs (non-Modrinth), pass the full base URL as the `api` field and set `skipAuth: true`:
+For external APIs (non-ShroudEdit), pass the full base URL as the `api` field and set `skipAuth: true`:
 
 ```ts
 this.client.request<MyType>('/endpoint', {
@@ -69,18 +69,18 @@ The client is provided to the component tree via DI (see `standards/frontend/DEP
 
 ```ts
 // apps/frontend/src/app.vue (Nuxt)
-const client = new NuxtModrinthClient({ ... })
-provideModrinthClient(client)
+const client = new NuxtShroudEditClient({ ... })
+provideShroudEditClient(client)
 
 // apps/app-frontend/src/App.vue (Tauri)
-const client = new TauriModrinthClient({ ... })
-provideModrinthClient(client)
+const client = new TauriShroudEditClient({ ... })
+provideShroudEditClient(client)
 ```
 
 Components anywhere in the tree then inject it:
 
 ```ts
-const { labrinth, archon, kyros } = injectModrinthClient()
+const { labrinth, archon, kyros } = injectShroudEditClient()
 
 // Fetch data
 const project = await labrinth.projects_v3.get(projectId)
@@ -92,7 +92,7 @@ const { data } = useQuery({
 })
 ```
 
-`provideModrinthClient` and `injectModrinthClient` are exported from `@modrinth/ui` (defined in `packages/ui/src/providers/api-client.ts`). The provider is typed as `AbstractModrinthClient`, so shared components in `packages/ui` work with any platform client.
+`provideShroudEditClient` and `injectShroudEditClient` are exported from `@shroudedit/ui` (defined in `packages/ui/src/providers/api-client.ts`). The provider is typed as `AbstractShroudEditClient`, so shared components in `packages/ui` work with any platform client.
 
 ## Types
 
@@ -101,7 +101,7 @@ Types must match 1:1 with how they are returned from the backend API they are fe
 Types are organized in namespaces that mirror the backend services:
 
 ```ts
-import type { Labrinth, Archon, Kyros, ISO3166 } from '@modrinth/api-client'
+import type { Labrinth, Archon, Kyros, ISO3166 } from '@shroudedit/api-client'
 
 const project: Labrinth.Projects.v3.Project = ...
 const server: Archon.Servers.v0.Server = ...
@@ -163,7 +163,7 @@ See `packages/ui/src/components/servers/files/upload/FileUploadDropdown.vue` and
 
 ## WebSocket
 
-WebSocket support is attached to `client.archon.sockets` (only on `GenericModrinthClient`). It provides event-based communication with Modrinth Hosting servers.
+WebSocket support is attached to `client.archon.sockets` (only on `GenericShroudEditClient`). It provides event-based communication with ShroudEdit Hosting servers.
 
 ### Connection Flow
 

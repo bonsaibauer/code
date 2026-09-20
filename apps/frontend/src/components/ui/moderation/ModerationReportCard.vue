@@ -32,7 +32,7 @@
 						<CopyCode v-tooltip="'Copy report ID'" :text="report.id" />
 						<CopyLinkButton
 							copy-label="Copy report link"
-							:url="`https://modrinth.com/moderation/reports/${props.report.id}`"
+							:url="`${config.public.siteUrl}/moderation/reports/${props.report.id}`"
 						/>
 						<ButtonLink
 							v-tooltip="'Open in new tab'"
@@ -226,15 +226,15 @@
 	</div>
 </template>
 <script setup lang="ts">
-import type { Labrinth, SharedInstances } from '@modrinth/api-client'
+import type { Labrinth, SharedInstances } from '@shroudedit/api-client'
 import {
 	CheckCircleIcon,
 	ExternalIcon,
 	LoaderCircleIcon,
 	LockIcon,
 	ReceiptTextIcon,
-} from '@modrinth/assets'
-import { type ExtendedReport, reportQuickReplies } from '@modrinth/moderation'
+} from '@shroudedit/assets'
+import { type ExtendedReport, reportQuickReplies } from '@shroudedit/moderation'
 import {
 	Badge,
 	Button,
@@ -245,13 +245,13 @@ import {
 	CopyLinkButton,
 	formatReportType,
 	getProjectTypeIcon,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	useFormatDateTime,
 	useRelativeTime,
 	useVIntl,
-} from '@modrinth/ui'
-import { formatProjectType } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { formatProjectType } from '@shroudedit/utils'
 import { useQueryClient } from '@tanstack/vue-query'
 import { computed, onUnmounted, ref, watch } from 'vue'
 
@@ -268,7 +268,8 @@ import SharedInstanceReportContext, {
 
 const { addNotification } = injectNotificationManager()
 const { formatMessage } = useVIntl()
-const client = injectModrinthClient()
+const config = useRuntimeConfig()
+const client = injectShroudEditClient()
 const queryClient = useQueryClient()
 const auth = useAuthState()
 
@@ -652,7 +653,7 @@ async function loadSharedInstanceVersionContent(
 	const instanceVersion = await getSharedInstanceVersion(instanceId, versionNumber)
 
 	const modpackVersionId = instanceVersion.modpack_id
-	const directVersionIds = (instanceVersion.modrinth_ids ?? []).filter(
+	const directVersionIds = (instanceVersion.shroudedit_ids ?? []).filter(
 		(versionId) => versionId !== modpackVersionId,
 	)
 	const modpackVersion = modpackVersionId

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	AlphaBadge,
 	BetaBadge,
@@ -11,25 +11,23 @@ import {
 	Downloads250mBadge,
 	Downloads500mBadge,
 	EarlyDatapackBadge,
-	EarlyHostingBadge,
 	EarlyModpackBadge,
 	EarlyPluginBadge,
 	EarlyResourcepackBadge,
 	EarlyServersBadge,
 	EarlyShadersBadge,
 	ModeratorBadge,
-	PlusBadge,
 	PrideBadge,
 	StaffBadge,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	defineMessage,
 	defineMessages,
 	type MessageDescriptor,
 	useFormatNumber,
 	useVIntl,
-} from '@modrinth/ui'
-import { UserBadge as BadgeBitflag } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { UserBadge as BadgeBitflag } from '@shroudedit/utils'
 import { type Component, computed } from 'vue'
 
 import UserBadge from './UserBadge.vue'
@@ -86,12 +84,12 @@ const BADGES = [
 		icon: StaffBadge,
 		name: defineMessage({
 			id: 'user.profile.badge.staff.name',
-			defaultMessage: 'Modrinth Team',
+			defaultMessage: 'ShroudEdit Team',
 		}),
 		about: [
 			defineMessage({
 				id: 'user.profile.badge.staff.about.1',
-				defaultMessage: `This user works for Modrinth.`,
+				defaultMessage: `This user works for ShroudEdit.`,
 			}),
 		],
 		criteria: [
@@ -114,11 +112,11 @@ const BADGES = [
 		about: [
 			defineMessage({
 				id: 'user.profile.badge.moderator.about.1',
-				defaultMessage: `This user works for Modrinth as a Content Moderator.`,
+				defaultMessage: `This user works for ShroudEdit as a Content Moderator.`,
 			}),
 			defineMessage({
 				id: 'user.profile.badge.moderator.about.2',
-				defaultMessage: `Content Moderators on Modrinth review projects, handle reports, and help keep Modrinth safe.`,
+				defaultMessage: `Content Moderators on ShroudEdit review projects, handle reports, and help keep ShroudEdit safe.`,
 			}),
 		],
 		criteria: [
@@ -137,7 +135,7 @@ const BADGES = [
 		about: [
 			defineMessage({
 				id: 'user.profile.badge.alpha.about.1',
-				defaultMessage: `This user has been around since Modrinth Alpha, which ended in November 2020.`,
+				defaultMessage: `This user has been around since ShroudEdit Alpha, which ended in November 2020.`,
 			}),
 		],
 		criteria: [
@@ -160,7 +158,7 @@ const BADGES = [
 		about: [
 			defineMessage({
 				id: 'user.profile.badge.beta.about.1',
-				defaultMessage: `This user has been around since Modrinth Beta, which ended in February 2022.`,
+				defaultMessage: `This user has been around since ShroudEdit Beta, which ended in February 2022.`,
 			}),
 		],
 		criteria: [
@@ -170,39 +168,10 @@ const BADGES = [
 			},
 		],
 		link: {
-			href: 'https://modrinth.com/news/article/modrinth-beta/',
+			href: 'https://shroudedit.com/news/article/shroudedit-beta/',
 			message: defineMessage({
 				id: 'user.profile.badge.beta.link',
-				defaultMessage: `Click to read about the launch of Modrinth Beta.`,
-			}),
-		},
-	},
-	{
-		icon: PlusBadge,
-		name: defineMessage({
-			id: 'user.profile.badge.plus.name',
-			defaultMessage: 'Modrinth+ Member',
-		}),
-		about: [
-			defineMessage({
-				id: 'user.profile.badge.plus.about.1',
-				defaultMessage: `This user is going the extra mile to support Modrinth and the creators on the platform.`,
-			}),
-		],
-		criteria: [
-			{
-				type: 'badge',
-				bitflag: BadgeBitflag.MIDAS,
-			},
-			{
-				type: 'midas',
-			},
-		],
-		link: {
-			href: 'https://modrinth.com/plus',
-			message: defineMessage({
-				id: 'user.profile.badge.plus.link',
-				defaultMessage: `Click to learn more about how you can become a member.`,
+				defaultMessage: `Click to read about the launch of ShroudEdit Beta.`,
 			}),
 		},
 	},
@@ -215,7 +184,7 @@ const BADGES = [
 		about: [
 			defineMessage({
 				id: 'user.profile.badge.pride.about.1',
-				defaultMessage: `This user participated in at least one of Modrinth's Pride fundraisers for the LGBTQ+ community.`,
+				defaultMessage: `This user participated in at least one of ShroudEdit's Pride fundraisers for the LGBTQ+ community.`,
 			}),
 		],
 		criteria: [
@@ -224,7 +193,7 @@ const BADGES = [
 			},
 		],
 		link: {
-			href: 'https://modrinth.com/pride?from=badge',
+			href: 'https://shroudedit.com/pride?from=badge',
 			message: defineMessage({
 				id: 'user.profile.badge.pride.link',
 				defaultMessage: `Click to visit our latest Pride fundraiser.`,
@@ -240,7 +209,7 @@ const BADGES = [
 		about: [
 			defineMessage({
 				id: 'user.profile.badge.early-modpack-adopter.about.1',
-				defaultMessage: `This user helped us test Modpack projects on Modrinth before we launched them in May 2022.`,
+				defaultMessage: `This user helped us test Modpack projects on ShroudEdit before we launched them in May 2022.`,
 			}),
 		],
 		criteria: [
@@ -264,7 +233,7 @@ const BADGES = [
 		about: [
 			defineMessage({
 				id: 'user.profile.badge.early-resourcepack-adopter.about.1',
-				defaultMessage: `This user helped us test Resource Pack projects on Modrinth before we launched them in August 2022.`,
+				defaultMessage: `This user helped us test Resource Pack projects on ShroudEdit before we launched them in August 2022.`,
 			}),
 		],
 		criteria: [
@@ -288,7 +257,7 @@ const BADGES = [
 		about: [
 			defineMessage({
 				id: 'user.profile.badge.early-plugin-adopter.about.1',
-				defaultMessage: `This user helped us test Plugin projects on Modrinth before we launched them in August 2022.`,
+				defaultMessage: `This user helped us test Plugin projects on ShroudEdit before we launched them in August 2022.`,
 			}),
 		],
 		criteria: [
@@ -312,7 +281,7 @@ const BADGES = [
 		about: [
 			defineMessage({
 				id: 'user.profile.badge.early-datapack-adopter.about.1',
-				defaultMessage: `This user helped us test Data Pack projects on Modrinth before we launched them in January 2023.`,
+				defaultMessage: `This user helped us test Data Pack projects on ShroudEdit before we launched them in January 2023.`,
 			}),
 		],
 		criteria: [
@@ -332,7 +301,7 @@ const BADGES = [
 		about: [
 			defineMessage({
 				id: 'user.profile.badge.early-shader-adopter.about.1',
-				defaultMessage: `This user helped us test Shader projects on Modrinth before we launched them in January 2023.`,
+				defaultMessage: `This user helped us test Shader projects on ShroudEdit before we launched them in January 2023.`,
 			}),
 		],
 		criteria: [
@@ -352,7 +321,7 @@ const BADGES = [
 		about: [
 			defineMessage({
 				id: 'user.profile.badge.early-server-adopter.about.1',
-				defaultMessage: `This user helped us test Server projects on Modrinth before we launched them in March 2026.`,
+				defaultMessage: `This user helped test Server projects before they launched on ShroudEdit.`,
 			}),
 		],
 		criteria: [
@@ -362,20 +331,6 @@ const BADGES = [
 				cutoff: new Date('2026-03-04T01:33:00.000Z'),
 			},
 		],
-	},
-	{
-		icon: EarlyHostingBadge,
-		name: defineMessage({
-			id: 'user.profile.badge.hosting-alpha.name',
-			defaultMessage: 'Modrinth Hosting Alpha Tester',
-		}),
-		about: [
-			defineMessage({
-				id: 'user.profile.badge.hosting-alpha.about.1',
-				defaultMessage: `This user participated in a closed alpha test of Modrinth Hosting before we launched Modrinth Hosting Beta in November 2024.`,
-			}),
-		],
-		criteria: [], // TODO: Add badge on backend for Hosting Alpha Tester
 	},
 ] satisfies Badge[]
 

@@ -1,1 +1,1 @@
-Modrinth does not permit the distribution of external content that violates [Modrinth's Content Rules](https://modrinth.com/legal/rules).
+ShroudEdit does not permit the distribution of external content that violates [ShroudEdit's Content Rules](https://shroudedit.com/legal/rules).

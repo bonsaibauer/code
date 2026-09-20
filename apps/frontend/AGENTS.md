@@ -1,10 +1,10 @@
-# apps/frontend — Modrinth Website
+# apps/frontend — ShroudEdit Website
 
-Nuxt 3 application serving the main Modrinth website. Uses Vue 3, Tailwind CSS v3, and file-based routing.
+Nuxt 3 application serving the main ShroudEdit website. Uses Vue 3, Tailwind CSS v3, and file-based routing.
 
 ## Architecture
 
-Nuxt 3 with SSR — pages are server-rendered and hydrated on the client. Uses `$fetch` for server-side data fetching and `@modrinth/api-client` (via `NuxtModrinthClient`) for client-side API calls.
+Nuxt 3 with SSR — pages are server-rendered and hydrated on the client. Uses `$fetch` for server-side data fetching and `@shroudedit/api-client` (via `NuxtShroudEditClient`) for client-side API calls.
 
 ## Key Directories
 
@@ -30,7 +30,7 @@ Rule of thumb: if it doesn't depend on Nuxt-specific APIs or website-only featur
 
 ## Data Fetching
 
-Use `@modrinth/api-client` via `injectModrinthClient()` for all API calls. See `packages/api-client/AGENTS.md` for the full API client documentation.
+Use `@shroudedit/api-client` via `injectShroudEditClient()` for all API calls. See `packages/api-client/AGENTS.md` for the full API client documentation.
 
 For caching and server state, use TanStack Query (`@tanstack/vue-query`). See the `tanstack-query` skill (`.agents/skills/tanstack-query/SKILL.md`) for patterns and conventions used in this codebase.
 

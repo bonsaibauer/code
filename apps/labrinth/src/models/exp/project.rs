@@ -11,13 +11,13 @@ use crate::{
             component::{
                 self, Component, ComponentEdit, ComponentKind, ComponentQuery,
             },
-            minecraft,
+            enshrouded,
         },
         ids::{ProjectId, VersionId},
     },
     queue::{
         analytics::cache::{
-            MINECRAFT_SERVER_ANALYTICS, MinecraftServerAnalytics,
+            ENSHROUDED_SERVER_ANALYTICS, EnshroudedServerAnalytics,
         },
         server_ping,
     },
@@ -159,15 +159,18 @@ type Edit<T> = <T as Component>::Edit;
 type Query<T> = <T as Component>::Query;
 
 define_project_components![
-    (minecraft_mod, MinecraftMod): minecraft::ModProject,
-    (minecraft_server, MinecraftServer): minecraft::ServerProject,
-    (minecraft_java_server, MinecraftJavaServer): minecraft::JavaServerProject,
-    (minecraft_bedrock_server, MinecraftBedrockServer): minecraft::BedrockServerProject,
+    (enshrouded_mod, EnshroudedMod): enshrouded::ModProject,
+    (schematic, Schematic): enshrouded::SchematicProject,
+    (enshrouded_server, EnshroudedServer): enshrouded::EnshroudedServerProject,
 ];
 
 component::relations! {
     pub static PROJECT_COMPONENT_RELATIONS: ProjectComponentKind = {
-        minecraft::PROJECT_COMPONENT_RELATIONS.clone()
+        [
+            [ProjectComponentKind::EnshroudedMod].only(),
+            [ProjectComponentKind::Schematic].only(),
+            [ProjectComponentKind::EnshroudedServer].only(),
+        ]
     }
 }
 
@@ -176,16 +179,16 @@ component::relations! {
 #[derive(Default)]
 pub struct ProjectQueryRequirements {
     pub partial_versions: HashSet<VersionId>,
-    pub minecraft_java_server_pings: HashSet<ProjectId>,
-    pub minecraft_server_analytics: HashSet<ProjectId>,
+    pub enshrouded_server_analytics: HashSet<ProjectId>,
+    pub enshrouded_server_pings: HashSet<ProjectId>,
 }
 
 pub struct ProjectQueryContext {
     pub partial_versions: HashMap<VersionId, PartialVersion>,
-    pub minecraft_java_server_pings:
-        HashMap<ProjectId, minecraft::JavaServerPing>,
-    pub minecraft_server_analytics:
-        HashMap<ProjectId, MinecraftServerAnalytics>,
+    pub enshrouded_server_analytics:
+        HashMap<ProjectId, EnshroudedServerAnalytics>,
+    pub enshrouded_server_pings:
+        HashMap<ProjectId, enshrouded::EnshroudedServerPing>,
 }
 
 #[derive(Clone, Debug)]
@@ -206,8 +209,8 @@ pub async fn fetch_query_context(
     }
     let ProjectQueryRequirements {
         partial_versions,
-        minecraft_java_server_pings,
-        minecraft_server_analytics,
+        enshrouded_server_analytics,
+        enshrouded_server_pings,
     } = requirements;
 
     let partial_versions = if partial_versions.is_empty() {
@@ -248,55 +251,59 @@ pub async fn fetch_query_context(
 
     let mut redis = redis.connect().await?;
 
-    let minecraft_java_server_pings =
-        minecraft_java_server_pings.into_iter().collect::<Vec<_>>();
-    let minecraft_java_server_pings = if minecraft_java_server_pings.is_empty()
+    let enshrouded_server_analytics =
+        enshrouded_server_analytics.into_iter().collect::<Vec<_>>();
+
+    let enshrouded_server_analytics = if enshrouded_server_analytics.is_empty()
     {
         HashMap::new()
     } else {
-        let ping_keys = minecraft_java_server_pings
+        let analytics_keys = enshrouded_server_analytics
             .iter()
             .map(|project_id| {
-                redis.key().entity(server_ping::REDIS_NAMESPACE, project_id)
+                redis.key().entity(ENSHROUDED_SERVER_ANALYTICS, project_id)
             })
             .collect::<Vec<_>>();
         redis
-            .get_many_deserialized::<minecraft::JavaServerPing>(&ping_keys)
-            .await?
-            .into_iter()
-            .enumerate()
-            .filter_map(|(idx, ping)| {
-                ping.map(|ping| (minecraft_java_server_pings[idx], ping))
-            })
-            .collect::<HashMap<_, _>>()
-    };
-
-    let minecraft_server_analytics =
-        minecraft_server_analytics.into_iter().collect::<Vec<_>>();
-
-    let minecraft_server_analytics = if minecraft_server_analytics.is_empty() {
-        HashMap::new()
-    } else {
-        let analytics_keys = minecraft_server_analytics
-            .iter()
-            .map(|project_id| {
-                redis.key().entity(MINECRAFT_SERVER_ANALYTICS, project_id)
-            })
-            .collect::<Vec<_>>();
-        redis
-            .get_many_deserialized::<MinecraftServerAnalytics>(&analytics_keys)
+            .get_many_deserialized::<EnshroudedServerAnalytics>(&analytics_keys)
             .await?
             .into_iter()
             .enumerate()
             .filter_map(|(idx, data)| {
-                data.map(|data| (minecraft_server_analytics[idx], data))
+                data.map(|data| (enshrouded_server_analytics[idx], data))
+            })
+            .collect::<HashMap<_, _>>()
+    };
+
+    let enshrouded_server_pings =
+        enshrouded_server_pings.into_iter().collect::<Vec<_>>();
+    let enshrouded_server_pings = if enshrouded_server_pings.is_empty() {
+        HashMap::new()
+    } else {
+        let ping_keys = enshrouded_server_pings
+            .iter()
+            .map(|project_id| {
+                redis
+                    .key()
+                    .entity(server_ping::ENSHROUDED_REDIS_NAMESPACE, project_id)
+            })
+            .collect::<Vec<_>>();
+        redis
+            .get_many_deserialized::<enshrouded::EnshroudedServerPing>(
+                &ping_keys,
+            )
+            .await?
+            .into_iter()
+            .enumerate()
+            .filter_map(|(idx, ping)| {
+                ping.map(|ping| (enshrouded_server_pings[idx], ping))
             })
             .collect::<HashMap<_, _>>()
     };
 
     Ok(ProjectQueryContext {
         partial_versions,
-        minecraft_java_server_pings,
-        minecraft_server_analytics,
+        enshrouded_server_analytics,
+        enshrouded_server_pings,
     })
 }

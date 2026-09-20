@@ -144,22 +144,22 @@
 	</div>
 </template>
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { ListFilterIcon, ScaleIcon, SortAscIcon, SortDescIcon } from '@modrinth/assets'
-import { Button } from '@modrinth/ui'
+import type { Labrinth } from '@shroudedit/api-client'
+import { ListFilterIcon, ScaleIcon, SortAscIcon, SortDescIcon } from '@shroudedit/assets'
+import { Button } from '@shroudedit/ui'
 import {
 	Combobox,
 	type ComboboxOption,
 	commonMessages,
 	defineMessages,
 	EmptyState,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	Pagination,
 	Toggle,
 	useFormatNumber,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { useQuery } from '@tanstack/vue-query'
 import ConfettiExplosion from 'vue-confetti-explosion'
 import type { LocationQueryValue } from 'vue-router'
@@ -175,7 +175,7 @@ import { getProjectTypeForUrlShorthand } from '~/helpers/projects.js'
 import { useModerationQueue } from '~/services/moderation/queue.ts'
 import { findNextEligibleQueueProject } from '~/services/moderation/queue-eligibility.ts'
 
-useHead({ title: 'Projects queue - Modrinth' })
+useHead({ title: 'Projects queue - ShroudEdit' })
 
 const { formatMessage } = useVIntl()
 const notificationManager = injectNotificationManager()
@@ -184,7 +184,7 @@ const formatNumber = useFormatNumber()
 const moderationQueue = useModerationQueue()
 const route = useRoute()
 const router = useRouter()
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 
 const queueSummaryModal = ref()
 const moderateByIdsModal = ref<InstanceType<typeof ModerateByIdsModal>>()
@@ -413,7 +413,7 @@ function toApiProjectType(label: string): string | undefined {
 		case 'Shaders':
 			return 'shader'
 		case 'Servers':
-			return 'minecraft_java_server'
+			return 'server'
 		case 'Fucked up':
 			return 'none'
 		default:

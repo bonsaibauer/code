@@ -37,22 +37,22 @@ export interface ClientConfig {
 	userAgent?: UserAgentProvider
 
 	/**
-	 * Base URL for Labrinth API (main Modrinth API)
-	 * @default 'https://api.modrinth.com'
+	 * Base URL for Labrinth API (main ShroudEdit API)
+	 * @default 'https://api.shroudedit.com'
 	 */
 	labrinthBaseUrl?: BaseUrlConfig
 
 	/**
-	 * Base URL for Archon API (Modrinth Hosting API)
+	 * Base URL for Archon API (ShroudEdit Hosting API)
 	 * Can be a callback so apps can drive this from runtime feature flags.
 	 *
-	 * @default 'https://archon.modrinth.com'
+	 * @default 'https://archon.shroudedit.com'
 	 */
 	archonBaseUrl?: BaseUrlConfig
 
 	/**
 	 * Base URL for the Shared Instances API
-	 * @default 'https://shared-instances.modrinth.com'
+	 * @default 'https://shared-instances.shroudedit.com'
 	 */
 	sharedInstancesBaseUrl?: BaseUrlConfig
 
@@ -68,7 +68,7 @@ export interface ClientConfig {
 	headers?: Record<string, string>
 
 	/**
-	 * Whether to attach `modrinth-sentry-capture: 1` to Archon requests.
+	 * Whether to attach `shroudedit-sentry-capture: 1` to Archon requests.
 	 * Can be a callback so apps can drive this from runtime feature flags.
 	 *
 	 * @default false

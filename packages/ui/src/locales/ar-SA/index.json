@@ -108,7 +108,7 @@
     "defaultMessage": "لم يتم العثور على نتائج لبحثك!"
   },
   "browse.offline": {
-    "defaultMessage": "أنت غير متصل حاليًا. اتصل بالإنترنت لتصفح Modrinth!"
+    "defaultMessage": "أنت غير متصل حاليًا. اتصل بالإنترنت لتصفح ShroudEdit!"
   },
   "browse.search.placeholder": {
     "defaultMessage": "البحث {projectType}..."
@@ -242,8 +242,8 @@
   "button.open-in-folder": {
     "defaultMessage": "فتح في المجلد"
   },
-  "button.open-in-modrinth": {
-    "defaultMessage": "فتح في Modrinth"
+  "button.open-in-shroudedit": {
+    "defaultMessage": "فتح في ShroudEdit"
   },
   "button.play": {
     "defaultMessage": "لعب"
@@ -896,10 +896,10 @@
   "creation-flow.modal.setup-type.option.import-instance.title": {
     "defaultMessage": "استيراد نسخة"
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.description": {
+  "creation-flow.modal.setup-type.option.vanilla-enshrouded.description": {
     "defaultMessage": "ماينكرافت الكلاسيكية بدون تعديلات أو إضافات."
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.title": {
+  "creation-flow.modal.setup-type.option.vanilla-enshrouded.title": {
     "defaultMessage": "ماينكرافت الاصلي"
   },
   "creation-flow.modal.setup-type.title.installation": {
@@ -945,7 +945,7 @@
     "defaultMessage": "إزالة الصورة"
   },
   "external-files.permissions-card.editor.proof-warning.title": {
-    "defaultMessage": "قد يتحقق فريق Modrinth من الإثبات المُقدَّم"
+    "defaultMessage": "قد يتحقق فريق ShroudEdit من الإثبات المُقدَّم"
   },
   "external-files.permissions-card.editor.save": {
     "defaultMessage": "حفظ الإسناد"
@@ -1032,7 +1032,7 @@
     "defaultMessage": "تم الإسناد تلقائيًا"
   },
   "external-files.permissions-card.reason.globally-allowed.description": {
-    "defaultMessage": "لقد سبق أن رأينا هذا الملف، وأعددنا لك إسنادًا له. إذا كان هناك شيء غير صحيح، يُرجى التواصل مع دعم Modrinth عبر مركز المساعدة"
+    "defaultMessage": "لقد سبق أن رأينا هذا الملف، وأعددنا لك إسنادًا له. إذا كان هناك شيء غير صحيح، يُرجى التواصل مع دعم ShroudEdit عبر مركز المساعدة"
   },
   "external-files.permissions-card.reason.license": {
     "defaultMessage": "الترخيص"
@@ -1607,7 +1607,7 @@
   "omorphia.component.badge.label.moderator": {
     "defaultMessage": "مشرف"
   },
-  "omorphia.component.badge.label.modrinth-team": {
+  "omorphia.component.badge.label.shroudedit-team": {
     "defaultMessage": "فريق مودرنث"
   },
   "omorphia.component.badge.label.pending": {
@@ -1736,7 +1736,7 @@
   "project-type.modpack.category": {
     "defaultMessage": "مودباكاتات"
   },
-  "project.about.compatibility.game.minecraftJava": {
+  "project.about.compatibility.game.enshroudedJava": {
     "defaultMessage": "ماينكرافت: إصدار جافا"
   }
 }

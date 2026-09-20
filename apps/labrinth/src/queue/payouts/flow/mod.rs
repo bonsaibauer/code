@@ -3,8 +3,8 @@
 
 use crate::util::error::ApiContext as _;
 use eyre::eyre;
-use modrinth_util::decimal::Decimal2dp;
 use rust_decimal::Decimal;
+use shroudedit_util::decimal::Decimal2dp;
 use thiserror::Error;
 
 pub mod mural;

@@ -10,7 +10,7 @@ import {
 	SettingsIcon,
 	ShieldIcon,
 	WrenchIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import type { StoryObj } from '@storybook/vue3-vite'
 import { defineAsyncComponent, defineComponent, h, ref } from 'vue'
 

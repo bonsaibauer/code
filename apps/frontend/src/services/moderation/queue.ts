@@ -1,5 +1,5 @@
-import type { AbstractModrinthClient, Labrinth } from '@modrinth/api-client'
-import { injectModrinthClient } from '@modrinth/ui'
+import type { AbstractShroudEditClient, Labrinth } from '@shroudedit/api-client'
+import { injectShroudEditClient } from '@shroudedit/ui'
 import { computed, proxyRefs, ref } from 'vue'
 
 import {
@@ -96,7 +96,7 @@ function persistedPayload(
 	}
 }
 
-function createModerationQueueState(client: AbstractModrinthClient = injectModrinthClient()) {
+function createModerationQueueState(client: AbstractShroudEditClient = injectShroudEditClient()) {
 	const currentQueue = ref(createEmptyQueue())
 	const currentLock = ref<{ projectId: string; lockedAt: Date } | null>(null)
 	const isQueueMode = ref(false)

@@ -14,7 +14,6 @@
 		</template>
 		<template #default>
 			<div v-if="project" class="mx-auto flex w-full flex-col gap-4">
-				<InstallWithModrinthApp :project="project" />
 				<DownloadProject
 					:project="project"
 					:versions="versions"
@@ -35,16 +34,6 @@
 				<div class="flex flex-col gap-4 empty:hidden">
 					<DownloadDependencies @download="onDownload" />
 				</div>
-				<ServersPromo
-					v-if="flags.showProjectPageDownloadModalServersPromo"
-					:link="`/hosting#plan`"
-					@close="
-						() => {
-							flags.showProjectPageDownloadModalServersPromo = false
-							saveFeatureFlags()
-						}
-					"
-				/>
 			</div>
 		</template>
 		<template v-if="showDependencyDownloadActions" #actions>
@@ -99,37 +88,34 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { DownloadIcon, SpinnerIcon } from '@modrinth/assets'
+import type { Labrinth } from '@shroudedit/api-client'
+import { DownloadIcon, SpinnerIcon } from '@shroudedit/assets'
 import {
 	Avatar,
 	Button,
 	type ButtonMenuOption,
 	type CdnDownloadReason,
 	defineMessages,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	NewModal,
-	ServersPromo,
 	SplitButton,
 	truncatedTooltip,
 	useDebugLogger,
 	useVIntl,
-} from '@modrinth/ui'
-import type { DisplayProjectType } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import type { DisplayProjectType } from '@shroudedit/utils'
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import dayjs from 'dayjs'
 import JSZip from 'jszip'
 import { computed, nextTick, onUnmounted, ref, watch } from 'vue'
 
 import { navigateTo } from '#app'
-import { saveFeatureFlags } from '~/composables/featureFlags.ts'
 import { STALE_TIME, STALE_TIME_LONG } from '~/composables/queries/project'
 
 import { provideDownloadModalProvider } from './download-modal-provider'
 import DownloadDependencies from './DownloadDependencies.vue'
 import DownloadProject from './DownloadProject.vue'
-import InstallWithModrinthApp from './InstallWithModrinthApp.vue'
 
 type DownloadModalProject = Omit<Labrinth.Projects.v2.Project, 'project_type'> & {
 	project_type: DisplayProjectType
@@ -190,9 +176,8 @@ const emit = defineEmits<{
 }>()
 
 const route = useRoute()
-const flags = useFeatureFlags()
 const tags = useGeneratedState()
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const queryClient = useQueryClient()
 const { createProjectDownloadUrl } = useCdnDownloadContext()
 const { addNotification } = injectNotificationManager()

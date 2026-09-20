@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { EyeIcon } from '@modrinth/assets'
-import { commonMessages, defineMessages, SettingsFormGroup, Textarea, useVIntl } from '@modrinth/ui'
+import { EyeIcon } from '@shroudedit/assets'
+import { commonMessages, defineMessages, SettingsFormGroup, Textarea, useVIntl } from '@shroudedit/ui'
 
 import DisclosureToggleCard from './DisclosureToggleCard.vue'
 import type { DisclosureCardMetaProps, DisclosureLockStatus, NoteDisclosure } from './types'
@@ -40,7 +40,7 @@ const messages = defineMessages({
 		:icon="EyeIcon"
 		:title="formatMessage(messages.title)"
 		:description="formatMessage(messages.description)"
-		info-link="https://support.modrinth.com/en/articles/16567675#h_22ffae0bb1"
+		info-link="https://support.shroudedit.com/en/articles/16567675#h_22ffae0bb1"
 		@set-lock-status="emit('setLockStatus', $event)"
 	>
 		<template #expanded>

@@ -1,22 +1,22 @@
-# @modrinth/api-client
+# @shroudedit/api-client
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-c78aff?style=for-the-badge)](https://www.typescriptlang.org/)
 [![License: LGPL-3.0](https://img.shields.io/badge/License-LGPL%203.0-c78aff?style=for-the-badge)](LICENSE)
 
-Platform-agnostic TypeScript client for Modrinth's API across Node.js, browsers, Nuxt, and Tauri.
+Platform-agnostic TypeScript client for ShroudEdit's API across Node.js, browsers, Nuxt, and Tauri.
 
-**⚠️ We use this internally to power modrinth.com, Modrinth App, and Modrinth Hosting frontends. It may break without any notice, but you are welcome to use it.**
+**⚠️ We use this internally to power shroudedit.com, ShroudEdit App, and ShroudEdit Hosting frontends. It may break without any notice, but you are welcome to use it.**
 
 ## Installation
 
 ```bash
-pnpm add @modrinth/api-client
+pnpm add @shroudedit/api-client
 ```
 
 Tauri apps also need the optional peer dependency:
 
 ```bash
-pnpm add @modrinth/api-client @tauri-apps/plugin-http
+pnpm add @shroudedit/api-client @tauri-apps/plugin-http
 ```
 
 ## Usage
@@ -24,11 +24,11 @@ pnpm add @modrinth/api-client @tauri-apps/plugin-http
 ### Generic Node.js or Browser Client
 
 ```ts
-import { AuthFeature, GenericModrinthClient, type Labrinth } from '@modrinth/api-client'
+import { AuthFeature, GenericShroudEditClient, type Labrinth } from '@shroudedit/api-client'
 
-const client = new GenericModrinthClient({
+const client = new GenericShroudEditClient({
 	userAgent: 'my-app/1.0.0',
-	features: [new AuthFeature({ token: process.env.MODRINTH_TOKEN })],
+	features: [new AuthFeature({ token: process.env.SHROUDEDIT_TOKEN })],
 })
 
 const project: Labrinth.Projects.v2.Project = await client.labrinth.projects_v2.get('sodium')
@@ -47,17 +47,17 @@ const project = await client.request<Labrinth.Projects.v2.Project>('/project/sod
 ### Nuxt
 
 ```ts
-import { AuthFeature, CircuitBreakerFeature, NuxtCircuitBreakerStorage, NuxtModrinthClient } from '@modrinth/api-client'
+import { AuthFeature, CircuitBreakerFeature, NuxtCircuitBreakerStorage, NuxtShroudEditClient } from '@shroudedit/api-client'
 
-export const useModrinthClient = async () => {
+export const useShroudEditClient = async () => {
 	const config = useRuntimeConfig()
 
-	return new NuxtModrinthClient({
+	return new NuxtShroudEditClient({
 		userAgent: 'my-nuxt-app/1.0.0',
 		rateLimitKey: import.meta.server ? config.rateLimitKey : undefined,
 		features: [
 			new AuthFeature({
-				token: process.env.MODRINTH_TOKEN,
+				token: process.env.SHROUDEDIT_TOKEN,
 			}),
 			new CircuitBreakerFeature({
 				storage: new NuxtCircuitBreakerStorage(),
@@ -71,11 +71,11 @@ export const useModrinthClient = async () => {
 
 ```ts
 import { getVersion } from '@tauri-apps/api/app'
-import { AuthFeature, TauriModrinthClient } from '@modrinth/api-client'
+import { AuthFeature, TauriShroudEditClient } from '@shroudedit/api-client'
 
-const client = new TauriModrinthClient({
-	userAgent: async () => `modrinth/theseus/${await getVersion()} (support@modrinth.com)`,
-	features: [new AuthFeature({ token: process.env.MODRINTH_TOKEN })],
+const client = new TauriShroudEditClient({
+	userAgent: async () => `shroudedit/theseus/${await getVersion()} (support@shroudedit.com)`,
+	features: [new AuthFeature({ token: process.env.SHROUDEDIT_TOKEN })],
 })
 
 const project = await client.labrinth.projects_v2.get('sodium')
@@ -94,27 +94,27 @@ client.labrinth.versions_v3
 Types are exported from the package root:
 
 ```ts
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 
 const project: Labrinth.Projects.v3.Project = await client.labrinth.projects_v3.get('sodium')
 ```
 
-## Modrinth Hosting API Modules
+## ShroudEdit Hosting API Modules
 
-- These modules are internal to Modrinth and are only supported inside the Modrinth Hosting panel in Modrinth App and on modrinth.com. They should not be expected to work in third-party clients today. We are discussing how to safely expose access to your own server through these APIs in the future.
+- These modules are internal to ShroudEdit and are only supported inside the ShroudEdit Hosting panel in ShroudEdit App and on shroudedit.com. They should not be expected to work in third-party clients today. We are discussing how to safely expose access to your own server through these APIs in the future.
 
 ## Base URLs
 
-By default, the client uses Modrinth production services:
+By default, the client uses ShroudEdit production services:
 
-- `labrinthBaseUrl`: `https://api.modrinth.com`
+- `labrinthBaseUrl`: `https://api.shroudedit.com`
 
 Override them for staging or custom deployments:
 
 ```ts
-const client = new GenericModrinthClient({
+const client = new GenericShroudEditClient({
 	userAgent: 'my-app/1.0.0',
-	labrinthBaseUrl: 'https://staging-api.modrinth.com',
+	labrinthBaseUrl: 'https://staging-api.shroudedit.com',
 })
 ```
 
@@ -133,10 +133,10 @@ await client.request('/endpoint', {
 Features wrap requests before they reach the platform implementation:
 
 ```ts
-import { AuthFeature, CircuitBreakerFeature, RetryFeature } from '@modrinth/api-client'
+import { AuthFeature, CircuitBreakerFeature, RetryFeature } from '@shroudedit/api-client'
 
-const client = new GenericModrinthClient({
-	features: [new AuthFeature({ token: async () => process.env.MODRINTH_TOKEN }), new RetryFeature({ maxAttempts: 3, backoffStrategy: 'exponential' }), new CircuitBreakerFeature({ maxFailures: 3, resetTimeout: 30_000 })],
+const client = new GenericShroudEditClient({
+	features: [new AuthFeature({ token: async () => process.env.SHROUDEDIT_TOKEN }), new RetryFeature({ maxAttempts: 3, backoffStrategy: 'exponential' }), new CircuitBreakerFeature({ maxFailures: 3, resetTimeout: 30_000 })],
 })
 ```
 
@@ -156,17 +156,17 @@ upload.onProgress(({ progress }) => {
 await upload.promise
 ```
 
-Uploads use `XMLHttpRequest` for progress tracking and are only available in browser-capable contexts. `NuxtModrinthClient.upload()` throws during SSR.
+Uploads use `XMLHttpRequest` for progress tracking and are only available in browser-capable contexts. `NuxtShroudEditClient.upload()` throws during SSR.
 
 ## Third-Party API Typings
 
-- This package also includes some third-party API modules and typings used by Modrinth internals. They are not part of the stable public API surface and should be used at your own risk.
+- This package also includes some third-party API modules and typings used by ShroudEdit internals. They are not part of the stable public API surface and should be used at your own risk.
 
 ## Development
 
 ```bash
-pnpm --filter @modrinth/api-client build
-pnpm --filter @modrinth/api-client lint
+pnpm --filter @shroudedit/api-client build
+pnpm --filter @shroudedit/api-client lint
 # or pnpm prepr:frontend:lib in turborepo root.
 ```
 

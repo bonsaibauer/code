@@ -67,7 +67,7 @@
 </template>
 
 <script setup>
-import { DropdownIcon } from '@modrinth/assets'
+import { DropdownIcon } from '@shroudedit/assets'
 import { computed, ref, watch } from 'vue'
 
 import { dismissTooltip } from '../../providers/tooltip'

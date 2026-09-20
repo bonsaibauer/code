@@ -116,10 +116,10 @@
   "nags.long-headers.title": {
     "defaultMessage": "قصر العناوين"
   },
-  "nags.minecraft-title-clause.description": {
+  "nags.enshrouded-title-clause.description": {
     "defaultMessage": "المشاريع يجب أن لا تستخدم العلامات التجارية الخاصة ب \"ماينكرفت\" إذا كانت جزءا كبيرا من اسم المشروع."
   },
-  "nags.minecraft-title-clause.title": {
+  "nags.enshrouded-title-clause.title": {
     "defaultMessage": "تجنب انتهاك العلامة التجارية"
   },
   "nags.missing-alt-text.description": {

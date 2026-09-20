@@ -1,9 +1,9 @@
-import type { Archon } from '@modrinth/api-client'
+import type { Archon } from '@shroudedit/api-client'
 import { useQueryClient } from '@tanstack/vue-query'
 import type { ComputedRef, Ref } from 'vue'
 import { onMounted, onUnmounted, watch } from 'vue'
 
-import { injectModrinthClient } from '#ui/providers'
+import { injectShroudEditClient } from '#ui/providers'
 
 import {
 	retainServerContextRuntime,
@@ -21,7 +21,7 @@ type UseServerPanelSyncOptions = {
 const ACTION_LOG_INVALIDATE_DELAY_MS = 500
 
 export function useServerPanelSync(options: UseServerPanelSyncOptions) {
-	const client = injectModrinthClient()
+	const client = injectShroudEditClient()
 	const queryClient = useQueryClient()
 
 	let activeServerId: string | null = null
@@ -285,11 +285,11 @@ export function useServerPanelSync(options: UseServerPanelSyncOptions) {
 		if (!modpack || modpack.spec === 'CurseForge') return null
 
 		const spec: Archon.Content.v1.ModpackSpec =
-			'Modrinth' in modpack.spec
+			'ShroudEdit' in modpack.spec
 				? {
-						platform: 'modrinth',
-						project_id: modpack.spec.Modrinth.project_id,
-						version_id: modpack.spec.Modrinth.version_id,
+						platform: 'shroudedit',
+						project_id: modpack.spec.ShroudEdit.project_id,
+						version_id: modpack.spec.ShroudEdit.version_id,
 					}
 				: {
 						platform: 'local_file',

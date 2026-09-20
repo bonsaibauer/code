@@ -9,7 +9,7 @@
     "message": "Alle akzeptieren"
   },
   "ads-consent.body": {
-    "message": "Werbung ermöglicht Modrinth und finanziert die Auszahlungen an die Ersteller. Unsere Partner speichern möglicherweise Cookies auf der Website oder greifen auf diese zu, um Werbung zu personalisieren und die Leistung zu messen."
+    "message": "Werbung ermöglicht ShroudEdit und finanziert die Auszahlungen an die Ersteller. Unsere Partner speichern möglicherweise Cookies auf der Website oder greifen auf diese zu, um Werbung zu personalisieren und die Leistung zu messen."
   },
   "ads-consent.manage": {
     "message": "Einstellungen verwalten"
@@ -18,7 +18,7 @@
     "message": "Alle ablehnen"
   },
   "ads-consent.title": {
-    "message": "Deine Privatsphäre und wie Werbung Modrinth unterstützt"
+    "message": "Deine Privatsphäre und wie Werbung ShroudEdit unterstützt"
   },
   "analytics.action.add": {
     "message": "Hinzufügen"
@@ -110,11 +110,11 @@
   "analytics.chart.controls.display": {
     "message": "Anzeige"
   },
-  "analytics.chart.controls.modrinth-events": {
-    "message": "Modrinth-Ereignisse"
+  "analytics.chart.controls.shroudedit-events": {
+    "message": "ShroudEdit-Ereignisse"
   },
-  "analytics.chart.controls.no-modrinth-events": {
-    "message": "Keine Modrinth-Ereignisse im Diagramm."
+  "analytics.chart.controls.no-shroudedit-events": {
+    "message": "Keine ShroudEdit-Ereignisse im Diagramm."
   },
   "analytics.chart.controls.no-project-events": {
     "message": "Keine Projekt-Ereignisse im Diagramm."
@@ -144,7 +144,7 @@
     "message": "Details zur monetarisierten Analytics ansehen"
   },
   "analytics.chart.legend.monetization-details.description": {
-    "message": "Nur Aufrufe und Downloads über Modrinth zählen für die Monetarisierung, und für Downloads müssen Benutzer angemeldet sein."
+    "message": "Nur Aufrufe und Downloads über ShroudEdit zählen für die Monetarisierung, und für Downloads müssen Benutzer angemeldet sein."
   },
   "analytics.chart.legend.monetization-details.title": {
     "message": "Details zur monetarisierten Analytics"
@@ -228,10 +228,10 @@
     "message": "Update"
   },
   "analytics.download-source.app": {
-    "message": "Modrinth App"
+    "message": "ShroudEdit App"
   },
   "analytics.download-source.website": {
-    "message": "Modrinth Website"
+    "message": "ShroudEdit Website"
   },
   "analytics.downloads.suffix": {
     "message": "downloads"
@@ -417,7 +417,7 @@
     "message": "Downloads"
   },
   "analytics.stat.monetization-banner.body": {
-    "message": "Nur Aufrufe und Downloads, die über Modrinth erfolgen, sind monetarisierbar und müssen die Filter zur Betrugsprävention bestehen. Für Downloads über die Modrinth App muss der Nutzer zudem angemeldet sein. Da alle Projekte einen ähnlichen Anteil an monetarisierten Downloads aufweisen, würden sich deine Einnahmen nicht wesentlich ändern, wenn alle Downloads gezählt würden."
+    "message": "Nur Aufrufe und Downloads, die über ShroudEdit erfolgen, sind monetarisierbar und müssen die Filter zur Betrugsprävention bestehen. Für Downloads über die ShroudEdit App muss der Nutzer zudem angemeldet sein. Da alle Projekte einen ähnlichen Anteil an monetarisierten Downloads aufweisen, würden sich deine Einnahmen nicht wesentlich ändern, wenn alle Downloads gezählt würden."
   },
   "analytics.stat.monetization-banner.learn-more": {
     "message": "Mehr erfahren"
@@ -456,7 +456,7 @@
     "message": "{start} bis {end}"
   },
   "analytics.table.csv.filename": {
-    "message": "Modrinth Analytics {breakdown} Aufschlüsselung - {dateRange}"
+    "message": "ShroudEdit Analytics {breakdown} Aufschlüsselung - {dateRange}"
   },
   "analytics.table.csv.header.playtime-seconds": {
     "message": "Spielzeit (Sekunden)"
@@ -564,7 +564,7 @@
     "message": "Linux"
   },
   "app-marketing.download.linux-disclaimer": {
-    "message": "Die Linux Version der Modrinth App <issues-link>hat einige Probleme</issues-link> mit bestimmten Systemen und Konfiigurationen. Sollte Modrinth App auf deinem System instabil sein, empfehlen wir das verwenden anderer Apps wie z. B. <prism-link>Prism Launcher</prism-link> zum einfachen installieren von Modrinth Inhalten."
+    "message": "Die Linux Version der ShroudEdit App <issues-link>hat einige Probleme</issues-link> mit bestimmten Systemen und Konfiigurationen. Sollte ShroudEdit App auf deinem System instabil sein, empfehlen wir das verwenden anderer Apps wie z. B. <prism-link>Prism Launcher</prism-link> zum einfachen installieren von ShroudEdit Inhalten."
   },
   "app-marketing.download.mac": {
     "message": "Mac"
@@ -573,10 +573,10 @@
     "message": "Download Optionen"
   },
   "app-marketing.download.terms": {
-    "message": "Durch das herunterladen der Modrinth App stimmst du unseren <terms-link>Nutzungsbedingungen</terms-link> und <privacy-link>Datenschutzrichtlinien</privacy-link> zu."
+    "message": "Durch das herunterladen der ShroudEdit App stimmst du unseren <terms-link>Nutzungsbedingungen</terms-link> und <privacy-link>Datenschutzrichtlinien</privacy-link> zu."
   },
   "app-marketing.download.title": {
-    "message": "Modrinth App (Beta) herunterladen"
+    "message": "ShroudEdit App (Beta) herunterladen"
   },
   "app-marketing.download.windows": {
     "message": "Windows"
@@ -594,7 +594,7 @@
     "message": "Importieren von Instanzen"
   },
   "app-marketing.features.manage-skins.description": {
-    "message": "Wechsle direkt in der App zwischen all deinen Minecraft-Skins."
+    "message": "Wechsle direkt in der App zwischen all deinen Enshrouded-Skins."
   },
   "app-marketing.features.manage-skins.title": {
     "message": "Skin-Auswahl"
@@ -606,7 +606,7 @@
     "message": "von {author}"
   },
   "app-marketing.features.mod-management.description": {
-    "message": "Modrinth macht es einfach, all deine Mods an einem Ort zu verwalten. Du kannst Mods installieren, deinstallieren und aktualisieren mit einem einzigen Klick."
+    "message": "ShroudEdit macht es einfach, all deine Mods an einem Ort zu verwalten. Du kannst Mods installieren, deinstallieren und aktualisieren mit einem einzigen Klick."
   },
   "app-marketing.features.mod-management.installed-mods": {
     "message": "Installierte Mods"
@@ -624,7 +624,7 @@
     "message": "Version"
   },
   "app-marketing.features.open-source.description": {
-    "message": "Die Modrinth App ist vollständig Open Source. Den Quellcode kannst du auf unserem <github-link>GitHub</github-link> einsehen!"
+    "message": "Die ShroudEdit App ist vollständig Open Source. Den Quellcode kannst du auf unserem <github-link>GitHub</github-link> einsehen!"
   },
   "app-marketing.features.open-source.title": {
     "message": "Quelloffen"
@@ -636,7 +636,7 @@
     "message": "% CPU"
   },
   "app-marketing.features.performance.description": {
-    "message": "Die Modrinth App läuft besser als viele der führenden Mod-Manager!"
+    "message": "Die ShroudEdit App läuft besser als viele der führenden Mod-Manager!"
   },
   "app-marketing.features.performance.discord": {
     "message": "Discord"
@@ -647,8 +647,8 @@
   "app-marketing.features.performance.google-chrome": {
     "message": "Google Chrome"
   },
-  "app-marketing.features.performance.modrinth-app": {
-    "message": "Modrinth App"
+  "app-marketing.features.performance.shroudedit-app": {
+    "message": "ShroudEdit App"
   },
   "app-marketing.features.performance.one-billion-percent": {
     "message": "1 billion %"
@@ -666,7 +666,7 @@
     "message": "Perfromant"
   },
   "app-marketing.features.play.description": {
-    "message": "Nutze Modrinth App zum herunterladen und Spielen deiner Lieblingsmods und -Modpakete."
+    "message": "Nutze ShroudEdit App zum herunterladen und Spielen deiner Lieblingsmods und -Modpakete."
   },
   "app-marketing.features.play.title": {
     "message": "Spiele mit deinen Lieblings-Mods"
@@ -678,7 +678,7 @@
     "message": "Einstellungen synchronisieren"
   },
   "app-marketing.features.sharing.description": {
-    "message": "Erstelle, teile und Spiele mit Modpaketen mit tausenden von Mods und Modpaketen auf Modrinth."
+    "message": "Erstelle, teile und Spiele mit Modpaketen mit tausenden von Mods und Modpaketen auf ShroudEdit."
   },
   "app-marketing.features.sharing.modpack": {
     "message": "Modpaket"
@@ -693,7 +693,7 @@
     "message": "Anders als andere Launcher"
   },
   "app-marketing.features.website.description": {
-    "message": "Modrinth App ist komplett integriert mit der Webseite, welches dir ermöglicht, auf all deine Lieblingsprojekte per App zuzugreifen!"
+    "message": "ShroudEdit App ist komplett integriert mit der Webseite, welches dir ermöglicht, auf all deine Lieblingsprojekte per App zuzugreifen!"
   },
   "app-marketing.features.website.title": {
     "message": "Webseitenintegration"
@@ -702,21 +702,21 @@
     "message": "welche du verwendest hast"
   },
   "app-marketing.hero.app-screenshot-alt": {
-    "message": "Screenshot der Modrinth App mit einer Cobblemon-Instanz geöffnet in der 'Inhalt' Seite."
+    "message": "Screenshot der ShroudEdit App mit einer Cobblemon-Instanz geöffnet in der 'Inhalt' Seite."
   },
   "app-marketing.hero.description": {
-    "message": "Modrinth App ist ein einzigartiger, quelloffener Launcher, welcher dir erlaubt, mit deinen Lieblingsmods zu spielen, und diese aktuell zu halten. Alles in einem netten kleine Paket."
+    "message": "ShroudEdit App ist ein einzigartiger, quelloffener Launcher, welcher dir erlaubt, mit deinen Lieblingsmods zu spielen, und diese aktuell zu halten. Alles in einem netten kleine Paket."
   },
   "app-marketing.hero.download-button": {
-    "message": "Modrinth App herunterladen"
+    "message": "ShroudEdit App herunterladen"
   },
-  "app-marketing.hero.download-modrinth-app": {
-    "message": "Modrinth App herunterladen"
+  "app-marketing.hero.download-shroudedit-app": {
+    "message": "ShroudEdit App herunterladen"
   },
-  "app-marketing.hero.download-modrinth-app-for-os": {
-    "message": "Modrinth App für {os} herunterladen"
+  "app-marketing.hero.download-shroudedit-app-for-os": {
+    "message": "ShroudEdit App für {os} herunterladen"
   },
-  "app-marketing.hero.minecraft-screenshot-alt": {
+  "app-marketing.hero.enshrouded-screenshot-alt": {
     "message": "Schreenshot des Hauptmenüs der Cobblemon-Instanz."
   },
   "app-marketing.hero.more-download-options": {
@@ -774,7 +774,7 @@
     "message": "Geburtsdatum"
   },
   "auth.create-account.date-of-birth.not-meet-age-requirement": {
-    "message": "Du erfüllst das Mindestalter für die Erstellung eines Kontos bei Modrinth nicht."
+    "message": "Du erfüllst das Mindestalter für die Erstellung eines Kontos bei ShroudEdit nicht."
   },
   "auth.create-account.date-of-birth.placeholder": {
     "message": "Wähle dein Geburtsdatum"
@@ -786,7 +786,7 @@
     "message": "Geburtsdatum erforderlich"
   },
   "auth.create-account.date-of-birth.under13-helper": {
-    "message": "Du kannst kein Konto bei Modrinth erstellen, wenn du nicht mindestens 13 Jahre alt bist."
+    "message": "Du kannst kein Konto bei ShroudEdit erstellen, wenn du nicht mindestens 13 Jahre alt bist."
   },
   "auth.create-account.info-panel.source-code-link": {
     "message": "Relevanter Quellcode"
@@ -801,7 +801,7 @@
     "message": "Sicherheitscheck"
   },
   "auth.create-account.subscribe.label": {
-    "message": "Haltet mich per E-Mail über coole Dinge auf dem Laufenden, an denen Modrinth gerade arbeitet"
+    "message": "Haltet mich per E-Mail über coole Dinge auf dem Laufenden, an denen ShroudEdit gerade arbeitet"
   },
   "auth.create-account.title": {
     "message": "Ein Konto erstellen"
@@ -879,7 +879,7 @@
     "message": "Konto hinzufügen"
   },
   "auth.sign-in.choose-account": {
-    "message": "Wähle ein Konto für die Modrinth App"
+    "message": "Wähle ein Konto für die ShroudEdit App"
   },
   "auth.sign-in.continue-with-email": {
     "message": "Weiter mit E-Mail"
@@ -897,16 +897,16 @@
     "message": "Zuletzt benutzt"
   },
   "auth.sign-in.launcher.callback.title": {
-    "message": "Callback für die Anmeldung bei der Modrinth App"
+    "message": "Callback für die Anmeldung bei der ShroudEdit App"
   },
   "auth.sign-in.launcher.complete.description": {
-    "message": "Wir leiten dich zurück zur Modrinth-App. Sollte nichts passieren, klicke bitte auf die Schaltfläche unten."
+    "message": "Wir leiten dich zurück zur ShroudEdit-App. Sollte nichts passieren, klicke bitte auf die Schaltfläche unten."
   },
   "auth.sign-in.launcher.complete.go-to-website": {
-    "message": "Gehe zu Modrinth.com"
+    "message": "Gehe zu ShroudEdit.com"
   },
   "auth.sign-in.launcher.complete.return-button": {
-    "message": "Modrinth App öffnen"
+    "message": "ShroudEdit App öffnen"
   },
   "auth.sign-in.launcher.complete.title": {
     "message": "Du bist angemeldet"
@@ -915,13 +915,13 @@
     "message": "Falls sich die App nicht öffnet, klicke auf den Button unten, um die Anmeldung abzuschließen."
   },
   "auth.sign-in.launcher.opening.title": {
-    "message": "Modrinth App wird geöffnet..."
+    "message": "ShroudEdit App wird geöffnet..."
   },
   "auth.sign-in.no-account": {
     "message": "Du hast kein Konto?"
   },
   "auth.sign-in.sign-in-with": {
-    "message": "Bei Modrinth anmelden"
+    "message": "Bei ShroudEdit anmelden"
   },
   "auth.sign-in.title": {
     "message": "Anmelden"
@@ -933,7 +933,7 @@
     "message": "Mit E-Mail fortfahren"
   },
   "auth.sign-up.legal-dislaimer": {
-    "message": "Durch das erstellen eines Kontos stimmst du den <terms-link>Nutzungsbedingungen</terms-link> und <privacy-policy-link>Datenschutzrichtlinien</privacy-policy-link> von Modrinth zu."
+    "message": "Durch das erstellen eines Kontos stimmst du den <terms-link>Nutzungsbedingungen</terms-link> und <privacy-policy-link>Datenschutzrichtlinien</privacy-policy-link> von ShroudEdit zu."
   },
   "auth.sign-up.show-fewer-options": {
     "message": "Zeige weniger Optionen"
@@ -1026,7 +1026,7 @@
     "message": "Bist du dir sicher, dass du diese Kollektion löschen willst?"
   },
   "collection.description": {
-    "message": "{description} - {name} von {username} auf Modrinth ansehen"
+    "message": "{description} - {name} von {username} auf ShroudEdit ansehen"
   },
   "collection.description.following": {
     "message": "Auto-generiere Kollektion aller Projekte denen du folgst."
@@ -1149,7 +1149,7 @@
     "message": "Auf Thread antworten"
   },
   "conversation-thread.reply-modal.help-center-note": {
-    "message": "Wenn du mit dem Moderationsteam in Kontakt treten musst, verwende bitte das <help-center-link>Hilfezentrum von Modrinth</help-center-link> und klicke auf die blaue Sprechblase unten rechts, um den Support zu kontaktieren."
+    "message": "Wenn du mit dem Moderationsteam in Kontakt treten musst, verwende bitte das <help-center-link>Hilfezentrum von ShroudEdit</help-center-link> und klicke auf die blaue Sprechblase unten rechts, um den Support zu kontaktieren."
   },
   "conversation-thread.resubmit-modal.confirmation.description": {
     "message": "Bestätigen, dass ich auf die Nachrichten der Moderatoren eingegangen bin"
@@ -1557,7 +1557,7 @@
     "message": "Steuerformular unvollständig"
   },
   "dashboard.creator-tax-form-modal.security.description": {
-    "message": "Modrinth verwendet den Drittanbieter Track1099 zum sicheren sammeln und verwahren deine Steuerformulare. <security-link>Erfahre hier mehr.</security-link>"
+    "message": "ShroudEdit verwendet den Drittanbieter Track1099 zum sicheren sammeln und verwahren deine Steuerformulare. <security-link>Erfahre hier mehr.</security-link>"
   },
   "dashboard.creator-tax-form-modal.security.header": {
     "message": "Sicherheitshinweise"
@@ -1731,7 +1731,7 @@
     "message": "Um dein vollständiges Guthaben von <b>{available}</b> abzuheben musst du das unten stehende Formular ausfüllen. Dies wird für die Steuererklärung benötigt und muss nur einmal ausgefüllt werden."
   },
   "dashboard.creator-withdraw-modal.tax-form-required.body-with-limit": {
-    "message": "Du musst ein W-9- oder W-8-Formular für die Steuerunterlagen von Modrinth ausfüllen, damit wir die Steuervorschriften einhalten können."
+    "message": "Du musst ein W-9- oder W-8-Formular für die Steuerunterlagen von ShroudEdit ausfüllen, damit wir die Steuervorschriften einhalten können."
   },
   "dashboard.creator-withdraw-modal.tax-form-required.header": {
     "message": "Steuerformular benötigt"
@@ -1794,7 +1794,7 @@
     "message": "Unverifizierte E-Mail"
   },
   "dashboard.creator-withdraw-modal.tremendous-details.unverified-email-message": {
-    "message": "Die Zustellungs-E-Mail, die du eingegeben hast, ist nicht mit deinem Modrinth-Konto verbunden. Belohnungen, welche an eine falsche E-Mail-Adresse gesendet werden, können von Modrinth nicht wiederhergestellt werden."
+    "message": "Die Zustellungs-E-Mail, die du eingegeben hast, ist nicht mit deinem ShroudEdit-Konto verbunden. Belohnungen, welche an eine falsche E-Mail-Adresse gesendet werden, können von ShroudEdit nicht wiederhergestellt werden."
   },
   "dashboard.creator-withdraw-modal.tremendous-details.usd-paypal-warning-header": {
     "message": "Weniger Gebühren verfügbar"
@@ -1818,7 +1818,7 @@
     "message": "Du hast dein Auszahlungslimit von <b>{withdrawLimit}</b> aufgebraucht. Du musst ein Steuerformular ausfüllen, um merh abzuheben."
   },
   "dashboard.discord-roles.banner.body": {
-    "message": "Du bist berechtigt für {roles}. Verknüpfe dein Discord-Konto über Modrinth und wir synchronisieren sie automatisch."
+    "message": "Du bist berechtigt für {roles}. Verknüpfe dein Discord-Konto über ShroudEdit und wir synchronisieren sie automatisch."
   },
   "dashboard.discord-roles.banner.cta": {
     "message": "Discord verknüpfen"
@@ -2001,7 +2001,7 @@
     "message": "Geschätzte Einnahmen können sich bis zur verfügbarmachung ändern."
   },
   "dashboard.revenue.estimated-tooltip.msg2": {
-    "message": "Klicke um zu erfahren, wie Modrinth deine Einnahmen verwaltet (Englisch)."
+    "message": "Klicke um zu erfahren, wie ShroudEdit deine Einnahmen verwaltet (Englisch)."
   },
   "dashboard.revenue.estimated-with-date": {
     "message": "Geschätzt {date}"
@@ -2022,7 +2022,7 @@
     "message": "Ausgezahlt"
   },
   "dashboard.revenue.tos": {
-    "message": "Durch das hochladen von Projekten auf Modrinth, und das abheben von Geld von deinem Konto, stimmst du den <terms-link>Bedingungen des Rewards-Programm</terms-link> zu. Erfahre mehr über das <info-link>Reward-Programm</info-link>."
+    "message": "Durch das hochladen von Projekten auf ShroudEdit, und das abheben von Geld von deinem Konto, stimmst du den <terms-link>Bedingungen des Rewards-Programm</terms-link> zu. Erfahre mehr über das <info-link>Reward-Programm</info-link>."
   },
   "dashboard.revenue.transactions.btn.download-csv": {
     "message": "Als CSV herunterladen"
@@ -2211,7 +2211,7 @@
     "message": "Modpack zum installieren nach dem Reset auswählen"
   },
   "discover.seo.description": {
-    "message": "Durchsuche und durchstöbere Tausende von Minecraft-{projectType} auf Modrinth mit sofortigen, präzisen Suchergebnissen. Unsere Filter helfen dir, schnell die besten Minecraft-{projectType} zu finden."
+    "message": "Durchsuche und durchstöbere Tausende von Enshrouded-{projectType} auf ShroudEdit mit sofortigen, präzisen Suchergebnissen. Unsere Filter helfen dir, schnell die besten Enshrouded-{projectType} zu finden."
   },
   "discover.seo.title": {
     "message": "{projectType} durchsuchen"
@@ -2226,7 +2226,7 @@
     "message": "Diese Kollektion ist eventuell Privat."
   },
   "error.collection.404.list_item.3": {
-    "message": "Diese Kollektion wurde eventuell von Modrinth's Moderationsteam wegen Verstoss gegen unsere <tou-link>Nutzungsbedingungen</tou-link> entfernt."
+    "message": "Diese Kollektion wurde eventuell von ShroudEdit's Moderationsteam wegen Verstoss gegen unsere <tou-link>Nutzungsbedingungen</tou-link> entfernt."
   },
   "error.collection.404.list_title": {
     "message": "Warum?"
@@ -2259,10 +2259,10 @@
     "message": "Inhalt wegen rechtlicher Gründer nicht verfügbar"
   },
   "error.generic.default.list_item.1": {
-    "message": "Überprüfe auf unserer <status-link>Status Seite</status-link> ob Modrinth unerreichbar ist."
+    "message": "Überprüfe auf unserer <status-link>Status Seite</status-link> ob ShroudEdit unerreichbar ist."
   },
   "error.generic.default.list_item.2": {
-    "message": "Sollte dies weiterhin passieren, solltest du das Modrinth-Team darüber informieren, indem du unserem <discord-link>Discord Server</discord-link> beitittst."
+    "message": "Sollte dies weiterhin passieren, solltest du das ShroudEdit-Team darüber informieren, indem du unserem <discord-link>Discord Server</discord-link> beitittst."
   },
   "error.generic.default.list_title": {
     "message": "Bitte versuch es in ein paar Minuten erneut."
@@ -2280,7 +2280,7 @@
     "message": "Der Besitzer der Organisation hat eventuell die URL geändert oder gelöscht."
   },
   "error.organization.404.list_item.3": {
-    "message": "Die Organisation wurde eventuell von Modrinth's Moderationsteam wegen verstoss gegen unsere <tou-link>Nutzungsbedingungen</tou-link> gelöscht."
+    "message": "Die Organisation wurde eventuell von ShroudEdit's Moderationsteam wegen verstoss gegen unsere <tou-link>Nutzungsbedingungen</tou-link> gelöscht."
   },
   "error.organization.404.list_title": {
     "message": "Warum?"
@@ -2295,7 +2295,7 @@
     "message": "Der Projektbesitzer hat eventuell die URL geändert, hat das Projekt auf Privat gestellt, oder es gelöscht."
   },
   "error.project.404.list_item.3": {
-    "message": "Das Projekt wurde eventuell von Modrinth's Moderationsteam wegen verstoss gegen unsere <tou-link>Nutzungsbedingungen</tou-link> gelöscht."
+    "message": "Das Projekt wurde eventuell von ShroudEdit's Moderationsteam wegen verstoss gegen unsere <tou-link>Nutzungsbedingungen</tou-link> gelöscht."
   },
   "error.project.404.list_title": {
     "message": "Warum?"
@@ -2310,7 +2310,7 @@
     "message": "Der Benutzer hat eventuell seinen Nutzernamen geändert oder sein Konto gelöscht."
   },
   "error.user.404.list_item.3": {
-    "message": "Das Konto dieses Benutzers wurde eventuell wegen Verstoss gegen die <tou-link>Nutzungsbedingungen</tou-link> von Modrinth gesperrt."
+    "message": "Das Konto dieses Benutzers wurde eventuell wegen Verstoss gegen die <tou-link>Nutzungsbedingungen</tou-link> von ShroudEdit gesperrt."
   },
   "error.user.404.list_title": {
     "message": "Wieso?"
@@ -2352,10 +2352,10 @@
     "message": "Wenn dein Server stark ausgelastet ist, geben wir ihm vorübergehend Zugriff auf zusätzliche CPU-Threads, um Lagspikes und Instabilität zu verringern. So wird verhindert, dass die TPS unter 20 fällt, und ein möglichst reibungsloses Erlebnis gewährleistet. Da diese zusätzlichen CPU-Threads nur kurzzeitig während Zeiten hoher Auslastung verfügbar sind, werden sie möglicherweise nicht in Spark-Berichten oder anderen Profiling-Tools angezeigt."
   },
   "hosting-marketing.faq.cpu-kind": {
-    "message": "Auf welchen CPUs laufen die Server von Modrinth Hosting?"
+    "message": "Auf welchen CPUs laufen die Server von ShroudEdit Hosting?"
   },
   "hosting-marketing.faq.cpu-kind.answer": {
-    "message": "Die Server von Modrinth Hosting werden von AMD Ryzen 7950X oder 9950X-äquivalenten CPUs betrieben, kombiniert mit DDR5-Speicher."
+    "message": "Die Server von ShroudEdit Hosting werden von AMD Ryzen 7950X oder 9950X-äquivalenten CPUs betrieben, kombiniert mit DDR5-Speicher."
   },
   "hosting-marketing.faq.currency": {
     "message": "In welcher Währung sind die Preise angegeben?"
@@ -2364,19 +2364,19 @@
     "message": "All Preise werden in US-Dollar (USD) angegeben."
   },
   "hosting-marketing.faq.ddos-protection": {
-    "message": "Haben die Server von Modrinth Hosting DDoS-Schutz?"
+    "message": "Haben die Server von ShroudEdit Hosting DDoS-Schutz?"
   },
   "hosting-marketing.faq.ddos-protection.answer": {
-    "message": "Ja. Alle Server von Modrinth Hosting sind mit DDoS-Schutz ausgestattet, an einigen Standorten mit bis zu 17 Tbit/s kapazität."
+    "message": "Ja. Alle Server von ShroudEdit Hosting sind mit DDoS-Schutz ausgestattet, an einigen Standorten mit bis zu 17 Tbit/s kapazität."
   },
   "hosting-marketing.faq.heading": {
     "message": "Häufig gestellte Fragen"
   },
   "hosting-marketing.faq.how-fast": {
-    "message": "Wie schnell sind Server von Modrinth Hosting?"
+    "message": "Wie schnell sind Server von ShroudEdit Hosting?"
   },
   "hosting-marketing.faq.how-fast.answer.one": {
-    "message": "Server von Modrinth Hosting werden auf sehr moderner, leistungsstarker Hardware gehostet, doch es ist schwer zu sagen, wie sich dies genau auf die Geschwindigkeit deines Servers auswirkt, da es so viele Faktoren gibt, die diese beeinflussen, wie beispielsweise die Mods, Datenpakete oder Plugins, die du auf deinem Server ausführst, und sogar das Verhalten der Nutzer."
+    "message": "Server von ShroudEdit Hosting werden auf sehr moderner, leistungsstarker Hardware gehostet, doch es ist schwer zu sagen, wie sich dies genau auf die Geschwindigkeit deines Servers auswirkt, da es so viele Faktoren gibt, die diese beeinflussen, wie beispielsweise die Mods, Datenpakete oder Plugins, die du auf deinem Server ausführst, und sogar das Verhalten der Nutzer."
   },
   "hosting-marketing.faq.how-fast.answer.two": {
     "message": "Die meisten Leistungsprobleme entstehen in der Regel durch ein nicht optimiertes Modpack, Mod, Datenpaket oder Plugin, das zu Lag auf dem Server führt. Da unsere Server sehr leistungsstark sind, solltest du keine großen Probleme haben, solange du einen geeigneten Plan für die Inhalte wählst, die du auf dem Server ausführst."
@@ -2385,22 +2385,22 @@
     "message": "Kann ich den Speicherplatz meines Servers erhöhen?"
   },
   "hosting-marketing.faq.increase-storage.answer": {
-    "message": "Ja, der Speicherplatz auf deinem Server kann ohne zusätzliche Kosten erweitert werden. Wenn du mehr Speicherplatz benötigst, wende dich bitte an den Modrinth-Support."
+    "message": "Ja, der Speicherplatz auf deinem Server kann ohne zusätzliche Kosten erweitert werden. Wenn du mehr Speicherplatz benötigst, wende dich bitte an den ShroudEdit-Support."
   },
   "hosting-marketing.faq.location": {
-    "message": "Wo befinden sich Server von Modrinth Hosting? Kann ich eine Region auswählen?"
+    "message": "Wo befinden sich Server von ShroudEdit Hosting? Kann ich eine Region auswählen?"
   },
   "hosting-marketing.faq.location.answer": {
     "message": "Wir haben derzeit Server in Nordamerika, Europa, Südostasien und Australien, die du beim Kauf auswählen kannst. Weitere Regionen folgen in der Zukunft! Wenn du deine Region wechseln möchtest, wende dich bitte an den Support."
   },
   "hosting-marketing.faq.versions-loaders": {
-    "message": "Welche Minecraft-Versionen und Loader können verwendet werden?"
+    "message": "Welche Enshrouded-Versionen und Loader können verwendet werden?"
   },
   "hosting-marketing.faq.versions-loaders.answer.one": {
-    "message": "Server von Modrinth Hosting können jede Version von Minecraft: Java Edition bis zurück zur Version 1.2.5 ausführen, einschließlich Snapshot-Versionen."
+    "message": "Server von ShroudEdit Hosting können jede Version von Enshrouded: Java Edition bis zurück zur Version 1.2.5 ausführen, einschließlich Snapshot-Versionen."
   },
   "hosting-marketing.faq.versions-loaders.answer.two": {
-    "message": "Wir unterstützen außerdem eine Vielzahl von Mod- und Plugin-Loadern, darunter Fabric, Quilt, Forge und NeoForge für Mods sowie Paper und Purpur für Plugins. Die Verfügbarkeit hängt davon ab, ob der Mod- oder Plugin-Loader die ausgewählte Minecraft-Version unterstützt."
+    "message": "Wir unterstützen außerdem eine Vielzahl von Mod- und Plugin-Loadern, darunter Fabric, Quilt, Forge und NeoForge für Mods sowie Paper und Purpur für Plugins. Die Verfügbarkeit hängt davon ab, ob der Mod- oder Plugin-Loader die ausgewählte Enshrouded-Version unterstützt."
   },
   "hosting-marketing.get-started": {
     "message": "Loslegen"
@@ -2414,11 +2414,11 @@
   "hosting-marketing.hero.button.start-your-server": {
     "message": "Starte deinen Server"
   },
-  "hosting-marketing.hero.host-with-modrinth": {
-    "message": "Hoste deinen nächsten Server mit Modrinth Hosting"
+  "hosting-marketing.hero.host-with-shroudedit": {
+    "message": "Hoste deinen nächsten Server mit ShroudEdit Hosting"
   },
   "hosting-marketing.hero.hosting-description": {
-    "message": "Modrinth Hosting ist der einfachste Weg, deinen eigenen Minecraft: Java Edition-Server zu hosten. Installiere und spiele deine Lieblings-Mods und Modpacks nahtlos innerhalb der Modrinth-Plattform."
+    "message": "ShroudEdit Hosting ist der einfachste Weg, deinen eigenen Enshrouded: Java Edition-Server zu hosten. Installiere und spiele deine Lieblings-Mods und Modpacks nahtlos innerhalb der ShroudEdit-Plattform."
   },
   "hosting-marketing.included.advanced-networking": {
     "message": "Fortgeschrittenes Netzwerkmanagement"
@@ -2436,10 +2436,10 @@
     "message": "Benutzerdefinierte URL"
   },
   "hosting-marketing.included.custom-url.description": {
-    "message": "Teile deinen Server mit einer benutzerdefinierten <contrast>modrinth.gg</contrast>-URL."
+    "message": "Teile deinen Server mit einer benutzerdefinierten <contrast>shroudedit.gg</contrast>-URL."
   },
   "hosting-marketing.included.description": {
-    "message": "Jeder Server verfügt über eine Vielzahl von Funktionen, die ein Hosting-Erlebnis ermöglichen, wie es nur Modrinth bieten kann."
+    "message": "Jeder Server verfügt über eine Vielzahl von Funktionen, die ein Hosting-Erlebnis ermöglichen, wie es nur ShroudEdit bieten kann."
   },
   "hosting-marketing.included.file-manager": {
     "message": "Einfach zu bedienender Dateimanager"
@@ -2454,19 +2454,19 @@
     "message": "Hilfe wenn du sie brauchst"
   },
   "hosting-marketing.included.help.description": {
-    "message": "Wende dich jederzeit an das Modrinth-Team, falls du Hilfe mit deinem Server benötigst."
+    "message": "Wende dich jederzeit an das ShroudEdit-Team, falls du Hilfe mit deinem Server benötigst."
   },
   "hosting-marketing.included.powerful-console": {
     "message": "Eine leistungsstarke Konsole, ein Servereigenschaften-Manager und vieles mehr"
   },
   "hosting-marketing.included.powerful-console.description": {
-    "message": "Modrinth Hosting bietet leistungsstarke Tools zur Verwaltung deines Servers."
+    "message": "ShroudEdit Hosting bietet leistungsstarke Tools zur Verwaltung deines Servers."
   },
   "hosting-marketing.included.sftp-access": {
     "message": "Zugriff über SFTP"
   },
   "hosting-marketing.included.sftp-access.description": {
-    "message": "Greife mit dem in Modrinth Hosting integrierten SFTP direkt auf die Dateien deines Servers zu."
+    "message": "Greife mit dem in ShroudEdit Hosting integrierten SFTP direkt auf die Dateien deines Servers zu."
   },
   "hosting-marketing.included.with-your-server": {
     "message": "Bei deinem Server enthalten"
@@ -2507,20 +2507,20 @@
   "hosting-marketing.server-for-everyone": {
     "message": "Für jeden gibt es einen Server"
   },
-  "hosting-marketing.why.all-on-modrinth": {
-    "message": "Verwalte alles auf Modrinth"
+  "hosting-marketing.why.all-on-shroudedit": {
+    "message": "Verwalte alles auf ShroudEdit"
   },
-  "hosting-marketing.why.all-on-modrinth.description": {
-    "message": "Dein Server, deine Mods, deine Spieler und vieles mehr befinden sich alle auf Modrinth. Du musst nicht zwischen verschiedenen Plattformen wechseln."
+  "hosting-marketing.why.all-on-shroudedit.description": {
+    "message": "Dein Server, deine Mods, deine Spieler und vieles mehr befinden sich alle auf ShroudEdit. Du musst nicht zwischen verschiedenen Plattformen wechseln."
   },
   "hosting-marketing.why.consistently-fast": {
     "message": "Konstant schnell"
   },
   "hosting-marketing.why.consistently-fast.description": {
-    "message": "Unsere Infrastruktur ist niemals überlastet, was bedeutet, dass jeder bei Modrinth gehostete Server stets mit voller Leistung läuft."
+    "message": "Unsere Infrastruktur ist niemals überlastet, was bedeutet, dass jeder bei ShroudEdit gehostete Server stets mit voller Leistung läuft."
   },
   "hosting-marketing.why.description": {
-    "message": "Wähle aus Tausenden von Modpacks auf Modrinth oder erstelle dein eigenes. Lade deine Freunde ein, wenn du bereit bist zu spielen."
+    "message": "Wähle aus Tausenden von Modpacks auf ShroudEdit oder erstelle dein eigenes. Lade deine Freunde ein, wenn du bereit bist zu spielen."
   },
   "hosting-marketing.why.heading": {
     "message": "Finde ein Modpack. Jetzt ist es ein Server."
@@ -2529,22 +2529,22 @@
     "message": "Entdecke modernes, zuverlässiges Hosting"
   },
   "hosting-marketing.why.modern-reliable-hosting.description": {
-    "message": "Server von Modrinth Hosting werden auf <contrast>leistungsstarken AMD-CPUs mit DDR5-Arbeitsspeicher</contrast> gehostet und laufen mit speziell entwickelter Software, um einen reibungslosen Betrieb deines Servers zu ermöglichen."
+    "message": "Server von ShroudEdit Hosting werden auf <contrast>leistungsstarken AMD-CPUs mit DDR5-Arbeitsspeicher</contrast> gehostet und laufen mit speziell entwickelter Software, um einen reibungslosen Betrieb deines Servers zu ermöglichen."
   },
   "hosting-marketing.why.where-mods-are": {
     "message": "Spiele da, wo deine Mods sind"
   },
   "hosting-marketing.why.where-mods-are.description": {
-    "message": "Modrinth Hosting integriert die Installation von Mods und Modpacks nahtlos in deinen Server."
+    "message": "ShroudEdit Hosting integriert die Installation von Mods und Modpacks nahtlos in deinen Server."
   },
-  "hosting-marketing.why.why-modrinth-hosting": {
-    "message": "Warum Modrinth Hosting?"
+  "hosting-marketing.why.why-shroudedit-hosting": {
+    "message": "Warum ShroudEdit Hosting?"
   },
   "hosting-marketing.why.your-favorite-mods": {
     "message": "Alle deine Lieblingsmods"
   },
   "hosting-marketing.why.your-favorite-mods.description": {
-    "message": "Wähle zwischen Vanilla, Fabric, Forge, Quilt und NeoForge. Was auf Modrinth ist, kann auf deinem Server laufen."
+    "message": "Wähle zwischen Vanilla, Fabric, Forge, Quilt und NeoForge. Was auf ShroudEdit ist, kann auf deinem Server laufen."
   },
   "hosting.plan.out-of-stock": {
     "message": "Nicht verfügbar"
@@ -2559,7 +2559,7 @@
     "message": "Gehe zum Dashboard"
   },
   "landing.creator.feature.constantly-evolving.description": {
-    "message": "Erhalte das beste Modding-Erlebnis mit ständigen Updates vom Modrinth-team"
+    "message": "Erhalte das beste Modding-Erlebnis mit ständigen Updates vom ShroudEdit-team"
   },
   "landing.creator.feature.constantly-evolving.title": {
     "message": "Ständig im Wandel"
@@ -2604,49 +2604,49 @@
     "message": "Folge Projekten, die du magst"
   },
   "landing.feature.launcher.description": {
-    "message": "Modrinth's quelloffene API erlaubt es Launchern eine starke Integration mit Modrinth zu bilden. Du kannst Modrinth über <link>unsere eigene App</link> und einige der beliebtesten Launcher wie ATLauncher, MultiMC und Prism Launcher nutzen."
+    "message": "ShroudEdit's quelloffene API erlaubt es Launchern eine starke Integration mit ShroudEdit zu bilden. Du kannst ShroudEdit über <link>unsere eigene App</link> und einige der beliebtesten Launcher wie ATLauncher, MultiMC und Prism Launcher nutzen."
   },
   "landing.feature.launcher.heading": {
     "message": "Spiele mit deinem Lieblings-Launcher"
   },
   "landing.feature.search.description": {
-    "message": "Modrinth's blitzschnelle Suche und leistungsstarke Filter ermöglichen es dir, genau das zu finden, was du suchst, schon während du tippst."
+    "message": "ShroudEdit's blitzschnelle Suche und leistungsstarke Filter ermöglichen es dir, genau das zu finden, was du suchst, schon während du tippst."
   },
   "landing.feature.search.heading": {
     "message": "Finde was du brauchst, schnell und einfach"
   },
-  "landing.heading.the-place-for-minecraft": {
-    "message": "Der Ort für Minecraft {content}"
+  "landing.heading.the-place-for-enshrouded": {
+    "message": "Der Ort für Enshrouded {content}"
   },
-  "landing.heading.the-place-for-minecraft.data-packs": {
+  "landing.heading.the-place-for-enshrouded.data-packs": {
     "message": "Datenpakete"
   },
-  "landing.heading.the-place-for-minecraft.modpacks": {
+  "landing.heading.the-place-for-enshrouded.modpacks": {
     "message": "Modpakete"
   },
-  "landing.heading.the-place-for-minecraft.mods": {
+  "landing.heading.the-place-for-enshrouded.mods": {
     "message": "Mods"
   },
-  "landing.heading.the-place-for-minecraft.plugins": {
+  "landing.heading.the-place-for-enshrouded.plugins": {
     "message": "Plugins"
   },
-  "landing.heading.the-place-for-minecraft.resource-packs": {
+  "landing.heading.the-place-for-enshrouded.resource-packs": {
     "message": "Ressourcenpakete"
   },
-  "landing.heading.the-place-for-minecraft.servers": {
+  "landing.heading.the-place-for-enshrouded.servers": {
     "message": "Server"
   },
-  "landing.heading.the-place-for-minecraft.shaders": {
+  "landing.heading.the-place-for-enshrouded.shaders": {
     "message": "Shader"
   },
   "landing.launcher.atlauncher-label": {
     "message": "ATLauncher"
   },
   "landing.launcher.graphic-alt": {
-    "message": "Eine vereinfachte Darstellung eines Minecraft-Fensters mit dem Mojang Studio Logo in Modrinth-Grün."
+    "message": "Eine vereinfachte Darstellung eines Enshrouded-Fensters mit dem Mojang Studio Logo in ShroudEdit-Grün."
   },
-  "landing.launcher.modrinth-app-label": {
-    "message": "Modrinth App"
+  "landing.launcher.shroudedit-app-label": {
+    "message": "ShroudEdit App"
   },
   "landing.launcher.prism-launcher-label": {
     "message": "Prism Launcher"
@@ -2682,7 +2682,7 @@
     "message": "Entdecke über {count, number} Kreationen"
   },
   "landing.subheading": {
-    "message": "Entdecke, Spiele und teile Minecraft-Inhalte durch unsere quelloffene Platform, welche für die Community entwickelt wird."
+    "message": "Entdecke, Spiele und teile Enshrouded-Inhalte durch unsere quelloffene Platform, welche für die Community entwickelt wird."
   },
   "layout.action.analytics-events": {
     "message": "Analytics-Ergebnisse"
@@ -2742,13 +2742,13 @@
     "message": "Kontoeinstellungen ansehen"
   },
   "layout.banner.add-email.description": {
-    "message": "Aus Sicherheitsgründen verlangt Modrinth, dass du eine E-Mail Adresse für dein Konto registrierst."
+    "message": "Aus Sicherheitsgründen verlangt ShroudEdit, dass du eine E-Mail Adresse für dein Konto registrierst."
   },
   "layout.banner.build-fail.always-ignore": {
     "message": "Immer ignorieren"
   },
   "layout.banner.build-fail.description": {
-    "message": "Diese Deployment von Modrinth's Frontend konnte keinen Status von der API generieren. Dies könnte aufgrund eines Ausfalls oder eines Konfigurationsfehlers sein. Erstelle neu wenn die API verfügbar ist. Fehlercodes: {errors}; Aktuelle API URL ist: {url}"
+    "message": "Diese Deployment von ShroudEdit's Frontend konnte keinen Status von der API generieren. Dies könnte aufgrund eines Ausfalls oder eines Konfigurationsfehlers sein. Erstelle neu wenn die API verfügbar ist. Fehlercodes: {errors}; Aktuelle API URL ist: {url}"
   },
   "layout.banner.build-fail.ignore": {
     "message": "Ignorieren"
@@ -2757,16 +2757,16 @@
     "message": "Fehler beim generieren des Status von der API beim erstellen."
   },
   "layout.banner.preview.description": {
-    "message": "Falls du die offizielle Modrinth-Website aufrufen wolltest, besuche {url}. Diese Preview-Bereitstellung wird von Modrinth-Mitarbeitern zu Testzwecken verwendet. Sie wurde mit {ref} erstellt."
+    "message": "Falls du die offizielle ShroudEdit-Website aufrufen wolltest, besuche {url}. Diese Preview-Bereitstellung wird von ShroudEdit-Mitarbeitern zu Testzwecken verwendet. Sie wurde mit {ref} erstellt."
   },
   "layout.banner.preview.title": {
-    "message": "Dies ist eine Vorschauversion der Modrinth-Webseite."
+    "message": "Dies ist eine Vorschauversion der ShroudEdit-Webseite."
   },
   "layout.banner.staging.description": {
-    "message": "Die Staging-Umgebung ist komplett separat von der Produktions-Datenbank von Modrinth. Sie wird zu Test- und Debugging-Zwecken verwendet und könnte Entwicklungsversionen des Modrinth-Backends oder -Frontends, welche neuer als die Produkionsinstanz sind, ausführen."
+    "message": "Die Staging-Umgebung ist komplett separat von der Produktions-Datenbank von ShroudEdit. Sie wird zu Test- und Debugging-Zwecken verwendet und könnte Entwicklungsversionen des ShroudEdit-Backends oder -Frontends, welche neuer als die Produkionsinstanz sind, ausführen."
   },
   "layout.banner.staging.title": {
-    "message": "Du schaust dir die Modrinth Staging-Umgebung an"
+    "message": "Du schaust dir die ShroudEdit Staging-Umgebung an"
   },
   "layout.banner.subscription-payment-failed.button": {
     "message": "Zahlungsinformationen aktualisieren"
@@ -2781,7 +2781,7 @@
     "message": "Steuerformular abschliessen"
   },
   "layout.banner.tax.description": {
-    "message": "Du hast dieses Jahr bereits über {threshold} von Modrinth abgehoben. Um die Steuervorschriften einzuhalten, musst du ein Steuerformular ausfüllen. Deine Auszahlungen werden bis zur Einreichung dieses Formulars pausiert."
+    "message": "Du hast dieses Jahr bereits über {threshold} von ShroudEdit abgehoben. Um die Steuervorschriften einzuhalten, musst du ein Steuerformular ausfüllen. Deine Auszahlungen werden bis zur Einreichung dieses Formulars pausiert."
   },
   "layout.banner.tax.title": {
     "message": "Steuerformular benötigt"
@@ -2799,7 +2799,7 @@
     "message": "Verifizierungs-E-Mail erneut senden"
   },
   "layout.banner.verify-email.description": {
-    "message": "Aus Sicherheitsgründen verlangt Modrinth, dass du deine E-Mail-Adresse, die mit deinem Konto assoziiert ist, verifizierst."
+    "message": "Aus Sicherheitsgründen verlangt ShroudEdit, dass du deine E-Mail-Adresse, die mit deinem Konto assoziiert ist, verifizierst."
   },
   "layout.footer.about": {
     "message": "Über uns"
@@ -2838,7 +2838,7 @@
     "message": "Rechtliches"
   },
   "layout.footer.legal-disclaimer": {
-    "message": "KEIN OFFIZIELLER MINECRAFT-DIENST. NICHT VON MOJANG ODER MICROSOFT UNTERSTÜTZT ODER ASSIZIIERT."
+    "message": "KEIN OFFIZIELLER ENSHROUDED-DIENST. NICHT VON MOJANG ODER MICROSOFT UNTERSTÜTZT ODER ASSIZIIERT."
   },
   "layout.footer.legal.copyright-policy": {
     "message": "Urheberrechtsrichtlinie und DMCA"
@@ -2855,23 +2855,23 @@
   "layout.footer.legal.terms-of-use": {
     "message": "Nutzungsbedingungen"
   },
-  "layout.footer.modrinth-information": {
-    "message": "Modrinth Informationen"
+  "layout.footer.shroudedit-information": {
+    "message": "ShroudEdit Informationen"
   },
   "layout.footer.open-source": {
-    "message": "Modrinth ist <github-link>quelloffen</github-link>."
+    "message": "ShroudEdit ist <github-link>quelloffen</github-link>."
   },
   "layout.footer.products": {
     "message": "Produkte"
   },
   "layout.footer.products.app": {
-    "message": "Modrinth App"
+    "message": "ShroudEdit App"
   },
   "layout.footer.products.plus": {
-    "message": "Modrinth+"
+    "message": "ShroudEdit+"
   },
   "layout.footer.products.servers": {
-    "message": "Modrinth Hosting"
+    "message": "ShroudEdit Hosting"
   },
   "layout.footer.resources": {
     "message": "Resourcen"
@@ -2913,10 +2913,10 @@
     "message": "Menü umschalten"
   },
   "layout.meta.description": {
-    "message": "Lade Minecraft Mods, Plugins, Datenpakete, Shader, Ressourcenpakete und Modpakete auf Modrinth herunten. Entdecke und veröffentliche Projekte auf Modrinth mit einem modernen und einfach zu nutzendem Interface und API."
+    "message": "Lade Enshrouded Mods, Plugins, Datenpakete, Shader, Ressourcenpakete und Modpakete auf ShroudEdit herunten. Entdecke und veröffentliche Projekte auf ShroudEdit mit einem modernen und einfach zu nutzendem Interface und API."
   },
   "layout.meta.og-description": {
-    "message": "Entdecke und veröffentliche Minecraft-Inhalte!"
+    "message": "Entdecke und veröffentliche Enshrouded-Inhalte!"
   },
   "layout.mobile.close-menu": {
     "message": "Menü schliessen"
@@ -2933,8 +2933,8 @@
   "layout.nav.discover": {
     "message": "Entdecken"
   },
-  "layout.nav.get-modrinth-app": {
-    "message": "Modrinth App herunterladen"
+  "layout.nav.get-shroudedit-app": {
+    "message": "ShroudEdit App herunterladen"
   },
   "layout.nav.home": {
     "message": "Startseite"
@@ -2942,11 +2942,11 @@
   "layout.nav.host-a-server": {
     "message": "Server hosten"
   },
-  "layout.nav.modrinth-app": {
-    "message": "Modrinth App"
+  "layout.nav.shroudedit-app": {
+    "message": "ShroudEdit App"
   },
-  "layout.nav.modrinth-home-page": {
-    "message": "Modrinth Startseite"
+  "layout.nav.shroudedit-home-page": {
+    "message": "ShroudEdit Startseite"
   },
   "layout.nav.my-servers": {
     "message": "Meine Server"
@@ -2978,11 +2978,11 @@
   "layout.nav.switch-account-failed": {
     "message": "Konto konnte nicht gewechselt werden. Bitte versuche es erneut."
   },
-  "layout.nav.upgrade-to-modrinth-plus": {
-    "message": "Auf Modrinth+ upgraden"
+  "layout.nav.upgrade-to-shroudedit-plus": {
+    "message": "Auf ShroudEdit+ upgraden"
   },
   "layout.publish.email-verification-required.description": {
-    "message": "Du musst deine E-Mail-Adresse bestätigen, bevor du auf Modrinth veröffentlichen kannst."
+    "message": "Du musst deine E-Mail-Adresse bestätigen, bevor du auf ShroudEdit veröffentlichen kannst."
   },
   "layout.publish.email-verification-required.title": {
     "message": "E-Mail-Bestätigung erforderlich"
@@ -2997,19 +2997,19 @@
     "message": "Halte gemeinsame Inhalte immer aktuell"
   },
   "modal.shared-instance.open-in-app.get-app": {
-    "message": "Modrinth App herunterladen"
+    "message": "ShroudEdit App herunterladen"
   },
   "modal.shared-instance.open-in-app.managed-by": {
     "message": "Verwaltet von"
   },
   "modal.shared-instance.open-in-app.opening-automatically": {
-    "message": "Die Modrinth App wird sich automatisch öffnen..."
+    "message": "Die ShroudEdit App wird sich automatisch öffnen..."
   },
   "modal.shared-instance.open-in-app.title": {
-    "message": "Modrinth App wird geöffnet"
+    "message": "ShroudEdit App wird geöffnet"
   },
   "modal.shared-instance.open-in-app.why-use": {
-    "message": "Warum die Modrinth App nutzen"
+    "message": "Warum die ShroudEdit App nutzen"
   },
   "moderation.exclude-technical-review": {
     "message": "TR ausschließen"
@@ -3435,7 +3435,7 @@
     "message": "Erneut zur Überprüfung einreichen"
   },
   "project-moderation-nags.resubmit-for-review-desc": {
-    "message": "Dein Projekt wurde vom Modrinth-Team {status, select, rejected {abgelehnt} withheld {zurückgehalten} other {{status}}}. In der Regel hast du die Möglichkeit, es nach Umsetzung der Anmerkungen erneut einzureichen."
+    "message": "Dein Projekt wurde vom ShroudEdit-Team {status, select, rejected {abgelehnt} withheld {zurückgehalten} other {{status}}}. In der Regel hast du die Möglichkeit, es nach Umsetzung der Anmerkungen erneut einzureichen."
   },
   "project-moderation-nags.submit-checklist-tooltip": {
     "message": "Du musst die benötigten Schritte in der Veröffentlichungsliste abschliessen!"
@@ -3470,10 +3470,10 @@
   "project-type.datapack.singular": {
     "message": "Datenpaket"
   },
-  "project-type.minecraft_java_server.plural": {
+  "project-type.enshrouded_java_server.plural": {
     "message": "Server"
   },
-  "project-type.minecraft_java_server.singular": {
+  "project-type.enshrouded_java_server.singular": {
     "message": "Server"
   },
   "project-type.mod.plural": {
@@ -3546,7 +3546,7 @@
     "message": "Projekt überprüfen"
   },
   "project.actions.servers-promo.description": {
-    "message": "Modrinth Hosting ist der einfachste weg, ohne Aufwand mit deinen Freunden zu spielen!"
+    "message": "ShroudEdit Hosting ist der einfachste weg, ohne Aufwand mit deinen Freunden zu spielen!"
   },
   "project.actions.servers-promo.pricing": {
     "message": "Ab {price}<small> / Monat</small>"
@@ -3564,10 +3564,10 @@
     "message": "Abhängige {projectType} ansehen"
   },
   "project.ai-image-warning-modal.body.1": {
-    "message": "Die Verwendung von KI-generierten Bildern zur Darstellung deines Projekts ist nicht erlaubt. Versuche, die Erkennung zu umgehen, können zur Sperrung deines Modrinth-Kontos führen."
+    "message": "Die Verwendung von KI-generierten Bildern zur Darstellung deines Projekts ist nicht erlaubt. Versuche, die Erkennung zu umgehen, können zur Sperrung deines ShroudEdit-Kontos führen."
   },
   "project.ai-image-warning-modal.body.2": {
-    "message": "Siehe Abschnitt 6 der <rules>Inhaltsrichtlinien von Modrinth</rules> für weitere Informationen zu unseren Richtlinien bezüglich generativer KI."
+    "message": "Siehe Abschnitt 6 der <rules>Inhaltsrichtlinien von ShroudEdit</rules> für weitere Informationen zu unseren Richtlinien bezüglich generativer KI."
   },
   "project.ai-image-warning-modal.title": {
     "message": "KI-generierte Bilder sind nicht erlaubt"
@@ -3654,13 +3654,13 @@
     "message": "{title} unterstützt {gameVersion} für {platform} nicht"
   },
   "project.download.install-with-app": {
-    "message": "Mit Modrinth App installieren"
+    "message": "Mit ShroudEdit App installieren"
   },
   "project.download.manually": {
     "message": "Manuell herunterladen"
   },
   "project.download.no-app": {
-    "message": "Du hast die Modrinth App nicht?"
+    "message": "Du hast die ShroudEdit App nicht?"
   },
   "project.download.no-game-versions-found": {
     "message": "Keine Spielversionen gefunden"
@@ -3705,7 +3705,7 @@
     "message": "Dateien konnten nicht heruntergeladen werden"
   },
   "project.environment.migration-no-permission.message": {
-    "message": "Wir haben das Umgebungssystem auf Modrinth überarbeitet und neue Optionen sind jetzt verfügbar. Du hast keine Berechtigung, diese Einstellungen zu ändern, aber lasse bitte ein anderes Projektmitglied wissen, dass die Umgebungsmetadaten verifiziert werden müssen."
+    "message": "Wir haben das Umgebungssystem auf ShroudEdit überarbeitet und neue Optionen sind jetzt verfügbar. Du hast keine Berechtigung, diese Einstellungen zu ändern, aber lasse bitte ein anderes Projektmitglied wissen, dass die Umgebungsmetadaten verifiziert werden müssen."
   },
   "project.environment.migration-no-permission.title": {
     "message": "Umgebungsmetadaten müssen überprüft werden"
@@ -3714,7 +3714,7 @@
     "message": "Erfahre mehr über diese Änderung"
   },
   "project.environment.migration.message": {
-    "message": "Wir haben von kurzem das Umgebungssystem auf Modrinth überarbeitet und neue Optionen sind nun verfügbar. Bitte überprüfe, ob die Metadaten korrekt sind."
+    "message": "Wir haben von kurzem das Umgebungssystem auf ShroudEdit überarbeitet und neue Optionen sind nun verfügbar. Bitte überprüfe, ob die Metadaten korrekt sind."
   },
   "project.environment.migration.review-button": {
     "message": "Umgebungseinstellungen überprüfen"
@@ -3741,10 +3741,10 @@
     "message": "Dein Projekt ist privat, was bedeutet, dass nur du und von dir eingeladene Personen darauf zugreifen können."
   },
   "project.moderation.admonition.approved.body.public": {
-    "message": "Dein Projekt ist veröffentlicht und auf Modrinth auffindbar."
+    "message": "Dein Projekt ist veröffentlicht und auf ShroudEdit auffindbar."
   },
   "project.moderation.admonition.approved.body.unlisted": {
-    "message": "Dein Projekt ist nicht gelistet, was bedeutet, dass man nur über einen direkten Link darauf zugreifen kann und es auf Modrinth nicht auffindbar ist."
+    "message": "Dein Projekt ist nicht gelistet, was bedeutet, dass man nur über einen direkten Link darauf zugreifen kann und es auf ShroudEdit nicht auffindbar ist."
   },
   "project.moderation.admonition.approved.body.visibility-message": {
     "message": "Du kannst die Sichtbarkeit deines Projekts in den <visibility-settings-link>Sichtbarkeitseinstellungen</visibility-settings-link> deines Projekts ändern."
@@ -3753,13 +3753,13 @@
     "message": "Projekt genehmigt"
   },
   "project.moderation.admonition.draft.body": {
-    "message": "Dies ist ein Entwurfsprojekt, das für andere erst sichtbar ist, nachdem es zur Überprüfung eingereicht und vom Modrinth-Moderationsteam genehmigt wurde."
+    "message": "Dies ist ein Entwurfsprojekt, das für andere erst sichtbar ist, nachdem es zur Überprüfung eingereicht und vom ShroudEdit-Moderationsteam genehmigt wurde."
   },
   "project.moderation.admonition.draft.header": {
     "message": "Entwurfsprojekt"
   },
   "project.moderation.admonition.draft.submit-for-review": {
-    "message": "Sobald du alle erforderlichen Schritte abgeschlossen und sichergestellt hast, dass dein Projekt den <rules-link>Inhaltsregeln</rules-link> von Modrinth entspricht, kannst du dein Projekt zur Überprüfung einreichen."
+    "message": "Sobald du alle erforderlichen Schritte abgeschlossen und sichergestellt hast, dass dein Projekt den <rules-link>Inhaltsregeln</rules-link> von ShroudEdit entspricht, kannst du dein Projekt zur Überprüfung einreichen."
   },
   "project.moderation.admonition.rejected.address-all-concerns": {
     "message": "Bitte gehe auf alle Moderationsanliegen ein, einschliesslich aller Probleme, die in den unten aufgeführten Nachrichten genannt werden, bevor du dieses Projekt erneut einreichst."
@@ -3771,10 +3771,10 @@
     "message": "Das wiederholte Einreichen deines Projekts, ohne zuvor alle Moderationsanliegen zu klären, kann zur Sperrung deines Kontos führen."
   },
   "project.moderation.admonition.under-review.body.1": {
-    "message": "Dein Projekt befindet sich in der Warteschlange und wird vom Modrinth-Moderationsteam überprüft."
+    "message": "Dein Projekt befindet sich in der Warteschlange und wird vom ShroudEdit-Moderationsteam überprüft."
   },
   "project.moderation.admonition.under-review.body.2": {
-    "message": "Dein Projekt wird gescannt und anschliessend von menschlichen Moderatoren überprüft, um sicherzustellen, dass es den <rules-link>Inhaltsregeln</rules-link> und <terms-link>Nutzungsbedingungen</terms-link> von Modrinth entspricht."
+    "message": "Dein Projekt wird gescannt und anschliessend von menschlichen Moderatoren überprüft, um sicherzustellen, dass es den <rules-link>Inhaltsregeln</rules-link> und <terms-link>Nutzungsbedingungen</terms-link> von ShroudEdit entspricht."
   },
   "project.moderation.admonition.under-review.body.3": {
     "message": "Du kannst dein Projekt weiterhin ändern, dies hat keinen Einfluss auf deine Position in der Warteschlange."
@@ -3786,7 +3786,7 @@
     "message": "Wir bemühen uns, Einsendungen innerhalb von einer Woche zu überprüfen, doch bei einigen Projekten kann es zu Verzögerungen kommen. Dies bedeutet nicht, dass mit deiner Einreichung etwas nicht in Ordnung ist."
   },
   "project.moderation.admonition.under-review.body.5": {
-    "message": "<emphasis>Wir schätzen deine Geduld, während unsere Moderatoren hart daran arbeiten, Modrinth sicher zu halten, und freuen uns darauf, dir dabei zu helfen, deine Inhalte zu teilen! 💚</emphasis>"
+    "message": "<emphasis>Wir schätzen deine Geduld, während unsere Moderatoren hart daran arbeiten, ShroudEdit sicher zu halten, und freuen uns darauf, dir dabei zu helfen, deine Inhalte zu teilen! 💚</emphasis>"
   },
   "project.moderation.admonition.under-review.header": {
     "message": "Projekt wird überprüft"
@@ -3807,10 +3807,10 @@
     "message": "Inhaltsmoderatoren können bei den meisten Problemen keinen Support leisten, und Nachrichten in diesem Thread benachrichtigen keine Mitarbeiter."
   },
   "project.moderation.thread.help-center-note.2": {
-    "message": "Wenn du Hilfe benötigst oder weitere Fragen hast, besuche bitte das <help-center-link>Hilfezentrum von Modrinth</help-center-link> und klicke auf die blaue Sprechblase, um den Support zu kontaktieren."
+    "message": "Wenn du Hilfe benötigst oder weitere Fragen hast, besuche bitte das <help-center-link>Hilfezentrum von ShroudEdit</help-center-link> und klicke auf die blaue Sprechblase, um den Support zu kontaktieren."
   },
   "project.moderation.thread.private-description": {
-    "message": "Dies ist ein privater Unterhaltungsthread mit den Modrinth-Moderatoren. Sie können dich bei Problemen bezüglich dieses Projekts kontaktieren."
+    "message": "Dies ist ein privater Unterhaltungsthread mit den ShroudEdit-Moderatoren. Sie können dich bei Problemen bezüglich dieses Projekts kontaktieren."
   },
   "project.moderation.thread.title": {
     "message": "Moderationsnachrichten"
@@ -3876,10 +3876,10 @@
     "message": "Möchtest du dieses Projekt wirklich löschen?"
   },
   "project.settings.delete-project.description.1": {
-    "message": "Löscht dieses Projekt unwiderruflich von Modrinth. Gelöschte Projekte <emphasis>können weder von den Mitarbeitern noch vom Support von Modrinth wiederhergestellt werden</emphasis>."
+    "message": "Löscht dieses Projekt unwiderruflich von ShroudEdit. Gelöschte Projekte <emphasis>können weder von den Mitarbeitern noch vom Support von ShroudEdit wiederhergestellt werden</emphasis>."
   },
   "project.settings.delete-project.description.2": {
-    "message": "Dateien, die in dieses Projekt hochgeladen wurden und aktiv in auf Modrinth gehosteten Modpacks verwendet werden, bleiben möglicherweise weiterhin bestehen."
+    "message": "Dateien, die in dieses Projekt hochgeladen wurden und aktiv in auf ShroudEdit gehosteten Modpacks verwendet werden, bleiben möglicherweise weiterhin bestehen."
   },
   "project.settings.delete-project.title": {
     "message": "Projekt löschen"
@@ -3888,10 +3888,10 @@
     "message": "Muss aktiviert werden, wenn dieses Projekt Werbung, Sponsoring oder Werbeaktionen anderer Werke enthält."
   },
   "project.settings.disclosures.advertising.description.2": {
-    "message": "Dies bezieht sich nicht auf unaufdringliche Werbung relevanter Inhalte ohne direkten Geldwert (z. B. ein Link zu einem Modrinth-Profil in eigenen Konfigurationsmenüs) und bezieht sich nicht auf Werbungen auf der Projektseite wie gesponserte Banner in der Beschreibung."
+    "message": "Dies bezieht sich nicht auf unaufdringliche Werbung relevanter Inhalte ohne direkten Geldwert (z. B. ein Link zu einem ShroudEdit-Profil in eigenen Konfigurationsmenüs) und bezieht sich nicht auf Werbungen auf der Projektseite wie gesponserte Banner in der Beschreibung."
   },
   "project.settings.disclosures.advertising.note-placeholder": {
-    "message": "z.B: Fügt den SMP-Server von Modrinth automatisch zu deiner Serverliste hinzu."
+    "message": "z.B: Fügt den SMP-Server von ShroudEdit automatisch zu deiner Serverliste hinzu."
   },
   "project.settings.disclosures.advertising.title": {
     "message": "Enthält Werbung"
@@ -3915,7 +3915,7 @@
     "message": "z. B. Die chinesische und arabische Übersetzung wurden mit KI generiert."
   },
   "project.settings.disclosures.ai.still-unsure": {
-    "message": "Noch unsicher? Weitere Informationen gibt es in unserem Guide zur <faq-link>Offenlegung und Nutzung von KI</faq-link> und in Abschnitt 6 von <rules>Modrinths Inhaltsregeln</rules>."
+    "message": "Noch unsicher? Weitere Informationen gibt es in unserem Guide zur <faq-link>Offenlegung und Nutzung von KI</faq-link> und in Abschnitt 6 von <rules>ShroudEdits Inhaltsregeln</rules>."
   },
   "project.settings.disclosures.ai.title": {
     "message": "Enthält KI-generierte Inhalte"
@@ -3960,13 +3960,13 @@
     "message": "Erkläre, inwiefern dein Projekt auf dem Originalwerk basiert"
   },
   "project.settings.disclosures.derivative.note-placeholder": {
-    "message": "Dies ist ein Fork, welcher ein paar neue Biome hinzufügt und auf neuere Minecraft-Versionen aktualisiert."
+    "message": "Dies ist ein Fork, welcher ein paar neue Biome hinzufügt und auf neuere Enshrouded-Versionen aktualisiert."
   },
   "project.settings.disclosures.derivative.title": {
     "message": "Enthält abgeleitete Inhalte"
   },
   "project.settings.disclosures.description": {
-    "message": "Du musst deinem Projekt alle erforderlichen Angaben zum Inhalt hinzufügen, die den <rules>Inhaltsrichtlinien von Modrinth</rules> entsprechen."
+    "message": "Du musst deinem Projekt alle erforderlichen Angaben zum Inhalt hinzufügen, die den <rules>Inhaltsrichtlinien von ShroudEdit</rules> entsprechen."
   },
   "project.settings.disclosures.description.2": {
     "message": "Unsicher, wie die Offenlegung von Inhalten auf das Projekt angewendet werden soll? Schau in unsere <faq-link>FAQ zu Inhaltsangeben</faq-link>."
@@ -4056,7 +4056,7 @@
     "message": "Welche Daten werden erfasst?"
   },
   "project.settings.disclosures.telemetry.data-placeholder": {
-    "message": "z. B. Anonyme Startanalysen zur Erfassung der verwendeten Minecraft-Version und des verwendeten Mod-Loader."
+    "message": "z. B. Anonyme Startanalysen zur Erfassung der verwendeten Enshrouded-Version und des verwendeten Mod-Loader."
   },
   "project.settings.disclosures.telemetry.description": {
     "message": "Du musst dies aktivieren, falls dein Projekt Nutzungsdaten an dich selbst oder an einen Dritten zurücksendet."
@@ -4122,7 +4122,7 @@
     "message": "Bitte wählen eine Plattform für diesen Spenden-Link aus."
   },
   "project.settings.monetization.description": {
-    "message": "Projekte auf Modrinth nehmen automatisch am <rewards-program-link>Belohnungsprogramm</rewards-program-link> teil. Falls du mit diesem Projekt keine Einnahmen erzielen möchtest (oder aus rechtlichen Gründen nicht darfst), kannst du dies hier deaktivieren."
+    "message": "Projekte auf ShroudEdit nehmen automatisch am <rewards-program-link>Belohnungsprogramm</rewards-program-link> teil. Falls du mit diesem Projekt keine Einnahmen erzielen möchtest (oder aus rechtlichen Gründen nicht darfst), kannst du dies hier deaktivieren."
   },
   "project.settings.monetization.disabled-description": {
     "message": "Dieses Projekt ist nicht zur Monetarisierung berechtigt. Falls du der Meinung bist, dass es sich hierbei um einen Fehler handelt, <contact-support-link>wende dich bitte an den Support</contact-support-link>."
@@ -4140,7 +4140,7 @@
     "message": "Unbekannter externer Inhalt"
   },
   "project.settings.permissions.bad-proof.description": {
-    "message": "Das Moderationsteam von Modrinth hat die von dir für einige externe Inhalte vorgelegten Berechtigungsnachweise abgelehnt. Bitte überprüfe die unten aufgeführten abgelehnten Einträge und lege zulässige Nachweise vor oder entfernen die Inhalte."
+    "message": "Das Moderationsteam von ShroudEdit hat die von dir für einige externe Inhalte vorgelegten Berechtigungsnachweise abgelehnt. Bitte überprüfe die unten aufgeführten abgelehnten Einträge und lege zulässige Nachweise vor oder entfernen die Inhalte."
   },
   "project.settings.permissions.bad-proof.title": {
     "message": "Einige Nachweise wurden abgelehnt"
@@ -4179,13 +4179,13 @@
     "message": "Alle ausklappen"
   },
   "project.settings.permissions.fail.description": {
-    "message": "Möglicherweise verfügst du nicht über die erforderliche Genehmigung zur Weitergabe einiger externer Inhalte in deinem Projekt. Um dein Projekt auf Modrinth zu veröffentlichen, entferne bitte diese Inhalte oder lege einen Nachweis vor, dass du über die erforderliche Genehmigung zur Nutzung verfügst."
+    "message": "Möglicherweise verfügst du nicht über die erforderliche Genehmigung zur Weitergabe einiger externer Inhalte in deinem Projekt. Um dein Projekt auf ShroudEdit zu veröffentlichen, entferne bitte diese Inhalte oder lege einen Nachweis vor, dass du über die erforderliche Genehmigung zur Nutzung verfügst."
   },
   "project.settings.permissions.fail.title": {
     "message": "Einige Inhalte können nicht enthalten sein"
   },
   "project.settings.permissions.info-banner.description": {
-    "message": "Wenn du Inhalte einbindest, welche nicht auf Modrinth gehostet werden, musst du uns deren Quelle mitteilen und bestätigen, dass du die Berechtigung zur Verbreitung der Dateien hast. Schau dir <link>unsere Ankündigung zu diesem neuen System</link> an, um mehr zu erfahren!"
+    "message": "Wenn du Inhalte einbindest, welche nicht auf ShroudEdit gehostet werden, musst du uns deren Quelle mitteilen und bestätigen, dass du die Berechtigung zur Verbreitung der Dateien hast. Schau dir <link>unsere Ankündigung zu diesem neuen System</link> an, um mehr zu erfahren!"
   },
   "project.settings.permissions.info-banner.title": {
     "message": "Erfahre mehr über die Rechte zur Verbreitung"
@@ -4197,7 +4197,7 @@
     "message": "Keine externen Dateien entsprechen deiner Suche."
   },
   "project.settings.permissions.not-allowed.description": {
-    "message": "Einige der enthaltenen externen Inhalte dürfen auf Modrinth nicht verbreitet werden, da sie gegen unsere Inhaltsrichtlinien verstoßen und daher entfernt werden müssen."
+    "message": "Einige der enthaltenen externen Inhalte dürfen auf ShroudEdit nicht verbreitet werden, da sie gegen unsere Inhaltsrichtlinien verstoßen und daher entfernt werden müssen."
   },
   "project.settings.permissions.pending-approval-count": {
     "message": "{count, plural, =0 {Keine Zuordnungen müssen genehmigt werden} one {# Zuordnung muss genehmigt werden} other {# Zuordnungen müssen genehmigt werden}}"
@@ -4266,7 +4266,7 @@
     "message": "Falls du <srv-tooltip>[SRV-Einträge]</srv-tooltip> hast, musst du keinen Port hinzufügen. Wenn du hingegen einen Port hast, der nicht 25565 ist, kannst du ihn wie folgt angeben: :12345"
   },
   "project.settings.server.srv-records-tooltip": {
-    "message": "Die Adresse, die du hier eingibst, verfügt möglicherweise über DNS-SRV-Einträge vom Typ _minecraft._tcp.(deine Domain), die auf die Adresse und den Port deines Minecraft-Servers verweisen."
+    "message": "Die Adresse, die du hier eingibst, verfügt möglicherweise über DNS-SRV-Einträge vom Typ _enshrouded._tcp.(deine Domain), die auf die Adresse und den Port deines Enshrouded-Servers verweisen."
   },
   "project.settings.tags.all-tags-selected-warning": {
     "message": "Du hast alle {count} verfügbaren Tags ausgewählt. Bitte wähle nur die Tags aus, die wirklich zu deinem Projekt passen."
@@ -4401,7 +4401,7 @@
     "message": "{item} konnte nicht gefunden werden"
   },
   "report.for.violation": {
-    "message": "Verstoss gegen Modrinth's <rules-link>Regeln</rules-link> oder <terms-link>Nutzungsbedingungen</terms-link>"
+    "message": "Verstoss gegen ShroudEdit's <rules-link>Regeln</rules-link> oder <terms-link>Nutzungsbedingungen</terms-link>"
   },
   "report.for.violation.description": {
     "message": "Beispiele beinhalten bössartige, Spam-, beleidigende, trügerische, irreführende und illegale Inhalte."
@@ -4458,7 +4458,7 @@
     "message": "Welche Art an Inhalt meldest du?"
   },
   "report.question.report-reason": {
-    "message": "Gegen welche von Modrinths Regeln verstösst dieses {item}?"
+    "message": "Gegen welche von ShroudEdits Regeln verstösst dieses {item}?"
   },
   "report.report-content": {
     "message": "Inhalt an Moderatoren melden"
@@ -4665,7 +4665,7 @@
     "message": "Schreibzugriff Meldungen"
   },
   "scopes.sessionAccess.description": {
-    "message": "Auf Modrinth-erstellte Sitzungen zugreifen"
+    "message": "Auf ShroudEdit-erstellte Sitzungen zugreifen"
   },
   "scopes.sessionAccess.label": {
     "message": "Zugriff auf Sitzungen"
@@ -4764,7 +4764,7 @@
     "message": "Mit Server synchronisieren"
   },
   "servers.manage.content.title": {
-    "message": "Inhalt - {serverName} - Modrinth"
+    "message": "Inhalt - {serverName} - ShroudEdit"
   },
   "servers.notice.actions": {
     "message": "Aktionen"
@@ -4821,13 +4821,13 @@
     "message": "Export wird generiert..."
   },
   "settings.account.data-export.description": {
-    "message": "Fordere eine Kopie aller deiner personenbezogenen Daten an, die du bei Modrinth hochgeladen hast. Dies kann einige Minuten dauern."
+    "message": "Fordere eine Kopie aller deiner personenbezogenen Daten an, die du bei ShroudEdit hochgeladen hast. Dies kann einige Minuten dauern."
   },
   "settings.account.data-export.title": {
     "message": "Datenexport"
   },
   "settings.account.delete.confirm.description": {
-    "message": "Dadurch werden **sofort alle deine Benutzerdaten und Follower gelöscht**. Deine Projekte werden dabei nicht gelöscht. Die Löschung deines Kontos kann nicht rückgängig gemacht werden.<br><br>Falls du Hilfe mit deinem Konto benötigst, wende dich bitte an den Support auf dem [Modrinth Discord](https://discord.modrinth.com)."
+    "message": "Dadurch werden **sofort alle deine Benutzerdaten und Follower gelöscht**. Deine Projekte werden dabei nicht gelöscht. Die Löschung deines Kontos kann nicht rückgängig gemacht werden.<br><br>Falls du Hilfe mit deinem Konto benötigst, wende dich bitte an den Support auf dem [ShroudEdit Discord](https://discord.shroudedit.com)."
   },
   "settings.account.delete.confirm.proceed": {
     "message": "Dieses Konto löschen"
@@ -5100,7 +5100,7 @@
     "message": "Bist du sicher, dass du diese Anwendung löschen willst?"
   },
   "settings.applications.description.intro": {
-    "message": "Anwendungen können verwendet werden, um Modrinth-Benutzer mit deinen Produkten zu authentifizieren. Weitere Informationen findest du in <docs-link>Modrinth's API-Dokumentation</docs-link>."
+    "message": "Anwendungen können verwendet werden, um ShroudEdit-Benutzer mit deinen Produkten zu authentifizieren. Weitere Informationen findest du in <docs-link>ShroudEdit's API-Dokumentation</docs-link>."
   },
   "settings.applications.field.description": {
     "message": "Beschreibung"
@@ -5154,7 +5154,7 @@
     "message": "Erstellt von {user}"
   },
   "settings.authorizations.description": {
-    "message": "Wenn du eine Anwendung mit deinem Modrinth-Konto autorisierst, gewährst du dieser Zugriff auf dein Konto. Du kannst den Zugriff auf dein Konto hier jederzeit verwalten und überprüfen."
+    "message": "Wenn du eine Anwendung mit deinem ShroudEdit-Konto autorisierst, gewährst du dieser Zugriff auf dein Konto. Du kannst den Zugriff auf dein Konto hier jederzeit verwalten und überprüfen."
   },
   "settings.authorizations.empty-state.description": {
     "message": "Von dir autorisierte Anwendungen werden hier angezeigt."
@@ -5166,7 +5166,7 @@
     "message": "Autorisierungen"
   },
   "settings.authorizations.official-tooltip": {
-    "message": "Diese App wurde von einem offiziellen Modrinth Konto erstellt."
+    "message": "Diese App wurde von einem offiziellen ShroudEdit Konto erstellt."
   },
   "settings.authorizations.revoke.action": {
     "message": "Widerrufen"
@@ -5178,19 +5178,19 @@
     "message": "Möchtest du diese Anwendung wirklich widerrufen?"
   },
   "settings.authorizations.unofficial-disclosure": {
-    "message": "Diese App steht in keiner Verbindung zu Modrinth, trotz ihres Namens."
+    "message": "Diese App steht in keiner Verbindung zu ShroudEdit, trotz ihres Namens."
   },
   "settings.billing.charges.description": {
-    "message": "Hier werden alle bisherigen Belastungen deines Modrinth-Kontos aufgeführt:"
+    "message": "Hier werden alle bisherigen Belastungen deines ShroudEdit-Kontos aufgeführt:"
   },
   "settings.billing.charges.product.medal-trial": {
     "message": "Medal Server-Testversion"
   },
   "settings.billing.charges.product.midas": {
-    "message": "Modrinth Plus"
+    "message": "ShroudEdit Plus"
   },
   "settings.billing.charges.product.pyro": {
-    "message": "Modrinth Hosting"
+    "message": "ShroudEdit Hosting"
   },
   "settings.billing.charges.title": {
     "message": "Vergangene Abbuchungen"
@@ -5208,13 +5208,13 @@
     "message": "Jahr"
   },
   "settings.billing.midas.benefits.ad-free": {
-    "message": "Werbefreies Surfen auf modrinth.com und der Modrinth App"
+    "message": "Werbefreies Surfen auf shroudedit.com und der ShroudEdit App"
   },
   "settings.billing.midas.benefits.badge": {
-    "message": "Modrinth+ Abzeichen auf deinem Profil"
+    "message": "ShroudEdit+ Abzeichen auf deinem Profil"
   },
   "settings.billing.midas.benefits.support": {
-    "message": "Unterstütze Modrinth und Ersteller direkt"
+    "message": "Unterstütze ShroudEdit und Ersteller direkt"
   },
   "settings.billing.midas.benefits.title": {
     "message": "Vorteile"
@@ -5238,7 +5238,7 @@
     "message": "Deine Zahlung wird bearbeitet. Vorteile werden aktiviert, sobald die Zahlung abgeschlossen ist."
   },
   "settings.billing.midas.upsell": {
-    "message": "Werde ein Abonnent von Modrinth Plus!"
+    "message": "Werde ein Abonnent von ShroudEdit Plus!"
   },
   "settings.billing.modal.cancel.action": {
     "message": "Abonnement kündigen"
@@ -5298,7 +5298,7 @@
     "message": "{shared} Geteilte CPUs (Spitzenlasten von bis zu {bursts} CPUs)"
   },
   "settings.billing.pyro.linked-server.not-found": {
-    "message": "Für dieses Abonnoment konnte kein verknüpfter Server gefunden werden. Dafür kann es verschiedene Gründe geben. Wenn du deinen Server gerade erst gekauft hast, ist dies normal. Es kann bis zu einer Stunde dauern, bist dein Server bereitgestellt ist. Falls du diesen Server bereits vor einiger Zeit erworben hast, wurde er wahrscheinlich inzwischen gesperrt. Sollte dies nicht das sein, was du erwartet hast, wende dich bitte an den Modrinth Support mit den folgenden Informationen:"
+    "message": "Für dieses Abonnoment konnte kein verknüpfter Server gefunden werden. Dafür kann es verschiedene Gründe geben. Wenn du deinen Server gerade erst gekauft hast, ist dies normal. Es kann bis zu einer Stunde dauern, bist dein Server bereitgestellt ist. Falls du diesen Server bereits vor einiger Zeit erworben hast, wurde er wahrscheinlich inzwischen gesperrt. Sollte dies nicht das sein, was du erwartet hast, wende dich bitte an den ShroudEdit Support mit den folgenden Informationen:"
   },
   "settings.billing.pyro.linked-server.server-id": {
     "message": "Server-ID: {id}"
@@ -5310,7 +5310,7 @@
     "message": "{gb} GB RAM"
   },
   "settings.billing.pyro.resubscribe.error.text": {
-    "message": "Ein Fehler ist bein erneuten abonnieren deines Modrinth Server aufgetreten."
+    "message": "Ein Fehler ist bein erneuten abonnieren deines ShroudEdit Server aufgetreten."
   },
   "settings.billing.pyro.resubscribe.error.title": {
     "message": "Fehler beim erneuten Abonnieren"
@@ -5337,10 +5337,10 @@
     "message": "{gb} GB Swap"
   },
   "settings.billing.pyro_subscription.description": {
-    "message": "Verwalte deine Modrinth Server Abonnements."
+    "message": "Verwalte deine ShroudEdit Server Abonnements."
   },
   "settings.billing.pyro_subscription.title": {
-    "message": "Modrinth Server Abonnements"
+    "message": "ShroudEdit Server Abonnements"
   },
   "settings.billing.renews": {
     "message": "Wird erneuert am {date}"
@@ -5355,7 +5355,7 @@
     "message": "Abonnieren"
   },
   "settings.billing.subscription.description": {
-    "message": "Verwalte deine Modrinth Server Abonnements."
+    "message": "Verwalte deine ShroudEdit Server Abonnements."
   },
   "settings.billing.subscription.title": {
     "message": "Abonnements"
@@ -5382,7 +5382,7 @@
     "message": "Entwicklermodus deaktivieren"
   },
   "settings.display.banner.developer-mode.description": {
-    "message": "<strong>Entwicklermodus</strong> ist aktiviert. Dies erlaubt es dir, die internen IDs von verschiedensten Dingen in Modrinth anzusehen, welche eventuell von nutzen sein können, wenn du ein Entwickler bist, welcher die Modrinth API verwendet. Klicke 5 mal auf das Modrinth Logo am unteren Ender der Seite um den Entwicklermodus umzuschalten."
+    "message": "<strong>Entwicklermodus</strong> ist aktiviert. Dies erlaubt es dir, die internen IDs von verschiedensten Dingen in ShroudEdit anzusehen, welche eventuell von nutzen sein können, wenn du ein Entwickler bist, welcher die ShroudEdit API verwendet. Klicke 5 mal auf das ShroudEdit Logo am unteren Ender der Seite um den Entwicklermodus umzuschalten."
   },
   "settings.display.notification.developer-mode-deactivated.text": {
     "message": "Entwicklermodus wurde deaktiviert"
@@ -5397,7 +5397,7 @@
     "message": "Erstelle einen PAT"
   },
   "settings.pats.description": {
-    "message": "PATs können verwendet werden, um auf Modrinth's API zuzugreifen. Sie können zu jeder zeit erstellt und gelöscht werden. Für weitere Informationen, schau dir <doc-link>Modrinth's API Dokumentation</doc-link> an."
+    "message": "PATs können verwendet werden, um auf ShroudEdit's API zuzugreifen. Sie können zu jeder zeit erstellt und gelöscht werden. Für weitere Informationen, schau dir <doc-link>ShroudEdit's API Dokumentation</doc-link> an."
   },
   "settings.pats.modal.create.action": {
     "message": "PAT erstellen"
@@ -5454,7 +5454,7 @@
     "message": "Aktuelle Sitzung"
   },
   "settings.sessions.description": {
-    "message": "Hier sind alle Geräte, welche gerade mit deinem Modrinth-Konto angemeldet sind. Du kannst dich von jedem einzeln abmelden.\n\nSolltest du einen Eintrag sehen, welcher dir nicht bekannt ist, melde dich sofort von diesem Gerät ab und ändere dein Modrinth passwort."
+    "message": "Hier sind alle Geräte, welche gerade mit deinem ShroudEdit-Konto angemeldet sind. Du kannst dich von jedem einzeln abmelden.\n\nSolltest du einen Eintrag sehen, welcher dir nicht bekannt ist, melde dich sofort von diesem Gerät ab und ändere dein ShroudEdit passwort."
   },
   "settings.sessions.last-accessed-ago": {
     "message": "Zuletzt aufgerufen {ago}"
@@ -5478,7 +5478,7 @@
     "message": "Einladung akzeptieren"
   },
   "shared-instance.invite.inviter.unknown": {
-    "message": "Ein Modrinth-Benutzer"
+    "message": "Ein ShroudEdit-Benutzer"
   },
   "shared-instance.invite.joined-count": {
     "message": "{count, plural, one {# Person ist} other {# Personen sind}} bereits beigetreten"
@@ -5490,7 +5490,7 @@
     "message": "{name} hat dich zum Spielen eingeladen"
   },
   "shared-instance.invite.trust.description": {
-    "message": "Diese Einladung wurde von einem anderen Modrinth-Benutzer erstellt, nicht von Modrinth. Nimm nur Einladungen von Personen an, denen du vertraust."
+    "message": "Diese Einladung wurde von einem anderen ShroudEdit-Benutzer erstellt, nicht von ShroudEdit. Nimm nur Einladungen von Personen an, denen du vertraust."
   },
   "shared-instance.invite.trust.heading": {
     "message": "Kennst du diesen Benutzer?"
@@ -5502,7 +5502,7 @@
     "message": "Diese Einladung ist nicht verfügbar"
   },
   "ui.latest-news-row.latest-news": {
-    "message": "Neuste Nachrichten von Modrinth"
+    "message": "Neuste Nachrichten von ShroudEdit"
   },
   "ui.latest-news-row.view-all": {
     "message": "Alle Neuigkeiten anzeigen"
@@ -5514,7 +5514,7 @@
     "message": "Abonniert!"
   },
   "ui.newsletter-button.tooltip": {
-    "message": "Abonniere den Modrinth Newsletter"
+    "message": "Abonniere den ShroudEdit Newsletter"
   },
   "ui.two-factor-code.authentication-code": {
     "message": "Sechsstelliger Authentifizierungscode"
@@ -5631,10 +5631,10 @@
     "message": "Maven-Koordinaten:"
   },
   "version.section.content.dev-info.maven-description": {
-    "message": "Projekte auf Modrinth sind automatisch über ein Maven-Repository für die Verwendung mit JVM-Build-Tools wie <gradle-link>Gradle</gradle-link> verfügbar. Um mehr über die Maven-API von Modrinth zu erfahren, <article-link>klicke hier</article-link>."
+    "message": "Projekte auf ShroudEdit sind automatisch über ein Maven-Repository für die Verwendung mit JVM-Build-Tools wie <gradle-link>Gradle</gradle-link> verfügbar. Um mehr über die Maven-API von ShroudEdit zu erfahren, <article-link>klicke hier</article-link>."
   },
   "version.section.content.dev-info.maven-note": {
-    "message": "Hinweis: Falls verfügbar, solltest du stattdessen das Maven-Repository des Entwicklers verwenden, da dieses Informationen zu transitiven Abhängigkeiten enthält, die in der Maven-API von Modrinth fehlen. Außerdem kann es zu doppelten Abhängigkeiten kommen, wenn du für deine Abhängigkeiten sowohl Modrinth- als auch andere Maven-Repositorys verwendest, da die Gruppen-ID bei der Bereitstellung über die Maven-API von Modrinth abweicht."
+    "message": "Hinweis: Falls verfügbar, solltest du stattdessen das Maven-Repository des Entwicklers verwenden, da dieses Informationen zu transitiven Abhängigkeiten enthält, die in der Maven-API von ShroudEdit fehlen. Außerdem kann es zu doppelten Abhängigkeiten kommen, wenn du für deine Abhängigkeiten sowohl ShroudEdit- als auch andere Maven-Repositorys verwendest, da die Gruppen-ID bei der Bereitstellung über die Maven-API von ShroudEdit abweicht."
   },
   "version.section.content.dev-info.version-id": {
     "message": "Versions-ID:"

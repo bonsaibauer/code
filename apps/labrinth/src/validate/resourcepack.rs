@@ -14,7 +14,7 @@ impl super::Validator for PackValidator {
     }
 
     fn get_supported_loaders(&self) -> &[&str] {
-        &["minecraft"]
+        &["enshrouded"]
     }
 
     fn get_supported_game_versions(&self) -> SupportedGameVersions {
@@ -53,7 +53,7 @@ impl super::Validator for TexturePackValidator {
     }
 
     fn get_supported_loaders(&self) -> &[&str] {
-        &["minecraft"]
+        &["enshrouded"]
     }
 
     fn get_supported_game_versions(&self) -> SupportedGameVersions {

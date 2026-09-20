@@ -6,18 +6,18 @@ export class LabrinthServerPingInternalModule extends AbstractModule {
 		return 'labrinth_server_ping_internal'
 	}
 
-	/**
-	 * Ping a Minecraft Java server
-	 * POST /_internal/server-ping/minecraft-java
-	 */
-	public async pingMinecraftJava(
-		request: Labrinth.ServerPing.Internal.MinecraftJavaPingRequest,
-	): Promise<void> {
-		return this.client.request<void>('/server-ping/minecraft-java', {
-			api: 'labrinth',
-			version: 'internal',
-			method: 'POST',
-			body: request,
-		})
+	/** Ping an Enshrouded dedicated server through its UDP query port. */
+	public async pingEnshrouded(
+		request: Labrinth.ServerPing.Internal.EnshroudedPingRequest,
+	): Promise<Labrinth.Projects.v3.EnshroudedServerPingData> {
+		return this.client.request<Labrinth.Projects.v3.EnshroudedServerPingData>(
+			'/server-ping/enshrouded',
+			{
+				api: 'labrinth',
+				version: 'internal',
+				method: 'POST',
+				body: request,
+			},
+		)
 	}
 }

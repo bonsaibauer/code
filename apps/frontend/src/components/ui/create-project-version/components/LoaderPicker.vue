@@ -39,16 +39,15 @@
 </template>
 
 <script lang="ts" setup>
-import type { Labrinth } from '@modrinth/api-client'
-import { getLoaderIcon } from '@modrinth/assets'
-import { Chips, FormattedTag, TagItem } from '@modrinth/ui'
+import type { Labrinth } from '@shroudedit/api-client'
+import { getLoaderIcon } from '@shroudedit/assets'
+import { Chips, FormattedTag, TagItem } from '@shroudedit/ui'
 
 const selectedLoaders = defineModel<string[]>({ default: [] })
 
-const { loaders, includeGeyser } = defineProps<{
+const { loaders } = defineProps<{
 	loaders: Labrinth.Tags.v2.Loader[]
 	toggleLoader: (loader: string) => void
-	includeGeyser?: boolean
 }>()
 
 const loaderGroup = ref<GroupLabels>('mods')
@@ -66,54 +65,15 @@ function groupLoaders(loaders: Labrinth.Tags.v2.Loader[]) {
 		other: [],
 	}
 
-	const MOD_SORT = [
-		'fabric',
-		'neoforge',
-		'forge',
-		'quilt',
-		'liteloader',
-		'rift',
-		'ornithe',
-		'nilloader',
-		'risugami',
-		'legacy-fabric',
-		'bta-babric',
-		'babric',
-		'modloader',
-		'java-agent',
-	]
-
-	const PLUGIN_SORT = [
-		'paper',
-		'purpur',
-		'spigot',
-		'bukkit',
-		'sponge',
-		'folia',
-		'bungeecord',
-		'velocity',
-		'waterfall',
-		...(includeGeyser ? ['geyser'] : []),
-	]
-
-	const SHADER_SORT = ['optifine', 'iris', 'canvas', 'vanilla']
-	const PACKS_SORT = ['minecraft', 'datapack']
+	const MOD_SORT = ['shroudtopia', 'shroudforge', 'eml']
 
 	for (const loader of loaders) {
 		const name = loader.name.toLowerCase()
-		if (PACKS_SORT.includes(name)) groups.packs.push(loader)
-		else if (SHADER_SORT.includes(name)) groups.shaders.push(loader)
-		else if (PLUGIN_SORT.includes(name)) groups.plugins.push(loader)
-		else if (MOD_SORT.includes(name)) groups.mods.push(loader)
+		if (MOD_SORT.includes(name)) groups.mods.push(loader)
 		else groups.other.push(loader)
 	}
 
-	const sortByOrder = (arr: any[], order: string[]) =>
-		arr.sort((a, b) => order.indexOf(a.name) - order.indexOf(b.name))
-
-	sortByOrder(groups.mods, MOD_SORT)
-	sortByOrder(groups.plugins, PLUGIN_SORT)
-	sortByOrder(groups.shaders, SHADER_SORT)
+	groups.mods.sort((a, b) => MOD_SORT.indexOf(a.name) - MOD_SORT.indexOf(b.name))
 
 	return groups
 }
@@ -123,7 +83,6 @@ const groupedLoaders = computed(() => groupLoaders(loaders))
 onMounted(() => {
 	if (selectedLoaders.value.length === 0) return
 
-	// Find the first group that contains any of the selected loaders
 	const groups = groupedLoaders.value
 	for (const [groupName, loadersInGroup] of Object.entries(groups)) {
 		if (loadersInGroup.some((loader) => selectedLoaders.value.includes(loader.name))) {

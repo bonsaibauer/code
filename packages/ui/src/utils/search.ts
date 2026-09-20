@@ -1,4 +1,4 @@
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	ArchiveIcon,
 	BrainCogIcon,
@@ -13,8 +13,8 @@ import {
 	RadioTowerIcon,
 	ServerIcon,
 	SparklesIcon,
-} from '@modrinth/assets'
-import { sortedCategories } from '@modrinth/utils'
+} from '@shroudedit/assets'
+import { sortedCategories } from '@shroudedit/utils'
 import { type Component, computed, readonly, type Ref, ref } from 'vue'
 import { type LocationQueryRaw, type LocationQueryValue, useRoute } from 'vue-router'
 
@@ -185,6 +185,7 @@ export interface GameVersion {
 export type ProjectType =
 	| 'mod'
 	| 'modpack'
+	| 'schematic'
 	| 'resourcepack'
 	| 'shader'
 	| 'datapack'
@@ -198,6 +199,7 @@ const ALL_PROJECT_TYPES: ProjectType[] = [
 	'datapack',
 	'shader',
 	'modpack',
+	'schematic',
 	'plugin',
 	'server',
 ]
@@ -1145,12 +1147,8 @@ export function useSearch(
 	}
 }
 
-const PROJECT_TYPE_SEARCH_MAP: Partial<Record<ProjectType, string>> = {
-	server: 'minecraft_java_server',
-}
-
 function mapProjectTypeToSearch(projectType: ProjectType): string {
-	return PROJECT_TYPE_SEARCH_MAP[projectType] ?? projectType
+	return projectType
 }
 
 function getEnvironmentFilterGroups(client: boolean, server: boolean): string[][] {

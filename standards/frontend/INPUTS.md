@@ -23,11 +23,11 @@ into application code.
 Use a dedicated component for each other type of control. Do not use `Input` instead
 of a select, checkbox, radio group, toggle, or file picker.
 
-Import the public input components from `@modrinth/ui`. In `packages/ui`, import them
+Import the public input components from `@shroudedit/ui`. In `packages/ui`, import them
 from `#ui/components/base/inputs`:
 
 ```ts
-import { ColorPicker, DateInput, DatePicker, Input, Textarea } from '@modrinth/ui'
+import { ColorPicker, DateInput, DatePicker, Input, Textarea } from '@shroudedit/ui'
 ```
 
 ## Labels and field descriptions
@@ -271,7 +271,7 @@ native input. It opens the native picker if the browser has `showPicker()`.
 Use `DateInput` for a native date control. Use `DatePicker` for one or more of these
 functions:
 
-- A calendar with the Modrinth style.
+- A calendar with the ShroudEdit style.
 - A date range or multiple dates.
 - Time controls.
 - More than one visible month.

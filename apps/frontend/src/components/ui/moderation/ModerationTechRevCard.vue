@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { CheckIcon, CodeIcon, ExternalIcon, TimerIcon, VersionIcon } from '@modrinth/assets'
+import type { Labrinth } from '@shroudedit/api-client'
+import { CheckIcon, CodeIcon, ExternalIcon, TimerIcon, VersionIcon } from '@shroudedit/assets'
 import {
 	ButtonLink,
 	CopyCode,
@@ -8,8 +8,8 @@ import {
 	getProjectTypeIcon,
 	NavTabs,
 	Toggle,
-} from '@modrinth/ui'
-import { capitalizeString, formatProjectType } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { capitalizeString, formatProjectType } from '@shroudedit/utils'
 import { computed, provide, ref, watch } from 'vue'
 
 import type { UnsafeFile } from '~/components/ui/moderation/MaliciousSummaryModal.vue'
@@ -44,6 +44,7 @@ const props = defineProps<{
 	allowShowingHiddenTraces?: boolean
 	disableCollapsing?: boolean
 }>()
+const config = useRuntimeConfig()
 
 const emit = defineEmits<{
 	refetch: []
@@ -280,7 +281,7 @@ watch(
 							</ButtonLink>
 							<CopyLinkButton
 								copy-label="Copy tech review link"
-								:url="`https://modrinth.com/moderation/technical-review/${props.item.project.id}`"
+								:url="`${config.public.siteUrl}/moderation/technical-review/${props.item.project.id}`"
 							/>
 							<ButtonLink
 								v-tooltip="'Open tech review in new tab'"

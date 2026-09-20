@@ -155,7 +155,7 @@ import {
 	RightArrowIcon,
 	SteamColorIcon,
 	UserKeyIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	Admonition,
 	Avatar,
@@ -163,11 +163,11 @@ import {
 	ButtonLink,
 	commonMessages,
 	defineMessages,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	Input,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import { useStorage } from '@vueuse/core'
 import type { LocationQueryValue } from 'vue-router'
@@ -224,7 +224,7 @@ const getErrorMessage = (error: unknown): string => {
 	return String(error)
 }
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const queryClient = useQueryClient()
 const { addNotification } = injectNotificationManager()
 const { formatMessage } = useVIntl()
@@ -274,7 +274,7 @@ const messages = defineMessages({
 
 useHead({
 	title() {
-		return `${formatMessage(messages.pageTitle)} - Modrinth`
+		return `${formatMessage(messages.pageTitle)} - ShroudEdit`
 	},
 })
 

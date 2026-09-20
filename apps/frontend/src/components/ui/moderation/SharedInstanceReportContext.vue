@@ -10,19 +10,19 @@ import {
 	UserPlusIcon,
 	UsersIcon,
 	VersionIcon,
-} from '@modrinth/assets'
-import { Button, IconButton } from '@modrinth/ui'
+} from '@shroudedit/assets'
+import { Button, IconButton } from '@shroudedit/ui'
 import {
 	Avatar,
 	ConfirmLeaveModal,
 	type ContentItem,
-	injectModrinthClient,
+	injectShroudEditClient,
 	ManagedContentModal,
 	Table,
 	type TableColumn,
 	useFormatDateTime,
 	useRelativeTime,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { useQuery } from '@tanstack/vue-query'
 import { computed, ref } from 'vue'
 
@@ -84,7 +84,7 @@ const emit = defineEmits<{
 
 const contentModal = ref<InstanceType<typeof ManagedContentModal> | null>(null)
 const banModal = ref<InstanceType<typeof ConfirmLeaveModal> | null>(null)
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const contentByVersion = new Map<string, ContentItem[]>()
 const contentInstance = ref<Pick<SharedInstanceOwnerInstance, 'id' | 'name' | 'icon_url'>>({
 	id: props.details.id,
@@ -326,7 +326,7 @@ function formattedLoader(version: SharedInstanceReportVersion) {
 										</span>
 									</div>
 									<span v-if="version.game_version" class="truncate text-sm text-secondary">
-										Minecraft {{ version.game_version }} · {{ formattedLoader(version) }}
+										Enshrouded {{ version.game_version }} · {{ formattedLoader(version) }}
 									</span>
 								</div>
 							</div>

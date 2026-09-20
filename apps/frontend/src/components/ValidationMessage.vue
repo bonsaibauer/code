@@ -32,9 +32,9 @@
 </template>
 
 <script setup lang="ts">
-import { LightBulbIcon, TriangleAlertIcon, XCircleIcon } from '@modrinth/assets'
-import type { FieldValidationMessage } from '@modrinth/moderation'
-import { injectProjectPageContext, useVIntl } from '@modrinth/ui'
+import { LightBulbIcon, TriangleAlertIcon, XCircleIcon } from '@shroudedit/assets'
+import type { FieldValidationMessage } from '@shroudedit/moderation'
+import { injectProjectPageContext, useVIntl } from '@shroudedit/ui'
 import { computed, onScopeDispose, ref, shallowRef, watch } from 'vue'
 
 defineOptions({ inheritAttrs: false })

@@ -396,7 +396,7 @@ import {
 	UserPlusIcon,
 	VersionIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	Avatar,
 	Button,
@@ -405,13 +405,13 @@ import {
 	CopyCode,
 	DoubleIcon,
 	IconButton,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	ProjectStatusBadge,
 	useFormatDateTime,
 	useRelativeTime,
-} from '@modrinth/ui'
-import { getUserLink, renderString } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { getUserLink, renderString } from '@shroudedit/utils'
 
 import { markAsRead } from '~/helpers/platform-notifications'
 import { getProjectLink, getVersionLink } from '~/helpers/projects'
@@ -420,7 +420,7 @@ import { acceptTeamInvite, removeSelfFromTeam } from '~/helpers/teams'
 import ModrinthServersIcon from '../brand/ModrinthServersIcon.vue'
 import ThreadSummary from './thread/ThreadSummary.vue'
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const { addNotification } = injectNotificationManager()
 const emit = defineEmits(['update:notifications'])
 const router = useRouter()
@@ -520,7 +520,7 @@ async function performAction(notification, actionIndex) {
 				})
 
 				if (inviteAction === 'accept') {
-					await router.push(`/hosting/manage/${encodeURIComponent(serverId)}`)
+					await router.push('/discover/servers')
 				}
 			} else {
 				const [method, route] = action.action_route

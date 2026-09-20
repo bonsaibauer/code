@@ -1,320 +1,216 @@
 <template>
 	<div class="markdown-body">
 		<h1>Privacy Policy</h1>
-		<p><em>Last modified: November 17, 2023</em></p>
+		<p><em>Last updated: September 20, 2026</em></p>
 
-		<h2>Introduction</h2>
 		<p>
-			<a href="https://modrinth.com">Modrinth</a> is part of Rinth, Inc. ("Company", "us", "we",
-			"our"). This privacy policy explains how we collect data, process it, and your rights relative
-			to your data.
+			This Privacy Policy explains how personal data is processed when you use ShroudEdit. It applies
+			to shroudedit.com, the ShroudEdit API and related community services. The terms used in this
+			policy have the meanings given to them by the General Data Protection Regulation
+			(<strong>GDPR</strong>).
 		</p>
+
+		<h2>1. Controller</h2>
 		<p>
-			This policy describes the types of information we may collect from you or that you may provide
-			when you use www.modrinth.com, api.modrinth.com, or the Modrinth App ("Service" or "Website"),
-			and our practices for collecting, using, maintaining, protecting, and disclosing that
-			information.
+			<strong>Controller:</strong> Philipp Feierabend<br />
+			Straße, Hausnummer<br />
+			PLZ, Stadt<br />
+			Germany<br />
+			Email: <a href="mailto:gdpr@shroudedit.com">gdpr@shroudedit.com</a>
 		</p>
-		<p>This policy applies to information we collect:</p>
+
+		<h2>2. Categories of data and purposes</h2>
+		<h3>Website delivery and server logs</h3>
+		<p>
+			When the Service is accessed, we process IP addresses, request time, requested URL, referrer,
+			response status, transferred data volume, user agent and comparable connection information.
+			This is necessary to deliver the Service, diagnose errors, prevent abuse and maintain security.
+			The legal basis is Article 6(1)(f) GDPR. Our legitimate interests are reliable and secure
+			operation of the Service.
+		</p>
+
+		<h3>Accounts and authentication</h3>
+		<p>
+			For registered users we process account identifiers, username, display name, email address,
+			profile image, authentication credentials in protected form, session data, account settings and
+			linked authentication-provider identifiers. The legal basis is Article 6(1)(b) GDPR. Security
+			logs and abuse-prevention data are additionally processed under Article 6(1)(f) GDPR.
+		</p>
+
+		<h3>Projects, uploads and community functions</h3>
+		<p>
+			When you publish or interact with content, we process project files, schematics, modpacks,
+			images, descriptions, metadata, licences, dependencies, server listings, comments, reports,
+			team memberships, follows and other information you provide. Public profile and project data is
+			displayed according to the function you use. Processing is based on Article 6(1)(b) GDPR and,
+			for moderation, fraud prevention and platform integrity, Article 6(1)(f) GDPR.
+		</p>
+
+		<h3>Downloads, views and internal statistics</h3>
+		<p>
+			We process the requested project or file, time, IP address, approximate country, account ID where
+			applicable and technical request data to deliver downloads, protect the Service against abuse
+			and provide aggregated project statistics. The legal basis is Article 6(1)(b) and (f) GDPR.
+			Statistics made available publicly or to project teams are aggregated where possible.
+		</p>
+
+		<h3>Communication, reports and support</h3>
+		<p>
+			When you contact us or submit a report, we process your contact details, message, attachments,
+			technical context and subsequent correspondence. Processing is based on Article 6(1)(b) GDPR
+			where it relates to the user relationship, Article 6(1)(c) GDPR where required by law, and
+			otherwise Article 6(1)(f) GDPR for support, rights enforcement and abuse prevention.
+		</p>
+
+		<h3>Email notifications</h3>
+		<p>
+			We process your email address and notification preferences to send account verification,
+			security, moderation and project-related messages. Transactional messages are based on Article
+			6(1)(b) GDPR. Optional marketing messages are sent only with consent under Article 6(1)(a)
+			GDPR and can be unsubscribed from at any time.
+		</p>
+
+		<h3>Payments and creator payouts</h3>
+		<p>
+			If paid functions or creator payouts are made available and you choose to use them, we process
+			transaction identifiers, amounts, currency, billing and tax information, payout contact data
+			and payment status. Payment credentials are generally processed directly by the selected
+			payment provider. The legal bases are Article 6(1)(b) and (c) GDPR. Payment information is not
+			processed merely by browsing the Service.
+		</p>
+
+		<h2>3. Cookies and local storage</h2>
+		<p>
+			We use cookies and browser storage that are strictly necessary for login sessions, security,
+			language, theme, display preferences and other functions expressly requested by the user. The
+			legal basis for processing personal data is Article 6(1)(b) or (f) GDPR; access to the device is
+			based on Section 25(2) TDDDG. Non-essential analytics or marketing technologies are used only
+			after consent under Section 25(1) TDDDG and Article 6(1)(a) GDPR. Consent can be withdrawn at
+			any time through the available privacy settings.
+		</p>
+
+		<h2>4. Service providers and recipients</h2>
+		<p>
+			We disclose personal data only where necessary to operate the Service, fulfil a contract, comply
+			with law or protect legitimate interests. Recipients may include infrastructure, hosting,
+			content-delivery, object-storage, email, security, error-monitoring, authentication and payment
+			providers, as well as professional advisers and competent authorities where legally required.
+			Processors are bound by data-protection agreements where required by Article 28 GDPR.
+		</p>
+
+		<h3>Cloudflare</h3>
+		<p>
+			Where Cloudflare is used to deliver and protect the website, Cloudflare processes connection and
+			security data such as IP addresses, request metadata and threat signals. This processing serves
+			the secure and efficient delivery of the Service under Article 6(1)(f) GDPR. Further information
+			is available in
+			<a href="https://www.cloudflare.com/privacypolicy/">Cloudflare’s Privacy Policy</a>.
+		</p>
+
+		<h3>Error monitoring</h3>
+		<p>
+			Where Sentry error monitoring is enabled, technical error information, device and request data,
+			and an account identifier where relevant may be processed to identify and resolve failures. We
+			configure reports to avoid unnecessary personal content. The legal basis is Article 6(1)(f)
+			GDPR. Further information is available in
+			<a href="https://sentry.io/privacy/">Sentry’s Privacy Policy</a>.
+		</p>
+
+		<h3>GitHub and Discord authentication</h3>
+		<p>
+			If you choose to sign in or link an account through GitHub or Discord, the provider sends us the
+			identifier and profile data shown during authorisation. The provider also learns that you used
+			the authentication flow. Processing is based on Article 6(1)(b) GDPR and your voluntary choice
+			to use that provider. Their own processing is governed by the
+			<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">
+				GitHub Privacy Statement
+			</a>
+			and <a href="https://discord.com/privacy">Discord Privacy Policy</a>.
+		</p>
+
+		<h2>5. International transfers</h2>
+		<p>
+			Some providers may process data outside the European Economic Area. In those cases we use an
+			adequacy decision under Article 45 GDPR, approved standard contractual clauses under Article 46
+			GDPR or another lawful transfer mechanism. Information about applicable safeguards can be
+			requested from <a href="mailto:gdpr@shroudedit.com">gdpr@shroudedit.com</a>.
+		</p>
+
+		<h2>6. Retention</h2>
+		<p>
+			We retain personal data only for as long as necessary for the relevant purpose or as required by
+			law. Account data is normally retained until the account is deleted. Public content remains
+			until deleted by the user or removed under our policies. Operational logs are normally deleted
+			or anonymised after 30 days unless a longer period is necessary to investigate a security or
+			abuse incident. Download and view records are anonymised no later than 24 months after
+			collection. Reports, legal correspondence and transaction records may be kept for applicable
+			statutory limitation and retention periods. Backup copies are removed through regular rotation.
+		</p>
+
+		<h2>7. Security</h2>
+		<p>
+			We use technical and organisational measures appropriate to the risk, including encrypted
+			transport, access controls, credential protection, logging, backups and measures to preserve
+			confidentiality, integrity and availability. No internet service can guarantee absolute
+			security. Vulnerabilities can be reported under our
+			<nuxt-link to="/legal/security">Security Notice</nuxt-link>.
+		</p>
+
+		<h2>8. Your rights</h2>
+		<p>Subject to the statutory requirements, you have the right to:</p>
 		<ul>
-			<li>On this Website.</li>
-			<li>In email, text, and other electronic messages between you and this Website.</li>
-			<li>
-				Through mobile and desktop applications you download from this Website, which provide
-				dedicated non-browser-based interaction between you and this Website.
-			</li>
-			<li>
-				When you interact with our advertising and applications on third-party websites and
-				services, if those applications or advertising include links to this policy.
-			</li>
-		</ul>
-		<p>It does not apply to information collected by:</p>
-		<ul>
-			<li>
-				Us offline or through any other means, including on any other website operated by Rinth,
-				Inc. or any third party (including our affiliates and subsidiaries); or
-			</li>
-			<li>
-				Any third party (including our affiliates and subsidiaries), including through any
-				application or content (including advertising) that may link to or be accessible from or on
-				the Website
-			</li>
-		</ul>
-		<p>
-			Please read this policy carefully to understand our policies and practices regarding your
-			information and how we will treat it. If you do not agree with our policies and practices,
-			your choice is not to use our Website. By accessing or using this Website, you agree to this
-			privacy policy. This policy may change from time to time (see Changes to the Privacy Policy).
-			Your continued use of this Website after we make changes is deemed to be acceptance of those
-			changes, so please check the policy periodically for updates.
-		</p>
-
-		<h2>Foreword</h2>
-
-		<p>
-			The following document was created as required by several laws, including but not limited to:
-		</p>
-		<ul>
-			<li>
-				the California Consumer Privacy Act (CA CCPA), more information about which can be found on
-				<a href="https://oag.ca.gov/privacy/ccpa">oag.ca.gov</a>
-			</li>
-			<li>
-				the European Union General Data Protection Regulation (EU GDPR), more information about
-				which can be found on
-				<a href="https://gdpr.eu/">gdpr.eu</a>
-			</li>
-		</ul>
-
-		<p>Rinth, Inc. is the data controller for data collected through Modrinth.</p>
-
-		<h2>What data do we collect?</h2>
-
-		<h3>User data</h3>
-		<p>When you create an account, we collect:</p>
-		<ul>
-			<li>Your email</li>
-			<li>Your username</li>
-			<li>Your display name</li>
-			<li>Your profile picture</li>
-			<li>Your OAuth application data (ex: GitHub or Discord ID)</li>
-		</ul>
-		<p>
-			This data is used to identify you and display your profile. It will be linked to your
-			projects.
-		</p>
-
-		<h3>View data and download data</h3>
-		<p>When you view a project page or download a file from Modrinth, we collect:</p>
-		<ul>
-			<li>Your IP address</li>
-			<li>Your user ID (if applicable)</li>
-			<li>The project viewed and/or the file downloaded</li>
-			<li>Your country</li>
-			<li>Some additional metadata about your connection (HTTP headers)</li>
-		</ul>
-		<p>This data is used to monitor automated access to our service and deliver statistics.</p>
-
-		<h3>Playtime data</h3>
-		<p>When you use the Modrinth App to play Modrinth projects, we collect:</p>
-		<ul>
-			<li>Your IP address</li>
-			<li>Your user ID</li>
-			<li>The amount of time the project was played for</li>
-			<li>The project played</li>
-			<li>
-				Some additional metadata about the projects you're playing (loaders and game versions)
-			</li>
-		</ul>
-		<p>This data is used to deliver statistics.</p>
-
-		<h3>Usage data</h3>
-		<p>When you interact with the Modrinth App or the Website, we collect through PostHog:</p>
-		<ul>
-			<li>Your IP address</li>
-			<li>Your anonymized user ID</li>
-			<li>The time the interaction happened</li>
-			<li>Some additional metadata about the device you are on</li>
-			<li>Some additional metadata about each interaction</li>
-		</ul>
-		<p>This data is used to deliver statistics.</p>
-
-		<h3>Creator Monetization Program data</h3>
-		<p>
-			When you sign up for our
-			<nuxt-link to="/news/article/creator-monetization-beta">
-				Creator Monetization Program</nuxt-link
-			>
-			(the "CMP"), we collect:
-		</p>
-		<ul>
-			<li>Your PayPal email address (if applicable)</li>
-			<li>Your Venmo username (if applicable)</li>
-		</ul>
-		<p>This data is used to carry out the CMP. It will be linked to your transactions.</p>
-
-		<h2>Data retention</h2>
-		<p>
-			View data and download data are anonymized 24 months after being recorded. All personal
-			information will be removed from those records during anonymization.<br />
-			Data is retained indefinitely. We do not delete any data unless you request it.
-		</p>
-
-		<h2>Third-party services</h2>
-		<p>
-			We use some third-party services to make Modrinth run. Please refer to each of their privacy
-			policies for more information:
-		</p>
-		<ul>
-			<li>
-				<a href="https://www.cloudflare.com/en-gb/gdpr/introduction/"> Cloudflare </a>
-			</li>
-			<li><a href="https://sentry.io/trust/privacy/">Sentry</a></li>
-			<li><a href="https://posthog.com/privacy">PostHog</a></li>
-			<li><a href="https://www.beehiiv.com/privacy">BeeHiiv</a></li>
-			<li><a href="https://www.paypal.com/us/legalhub/privacy-full">PayPal</a></li>
-			<li><a href="https://stripe.com/privacy">Stripe</a></li>
-		</ul>
-		<p>
-			Data that we specifically collect isn't shared with any other third party. We do not sell any
-			data.
-		</p>
-
-		<h2>Data Governance</h2>
-		<p>
-			Database access is limited to the minimum amount of Rinth, Inc. employees required to run the
-			service.<br />
-			Data is stored in a jurisdiction that is part of the European Economic Area (EEA), encrypted
-			both in storage and in transit.
-		</p>
-
-		<h2>Marketing and advertising</h2>
-		<p>
-			We use anonymized statistics to conduct marketing and advertising through
-			<a href="https://adrinth.com/">Adrinth</a>.
-		</p>
-
-		<h2>Cookies</h2>
-		<p>We use cookies to log you into your account and save your cosmetic preferences.</p>
-		<p>
-			Cookies are text files placed on your computer to collect standard Internet information. For
-			more information, please visit
-			<a href="https://allaboutcookies.org/">allaboutcookies.org</a>.
-		</p>
-		<p>
-			You can set your browser not to accept cookies, and the above website tells you how to remove
-			cookies from your browser. However, in a few cases, some of our website features may not
-			function as a result.
-		</p>
-
-		<h2>Access, rectification, erasure, restriction, portability, and objection</h2>
-		<p>Every user is entitled to the following:</p>
-		<ul>
-			<li>
-				<strong>The right to access</strong> – You have the right to request copies of your personal
-				data. We may charge you a small fee for this service.
-			</li>
-			<li>
-				<strong>The right to rectification</strong> – You have the right to request that we correct
-				any information you believe is inaccurate. You also have the right to request us to complete
-				the information you believe is incomplete.
-			</li>
-			<li>
-				<strong>The right to erasure</strong> – You have the right to request that we erase your
-				personal data, under certain conditions.
-			</li>
-			<li>
-				<strong>The right to restrict processing</strong> – You have the right to request that we
-				restrict the processing of your personal data, under certain conditions.
-			</li>
-			<li>
-				<strong>The right to data portability</strong> – You have the right to request that we
-				transfer the data that we have collected to another organization, or directly to you, under
-				certain conditions.
-			</li>
-			<li>
-				<strong>The right to object to processing</strong> – You have the right to object to our
-				processing of your personal data, under certain conditions.
-			</li>
+			<li>access your personal data under Article 15 GDPR;</li>
+			<li>rectification under Article 16 GDPR;</li>
+			<li>erasure under Article 17 GDPR;</li>
+			<li>restriction of processing under Article 18 GDPR;</li>
+			<li>data portability under Article 20 GDPR;</li>
+			<li>object to processing based on Article 6(1)(e) or (f) GDPR under Article 21 GDPR;</li>
+			<li>withdraw consent at any time with effect for the future;</li>
+			<li>lodge a complaint with a competent data-protection supervisory authority.</li>
 		</ul>
 		<p>
-			If you would like to exercise those rights, contact us at
-			<a href="mailto:gdpr@modrinth.com">gdpr@modrinth.com</a>. We may ask you to verify your
-			identity before proceeding and will respond to your request within 30 days as required by law,
-			or notify you of an extended reply time.
+			Requests may be sent to <a href="mailto:gdpr@shroudedit.com">gdpr@shroudedit.com</a>. We may
+			request information necessary to verify your identity. The supervisory authority responsible
+			for our establishment is the State Commissioner for Data Protection and Freedom of Information
+			Baden-Württemberg. Information and complaint options are available at
+			<a href="https://www.baden-wuerttemberg.datenschutz.de/">baden-wuerttemberg.datenschutz.de</a>.
 		</p>
 
-		<h2>Children's Information</h2>
+		<h2>9. Children</h2>
 		<p>
-			Another part of our priority is adding protection for children while using the Internet. We
-			encourage parents and guardians to observe, participate in, and/or monitor and guide their
-			online activity.
-		</p>
-		<p>
-			Modrinth does not knowingly collect any Personal Identifiable Information from children under
-			the age of 13. If you think that your child provided this kind of information on our website,
-			we strongly encourage you to contact us immediately and we will do our best efforts to
-			promptly remove such information from our records.
+			Accounts are intended for users aged 16 and over. If we learn that an account was created by a
+			younger person without legally valid parental consent, we may restrict the account and delete
+			associated personal data unless retention is legally required.
 		</p>
 
-		<h2>Online Privacy Policy Only</h2>
+		<h2>10. Automated decisions</h2>
 		<p>
-			This Privacy Policy applies only to our online activities and is valid for visitors to our
-			website with regards to the information that they shared and/or collect in Modrinth. This
-			policy is not applicable to any information collected offline or via channels other than this
-			website.
+			We may use automated signals to detect spam, malicious files or abuse. We do not make decisions
+			based solely on automated processing that produce legal effects or similarly significant effects
+			within the meaning of Article 22 GDPR without an applicable legal basis and safeguards.
 		</p>
 
-		<h2>Consent</h2>
+		<h2>11. Changes to this policy</h2>
 		<p>
-			By using our website, you hereby consent to our Privacy Policy and agree to its Terms and
-			Conditions.
+			We update this policy when processing activities, service providers or legal requirements
+			change. The current version is published on this page. We will provide an additional notice if a
+			change materially affects registered users or requires renewed consent.
 		</p>
 
-		<h2>California Privacy Rights</h2>
+		<h2>12. Contact</h2>
 		<p>
-			If you are a California resident, California law may provide you with additional rights
-			regarding our use of your personal information. To learn more about your California privacy
-			rights, visit <nuxt-link to="/legal/ccpa">this page</nuxt-link>.
-		</p>
-		<p>
-			California's "Shine the Light" law (Civil Code Section § 1798.83) permits users of our App
-			that are California residents to request certain information regarding our disclosure of
-			personal information to third parties for their direct marketing purposes. To make such a
-			request, please send an email to
-			<a href="mailto:support@modrinth.com">support@modrinth.com</a>.
-		</p>
-
-		<h2>Changes to the Privacy Policy</h2>
-		<p>
-			We keep this privacy policy under regular review and place any updates on this web page. If we
-			do this, we will post the changes on this page and update the "Last edited" date at the top of
-			this page, after which such changes will become effective immediately. We will make an effort
-			to keep users updated on any such changes, but because most changes do not affect how we
-			process existing data, a notice will not be sent for all changes.
-		</p>
-
-		<h2>Contact</h2>
-		<p>
-			If you have any questions about this privacy policy or how we process your data, contact us at
-			<a href="mailto:gdpr@modrinth.com">gdpr@modrinth.com</a> or write us at:
-		</p>
-		<p>
-			Rinth, Inc.<br />
-			410 North Scottsdale Road<br />
-			Suite 1000<br />
-			Tempe, AZ 85281
-		</p>
-
-		<h3>How to contact the appropriate authority</h3>
-		<p>
-			Should you wish to fill a complaint or if you feel like we haven't addressed your concerns or
-			request, you may contact the
-			<a href="https://ico.org.uk/">Information Commissioner's Office</a>
-			using their online form or by writing at:
-		</p>
-		<p>
-			Information Commissioner's Office<br />
-			Wycliffe House<br />
-			Water Lane<br />
-			Wilmslow<br />
-			Cheshire<br />
-			SK9 5AF<br />
-			United Kingdom
-		</p>
-		<p>
-			You do not need to be a citizen of the United Kingdom to use this method of lodging
-			complaints.
+			Privacy questions and requests should be sent to
+			<a href="mailto:gdpr@shroudedit.com">gdpr@shroudedit.com</a> or mailed to the controller at
+			the address stated above.
 		</p>
 	</div>
 </template>
 
 <script setup>
-const description =
-	'The Privacy Policy of Modrinth, an open source modding platform focused on Minecraft.'
+const description = 'Information about the processing of personal data by ShroudEdit.'
 
 useSeoMeta({
-	title: 'Privacy Policy - Modrinth',
+	title: 'Privacy Policy - ShroudEdit',
 	description,
 	ogTitle: 'Privacy Policy',
 	ogDescription: description,

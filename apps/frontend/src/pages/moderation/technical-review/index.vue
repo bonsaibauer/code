@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	BlendIcon,
 	ListFilterIcon,
@@ -7,19 +7,19 @@ import {
 	SortAscIcon,
 	SortDescIcon,
 	SpinnerIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	ButtonLink,
 	Combobox,
 	type ComboboxOption,
 	commonMessages,
-	injectModrinthClient,
+	injectShroudEditClient,
 	Pagination,
 	TeleportPopoutMenu,
 	Toggle,
 	useFormatNumber,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { useInfiniteQuery, useQueryClient } from '@tanstack/vue-query'
 import Fuse from 'fuse.js'
 import { nextTick, reactive } from 'vue'
@@ -33,9 +33,9 @@ import ModerationTechRevCard from '~/components/ui/moderation/ModerationTechRevC
 import { flattenFileReports } from '~/components/ui/moderation/tech-review/helpers'
 import { useTechReviewSources } from '~/components/ui/moderation/tech-review/use-tech-review-sources'
 
-useHead({ title: 'Tech review queue - Modrinth' })
+useHead({ title: 'Tech review queue - ShroudEdit' })
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const queryClient = useQueryClient()
 const keybinds = useModerationKeybinds()
 
@@ -350,7 +350,7 @@ function toApiProjectType(label: string): string | undefined {
 		case 'Shaders':
 			return 'shader'
 		case 'Servers':
-			return 'minecraft_java_server'
+			return 'server'
 		default:
 			return undefined
 	}

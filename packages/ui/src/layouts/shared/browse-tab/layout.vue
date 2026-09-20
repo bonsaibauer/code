@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { RotateCounterClockwiseIcon, SearchIcon } from '@modrinth/assets'
+import type { Labrinth } from '@shroudedit/api-client'
+import { RotateCounterClockwiseIcon, SearchIcon } from '@shroudedit/assets'
 import { computed, ref, toValue } from 'vue'
 
 import Admonition from '#ui/components/base/Admonition.vue'
@@ -61,7 +61,7 @@ const messages = defineMessages({
 	},
 	offline: {
 		id: 'browse.offline',
-		defaultMessage: 'You are currently offline. Connect to the internet to browse Modrinth!',
+		defaultMessage: 'You are currently offline. Connect to the internet to browse ShroudEdit!',
 	},
 	noResults: {
 		id: 'browse.no-results',
@@ -283,12 +283,12 @@ function getProjectCardTags(result: Labrinth.Search.v3.ResultSearchProject, disp
 					:summary="result.summary"
 					:tags="result.categories"
 					:link="ctx.getServerProjectLink(result)"
-					:server-online-players="result.minecraft_java_server?.ping?.data?.players_online ?? 0"
-					:server-region="result.minecraft_server?.region"
-					:server-recent-plays="result.minecraft_java_server?.verified_plays_2w ?? 0"
+					:server-online-players="result.enshrouded_server?.ping?.data?.players_online ?? 0"
+					:server-region="result.enshrouded_server?.region ?? undefined"
+					:server-recent-plays="0"
 					:server-modpack-content="ctx.getServerModpackContent?.(result)"
 					:server-ping="ctx.serverPings?.value?.[result.project_id]"
-					:server-status-online="!!result.minecraft_java_server?.ping?.data"
+					:server-status-online="!!result.enshrouded_server?.ping?.data"
 					:hide-online-players-label="ctx.variant === 'app'"
 					:hide-recent-plays-label="ctx.variant === 'app'"
 					:layout="ctx.effectiveLayout.value"
@@ -350,7 +350,7 @@ function getProjectCardTags(result: Labrinth.Search.v3.ResultSearchProject, disp
 								? `/user/${encodeURIComponent(result.author_id ?? result.author)}`
 								: ctx.variant === 'web'
 									? `/organization/${result.organization_id}`
-									: `https://modrinth.com/organization/${result.organization_id}`,
+									: `https://shroudedit.com/organization/${result.organization_id}`,
 					}"
 					:date-updated="result.date_modified"
 					:date-published="result.date_created"

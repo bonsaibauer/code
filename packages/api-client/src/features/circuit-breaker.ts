@@ -1,5 +1,5 @@
 import { AbstractFeature, type FeatureConfig } from '../core/abstract-feature'
-import { ModrinthApiError } from '../core/errors'
+import { ShroudEditApiError } from '../core/errors'
 import type { RequestContext } from '../types/request'
 
 /**
@@ -134,7 +134,7 @@ export class CircuitBreakerFeature extends AbstractFeature {
 		const circuitKey = this.getCircuitKey(context)
 
 		if (this.isCircuitOpen(circuitKey)) {
-			throw new ModrinthApiError('Circuit breaker open - too many recent failures', {
+			throw new ShroudEditApiError('Circuit breaker open - too many recent failures', {
 				statusCode: 503,
 				context: context.path,
 			})
@@ -234,7 +234,7 @@ export class CircuitBreakerFeature extends AbstractFeature {
 	 * Determine if an error should count as a circuit failure
 	 */
 	private isFailureError(error: unknown): boolean {
-		if (error instanceof ModrinthApiError && error.statusCode) {
+		if (error instanceof ShroudEditApiError && error.statusCode) {
 			return this.config.failureStatusCodes.includes(error.statusCode)
 		}
 

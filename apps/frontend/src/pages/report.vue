@@ -89,9 +89,9 @@
 						<div class="text-md flex items-center gap-2 font-semibold text-contrast">
 							<XCircleIcon class="h-8 w-8 shrink-0 text-brand-red" />
 							<div class="flex flex-col">
-								<span>{{ formatMessage(messages.dmcaTakedown) }}</span>
+								<span>{{ formatMessage(messages.copyrightNotice) }}</span>
 								<span class="text-sm font-medium text-secondary">
-									<IntlFormatted :message-id="messages.dmcaTakedownDescription">
+									<IntlFormatted :message-id="messages.copyrightNoticeDescription">
 										<template #policy-link="{ children }">
 											<nuxt-link class="text-link" :to="`/legal/copyright`">
 												<component :is="() => children" />
@@ -266,8 +266,8 @@ import {
 	SpinnerIcon,
 	VersionIcon,
 	XCircleIcon,
-} from '@modrinth/assets'
-import { Button, ButtonLink } from '@modrinth/ui'
+} from '@shroudedit/assets'
+import { Button, ButtonLink } from '@shroudedit/ui'
 import {
 	AutoLink,
 	Avatar,
@@ -284,8 +284,8 @@ import {
 	RadialHeader,
 	RadioButtons,
 	useVIntl,
-} from '@modrinth/ui'
-import type { Project, Report, User, Version } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import type { Project, Report, User, Version } from '@shroudedit/utils'
 import { useDebounceFn } from '@vueuse/core'
 
 import { useImageUpload } from '~/composables/image-upload.ts'
@@ -576,7 +576,7 @@ const messages = defineMessages({
 	violation: {
 		id: 'report.for.violation',
 		defaultMessage:
-			'Violation of Modrinth <rules-link>Rules</rules-link> or <terms-link>Terms of Use</terms-link>',
+			'Violation of ShroudEdit <rules-link>Rules</rules-link> or <terms-link>Terms of Use</terms-link>',
 	},
 	violationDescription: {
 		id: 'report.for.violation.description',
@@ -591,12 +591,12 @@ const messages = defineMessages({
 		id: 'report.not-for.bug-reports.description',
 		defaultMessage: 'You can report bugs to their <issues-link>issue tracker</issues-link>.',
 	},
-	dmcaTakedown: {
-		id: 'report.not-for.dmca',
-		defaultMessage: 'DMCA takedowns',
+	copyrightNotice: {
+		id: 'report.not-for.copyright-notice',
+		defaultMessage: 'Formal copyright notices',
 	},
-	dmcaTakedownDescription: {
-		id: 'report.not-for.dmca.description',
+	copyrightNoticeDescription: {
+		id: 'report.not-for.copyright-notice.description',
 		defaultMessage: 'See our <policy-link>Copyright Policy</policy-link>.',
 	},
 	whatContentType: {
@@ -609,7 +609,7 @@ const messages = defineMessages({
 	},
 	whatReportReason: {
 		id: 'report.question.report-reason',
-		defaultMessage: "Which of Modrinth's rules is this {item} violating?",
+		defaultMessage: "Which of ShroudEdit's rules is this {item} violating?",
 	},
 	checking: {
 		id: 'report.checking',
@@ -642,14 +642,14 @@ const messages = defineMessages({
 const warnings: Record<string, MessageDescriptor[]> = {
 	copyright: [
 		defineMessage({
-			id: 'report.note.copyright.1',
+			id: 'report.note.copyright.community-report',
 			defaultMessage:
-				'Please note that you are *not* submitting a DMCA takedown request, but rather a report of reuploaded content.',
+				'Please note that this form submits a community report about reuploaded content, not a formal rights notice.',
 		}),
 		defineMessage({
-			id: 'report.note.copyright.2',
+			id: 'report.note.copyright.formal-notice',
 			defaultMessage:
-				'If you meant to file a DMCA takedown request (which is a legal action) instead, please see our <copyright-policy-link>Copyright Policy</copyright-policy-link>.',
+				'For a formal copyright infringement notice, please follow our <copyright-policy-link>Copyright Policy</copyright-policy-link>.',
 		}),
 	],
 	malicious: [

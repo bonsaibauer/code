@@ -184,6 +184,12 @@ export class LabrinthVersionsV3Module extends AbstractModule {
 			primary_file: fileParts[0],
 			environment: draftVersion.environment,
 			loaders: draftVersion.loaders,
+			schematic_format_version: draftVersion.schematic_format_version,
+			world_editor_version: draftVersion.world_editor_version,
+			schematic_width: draftVersion.schematic_width,
+			schematic_height: draftVersion.schematic_height,
+			schematic_depth: draftVersion.schematic_depth,
+			schematic_installation: draftVersion.schematic_installation,
 		}
 
 		if (projectType === 'modpack') {

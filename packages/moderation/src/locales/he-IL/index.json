@@ -77,10 +77,10 @@
   "nags.long-headers.title": {
     "defaultMessage": "קצר כותרות"
   },
-  "nags.minecraft-title-clause.description": {
+  "nags.enshrouded-title-clause.description": {
     "defaultMessage": "פרויקטים אינם רשאים להשתמש במיתוג של מיינקראפט או לכלול את \"מיינקראפט\" כחלק משמעותי בשם."
   },
-  "nags.minecraft-title-clause.title": {
+  "nags.enshrouded-title-clause.title": {
     "defaultMessage": "הימנע מהפרת זכויות מותג"
   },
   "nags.missing-alt-text.description": {

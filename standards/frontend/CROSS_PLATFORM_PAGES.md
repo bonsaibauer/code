@@ -1,6 +1,6 @@
 # Cross-Platform Pages
 
-Put pages for both Modrinth Website and Modrinth App in `packages/ui/src/layouts/`.
+Put pages for both ShroudEdit Website and ShroudEdit App in `packages/ui/src/layouts/`.
 
 Use one of two layout types. Select the type from the differences between the platform logic.
 
@@ -61,7 +61,7 @@ The website uses `api-client` and TanStack Query:
 ```vue
 <!-- apps/frontend/src/pages/instance/content.vue -->
 <script setup lang="ts">
-import { provideContentManager, ContentPageLayout } from '@modrinth/ui'
+import { provideContentManager, ContentPageLayout } from '@shroudedit/ui'
 
 const { data: items } = useQuery({
 	queryKey: ['content', instanceId],
@@ -87,7 +87,7 @@ The app uses Tauri `invoke`:
 ```vue
 <!-- apps/app-frontend/src/pages/instance/Mods.vue -->
 <script setup lang="ts">
-import { provideContentManager, ContentPageLayout } from '@modrinth/ui'
+import { provideContentManager, ContentPageLayout } from '@shroudedit/ui'
 import { invoke } from '@tauri-apps/api/core'
 
 const items = ref<ContentItem[]>([])
@@ -151,7 +151,7 @@ Import the wrapped page as a simple component in both frontends:
 ```vue
 <!-- apps/frontend/src/pages/hosting/manage/[id]/content.vue -->
 <script setup lang="ts">
-import { ServersManageContentPage } from '@modrinth/ui'
+import { ServersManageContentPage } from '@shroudedit/ui'
 </script>
 
 <template>
@@ -203,11 +203,11 @@ Put the call in a `try` block. Catch the error so that route setup can continue.
 The mounted layout runs its `useQuery` call and shows the error to the user.
 
 ```ts
-import { injectModrinthClient, injectModrinthServerContext, ServersManageFilesPage } from '@modrinth/ui'
+import { injectShroudEditClient, injectShroudEditServerContext, ServersManageFilesPage } from '@shroudedit/ui'
 import { useQueryClient } from '@tanstack/vue-query'
 
-const client = injectModrinthClient()
-const { serverId } = injectModrinthServerContext()
+const client = injectShroudEditClient()
+const { serverId } = injectShroudEditServerContext()
 const queryClient = useQueryClient()
 
 try {

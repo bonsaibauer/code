@@ -2,7 +2,7 @@
 	<div class="space-y-2.5">
 		<div v-if="!noHeader" class="flex items-center justify-between">
 			<span class="font-semibold text-contrast">
-				Minecraft versions <span class="text-red">*</span>
+				Game versions <span class="text-red">*</span>
 			</span>
 
 			<Chips
@@ -90,9 +90,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { Labrinth } from '@modrinth/api-client'
-import { SearchIcon } from '@modrinth/assets'
-import { Button, Chips, Input } from '@modrinth/ui'
+import type { Labrinth } from '@shroudedit/api-client'
+import { SearchIcon } from '@shroudedit/assets'
+import { Button, Chips, Input } from '@shroudedit/ui'
 import { useMagicKeys } from '@vueuse/core'
 import { computed, nextTick, onMounted, ref } from 'vue'
 

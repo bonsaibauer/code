@@ -137,7 +137,7 @@
 								label: 'Copy link',
 								action: () =>
 									copyToClipboard(
-										`https://modrinth.com/${project.project_type}/${
+									`${config.public.siteUrl}/${project.project_type}/${
 											project.slug ? project.slug : project.id
 										}/version/${encodeURI(version.displayUrlEnding ? version.displayUrlEnding : version.id)}`,
 									),
@@ -173,14 +173,6 @@
 									copyToClipboard(version.id)
 								},
 								shown: currentMember || flags.developerMode,
-							},
-							{
-								id: 'copy-maven',
-								label: 'Copy Maven coordinates',
-								action: () => {
-									copyToClipboard(`maven.modrinth:${project.slug}:${version.id}`)
-								},
-								shown: flags.developerMode,
 							},
 							{ type: 'divider', shown: !!currentMember },
 							{
@@ -260,10 +252,6 @@
 							<ClipboardCopyIcon aria-hidden="true" />
 							Copy ID
 						</template>
-						<template #copy-maven>
-							<ClipboardCopyIcon aria-hidden="true" />
-							Copy Maven coordinates
-						</template>
 					</TeleportOverflowMenu>
 				</template>
 			</ProjectPageVersions>
@@ -296,18 +284,18 @@ import {
 	ShareIcon,
 	SpinnerIcon,
 	TrashIcon,
-} from '@modrinth/assets'
-import { moderationSettings } from '@modrinth/moderation'
+} from '@shroudedit/assets'
+import { moderationSettings } from '@shroudedit/moderation'
 import {
 	ButtonLink,
 	ConfirmModal,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	injectProjectPageContext,
 	ProjectPageVersions,
 	TeleportOverflowMenu,
-} from '@modrinth/ui'
-import { isStaff } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { isStaff } from '@shroudedit/utils'
 import { onMounted, useTemplateRef, watch } from 'vue'
 
 import CreateProjectVersionModal from '~/components/ui/create-project-version/CreateProjectVersionModal.vue'
@@ -316,6 +304,7 @@ import { getSignInRouteObj } from '~/composables/auth.ts'
 import { reportVersion } from '~/utils/report-helpers.ts'
 
 const route = useRoute()
+const config = useRuntimeConfig()
 
 const { createProjectDownloadUrl, updateVersionsFilterContext } = useCdnDownloadContext()
 
@@ -324,7 +313,7 @@ const flags = useFeatureFlags()
 const modSettings = useModerationSettings()
 const auth = await useAuth()
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const { addNotification } = injectNotificationManager()
 const {
 	projectV2: project,

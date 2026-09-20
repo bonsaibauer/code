@@ -8,10 +8,10 @@
 				:icon-url="project.icon_url"
 				:summary="project.summary"
 				:tags="getProjectCardTags(project)"
-				:server-online-players="project.minecraft_java_server?.ping?.data?.players_online ?? 0"
-				:server-recent-plays="project.minecraft_java_server?.verified_plays_2w ?? 0"
-				:server-region="project.minecraft_server?.region"
-				:server-status-online="!!project.minecraft_java_server?.ping?.data"
+				:server-online-players="project.enshrouded_server?.ping?.data?.players_online ?? 0"
+				:server-recent-plays="0"
+				:server-region="project.enshrouded_server?.region ?? undefined"
+				:server-status-online="!!project.enshrouded_server?.ping?.data"
 				:server-modpack-content="getServerModpackContent(project, openModpackProject)"
 				:status="statusFor(project)"
 				:max-tags="2"
@@ -49,7 +49,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 

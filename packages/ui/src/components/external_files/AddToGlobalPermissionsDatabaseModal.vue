@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { PlusIcon, SpinnerIcon, XIcon } from '@modrinth/assets'
+import type { Labrinth } from '@shroudedit/api-client'
+import { PlusIcon, SpinnerIcon, XIcon } from '@shroudedit/assets'
 import { useMutation } from '@tanstack/vue-query'
 import { computed, ref, useTemplateRef } from 'vue'
 
 import { Accordion, Combobox, type ComboboxOption, Input, NewModal, Textarea } from '#ui/components'
 import { Button } from '#ui/components/base/buttons'
 
-import { injectModrinthClient, injectNotificationManager } from '../../providers'
+import { injectShroudEditClient, injectNotificationManager } from '../../providers'
 import AttributionGroupFilePicker from './AttributionGroupFilePicker.vue'
 import {
 	attributionKindToDefaultExternalStatus,
@@ -26,7 +26,7 @@ const emit = defineEmits<{
 	(e: 'success'): void
 }>()
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const { addNotification } = injectNotificationManager()
 
 const modalRef = useTemplateRef<InstanceType<typeof NewModal>>('modalRef')
@@ -69,7 +69,7 @@ const createMutation = useMutation({
 					id: parsedFlameProjectId,
 					status: status.value,
 					link:
-						trimmedLink || `https://www.curseforge.com/minecraft/mc-mods/${parsedFlameProjectId}`,
+						trimmedLink || `https://www.curseforge.com/enshrouded/mc-mods/${parsedFlameProjectId}`,
 					title: trimmedTitle || moderatorAttributionGroupTitle(props.group),
 				}
 			} else {

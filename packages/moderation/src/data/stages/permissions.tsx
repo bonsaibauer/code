@@ -1,6 +1,6 @@
-import type { Labrinth } from '@modrinth/api-client'
-import { SignatureIcon } from '@modrinth/assets'
-import { injectModrinthClient, injectProjectPageContext } from '@modrinth/ui'
+import type { Labrinth } from '@shroudedit/api-client'
+import { SignatureIcon } from '@shroudedit/assets'
+import { injectShroudEditClient, injectProjectPageContext } from '@shroudedit/ui'
 import { useQuery } from '@tanstack/vue-query'
 import { computed } from 'vue'
 
@@ -15,7 +15,7 @@ function isResolved(attributionGroup: Labrinth.Attribution.Internal.AttributionG
 
 export default function () {
 	const { projectV3: project } = injectProjectPageContext()
-	const { labrinth } = injectModrinthClient()
+	const { labrinth } = injectShroudEditClient()
 
 	const { data: attributionData } = useQuery({
 		queryKey: ['project-attribution', project.value.id],
@@ -35,7 +35,7 @@ export default function () {
 			computed(
 				() =>
 					(project.value.project_types?.includes('modpack') ?? false) &&
-					!project.value.minecraft_server &&
+					!project.value.enshrouded_server &&
 					unresolvedCount.value > 0,
 			),
 		)

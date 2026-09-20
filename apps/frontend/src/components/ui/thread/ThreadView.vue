@@ -121,16 +121,16 @@ import {
 	ReplyIcon,
 	SendIcon,
 	StickyNotePlusIcon,
-} from '@modrinth/assets'
-import type { QuickReply } from '@modrinth/moderation'
-import { Button, TeleportOverflowMenu } from '@modrinth/ui'
+} from '@shroudedit/assets'
+import type { QuickReply } from '@shroudedit/moderation'
+import { Button, TeleportOverflowMenu } from '@shroudedit/ui'
 import {
 	type ButtonMenuOption,
 	CopyCode,
 	injectNotificationManager,
 	MarkdownEditor,
-} from '@modrinth/ui'
-import type { Thread, User } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import type { Thread, User } from '@shroudedit/utils'
 import dayjs from 'dayjs'
 
 import { useImageUpload } from '~/composables/image-upload.ts'

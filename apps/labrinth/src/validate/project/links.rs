@@ -41,11 +41,11 @@ const BLOCKED_EXTERNAL_LINK_DOMAINS: &[&str] = &[
     "youtu.be",
     "reddit.com",
     "redd.it",
-    "modrinth.com",
-    "minecraft.net",
+    "shroudedit.com",
+    "enshrouded.net",
     "curseforge.com",
-    "planetminecraft.com",
-    "9minecraft.net",
+    "planetenshrouded.com",
+    "9enshrouded.net",
     "mcmod.cn",
     "creativemode.net",
     "orcaclient.com",
@@ -80,16 +80,16 @@ pub(super) fn validate(
     versions: &[Version],
 ) -> Vec<super::ProjectNag> {
     let mut nags = Vec::new();
-    let is_minecraft_server = project.components.minecraft_server.is_some();
+    let is_enshrouded_server = project.components.enshrouded_server.is_some();
 
-    if !is_minecraft_server && project.link_urls.is_empty() {
+    if !is_enshrouded_server && project.link_urls.is_empty() {
         nags.push(super::ProjectNag::new(
             ProjectNagKind::AddLinks,
             ProjectNagSeverity::Suggestion,
         ));
     }
 
-    if is_minecraft_server && project.link_urls.is_empty() {
+    if is_enshrouded_server && project.link_urls.is_empty() {
         nags.push(super::ProjectNag::new(
             ProjectNagKind::AddLinksServer,
             ProjectNagSeverity::Suggestion,

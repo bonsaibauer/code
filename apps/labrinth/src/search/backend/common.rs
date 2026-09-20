@@ -46,8 +46,7 @@ pub enum SearchIndex {
     Follows,
     Updated,
     Newest,
-    MinecraftJavaServerVerifiedPlays2w,
-    MinecraftJavaServerPlayersOnline,
+    EnshroudedServerPlayersOnline,
 }
 
 pub struct SearchSort {
@@ -59,13 +58,13 @@ pub fn parse_search_index(
     new_filters: Option<&str>,
 ) -> Result<SearchSort, ApiError> {
     // TODO: this is a dumb hack, the frontend should pass the project type it's filtering directly
-    let is_server = new_filters
-        .is_some_and(|f| f.contains("project_types = minecraft_java_server"));
+    let is_server =
+        new_filters.is_some_and(|f| f.contains("project_types = server"));
 
     Ok(match index {
         "relevance" => SearchSort {
             index: if is_server {
-                SearchIndex::MinecraftJavaServerVerifiedPlays2w
+                SearchIndex::EnshroudedServerPlayersOnline
             } else {
                 SearchIndex::Relevance
             },
@@ -82,11 +81,8 @@ pub fn parse_search_index(
         "newest" | "date_created" => SearchSort {
             index: SearchIndex::Newest,
         },
-        "minecraft_java_server.verified_plays_2w" => SearchSort {
-            index: SearchIndex::MinecraftJavaServerVerifiedPlays2w,
-        },
-        "minecraft_java_server.ping.data.players_online" => SearchSort {
-            index: SearchIndex::MinecraftJavaServerPlayersOnline,
+        "enshrouded_server.ping.data.players_online" => SearchSort {
+            index: SearchIndex::EnshroudedServerPlayersOnline,
         },
         i => return Err(ApiError::Request(eyre!("invalid index '{i}'"))),
     })

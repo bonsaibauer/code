@@ -453,7 +453,7 @@
 	</div>
 </template>
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	CalendarIcon,
 	CircleAlertIcon,
@@ -461,7 +461,7 @@ import {
 	getLoaderIcon,
 	PlusIcon,
 	StarIcon,
-} from '@modrinth/assets'
+} from '@shroudedit/assets'
 import {
 	AutoLink,
 	Pagination,
@@ -474,12 +474,12 @@ import {
 	useFormatDateTime,
 	VersionChannelIndicator,
 	VersionFilterControl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import {
 	type GameVersionTag,
 	getVersionGroupsForDisplay,
 	type VersionDisplayGroup,
-} from '@modrinth/utils'
+} from '@shroudedit/utils'
 import { computed, type Ref, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -632,7 +632,7 @@ function hasNoModLoader(loaders: string[]): boolean {
 	return (
 		(props.project.project_type === 'modpack' &&
 			loaders.length === 1 &&
-			loaders[0] === 'minecraft') ||
+			loaders[0] === 'enshrouded') ||
 		loaders.length === 0
 	)
 }

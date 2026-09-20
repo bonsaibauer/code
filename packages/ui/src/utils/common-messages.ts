@@ -1,5 +1,5 @@
-import type { Labrinth } from '@modrinth/api-client'
-import { capitalizeString } from '@modrinth/utils'
+import type { Labrinth } from '@shroudedit/api-client'
+import { capitalizeString } from '@shroudedit/utils'
 
 import { defineMessage, defineMessages, type MessageDescriptor } from '../composables/i18n'
 
@@ -232,9 +232,9 @@ export const commonMessages = defineMessages({
 		id: 'button.open-in-browser',
 		defaultMessage: 'Open in browser',
 	},
-	openInModrinthButton: {
-		id: 'button.open-in-modrinth',
-		defaultMessage: 'Open in Modrinth',
+	openInShroudEditButton: {
+		id: 'button.open-in-shroudedit',
+		defaultMessage: 'Open in ShroudEdit',
 	},
 	orLabel: {
 		id: 'label.or',
@@ -705,7 +705,7 @@ export const commonMessages = defineMessages({
 	projectRecentPlaysTooltip: {
 		id: 'project.recent-plays.tooltip',
 		defaultMessage:
-			'{count} {countPlural, plural, one {recent play} other {recent plays}} from Modrinth in the past 2 weeks',
+			'{count} {countPlural, plural, one {recent play} other {recent plays}} from ShroudEdit in the past 2 weeks',
 	},
 })
 
@@ -825,14 +825,13 @@ export const financialMessages = defineMessages({
 		defaultMessage: '{amount} available.',
 	},
 	rewardsProgramTermsAgreement: {
-		id: 'label.rewards-program-terms-agreement',
-		defaultMessage: 'I agree to the <terms-link>Rewards Program Terms</terms-link>',
+		id: 'label.creator-monetization-terms-agreement',
+		defaultMessage: 'I agree to the <terms-link>Creator Monetization Terms</terms-link>',
 	},
 })
 
 const PROJECT_TYPE_ALIASES: Record<string, string> = {
 	shaderpack: 'shader',
-	minecraft_java_server: 'server',
 }
 
 export function normalizeProjectType(type: string): string {
@@ -853,6 +852,10 @@ export const commonProjectTypeCategoryMessages = defineMessages({
 	modpack: {
 		id: 'project-type.modpack.category',
 		defaultMessage: 'Modpacks',
+	},
+	schematic: {
+		id: 'project-type.schematic.category',
+		defaultMessage: 'Schematics',
 	},
 	plugin: {
 		id: 'project-type.plugin.category',
@@ -889,6 +892,10 @@ export const commonProjectTypeTitleMessages = defineMessages({
 		id: 'project-type.modpack.capital',
 		defaultMessage: '{count, plural, one {Modpack} other {Modpacks}}',
 	},
+	schematic: {
+		id: 'project-type.schematic.capital',
+		defaultMessage: '{count, plural, one {Schematic} other {Schematics}}',
+	},
 	plugin: {
 		id: 'project-type.plugin.capital',
 		defaultMessage: '{count, plural, one {Plugin} other {Plugins}}',
@@ -923,6 +930,10 @@ export const commonProjectTypeSentenceMessages = defineMessages({
 	modpack: {
 		id: 'project-type.modpack.lowercase',
 		defaultMessage: '{count, plural, one {modpack} other {modpacks}}',
+	},
+	schematic: {
+		id: 'project-type.schematic.lowercase',
+		defaultMessage: '{count, plural, one {schematic} other {schematics}}',
 	},
 	plugin: {
 		id: 'project-type.plugin.lowercase',
@@ -1426,9 +1437,13 @@ export const projectCompatibilityMessages = defineMessages({
 		id: `project.about.compatibility.title`,
 		defaultMessage: 'Compatibility',
 	},
-	minecraftJava: {
-		id: `project.about.compatibility.game.minecraftJava`,
-		defaultMessage: 'Minecraft: Java Edition',
+	enshroudedJava: {
+		id: `project.about.compatibility.game.enshroudedJava`,
+		defaultMessage: 'Enshrouded: Java Edition',
+	},
+	gameVersion: {
+		id: `project.about.compatibility.game-version`,
+		defaultMessage: 'Game version',
 	},
 	platforms: {
 		id: `project.about.compatibility.platforms`,

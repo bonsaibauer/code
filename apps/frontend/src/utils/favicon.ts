@@ -18,7 +18,7 @@ const FAVICON_MEDIA = [
 	'(prefers-color-scheme:dark)',
 ] as const
 
-const STAGING_API_PREFIX = 'https://staging-api.modrinth.com'
+const STAGING_API_PREFIX = 'https://staging-api.shroudedit.com'
 
 export function resolveFaviconEnvironment(
 	config: {
@@ -45,30 +45,11 @@ export function resolveFaviconEnvironment(
 	return null
 }
 
-function getFaviconHrefs(variant: FaviconVariant, environment: FaviconEnvironment | null) {
-	if (!environment) {
-		return {
-			...PRODUCTION_FAVICON_HREFS[variant],
-			type: 'image/png',
-			sizes: '32x32',
-		}
-	}
-
-	if (variant === 'settings') {
-		return {
-			light: `/dev-favicons/favicon-${environment}-light-settings.svg`,
-			dark: `/dev-favicons/favicon-${environment}-settings.svg`,
-			type: 'image/svg+xml',
-			sizes: 'any',
-		}
-	}
-
-	const href = `/dev-favicons/favicon-${environment}.svg`
+function getFaviconHrefs(variant: FaviconVariant, _environment: FaviconEnvironment | null) {
 	return {
-		light: href,
-		dark: href,
-		type: 'image/svg+xml',
-		sizes: 'any',
+		...PRODUCTION_FAVICON_HREFS[variant],
+		type: 'image/png',
+		sizes: '32x32',
 	}
 }
 

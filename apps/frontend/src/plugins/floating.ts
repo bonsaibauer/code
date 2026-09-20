@@ -1,4 +1,4 @@
-import { installTooltipDirective } from '@modrinth/ui'
+import { installTooltipDirective } from '@shroudedit/ui'
 
 export default defineNuxtPlugin((nuxtApp) => {
 	installTooltipDirective(nuxtApp.vueApp)

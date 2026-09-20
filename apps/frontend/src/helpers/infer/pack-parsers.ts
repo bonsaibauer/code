@@ -7,7 +7,7 @@ import { extractVersionFromFilename, versionType } from './version-utils'
 type PackFormat = number | [number] | [number, number]
 
 /**
- * Normalizes a pack format to [major, minor] tuple. See https://minecraft.wiki/w/Pack.mcmeta
+ * Normalizes a pack format to [major, minor] tuple. See https://enshrouded.wiki/w/Pack.mcmeta
  * - Single integer: [major, 0] for min, [major, Infinity] for max
  * - Array [major]: [major, 0] for min, [major, Infinity] for max
  * - Array [major, minor]: returns as-is
@@ -239,7 +239,7 @@ export function createPackParser(project: Project, gameVersions: GameVersion[], 
 		}
 		// Resource pack detection: has assets/ directory
 		else if (hasAssetsDir && hasZipExtension) {
-			loaders.push('minecraft')
+			loaders.push('enshrouded')
 			newGameVersions = getGameVersionsFromPackMeta(metadata, RESOURCE_PACK_FORMATS, gameVersions)
 		}
 
@@ -248,7 +248,7 @@ export function createPackParser(project: Project, gameVersions: GameVersion[], 
 			loaders.push('datapack')
 			newGameVersions = getGameVersionsFromPackMeta(metadata, DATA_PACK_FORMATS, gameVersions)
 		} else if (project.actualProjectType === 'resourcepack') {
-			loaders.push('minecraft')
+			loaders.push('enshrouded')
 			newGameVersions = getGameVersionsFromPackMeta(metadata, RESOURCE_PACK_FORMATS, gameVersions)
 		}
 

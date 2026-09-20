@@ -161,10 +161,10 @@
   "nags.long-headers.title": {
     "defaultMessage": "缩短标题"
   },
-  "nags.minecraft-title-clause.description": {
-    "defaultMessage": "项目不得使用 Minecraft 的品牌标识，也不得将“Minecraft”作为名称的重要组成部分。"
+  "nags.enshrouded-title-clause.description": {
+    "defaultMessage": "项目不得使用 Enshrouded 的品牌标识，也不得将“Enshrouded”作为名称的重要组成部分。"
   },
-  "nags.minecraft-title-clause.title": {
+  "nags.enshrouded-title-clause.title": {
     "defaultMessage": "避免品牌侵权"
   },
   "nags.missing-alt-text.description": {

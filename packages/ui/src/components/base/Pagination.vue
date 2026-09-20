@@ -109,7 +109,7 @@
 	</div>
 </template>
 <script setup lang="ts">
-import { ChevronLeftIcon, ChevronRightIcon, EllipsisVerticalIcon } from '@modrinth/assets'
+import { ChevronLeftIcon, ChevronRightIcon, EllipsisVerticalIcon } from '@shroudedit/assets'
 import { type ComponentPublicInstance, computed, ref } from 'vue'
 
 import { defineMessages, useVIntl } from '#ui/composables/i18n.ts'

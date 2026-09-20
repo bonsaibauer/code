@@ -1,7 +1,7 @@
 ;(function () {
-	document.documentElement.classList.add('modrinth-cmp-summary-hidden')
+	document.documentElement.classList.add('shroudedit-cmp-summary-hidden')
 
-	var host = 'modrinth.com'
+	var host = 'shroudedit.com'
 	// var host = window.location.hostname;
 	var element = document.createElement('script')
 	var firstScript = document.getElementsByTagName('script')[0]
@@ -297,7 +297,7 @@
 
 	makeGppStub()
 
-	window.dispatchEvent(new Event('modrinth-cmp-ready'))
+	window.dispatchEvent(new Event('shroudedit-cmp-ready'))
 
 	var uspStubFunction = function () {
 		var arg = arguments

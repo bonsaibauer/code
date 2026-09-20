@@ -19,7 +19,7 @@ pub(super) fn validate(
     let mut nags = Vec::new();
     let tag_count =
         project.categories.len() + project.additional_categories.len();
-    let is_minecraft_server = project.components.minecraft_server.is_some();
+    let is_enshrouded_server = project.components.enshrouded_server.is_some();
     let project_type =
         LegacyProject::get_project_type(&project.project_types).0;
 
@@ -30,7 +30,7 @@ pub(super) fn validate(
         ));
     }
 
-    if !is_minecraft_server && tag_count > MAX_TAG_COUNT {
+    if !is_enshrouded_server && tag_count > MAX_TAG_COUNT {
         nags.push(
             ProjectNag::new(
                 ProjectNagKind::TooManyTags,
@@ -43,7 +43,7 @@ pub(super) fn validate(
         );
     }
 
-    if is_minecraft_server && tag_count > MAX_TAG_COUNT_SERVER {
+    if is_enshrouded_server && tag_count > MAX_TAG_COUNT_SERVER {
         nags.push(
             ProjectNag::new(
                 ProjectNagKind::TooManyTagsServer,

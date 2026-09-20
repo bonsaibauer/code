@@ -19,6 +19,7 @@ pub mod payouts;
 pub mod project_creation;
 pub mod projects;
 pub mod reports;
+pub mod server_access;
 pub mod statistics;
 pub mod tags;
 pub mod teams;
@@ -48,7 +49,8 @@ pub fn config(cfg: &mut web::ServiceConfig) {
             .wrap(default_cors())
             .configure(projects::project_config)
             .configure(project_creation::config)
-            .configure(disclosures::config),
+            .configure(disclosures::config)
+            .configure(server_access::config),
     );
     cfg.service(
         web::scope("/v3")
@@ -113,6 +115,8 @@ pub fn config(cfg: &mut web::ServiceConfig) {
 		project_creation::project_create,
 		project_creation::project_create_with_id,
 		project_creation::new::create,
+		server_access::get_server_access,
+		server_access::set_server_access,
 		teams::team_members_get_project,
 		versions::version_project_get,
 		versions::version_list,

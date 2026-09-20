@@ -241,7 +241,7 @@
 	</div>
 </template>
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	BookTextIcon,
 	BrainCogIcon,
@@ -258,14 +258,14 @@ import {
 	ScaleIcon,
 	SparklesIcon,
 	VersionIcon,
-} from '@modrinth/assets'
-import { capitalizeString, renderString } from '@modrinth/utils'
+} from '@shroudedit/assets'
+import { capitalizeString, renderString } from '@shroudedit/utils'
 import { useQuery } from '@tanstack/vue-query'
 import { computed, ref, useTemplateRef } from 'vue'
 
 import { useFormatDateTime, useRelativeTime } from '../../composables'
 import { defineMessage, defineMessages, useVIntl } from '../../composables/i18n'
-import { injectModrinthClient } from '../../providers'
+import { injectShroudEditClient } from '../../providers'
 import { commonMessages } from '../../utils/common-messages'
 import { getActiveDisclosures } from '../../utils/disclosures'
 import { Avatar, BasicMarkdownText, IntlFormatted } from '../base'
@@ -275,7 +275,7 @@ const LICENSE_STALE_TIME = 1000 * 60 * 10
 const DISCLOSURE_STALE_TIME = 1000 * 60 * 5
 
 const { formatMessage, locale } = useVIntl()
-const { labrinth } = injectModrinthClient()
+const { labrinth } = injectShroudEditClient()
 const formatRelativeTime = useRelativeTime()
 const formatDateTime = useFormatDateTime({
 	timeStyle: 'short',

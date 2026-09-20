@@ -99,7 +99,7 @@
     "defaultMessage": "Tiada hasil ditemui untuk carian anda!"
   },
   "browse.offline": {
-    "defaultMessage": "Anda sedang berada di luar talian. Sambung ke internet untuk melayari Modrinth!"
+    "defaultMessage": "Anda sedang berada di luar talian. Sambung ke internet untuk melayari ShroudEdit!"
   },
   "browse.selected-projects-floating-bar.aria-label": {
     "defaultMessage": "Projek yang dipilih"
@@ -221,8 +221,8 @@
   "button.open-in-folder": {
     "defaultMessage": "Buka dalam folder"
   },
-  "button.open-in-modrinth": {
-    "defaultMessage": "Buka dalam Modrinth"
+  "button.open-in-shroudedit": {
+    "defaultMessage": "Buka dalam ShroudEdit"
   },
   "button.play": {
     "defaultMessage": "Main"
@@ -746,8 +746,8 @@
   "creation-flow.modal.setup-type.option.import-instance.title": {
     "defaultMessage": "Import pemasangan"
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.title": {
-    "defaultMessage": "Minecraft Vanila"
+  "creation-flow.modal.setup-type.option.vanilla-enshrouded.title": {
+    "defaultMessage": "Enshrouded Vanila"
   },
   "creation-flow.modal.setup-type.title.installation": {
     "defaultMessage": "Pilih jenis pemasangan"
@@ -791,8 +791,8 @@
   "external-files.permissions-card.editor.license-label": {
     "defaultMessage": "Lesen"
   },
-  "external-files.permissions-card.editor.modrinth-link-to-work": {
-    "defaultMessage": "Nampaknya ini pautan Modrinth. Jika kandungan ini tersedia di Modrinth, pek anda mungkin telah dieksport secara salah. Jika anda memuat turunnya dari tapak lain, cuba muat turun versi Modrinth; kadangkala ia bukan fail yang sama."
+  "external-files.permissions-card.editor.shroudedit-link-to-work": {
+    "defaultMessage": "Nampaknya ini pautan ShroudEdit. Jika kandungan ini tersedia di ShroudEdit, pek anda mungkin telah dieksport secara salah. Jika anda memuat turunnya dari tapak lain, cuba muat turun versi ShroudEdit; kadangkala ia bukan fail yang sama."
   },
   "external-files.permissions-card.editor.notes-label": {
     "defaultMessage": "Catatan"
@@ -1307,16 +1307,16 @@
   "header.category.feature": {
     "defaultMessage": "Ciri"
   },
-  "header.category.minecraft-server-community": {
+  "header.category.enshrouded-server-community": {
     "defaultMessage": "Komuniti"
   },
-  "header.category.minecraft-server-features": {
+  "header.category.enshrouded-server-features": {
     "defaultMessage": "Ciri"
   },
-  "header.category.minecraft-server-gameplay": {
+  "header.category.enshrouded-server-gameplay": {
     "defaultMessage": "Tatamain"
   },
-  "header.category.minecraft-server-meta": {
+  "header.category.enshrouded-server-meta": {
     "defaultMessage": "Meta"
   },
   "header.category.performance-impact": {
@@ -1533,13 +1533,13 @@
     "defaultMessage": "Dialih Keluar (tidak serasi)"
   },
   "installation-settings.repair.instance-description": {
-    "defaultMessage": "Memasang semula kebergantungan Minecraft dan memeriksa kerosakan. Ini mungkin dapat menyelesaikan isu jika permainan anda tidak dilancarkan kerana ralat berkaitan pelancar."
+    "defaultMessage": "Memasang semula kebergantungan Enshrouded dan memeriksa kerosakan. Ini mungkin dapat menyelesaikan isu jika permainan anda tidak dilancarkan kerana ralat berkaitan pelancar."
   },
   "installation-settings.repair.instance-title": {
     "defaultMessage": "Baiki pemasangan"
   },
   "installation-settings.repair.server-description": {
-    "defaultMessage": "Pembaikan ini akan memasang semula pemuat dan kebergantungan Minecraft tanpa memadamkan kandungan anda. Ini mungkin menyelesaikan masalah jika pelayan anda tidak dimulakan dengan betul."
+    "defaultMessage": "Pembaikan ini akan memasang semula pemuat dan kebergantungan Enshrouded tanpa memadamkan kandungan anda. Ini mungkin menyelesaikan masalah jika pelayan anda tidak dimulakan dengan betul."
   },
   "installation-settings.repair.server-title": {
     "defaultMessage": "Baiki pelayan"
@@ -1566,7 +1566,7 @@
     "defaultMessage": "Nyahpaut"
   },
   "installation-settings.unlink.description": {
-    "defaultMessage": "Penyahpautan secara kekal ini akan memutuskan sambungan {type} ini daripada projek {projectType}. Hal ini membenarkan anda menukar pemuat dan versi Minecraft, tetapi anda tidak akan menerima kemas kini pada masa hadapan."
+    "defaultMessage": "Penyahpautan secara kekal ini akan memutuskan sambungan {type} ini daripada projek {projectType}. Hal ini membenarkan anda menukar pemuat dan versi Enshrouded, tetapi anda tidak akan menerima kemas kini pada masa hadapan."
   },
   "installation-settings.verifying": {
     "defaultMessage": "Sedang mengesahkan..."
@@ -1584,10 +1584,10 @@
     "defaultMessage": "Pasang semula pek mod"
   },
   "instance.confirm-repair.body.instance": {
-    "defaultMessage": "Pembaikan ini akan memasang semula pemuat dan kebergantungan Minecraft tanpa memadamkan kandungan anda. Ini mungkin menyelesaikan masalah jika permainan anda tidak dilancarkan disebabkan oleh ralat berkaitan pelancar."
+    "defaultMessage": "Pembaikan ini akan memasang semula pemuat dan kebergantungan Enshrouded tanpa memadamkan kandungan anda. Ini mungkin menyelesaikan masalah jika permainan anda tidak dilancarkan disebabkan oleh ralat berkaitan pelancar."
   },
   "instance.confirm-repair.body.server": {
-    "defaultMessage": "Pembaikan ini akan memasang semula pemuat dan kebergantungan Minecraft tanpa memadamkan kandungan anda. Ini mungkin menyelesaikan masalah jika pelayan anda tidak dimulakan dengan betul."
+    "defaultMessage": "Pembaikan ini akan memasang semula pemuat dan kebergantungan Enshrouded tanpa memadamkan kandungan anda. Ini mungkin menyelesaikan masalah jika pelayan anda tidak dimulakan dengan betul."
   },
   "instance.confirm-repair.header": {
     "defaultMessage": "Baiki {type}"
@@ -2202,16 +2202,16 @@
     "defaultMessage": "Memastikan fail dikemas kini apabila pelayan berubah"
   },
   "modal.open-in-app.get-app": {
-    "defaultMessage": "Dapatkan Modrinth App"
+    "defaultMessage": "Dapatkan ShroudEdit App"
   },
   "modal.open-in-app.opening-automatically": {
-    "defaultMessage": "Modrinth App akan dibuka secara automatik..."
+    "defaultMessage": "ShroudEdit App akan dibuka secara automatik..."
   },
   "modal.open-in-app.title": {
-    "defaultMessage": "Membuka Modrinth App"
+    "defaultMessage": "Membuka ShroudEdit App"
   },
   "modal.open-in-app.why-use": {
-    "defaultMessage": "Mengapa menggunakan Modrinth App"
+    "defaultMessage": "Mengapa menggunakan ShroudEdit App"
   },
   "notification.error.title": {
     "defaultMessage": "Sebuah ralat telah berlaku"
@@ -2243,8 +2243,8 @@
   "omorphia.component.badge.label.moderator": {
     "defaultMessage": "Penyederhana"
   },
-  "omorphia.component.badge.label.modrinth-team": {
-    "defaultMessage": "Pasukan Modrinth"
+  "omorphia.component.badge.label.shroudedit-team": {
+    "defaultMessage": "Pasukan ShroudEdit"
   },
   "omorphia.component.badge.label.pending": {
     "defaultMessage": "Menunggu"
@@ -2483,8 +2483,8 @@
   "project.about.compatibility.environments.singleplayer-only": {
     "defaultMessage": "Ekapemain sahaja"
   },
-  "project.about.compatibility.game.minecraftJava": {
-    "defaultMessage": "Minecraft: Edisi Java"
+  "project.about.compatibility.game.enshroudedJava": {
+    "defaultMessage": "Enshrouded: Edisi Java"
   },
   "project.about.compatibility.platforms": {
     "defaultMessage": "Platform"
@@ -2667,7 +2667,7 @@
     "defaultMessage": "{count} {countPlural, plural, other {sesi permainan terkini}}"
   },
   "project.recent-plays.tooltip": {
-    "defaultMessage": "{count} {countPlural, plural, other {sesi permainan terkini}} daripada Modrinth dalam 2 minggu yang lalu"
+    "defaultMessage": "{count} {countPlural, plural, other {sesi permainan terkini}} daripada ShroudEdit dalam 2 minggu yang lalu"
   },
   "project.server.customModpackTooltip": {
     "defaultMessage": "Projek ini menggunakan pek mod tersuai"
@@ -2979,7 +2979,7 @@
     "defaultMessage": "Projek anda mempunyai berbilang persekitaran"
   },
   "project.settings.environment.notice.review-options.description": {
-    "defaultMessage": "Kami baru sahaja merombak sistem Persekitaran pada Modrinth dan pilihan baharu kini tersedia. Sila pastikan pilihan yang betul dipilih di bawah dan kemudian klik 'Sahkan' apabila anda selesai!"
+    "defaultMessage": "Kami baru sahaja merombak sistem Persekitaran pada ShroudEdit dan pilihan baharu kini tersedia. Sila pastikan pilihan yang betul dipilih di bawah dan kemudian klik 'Sahkan' apabila anda selesai!"
   },
   "project.settings.environment.notice.review-options.title": {
     "defaultMessage": "Sila semak pilihan di bawah"
@@ -3294,7 +3294,7 @@
     "defaultMessage": "Pemuatnaikan fail"
   },
   "servers.access-page.activity-log-filter.action.game-version-edited": {
-    "defaultMessage": "Perubahan versi Minecraft"
+    "defaultMessage": "Perubahan versi Enshrouded"
   },
   "servers.access-page.activity-log-filter.action.java-runtime-modified": {
     "defaultMessage": "Perubahan masa jalan Java"
@@ -3561,7 +3561,7 @@
     "defaultMessage": "Fail <file></file> telah dimuat naik"
   },
   "servers.audit-log.event.game-version-changed": {
-    "defaultMessage": "Versi Minecraft telah diubah kepada <version></version>"
+    "defaultMessage": "Versi Enshrouded telah diubah kepada <version></version>"
   },
   "servers.audit-log.event.java-runtime-modified": {
     "defaultMessage": "Masa jalan Java telah diubah kepada <vendor></vendor>"
@@ -3872,14 +3872,14 @@
   "servers.list-empty.already-have-server-label": {
     "defaultMessage": "Sudah mempunyai pelayan?"
   },
-  "servers.list-empty.modrinth-hosting-label": {
-    "defaultMessage": "Modrinth Hosting"
+  "servers.list-empty.shroudedit-hosting-label": {
+    "defaultMessage": "ShroudEdit Hosting"
   },
   "servers.list-empty.new-server-button": {
     "defaultMessage": "Pelayan baharu"
   },
   "servers.list-empty.no-servers-description": {
-    "defaultMessage": "Pasang mod, jemput rakan dan main bersama-sama, semuanya dari Modrinth App."
+    "defaultMessage": "Pasang mod, jemput rakan dan main bersama-sama, semuanya dari ShroudEdit App."
   },
   "servers.list-empty.one-click-mod-installs-description": {
     "defaultMessage": "Pilih mod kegemaran anda dan kami uruskan selebihnya."
@@ -3942,7 +3942,7 @@
     "defaultMessage": "Langganan anda ditetapkan untuk dibatalkan pada <date>{formattedDate}</date>. "
   },
   "servers.listing.notice.suspended": {
-    "defaultMessage": "Pelayan anda telah digantung. Sila hubungi Sokongan Modrinth untuk maklumat lanjut."
+    "defaultMessage": "Pelayan anda telah digantung. Sila hubungi Sokongan ShroudEdit untuk maklumat lanjut."
   },
   "servers.listing.notice.upgrading": {
     "defaultMessage": "Perkakasan pelayan anda sedang dinaik taraf dan akan kembali beroperasi tidak lama lagi."
@@ -3972,7 +3972,7 @@
     "defaultMessage": "Muat naik sedang berjalan"
   },
   "servers.manage.contact-support-button": {
-    "defaultMessage": "Hubungi Sokongan Modrinth"
+    "defaultMessage": "Hubungi Sokongan ShroudEdit"
   },
   "servers.manage.error.alert-notice": {
     "defaultMessage": "Sistem kami akan memaklumkan pasukan kami secara automatik apabila terdapat masalah. Kami sedang berusaha untuk membawa mereka kembali dalam talian."
@@ -3984,10 +3984,10 @@
     "defaultMessage": "Butiran ralat:"
   },
   "servers.manage.error.queue-notice": {
-    "defaultMessage": "Jika anda baru-baru ini membeli pelayan Modrinth Hosting anda, ia sedang berada dalam barisan dan akan muncul di sini sebaik sahaja ia siap. <warning>Jangan cuba membeli pelayan baharu.</warning>"
+    "defaultMessage": "Jika anda baru-baru ini membeli pelayan ShroudEdit Hosting anda, ia sedang berada dalam barisan dan akan muncul di sini sebaik sahaja ia siap. <warning>Jangan cuba membeli pelayan baharu.</warning>"
   },
   "servers.manage.error.support-notice": {
-    "defaultMessage": "Jika anda memerlukan sokongan peribadi mengenai status pelayan anda, sila hubungi Sokongan Modrinth."
+    "defaultMessage": "Jika anda memerlukan sokongan peribadi mengenai status pelayan anda, sila hubungi Sokongan ShroudEdit."
   },
   "servers.manage.error.title": {
     "defaultMessage": "Pelayan tidak dapat dimuatkan"
@@ -4011,7 +4011,7 @@
     "defaultMessage": "Muat semula"
   },
   "servers.manage.resubscribe-error.text": {
-    "defaultMessage": "Sebuah ralat telah berlaku semasa melanggan semula pelayan Modrinth anda."
+    "defaultMessage": "Sebuah ralat telah berlaku semasa melanggan semula pelayan ShroudEdit anda."
   },
   "servers.manage.resubscribe-error.title": {
     "defaultMessage": "Ralat semasa melanggan semula"
@@ -4032,7 +4032,7 @@
     "defaultMessage": "Cari {count} {count, plural, other {pelayan}}..."
   },
   "servers.manage.servers-title": {
-    "defaultMessage": "Modrinth Hosting"
+    "defaultMessage": "ShroudEdit Hosting"
   },
   "servers.manage.settings-hint.description": {
     "defaultMessage": "Mereka kini boleh ditemui di sini!"
@@ -4056,10 +4056,10 @@
     "defaultMessage": "Percubaan pelayan Medal anda telah tamat dan pelayan anda telah digantung. Sila naik taraf untuk terus menggunakan pelayan anda."
   },
   "servers.medal-listing.notice.suspended": {
-    "defaultMessage": "Pelayan anda telah digantung. Sila kemas kini maklumat pengebilan anda atau hubungi Sokongan Modrinth untuk maklumat lanjut."
+    "defaultMessage": "Pelayan anda telah digantung. Sila kemas kini maklumat pengebilan anda atau hubungi Sokongan ShroudEdit untuk maklumat lanjut."
   },
   "servers.medal-listing.notice.suspended-with-reason": {
-    "defaultMessage": "Pelayan anda telah digantung: {reason}. Sila kemas kini maklumat pengebilan anda atau hubungi Sokongan Modrinth untuk maklumat lanjut."
+    "defaultMessage": "Pelayan anda telah digantung: {reason}. Sila kemas kini maklumat pengebilan anda atau hubungi Sokongan ShroudEdit untuk maklumat lanjut."
   },
   "servers.medal-listing.notice.upgrading": {
     "defaultMessage": "Perkakasan pelayan anda sedang dinaik taraf dan akan kembali beroperasi tidak lama lagi."
@@ -4104,7 +4104,7 @@
     "defaultMessage": "Tidak boleh diketepikan"
   },
   "servers.purchase.notification.success.text": {
-    "defaultMessage": "Pembelian Modrinth Hosting anda telah berjaya diselesaikan."
+    "defaultMessage": "Pembelian ShroudEdit Hosting anda telah berjaya diselesaikan."
   },
   "servers.purchase.notification.success.title": {
     "defaultMessage": "Pembelian berjaya"
@@ -4191,7 +4191,7 @@
     "defaultMessage": "Di manakah anda mahu pelayan anda ditempatkan?"
   },
   "servers.region.region-unsupported": {
-    "defaultMessage": "Rantau tidak disenaraikan? <link>Beritahu kami di mana anda ingin melihat Modrinth Hosting tersedia!</link>"
+    "defaultMessage": "Rantau tidak disenaraikan? <link>Beritahu kami di mana anda ingin melihat ShroudEdit Hosting tersedia!</link>"
   },
   "servers.region.southeast-asia": {
     "defaultMessage": "Asia Tenggara"
@@ -4224,7 +4224,7 @@
     "defaultMessage": "Sediakan pelayan"
   },
   "servers.setup.onboarding.step.choose.description": {
-    "defaultMessage": "Pilih pek mod kegemaran anda daripada Modrinth, atau pilih pemuat dan tambahkan mod yang anda inginkan."
+    "defaultMessage": "Pilih pek mod kegemaran anda daripada ShroudEdit, atau pilih pemuat dan tambahkan mod yang anda inginkan."
   },
   "servers.setup.onboarding.step.choose.title": {
     "defaultMessage": "Pilih apa yang hendak dimainkan"
@@ -4248,7 +4248,7 @@
     "defaultMessage": "Pelayan anda sudah sedia. Inilah yang perlu anda lakukan untuk mula bermain!"
   },
   "servers.setup.onboarding.welcome.title": {
-    "defaultMessage": "Selamat Datang ke Modrinth Hosting"
+    "defaultMessage": "Selamat Datang ke ShroudEdit Hosting"
   },
   "servers.setup.rate-limit.text": {
     "defaultMessage": "Anda sedang dihadkan kekerapan. Sila cuba lagi kemudian."
@@ -4739,7 +4739,7 @@
   "tag.loader.liteloader": {
     "defaultMessage": "LiteLoader"
   },
-  "tag.loader.minecraft": {
+  "tag.loader.enshrouded": {
     "defaultMessage": "Pek Sumber"
   },
   "tag.loader.modloader": {
@@ -4872,52 +4872,52 @@
     "defaultMessage": "Ketepikan semua"
   },
   "user.profile.badge.alpha.about.1": {
-    "defaultMessage": "Pengguna ini telah wujud sejak Modrinth Alpha, yang berakhir pada November 2020."
+    "defaultMessage": "Pengguna ini telah wujud sejak ShroudEdit Alpha, yang berakhir pada November 2020."
   },
   "user.profile.badge.beta.about.1": {
-    "defaultMessage": "Pengguna ini telah wujud sejak Modrinth Beta, yang berakhir pada Februari 2022."
+    "defaultMessage": "Pengguna ini telah wujud sejak ShroudEdit Beta, yang berakhir pada Februari 2022."
   },
   "user.profile.badge.beta.link": {
-    "defaultMessage": "Klik untuk membaca tentang pelancaran Modrinth Beta."
+    "defaultMessage": "Klik untuk membaca tentang pelancaran ShroudEdit Beta."
   },
   "user.profile.badge.beta.name": {
     "defaultMessage": "Penguji Beta"
   },
   "user.profile.badge.early-datapack-adopter.about.1": {
-    "defaultMessage": "Pengguna ini telah membantu kami menguji projek Pek Data di Modrinth sebelum kami melancarkannya pada Januari 2023."
+    "defaultMessage": "Pengguna ini telah membantu kami menguji projek Pek Data di ShroudEdit sebelum kami melancarkannya pada Januari 2023."
   },
   "user.profile.badge.early-modpack-adopter.about.1": {
-    "defaultMessage": "Pengguna ini telah membantu kami menguji projek Pek Mod di Modrinth sebelum kami melancarkannya pada Mei 2022."
+    "defaultMessage": "Pengguna ini telah membantu kami menguji projek Pek Mod di ShroudEdit sebelum kami melancarkannya pada Mei 2022."
   },
   "user.profile.badge.early-plugin-adopter.about.1": {
-    "defaultMessage": "Pengguna ini telah membantu kami menguji projek Pemalam di Modrinth sebelum kami melancarkannya pada Ogos 2022."
+    "defaultMessage": "Pengguna ini telah membantu kami menguji projek Pemalam di ShroudEdit sebelum kami melancarkannya pada Ogos 2022."
   },
   "user.profile.badge.early-resourcepack-adopter.about.1": {
-    "defaultMessage": "Pengguna ini telah membantu kami menguji projek Pek Sumber di Modrinth sebelum kami melancarkannya pada Ogos 2022."
+    "defaultMessage": "Pengguna ini telah membantu kami menguji projek Pek Sumber di ShroudEdit sebelum kami melancarkannya pada Ogos 2022."
   },
   "user.profile.badge.early-server-adopter.about.1": {
-    "defaultMessage": "Pengguna ini telah membantu kami menguji projek Pelayan di Modrinth sebelum kami melancarkannya pada Mac 2026."
+    "defaultMessage": "Pengguna ini telah membantu kami menguji projek Pelayan di ShroudEdit sebelum kami melancarkannya pada Mac 2026."
   },
   "user.profile.badge.early-shader-adopter.about.1": {
-    "defaultMessage": "Pengguna ini telah membantu kami menguji projek Pembayang di Modrinth sebelum kami melancarkannya pada Januari 2023."
+    "defaultMessage": "Pengguna ini telah membantu kami menguji projek Pembayang di ShroudEdit sebelum kami melancarkannya pada Januari 2023."
   },
   "user.profile.badge.hosting-alpha.about.1": {
-    "defaultMessage": "Pengguna ini telah menyertai ujian alfa tertutup Modrinth Hosting sebelum kami melancarkan Modrinth Hosting Beta pada November 2024."
+    "defaultMessage": "Pengguna ini telah menyertai ujian alfa tertutup ShroudEdit Hosting sebelum kami melancarkan ShroudEdit Hosting Beta pada November 2024."
   },
   "user.profile.badge.moderator.about.2": {
-    "defaultMessage": "Penyederhana Kandungan di Modrinth menyemak projek, mengendalikan laporan dan membantu memastikan Modrinth selamat."
+    "defaultMessage": "Penyederhana Kandungan di ShroudEdit menyemak projek, mengendalikan laporan dan membantu memastikan ShroudEdit selamat."
   },
   "user.profile.badge.plus.about.1": {
-    "defaultMessage": "Pengguna ini berusaha keras untuk menyokong Modrinth dan para pencipta pada platform ini."
+    "defaultMessage": "Pengguna ini berusaha keras untuk menyokong ShroudEdit dan para pencipta pada platform ini."
   },
   "user.profile.badge.pride.about.1": {
-    "defaultMessage": "Pengguna ini telah menyertai sekurang-kurangnya satu daripada pengumpulan dana Modrinth's Pride untuk komuniti LGBTQ+."
+    "defaultMessage": "Pengguna ini telah menyertai sekurang-kurangnya satu daripada pengumpulan dana ShroudEdit's Pride untuk komuniti LGBTQ+."
   },
   "user.profile.badge.pride.link": {
     "defaultMessage": "Klik untuk melawati pengumpulan dana Pride terkini kami."
   },
   "user.profile.badge.staff.name": {
-    "defaultMessage": "Pasukan Modrinth"
+    "defaultMessage": "Pasukan ShroudEdit"
   },
   "version.content.name": {
     "defaultMessage": "Nama"

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { renderBasicInlineMarkdown } from '@modrinth/utils'
+import { renderBasicInlineMarkdown } from '@shroudedit/utils'
 import { computed } from 'vue'
 
 const props = withDefaults(

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ArchiveIcon } from '@modrinth/assets'
+import { ArchiveIcon } from '@shroudedit/assets'
 import {
 	ArchivedProjectBanner,
 	commonMessages,
@@ -7,7 +7,7 @@ import {
 	SettingsFormGroup,
 	Textarea,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 
 import DisclosureToggleCard from './DisclosureToggleCard.vue'
 import type { DisclosureCardMetaProps, DisclosureLockStatus, NoteDisclosure } from './types'
@@ -58,7 +58,7 @@ const messages = defineMessages({
 		v-model="model.enabled"
 		:icon="ArchiveIcon"
 		:title="formatMessage(messages.title)"
-		info-link="https://support.modrinth.com/en/articles/16567675#h_76b62c699c"
+		info-link="https://support.shroudedit.com/en/articles/16567675#h_76b62c699c"
 		@set-lock-status="emit('setLockStatus', $event)"
 	>
 		<p>{{ formatMessage(messages.description1) }}</p>

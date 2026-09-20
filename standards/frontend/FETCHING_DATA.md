@@ -29,7 +29,7 @@ The default stale time is 5 seconds. Get the `QueryClient` with `useQueryClient(
 Use `useQuery` with `api-client` to get data:
 
 ```ts
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 
 const { data, isPending, isError, error } = useQuery({
 	queryKey: ['project', 'v3', projectId],
@@ -56,13 +56,13 @@ export const STALE_TIME = 1000 * 60 * 5
 export const STALE_TIME_LONG = 1000 * 60 * 10
 
 export const projectQueryOptions = {
-	v3: (projectId: string, client: AbstractModrinthClient) => ({
+	v3: (projectId: string, client: AbstractShroudEditClient) => ({
 		queryKey: ['project', 'v3', projectId] as const,
 		queryFn: () => client.labrinth.projects_v3.get(projectId),
 		staleTime: STALE_TIME,
 	}),
 
-	members: (projectId: string, client: AbstractModrinthClient) => ({
+	members: (projectId: string, client: AbstractShroudEditClient) => ({
 		queryKey: ['project', projectId, 'members'] as const,
 		queryFn: () => client.labrinth.projects_v3.getMembers(projectId),
 		staleTime: STALE_TIME,
@@ -94,7 +94,7 @@ Use `useMutation` for create, update, and delete operations. Invalidate related 
 
 ```ts
 const queryClient = useQueryClient()
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 
 const createMutation = useMutation({
 	mutationFn: (name: string) => client.archon.backups_v0.create(serverId, { name }),

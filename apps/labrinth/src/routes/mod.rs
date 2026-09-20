@@ -126,7 +126,7 @@ pub fn root_config(cfg: &mut web::ServiceConfig) {
                 Ok(req.into_response(
                     HttpResponse::Gone()
                         .content_type("application/json")
-                        .body(r#"{"error":"api_deprecated","description":"You are using an application that uses an outdated version of Modrinth's API. Please either update it or switch to another application. For developers: https://docs.modrinth.com/api/#versioning"}"#)
+                        .body(r#"{"error":"api_deprecated","description":"You are using an application that uses an outdated version of ShroudEdit's API. Please either update it or switch to another application. For developers: https://docs.shroudedit.com/api/#versioning"}"#)
                 ))
             }.boxed_local()
         })

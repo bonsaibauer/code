@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { injectNotificationManager, Toggle } from '@modrinth/ui'
+import type { Labrinth } from '@shroudedit/api-client'
+import { injectNotificationManager, Toggle } from '@shroudedit/ui'
 import { computed, nextTick, reactive, ref, watch } from 'vue'
 
 import IssueDetailPath from '~/components/ui/moderation/IssueDetailPath.vue'

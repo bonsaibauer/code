@@ -1,5 +1,5 @@
-import { AlignLeftIcon } from '@modrinth/assets'
-import { injectProjectPageContext } from '@modrinth/ui'
+import { AlignLeftIcon } from '@shroudedit/assets'
+import { injectProjectPageContext } from '@shroudedit/ui'
 import { computed } from 'vue'
 
 import { group, stage, toggle } from '../../types/node'
@@ -46,8 +46,8 @@ export default function () {
 						.shown(
 							computed(() => {
 								if (
-									!!project.value?.minecraft_java_server &&
-									!project.value.minecraft_server?.languages?.includes('en')
+									!!project.value?.enshrouded_server &&
+									!project.value.enshrouded_server?.languages?.includes('en')
 								) {
 									return false
 								} else {
@@ -57,7 +57,7 @@ export default function () {
 						),
 
 					toggle('repeat-ip', 'Repeat of IP')
-						.shown(computed(() => !!project.value?.minecraft_server))
+						.shown(computed(() => !!project.value?.enshrouded_server))
 						.suggestedStatus('flagged')
 						.message(),
 				),

@@ -53,7 +53,7 @@ pub struct DownloadMeta {
     pub dependent_on: Option<VersionId>,
 }
 
-pub const DOWNLOAD_META_HEADER: &str = "modrinth-download-meta";
+pub const DOWNLOAD_META_HEADER: &str = "shroudedit-download-meta";
 
 fn parse_download_meta_version(
     version_id: &str,

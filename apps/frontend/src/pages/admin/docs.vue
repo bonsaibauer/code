@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { CopyIcon, LibraryIcon, PlayIcon, SearchIcon } from '@modrinth/assets'
-import { Button, IconButton, Input, NewModal } from '@modrinth/ui'
+import { CopyIcon, LibraryIcon, PlayIcon, SearchIcon } from '@shroudedit/assets'
+import { Button, IconButton, Input, NewModal } from '@shroudedit/ui'
 import { computed, onMounted, ref } from 'vue'
 
 import docs from '~/templates/docs'

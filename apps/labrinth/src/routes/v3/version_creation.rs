@@ -950,7 +950,7 @@ pub async fn upload_file(
 
     if other_file_names.iter().any(|name| name == file_name) {
         return Err(CreateError::InvalidInput(
-            "Duplicate files are not allowed to be uploaded to Modrinth!"
+            "Duplicate files are not allowed to be uploaded to ShroudEdit!"
                 .to_string(),
         ));
     }
@@ -990,7 +990,7 @@ pub async fn upload_file(
 
     if exists {
         return Err(CreateError::InvalidInput(
-            "Duplicate files are not allowed to be uploaded to Modrinth!"
+            "Duplicate files are not allowed to be uploaded to ShroudEdit!"
                 .to_string(),
         ));
     }
@@ -1106,7 +1106,7 @@ pub async fn upload_file(
             .any(|y| y.hash == sha1_bytes || y.hash == sha512_bytes)
     }) {
         return Err(CreateError::InvalidInput(
-            "Duplicate files are not allowed to be uploaded to Modrinth!"
+            "Duplicate files are not allowed to be uploaded to ShroudEdit!"
                 .to_string(),
         ));
     }

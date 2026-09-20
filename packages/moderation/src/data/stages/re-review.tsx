@@ -1,6 +1,6 @@
-import { RefreshCwIcon } from '@modrinth/assets'
-import { injectProjectPageContext } from '@modrinth/ui'
-import { APPROVED_PROJECT_STATUSES, REJECTED_PROJECT_STATUSES } from '@modrinth/utils'
+import { RefreshCwIcon } from '@shroudedit/assets'
+import { injectProjectPageContext } from '@shroudedit/ui'
+import { APPROVED_PROJECT_STATUSES, REJECTED_PROJECT_STATUSES } from '@shroudedit/utils'
 import { computed } from 'vue'
 
 import { group, stage, toggle } from '../../types/node'

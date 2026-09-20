@@ -1,5 +1,5 @@
-import { ListBulletedIcon } from '@modrinth/assets'
-import { injectProjectPageContext } from '@modrinth/ui'
+import { ListBulletedIcon } from '@shroudedit/assets'
+import { injectProjectPageContext } from '@shroudedit/ui'
 import { computed } from 'vue'
 
 import { group, markdown, stage, toggle } from '../../types/node'
@@ -18,7 +18,7 @@ export default function () {
 		.children(
 			group().children(
 				toggle('paid-access-server', 'Paid access server')
-					.shown(computed(() => !!project.value.minecraft_server))
+					.shown(computed(() => !!project.value.enshrouded_server))
 					.suggestedStatus('rejected')
 					.message(),
 
@@ -70,9 +70,9 @@ export default function () {
 					.shown(
 						computed(
 							() =>
-								!!project.value.minecraft_server &&
-								!!project.value.minecraft_server?.languages?.length &&
-								project.value.minecraft_server.languages.length > 4,
+								!!project.value.enshrouded_server &&
+								!!project.value.enshrouded_server?.languages?.length &&
+								project.value.enshrouded_server.languages.length > 4,
 						),
 					)
 					.suggestedStatus('flagged')

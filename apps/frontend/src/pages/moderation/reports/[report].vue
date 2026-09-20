@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { injectModrinthClient } from '@modrinth/ui'
+import { injectShroudEditClient } from '@shroudedit/ui'
 import { useQuery } from '@tanstack/vue-query'
 
 import ModerationReportCard from '~/components/ui/moderation/ModerationReportCard.vue'
 import { enrichReportBatch } from '~/helpers/moderation.ts'
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const reportId = String(useRouteId('report'))
 
 const { data: report } = useQuery({

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { Button, IconButton, Tooltip } from '@modrinth/ui'
-import { renderString } from '@modrinth/utils'
+import { Button, IconButton, Tooltip } from '@shroudedit/ui'
+import { renderString } from '@shroudedit/utils'
 import type { Component } from 'vue'
 import { computed, inject, watchEffect } from 'vue'
 

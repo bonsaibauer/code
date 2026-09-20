@@ -1,4 +1,4 @@
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
 
@@ -16,19 +16,19 @@ const apiUsers: Labrinth.Users.v3.SearchUser[] = [
 		id: 'geometrically',
 		username: 'Geometrically',
 		avatar_url:
-			'https://cdn.modrinth.com/user/u6dRKJwZ/7ba3bdb11590a64843e9d2ab83ef85eaab42ec8e.png',
+			'https://cdn.shroudedit.com/user/u6dRKJwZ/7ba3bdb11590a64843e9d2ab83ef85eaab42ec8e.png',
 	},
 	{
 		id: 'prospector',
 		username: 'Prospector',
 		avatar_url:
-			'https://cdn.modrinth.com/user/PHyAPGui/30a3a3f53866531831db4aa006794e6bbcfc4121.png',
+			'https://cdn.shroudedit.com/user/PHyAPGui/30a3a3f53866531831db4aa006794e6bbcfc4121.png',
 	},
 	{
 		id: 'fetch',
 		username: 'Fetch',
 		avatar_url:
-			'https://cdn.modrinth.com/user/yol4bNw3/ee2c7a7580ed475cfe3cfe8cc92df45ce33031e0.png',
+			'https://cdn.shroudedit.com/user/yol4bNw3/ee2c7a7580ed475cfe3cfe8cc92df45ce33031e0.png',
 	},
 	{
 		id: 'imb11',
@@ -185,7 +185,7 @@ function createRender(args: Record<string, unknown>) {
 export const ShareInstance: Story = {
 	args: {
 		header: 'Share instance',
-		link: 'https://modrinth.com/instance/abc123',
+		link: 'https://shroudedit.com/instance/abc123',
 		linkExpiresAt: new Date(Date.now() + 7 * 86_400_000).toISOString(),
 		linkMaxUses: 10,
 	},

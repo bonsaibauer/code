@@ -319,15 +319,10 @@ impl Elasticsearch {
                 descending("created_timestamp"),
                 descending("version_published_timestamp"),
             ],
-            SearchIndex::MinecraftJavaServerVerifiedPlays2w => vec![
+            SearchIndex::EnshroudedServerPlayersOnline => vec![
                 json!({"_score": {"order": "desc"}}),
-                descending("minecraft_java_server.verified_plays_2w"),
-                descending("minecraft_java_server.is_online"),
-            ],
-            SearchIndex::MinecraftJavaServerPlayersOnline => vec![
-                json!({"_score": {"order": "desc"}}),
-                descending("minecraft_java_server.is_online"),
-                descending("minecraft_java_server.ping.data.players_online"),
+                descending("enshrouded_server.is_online"),
+                descending("enshrouded_server.ping.data.players_online"),
             ],
         };
         sort.push(json!({"project_id": {"order": "asc"}}));
@@ -697,32 +692,19 @@ impl Elasticsearch {
                         "type": "object",
                         "enabled": false
                     },
-                    "minecraft_server": {
+                    "enshrouded_server": {
                         "properties": {
                             "region": {"type": "keyword"},
-                            "languages": {"type": "keyword"}
-                        }
-                    },
-                    "minecraft_java_server": {
-                        "properties": {
-                            "verified_plays_2w": {"type": "long"},
+                            "languages": {"type": "keyword"},
                             "is_online": {"type": "boolean"},
                             "ping": {
                                 "properties": {
                                     "data": {
                                         "properties": {
-                                            "players_online": {
-                                                "type": "integer"
-                                            }
+                                            "game_version": {"type": "keyword"},
+                                            "players_online": {"type": "integer"},
+                                            "players_max": {"type": "integer"}
                                         }
-                                    }
-                                }
-                            },
-                            "content": {
-                                "properties": {
-                                    "kind": {"type": "keyword"},
-                                    "supported_game_versions": {
-                                        "type": "keyword"
                                     }
                                 }
                             }
@@ -1210,18 +1192,17 @@ fn versions_to_bulk(documents: &[UploadSearchVersion]) -> Result<String> {
 }
 
 fn add_server_online_field(object: &mut Map<String, Value>) {
-    let Some(server) = object
-        .get_mut("minecraft_java_server")
+    if let Some(server) = object
+        .get_mut("enshrouded_server")
         .and_then(Value::as_object_mut)
-    else {
-        return;
-    };
-    let is_online = server
-        .get("ping")
-        .and_then(Value::as_object)
-        .and_then(|ping| ping.get("data"))
-        .is_some_and(|data| !data.is_null());
-    server.insert("is_online".to_string(), Value::Bool(is_online));
+    {
+        let is_online = server
+            .get("ping")
+            .and_then(Value::as_object)
+            .and_then(|ping| ping.get("data"))
+            .is_some_and(|data| !data.is_null());
+        server.insert("is_online".to_string(), Value::Bool(is_online));
+    }
 }
 
 fn push_json_line<T: Serialize>(output: &mut String, value: &T) -> Result<()> {

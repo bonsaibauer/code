@@ -121,7 +121,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	AsteriskIcon,
 	ChevronRightIcon,
@@ -130,18 +130,18 @@ import {
 	ScaleIcon,
 	SendIcon,
 	TriangleAlertIcon,
-} from '@modrinth/assets'
-import type { Nag, NagContext, NagStatus } from '@modrinth/moderation'
-import { nagDestinations, normalizeProjectNagKind, toProjectNag } from '@modrinth/moderation'
-import { Accordion, Button, IconButton } from '@modrinth/ui'
+} from '@shroudedit/assets'
+import type { Nag, NagContext, NagStatus } from '@shroudedit/moderation'
+import { nagDestinations, normalizeProjectNagKind, toProjectNag } from '@shroudedit/moderation'
+import { Accordion, Button, IconButton } from '@shroudedit/ui'
 import {
 	commonMessages,
 	defineMessages,
 	injectNotificationManager,
 	type MessageDescriptor,
 	useVIntl,
-} from '@modrinth/ui'
-import { isStaff } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { isStaff } from '@shroudedit/utils'
 import type { Component } from 'vue'
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
@@ -193,7 +193,7 @@ const messages = defineMessages({
 	resubmitForReviewDesc: {
 		id: 'project-moderation-nags.resubmit-for-review-desc',
 		defaultMessage:
-			"Your project has been {status, select, rejected {rejected} withheld {withheld} other {{status}}} by Modrinth's staff. In most cases, you can resubmit for review after addressing the staff's message.",
+			"Your project has been {status, select, rejected {rejected} withheld {withheld} other {{status}}} by ShroudEdit's staff. In most cases, you can resubmit for review after addressing the staff's message.",
 	},
 	visitModerationPage: {
 		id: 'project-moderation-nags.visit-moderation-page',

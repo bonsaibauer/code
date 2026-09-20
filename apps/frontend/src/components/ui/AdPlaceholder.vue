@@ -26,7 +26,7 @@
 	</div>
 </template>
 <script setup>
-import { AutoLink } from '@modrinth/ui'
+import { AutoLink } from '@shroudedit/ui'
 
 const flags = useFeatureFlags()
 
@@ -61,16 +61,16 @@ useHead({
 
 const AD_PRESETS = {
 	medal: {
-		light: 'https://cdn.modrinth.com/modrinth-hosting-medal-light.webp',
-		dark: 'https://cdn.modrinth.com/modrinth-hosting-medal-dark.webp',
-		description: 'Host your next server with Modrinth Hosting',
-		link: '/hosting?plan&ref=medal',
+		light: '/news/article/welcome-to-shroudedit/thumbnail.webp',
+		dark: '/news/article/welcome-to-shroudedit/thumbnail.webp',
+		description: 'Discover Enshrouded community servers on ShroudEdit',
+		link: '/discover/servers',
 	},
 	'modrinth-hosting': {
-		light: 'https://cdn.modrinth.com/modrinth-hosting-light.webp',
-		dark: 'https://cdn.modrinth.com/modrinth-hosting-dark.webp',
-		description: 'Host your next server with Modrinth Hosting',
-		link: '/hosting',
+		light: '/news/article/welcome-to-shroudedit/thumbnail.webp',
+		dark: '/news/article/welcome-to-shroudedit/thumbnail.webp',
+		description: 'Share World Editor schematics with the Enshrouded community',
+		link: '/discover/schematics',
 	},
 }
 

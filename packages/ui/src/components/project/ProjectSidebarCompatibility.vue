@@ -3,7 +3,7 @@
 		<h2 class="text-lg m-0">{{ formatMessage(messages.title) }}</h2>
 		<section class="flex flex-col gap-2">
 			<h3 class="text-primary !font-normal text-base m-0">
-				{{ formatMessage(messages.minecraftJava) }}
+				{{ formatMessage(messages.gameVersion) }}
 			</h3>
 			<div class="flex flex-wrap gap-1">
 				<TagItem
@@ -95,17 +95,17 @@
 	</div>
 </template>
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@shroudedit/api-client'
 import {
 	ClientIcon,
 	getLoaderIcon,
 	MonitorSmartphoneIcon,
 	ServerIcon,
 	UserIcon,
-} from '@modrinth/assets'
-import { FormattedTag, projectCompatibilityMessages, TagItem } from '@modrinth/ui'
-import type { GameVersionTag, PlatformTag } from '@modrinth/utils'
-import { getVersionsToDisplay } from '@modrinth/utils'
+} from '@shroudedit/assets'
+import { FormattedTag, projectCompatibilityMessages, TagItem } from '@shroudedit/ui'
+import type { GameVersionTag, PlatformTag } from '@shroudedit/utils'
+import { getVersionsToDisplay } from '@shroudedit/utils'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -142,7 +142,7 @@ const noModpackLoader = computed(
 	() =>
 		(props.projectV3?.project_types.includes('modpack') &&
 			props.projectV3?.mrpack_loaders?.length === 1 &&
-			props.projectV3?.mrpack_loaders?.[0] === 'minecraft') ||
+			props.projectV3?.mrpack_loaders?.[0] === 'enshrouded') ||
 		props.projectV3?.mrpack_loaders?.length === 0,
 )
 

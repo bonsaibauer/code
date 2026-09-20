@@ -92,17 +92,17 @@
 	</div>
 </template>
 <script setup lang="ts">
-import { KeyIcon, MailIcon, SendIcon } from '@modrinth/assets'
+import { KeyIcon, MailIcon, SendIcon } from '@shroudedit/assets'
 import {
 	Admonition,
 	Button,
 	commonMessages,
 	defineMessages,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
 	Input,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { useQuery } from '@tanstack/vue-query'
 import type { LocationQueryValue } from 'vue-router'
 
@@ -140,7 +140,7 @@ const getErrorMessage = (error: unknown): string => {
 	return String(error)
 }
 
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const { addNotification } = injectNotificationManager()
 const { formatMessage } = useVIntl()
 
@@ -213,7 +213,7 @@ const messages = defineMessages({
 })
 
 useHead({
-	title: () => `${formatMessage(messages.title)} - Modrinth`,
+	title: () => `${formatMessage(messages.title)} - ShroudEdit`,
 })
 
 const auth = await useAuth()

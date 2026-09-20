@@ -71,7 +71,6 @@
 		</template>
 
 		<div v-else>
-			<OpenInAppModal ref="openInAppModal" />
 			<div
 				class="over-the-top-download-animation"
 				:class="{ 'animation-hidden': !overTheTopDownloadAnimation }"
@@ -102,22 +101,6 @@
 			<ModpackScanModal ref="scanModal" :project_id="project.id" />
 
 			<div
-				v-if="projectInstallContext && !isSettings"
-				ref="stickyInstallHeaderRef"
-				class="sticky top-0 z-20 mx-auto max-w-[80rem] border-0 border-solid border-divider bg-surface-1 px-6 pt-4"
-				:class="[isInstallHeaderStuck ? 'border-t' : '']"
-			>
-				<BrowseInstallHeader
-					:install-context="projectHeaderInstallContext"
-					divider
-					bottom-padding
-				/>
-			</div>
-			<SelectedProjectsFloatingBar
-				v-if="projectInstallContext && !isSettings"
-				:install-context="projectInstallContext"
-			/>
-			<div
 				class="new-page sidebar"
 				:class="[
 					{
@@ -134,10 +117,7 @@
 					`align-${marginTarget}`,
 				]"
 			>
-				<div
-					class="normal-page__header relative mb-4"
-					:class="projectInstallContext && !isSettings ? 'mt-0' : 'mt-4'"
-				>
+				<div class="normal-page__header relative mb-4 mt-4">
 					<div class="mb-6">
 						<ModerationProjectNags
 							v-if="
@@ -262,76 +242,6 @@
 									<PlayIcon />
 								</IconButton>
 							</div>
-
-							<Tooltip
-								v-if="
-									showProjectHeaderCreateServerAction && flags.showProjectPageCreateServersTooltip
-								"
-								theme="dismissable-prompt"
-								class="inline-flex"
-								open
-								placement="bottom-start"
-							>
-								<ButtonLink
-									v-tooltip="formatMessage(messages.createServerTooltip)"
-									size="xl"
-									:to="projectHeaderCreateServerTo"
-									:aria-label="formatMessage(messages.serversPromoTitle)"
-									class="!w-12 !rounded-full !px-0"
-									@click="dismissProjectHeaderCreateServerPrompt"
-								>
-									<ServerPlusIcon />
-								</ButtonLink>
-								<template #popper>
-									<div class="grid max-w-[18rem] gap-2">
-										<div class="flex items-center justify-between gap-4">
-											<div class="flex items-center gap-2">
-												<h3 class="m-0 text-base font-bold text-contrast">
-													{{ formatMessage(messages.serversPromoTitle) }}
-												</h3>
-												<span
-													class="rounded-full bg-brand-highlight px-2 py-0.5 text-xs font-bold text-brand"
-												>
-													{{ formatMessage(commonMessages.newBadge) }}
-												</span>
-											</div>
-											<IconButton
-												v-tooltip="formatMessage(messages.dontShowAgain)"
-												class="!size-6"
-												size="xs"
-												:label="formatMessage(messages.dontShowAgain)"
-												@click="dismissProjectHeaderCreateServerPrompt"
-											>
-												<XIcon aria-hidden="true" />
-											</IconButton>
-										</div>
-										<p class="m-0 text-sm font-medium leading-tight text-secondary">
-											{{ formatMessage(messages.serversPromoDescription) }}
-										</p>
-										<p class="m-0 text-sm font-semibold text-contrast">
-											<IntlFormatted
-												:message-id="messages.serversPromoPricing"
-												:values="{ price: formatPrice(500, 'USD', true) }"
-											>
-												<template #small="{ children }">
-													<small><component :is="() => children" /></small>
-												</template>
-											</IntlFormatted>
-										</p>
-									</div>
-								</template>
-							</Tooltip>
-							<ButtonLink
-								v-else-if="showProjectHeaderCreateServerAction"
-								v-tooltip="formatMessage(messages.createServerTooltip)"
-								size="xl"
-								:to="projectHeaderCreateServerTo"
-								:aria-label="formatMessage(messages.serversPromoTitle)"
-								class="!w-12 !rounded-full !px-0"
-								@click="dismissProjectHeaderCreateServerPrompt"
-							>
-								<ServerPlusIcon />
-							</ButtonLink>
 
 							<ClientOnly>
 								<IconButton
@@ -493,14 +403,11 @@
 				<div class="normal-page__sidebar">
 					<ProjectSidebarServerInfo
 						v-if="isServerProject"
-						:loading="!serverDataLoaded"
+						:loading="projectV3Pending"
 						:project-v3="projectV3"
 						:tags="tags"
-						:required-content="serverRequiredContent"
-						:recommended-version="serverRecommendedVersion"
-						:supported-versions="serverSupportedVersions"
-						:loaders="serverModpackLoaders"
-						:status-online="projectV3?.minecraft_java_server?.ping?.data != null"
+						:public-passwords="serverAccessPasswords ?? []"
+						:status-online="projectV3?.enshrouded_server?.ping?.data != null"
 						class="card flex-card"
 					/>
 					<ProjectSidebarCompatibility
@@ -576,16 +483,13 @@ import {
 	ScaleIcon,
 	ScanEyeIcon,
 	SearchIcon,
-	ServerPlusIcon,
 	SettingsIcon,
-	XIcon,
-} from '@modrinth/assets'
-import { getMarginTarget, moderationSettings } from '@modrinth/moderation'
+} from '@shroudedit/assets'
+import { getMarginTarget, moderationSettings } from '@shroudedit/moderation'
 import {
 	Admonition,
 	ArchivedProjectBanner,
 	Avatar,
-	BrowseInstallHeader,
 	Button,
 	ButtonLink,
 	commonMessages,
@@ -594,11 +498,9 @@ import {
 	formatProjectTypeSentence,
 	getActiveDisclosures,
 	IconButton,
-	injectModrinthClient,
+	injectShroudEditClient,
 	injectNotificationManager,
-	IntlFormatted,
 	NavTabs,
-	OpenInAppModal,
 	PageHeader,
 	PageHeaderActions,
 	PageHeaderMetadata,
@@ -614,16 +516,12 @@ import {
 	ProjectSidebarServerInfo,
 	ProjectSidebarTags,
 	provideProjectPageContext,
-	SelectedProjectsFloatingBar,
 	TeleportOverflowMenu,
-	Tooltip,
 	useDebugLogger,
-	useFormatPrice,
 	useRelativeTime,
-	useStickyObserver,
 	useVIntl,
-} from '@modrinth/ui'
-import { formatProjectType, isStaff } from '@modrinth/utils'
+} from '@shroudedit/ui'
+import { formatProjectType, isStaff } from '@shroudedit/utils'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { useLocalStorage } from '@vueuse/core'
 import { onScopeDispose, readonly, ref, useTemplateRef, watch, watchEffect } from 'vue'
@@ -638,11 +536,8 @@ import ProjectCollectionSaveButton from '~/components/ui/ProjectCollectionSaveBu
 import ProjectDownloadModal from '~/components/ui/ProjectDownloadModal/index.vue'
 import ProjectMemberHeader from '~/components/ui/ProjectMemberHeader.vue'
 import { getSignInRouteObj } from '~/composables/auth.ts'
-import { saveFeatureFlags } from '~/composables/featureFlags.ts'
 import { notifyCopied } from '~/composables/moderation.ts'
 import { STALE_TIME, STALE_TIME_LONG, warmProjectCheckCaches } from '~/composables/queries/project'
-import { versionQueryOptions } from '~/composables/queries/version'
-import { useServerInstallContent } from '~/composables/use-server-install-content'
 import { userCollectProject, userFollowProject } from '~/composables/user.js'
 import { injectCurrentProjectId } from '~/providers/current-project.ts'
 import { loadChecklistState } from '~/services/moderation/checklist-storage.ts'
@@ -674,8 +569,6 @@ const routeParam = computed(() => {
 	return Array.isArray(param) ? param[0] : param
 })
 
-const { createProjectDownloadUrl } = useCdnDownloadContext()
-
 const downloadReason = ref('standalone')
 
 function absorbDepQuery() {
@@ -697,45 +590,29 @@ const cosmetics = useCosmetics()
 const formatRelativeTime = useRelativeTime()
 
 const { formatMessage } = useVIntl()
-const formatPrice = useFormatPrice()
 
 const debug = useDebugLogger('DownloadModal')
 
 const downloadModal = ref()
-const openInAppModal = ref()
 const overTheTopDownloadAnimation = ref()
 const scanModal = ref()
 const isCheckingModpackArchives = ref(false)
 
 const projectV3Loaded = computed(() => !projectV3Pending.value || projectV3.value != null)
-const isServerProject = computed(() => projectV3.value?.minecraft_server != null)
-const stickyInstallHeaderRef = ref(null)
-const { isStuck: isInstallHeaderStuck } = useStickyObserver(
-	stickyInstallHeaderRef,
-	'ProjectInstallHeader',
-)
+const isServerProject = computed(() => projectV3.value?.enshrouded_server != null)
 
 const projectEnvironmentModal = useTemplateRef('projectEnvironmentModal')
 
 const baseId = useId()
 
-const serverProject = computed(() => {
-	if (!project.value) {
-		return undefined
-	}
-	return {
-		name: project.value.title,
-		slug: project.value.slug || project.value.id,
-		numPlayers: projectV3.value?.minecraft_java_server?.ping?.data?.players_online,
-		icon: project.value.icon_url,
-		statusOnline: !!projectV3.value?.minecraft_java_server?.ping?.data,
-		region: projectV3.value?.minecraft_server?.region,
-	}
-})
-
-function handlePlayServerProject() {
-	openInAppModal.value?.show({
-		serverProject: serverProject.value,
+async function copyServerAddress() {
+	const server = projectV3.value?.enshrouded_server
+	if (!server?.address) return
+	await navigator.clipboard.writeText(`${server.address}:${server.query_port}`)
+	addNotification({
+		title: formatMessage(messages.serverAddressCopiedTitle),
+		text: formatMessage(messages.serverAddressCopiedText),
+		type: 'success',
 	})
 }
 
@@ -756,14 +633,6 @@ const messages = defineMessages({
 		id: 'project.navigation.changelog',
 		defaultMessage: 'Changelog',
 	},
-	createServer: {
-		id: 'project.actions.create-server',
-		defaultMessage: 'Create a server',
-	},
-	createServerTooltip: {
-		id: 'project.actions.create-server-tooltip',
-		defaultMessage: 'Create a server',
-	},
 	createNewCollection: {
 		id: 'project.collections.create-new',
 		defaultMessage: 'Create new collection',
@@ -771,10 +640,6 @@ const messages = defineMessages({
 	descriptionTab: {
 		id: 'project.description.title',
 		defaultMessage: 'Description',
-	},
-	dontShowAgain: {
-		id: 'project.actions.dont-show-again',
-		defaultMessage: "Don't show again",
 	},
 	editProject: {
 		id: 'project.actions.edit-project',
@@ -787,7 +652,7 @@ const messages = defineMessages({
 	environmentMigrationMessage: {
 		id: 'project.environment.migration.message',
 		defaultMessage:
-			"We've just overhauled the Environments system on Modrinth and new options are now available. Please verify that the metadata is correct.",
+			"We've updated the environment system on ShroudEdit. Please verify that the metadata is correct.",
 	},
 	environmentMigrationTitle: {
 		id: 'project.environment.migration.title',
@@ -796,7 +661,7 @@ const messages = defineMessages({
 	environmentMigrationNoPermissionMessage: {
 		id: 'project.environment.migration-no-permission.message',
 		defaultMessage:
-			"We've just overhauled the Environments system on Modrinth and new options are now available. You don't have permission to modify these settings, but please let another member of the project know that the environment metadata needs to be verified.",
+			"We've updated the environment system on ShroudEdit. You don't have permission to modify these settings, so please ask another project member to verify the metadata.",
 	},
 	environmentMigrationNoPermissionTitle: {
 		id: 'project.environment.migration-no-permission.title',
@@ -907,17 +772,13 @@ const messages = defineMessages({
 		id: 'project.modpack-archive-warning.description',
 		defaultMessage: 'Importing this .mrpack might be broken.',
 	},
-	serversPromoDescription: {
-		id: 'project.actions.servers-promo.description',
-		defaultMessage: 'Modrinth Hosting is the easiest way to play with your friends without hassle!',
+	serverAddressCopiedTitle: {
+		id: 'project.server.address-copied-title',
+		defaultMessage: 'Server address copied',
 	},
-	serversPromoPricing: {
-		id: 'project.actions.servers-promo.pricing',
-		defaultMessage: 'Starting at {price}<small> / month</small>',
-	},
-	serversPromoTitle: {
-		id: 'project.actions.servers-promo.title',
-		defaultMessage: 'Create a server',
+	serverAddressCopiedText: {
+		id: 'project.server.address-copied-text',
+		defaultMessage: 'Paste it into the Enshrouded server browser to connect.',
 	},
 	versionsTab: {
 		id: 'project.versions.title',
@@ -950,7 +811,7 @@ if (
 }
 
 // Use DI client for TanStack Query
-const client = injectModrinthClient()
+const client = injectShroudEditClient()
 const queryClient = useQueryClient()
 
 // Resolve route slug/ID to the canonical project ID (middleware warms this cache)
@@ -1022,47 +883,6 @@ const project = computed(() => {
 const routeProjectType = computed(() =>
 	Array.isArray(route.params.type) ? route.params.type[0] : route.params.type,
 )
-const projectInstallType = computed(() => ({
-	id: project.value?.actualProjectType ?? routeProjectType.value,
-}))
-const serverInstallModalRef = ref(null)
-const serverInstallDebug = useDebugLogger('ProjectServerInstall')
-const { installContext: serverBrowseInstallContext } = useServerInstallContent({
-	projectType: projectInstallType,
-	onboardingModalRef: serverInstallModalRef,
-	debug: serverInstallDebug,
-})
-const projectDiscoverBackUrl = computed(() => {
-	const discoverType =
-		routeProjectType.value === 'project'
-			? (project.value?.actualProjectType ?? project.value?.project_type ?? 'mod')
-			: (routeProjectType.value ?? project.value?.actualProjectType ?? 'mod')
-
-	return `/discover/${discoverType}s${getInstallContextQueryString(['sid', 'wid', 'from', 'shi'])}`
-})
-const projectInstallContext = computed(() => {
-	const context = serverBrowseInstallContext.value
-	if (!context) return null
-	return {
-		...context,
-		backUrl: projectDiscoverBackUrl.value,
-		backLabel: formatMessage(messages.backToDiscover),
-		discardSelectedAndBack: async () => {
-			await (context.clearSelected ?? context.clearQueued)?.()
-			await navigateTo(projectDiscoverBackUrl.value)
-		},
-	}
-})
-const projectHeaderInstallContext = computed(() => {
-	const context = projectInstallContext.value
-	if (!context) return null
-	return {
-		...context,
-		onBack: undefined,
-		selectedProjects: [],
-		isInstallingSelected: false,
-	}
-})
 
 const sharedProjectId = injectCurrentProjectId(null)
 if (sharedProjectId) {
@@ -1086,97 +906,11 @@ const {
 	enabled: computed(() => !!projectId.value),
 })
 
-// Server sidebar: modpack version + project for required content
-const serverModpackVersionId = computed(() => {
-	const content = projectV3.value?.minecraft_java_server?.content
-	return content?.kind === 'modpack' ? content.version_id : null
-})
-
-const { data: serverModpackVersion, isPending: serverModpackVersionPending } = useQuery({
-	queryKey: computed(() => ['version', 'v3', serverModpackVersionId.value]),
-	queryFn: () => client.labrinth.versions_v3.getVersion(serverModpackVersionId.value),
+const { data: serverAccessPasswords } = useQuery({
+	queryKey: computed(() => ['project', projectId.value, 'server-access']),
+	queryFn: () => client.labrinth.projects_v3.getServerAccess(projectId.value),
 	staleTime: STALE_TIME,
-	enabled: computed(() => !!serverModpackVersionId.value),
-})
-
-const serverDataLoaded = computed(() => {
-	if (!projectV3.value) return false
-	if (serverModpackVersionId.value && serverModpackVersionPending.value) return false
-	return true
-})
-
-const serverRequiredContent = computed(() => {
-	const content = projectV3.value?.minecraft_java_server?.content
-	if (!content || content.kind !== 'modpack') return null
-	const primaryFile =
-		serverModpackVersion.value?.files?.find((f) => f.primary) ??
-		serverModpackVersion.value?.files?.[0]
-	return {
-		name: content.project_name ?? '',
-		versionNumber: serverModpackVersion.value?.version_number ?? '',
-		icon: content.project_icon,
-		onclickName:
-			content.project_id && content.project_id !== projectId.value
-				? () => {
-						navigateTo({
-							path: `/project/${content.project_id}`,
-							query: { ...PROJECT_DEP_MARKER_QUERY },
-						})
-					}
-				: undefined,
-		onclickVersion:
-			content.project_id && content.project_id !== projectId.value
-				? () => {
-						navigateTo({
-							path: `/project/${content.project_id}/version/${serverModpackVersion.value?.id}`,
-							query: { ...PROJECT_DEP_MARKER_QUERY },
-						})
-					}
-				: undefined,
-		onclickDownload: primaryFile?.url
-			? () =>
-					navigateTo(createProjectDownloadUrl(primaryFile.url, { reason: 'dependency' }), {
-						external: true,
-					})
-			: undefined,
-		showCustomModpackTooltip: content.project_id === projectId.value,
-	}
-})
-
-const serverRecommendedVersion = computed(() => {
-	const content = projectV3.value?.minecraft_java_server?.content
-	if (!content) return null
-
-	if (content.kind === 'modpack') {
-		return serverModpackVersion.value?.game_versions?.[0] ?? null
-	}
-
-	if (content.kind === 'vanilla') {
-		return content.recommended_game_version ?? null
-	}
-
-	return null
-})
-
-const serverSupportedVersions = computed(() => {
-	const content = projectV3.value?.minecraft_java_server?.content
-	if (!content) return []
-
-	if (content.kind === 'vanilla') {
-		return content.supported_game_versions?.filter((v) => !!v) ?? []
-	}
-
-	return []
-})
-
-const serverModpackLoaders = computed(() => {
-	if (!serverModpackVersion.value) return []
-	return serverModpackVersion.value.mrpack_loaders ?? []
-})
-
-watch(serverModpackVersionId, (versionId) => {
-	if (!versionId) return
-	queryClient.prefetchQuery(versionQueryOptions.v3(versionId, client))
+	enabled: computed(() => !!projectId.value && projectV3.value?.enshrouded_server != null),
 })
 
 // Members
@@ -1775,7 +1509,7 @@ watch(
 
 const projectTypeDisplay = computed(() => {
 	if (!project.value) return ''
-	const projectType = isServerProject.value ? 'minecraft_java_server' : project.value.project_type
+	const projectType = isServerProject.value ? 'server' : project.value.project_type
 	return formatProjectType(data.$getProjectTypeForDisplay(projectType, project.value.loaders))
 })
 
@@ -1787,11 +1521,11 @@ const following = computed(() => {
 })
 
 const PROJECT_NOT_FOUND_DESCRIPTION =
-	"There's no project here, check that you have the right link! It may still be under review or no longer publicly available on Modrinth."
+	"There's no project here, check that you have the right link! It may still be under review or no longer publicly available on ShroudEdit."
 
 const title = computed(() =>
 	project.value
-		? `${project.value.title} - Minecraft ${projectTypeDisplay.value}`
+		? `${project.value.title} - Enshrouded ${projectTypeDisplay.value}`
 		: 'Project not found',
 )
 const description = computed(() => {
@@ -1802,12 +1536,7 @@ const description = computed(() => {
 	const creator = organization.value?.name || members.value.find((x) => x.is_owner)?.user?.username
 	const byLine = creator ? ` by ${creator}` : ''
 
-	return `${project.value.description} - Download the Minecraft ${projectTypeDisplay.value} ${project.value.title}${byLine} on Modrinth`
-})
-
-const canCreateServerFrom = computed(() => {
-	if (!project.value) return false
-	return project.value.project_type === 'modpack' && project.value.server_side !== 'unsupported'
+	return `${project.value.description} - Download the Enshrouded ${projectTypeDisplay.value} ${project.value.title}${byLine} on ShroudEdit`
 })
 
 const projectSearchUrl = computed(
@@ -1853,13 +1582,6 @@ const settingsBackDestination = computed(() => {
 const projectHeaderPrimaryColor = computed(() =>
 	currentMember.value || route.name === 'type-project-version-version' ? 'standard' : 'brand',
 )
-const showProjectHeaderCreateServerAction = computed(
-	() => canCreateServerFrom.value && flags.value.showProjectPageQuickServerButton,
-)
-const projectHeaderCreateServerTo = computed(() =>
-	project.value ? `/hosting?project=${project.value.id}#plan` : '/hosting',
-)
-
 const MRPACK_ARCHIVE_WARNING_START = new Date('2026-08-10T17:00:00.000Z').getTime()
 const MRPACK_ARCHIVE_WARNING_END = new Date('2026-08-13T20:00:00.000Z').getTime()
 const hasModpackArchiveInWarningWindow = computed(() =>
@@ -2063,24 +1785,11 @@ function getDependentSearchTypes() {
 		return [isServerProject.value ? 'server' : project.value.actualProjectType]
 	}
 
-	const loaders = project.value.loaders ?? []
-	const projectTypes = []
-
-	if (loaders.some((loader) => tags.value.loaderData.modLoaders.includes(loader))) {
-		projectTypes.push('mod')
-	}
-	if (loaders.some((loader) => tags.value.loaderData.allPluginLoaders.includes(loader))) {
-		projectTypes.push('plugin')
-	}
-	if (loaders.some((loader) => tags.value.loaderData.dataPackLoaders.includes(loader))) {
-		projectTypes.push('datapack')
-	}
-
-	return projectTypes.length > 0 ? projectTypes : ['mod']
+	return ['mod']
 }
 
 const createCanonicalUrl = () =>
-	project.value ? `https://modrinth.com/project/${project.value.id}` : undefined
+	project.value ? `${config.public.siteUrl}/project/${project.value.id}` : undefined
 
 useHead({
 	link: [
@@ -2100,7 +1809,7 @@ if (!route.name.startsWith('type-project-settings')) {
 		ogImage: () =>
 			project.value
 				? (project.value?.icon_url ?? 'https://cdn.modrinth.com/placeholder-square.png')
-				: 'https://cdn.modrinth.com/not-found.png',
+				: 'https://cdn.modrinth.com/placeholder-square.png',
 		ogUrl: createCanonicalUrl,
 		robots: () => (project.value?.status === 'approved' ? 'all' : 'noindex'),
 	})
@@ -2115,15 +1824,10 @@ const onUserCollectProject = useClientTry(userCollectProject)
 
 function handleProjectHeaderPrimary(event) {
 	if (isServerProject.value) {
-		handlePlayServerProject()
+		void copyServerAddress()
 	} else {
 		downloadModal.value?.show(event)
 	}
-}
-
-function dismissProjectHeaderCreateServerPrompt() {
-	flags.value.showProjectPageCreateServersTooltip = false
-	saveFeatureFlags()
 }
 
 function followProjectFromHeader() {
@@ -2353,30 +2057,8 @@ function triggerDownloadAnimation() {
 	setTimeout(() => (overTheTopDownloadAnimation.value = false), 500)
 }
 
-const INSTALL_CONTEXT_QUERY_KEYS = ['sid', 'wid', 'from', 'shi']
-
-function getInstallContextQueryString(keys = INSTALL_CONTEXT_QUERY_KEYS) {
-	const params = new URLSearchParams()
-
-	for (const key of keys) {
-		const value = route.query[key]
-		if (Array.isArray(value)) {
-			for (const item of value) {
-				if (item != null) {
-					params.append(key, item)
-				}
-			}
-		} else if (value != null) {
-			params.append(key, value)
-		}
-	}
-
-	const queryString = params.toString()
-	return queryString ? `?${queryString}` : ''
-}
-
 function withInstallContextQuery(path) {
-	return `${path}${getInstallContextQueryString()}`
+	return path
 }
 
 async function deleteVersion(id) {
@@ -2436,7 +2118,7 @@ const navLinks = computed(() => {
 			label: formatMessage(messages.changelogTab),
 			href: withInstallContextQuery(`${projectUrl}/changelog`),
 			shown:
-				hasVersions.value && projectV3Loaded.value && projectV3.value?.minecraft_server == null,
+				hasVersions.value && projectV3Loaded.value && projectV3.value?.enshrouded_server == null,
 			onHover: loadVersions,
 		},
 		{
@@ -2445,7 +2127,7 @@ const navLinks = computed(() => {
 			shown:
 				(hasVersions.value || !!currentMember.value) &&
 				projectV3Loaded.value &&
-				projectV3.value?.minecraft_server == null,
+				projectV3.value?.enshrouded_server == null,
 			subpages: [`${projectUrl}/version/`],
 			onHover: loadVersions,
 		},

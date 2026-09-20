@@ -96,8 +96,9 @@ pub(super) fn validate(
         );
     }
 
-    let is_minecraft_server = project.components.minecraft_server.is_some();
-    if !is_minecraft_server && !project.gallery.iter().any(|item| item.featured)
+    let is_enshrouded_server = project.components.enshrouded_server.is_some();
+    if !is_enshrouded_server
+        && !project.gallery.iter().any(|item| item.featured)
     {
         nags.push(ProjectNag::new(
             ProjectNagKind::FeatureGalleryImage,

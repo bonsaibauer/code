@@ -4,9 +4,9 @@ FROM docker.io/tailscale/tailscale:latest AS tailscale
 
 FROM node:24-trixie-slim
 
-LABEL org.opencontainers.image.source=https://github.com/modrinth/code
+LABEL org.opencontainers.image.source=https://github.com/shroudedit/code
 LABEL org.opencontainers.image.title=frontend
-LABEL org.opencontainers.image.description="Modrinth website"
+LABEL org.opencontainers.image.description="ShroudEdit website"
 LABEL org.opencontainers.image.licenses=AGPL-3.0-only
 
 RUN apt-get update \

@@ -18,8 +18,8 @@
 </template>
 
 <script setup lang="ts">
-import { CheckIcon } from '@modrinth/assets'
-import { defineMessages, TagItem, useVIntl } from '@modrinth/ui'
+import { CheckIcon } from '@shroudedit/assets'
+import { defineMessages, TagItem, useVIntl } from '@shroudedit/ui'
 import { computed } from 'vue'
 
 const props = defineProps<{

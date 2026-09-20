@@ -1,6 +1,6 @@
-import type { Labrinth } from '@modrinth/api-client'
-import { normalizeProjectNagKind, toProjectFieldMessage } from '@modrinth/moderation'
-import { injectProjectPageContext } from '@modrinth/ui'
+import type { Labrinth } from '@shroudedit/api-client'
+import { normalizeProjectNagKind, toProjectFieldMessage } from '@shroudedit/moderation'
+import { injectProjectPageContext } from '@shroudedit/ui'
 import { computed } from 'vue'
 
 export type ProjectSettingsField =
@@ -35,7 +35,7 @@ export const projectNagFields = {
 		'project-name-profanity',
 		'project-name-non-standard-text',
 		'project-name-version',
-		'minecraft-title-clause',
+		'enshrouded-title-clause',
 	],
 	summary: [
 		'project-summary-slur',

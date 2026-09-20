@@ -4,7 +4,7 @@
 
 		<!-- User roles -->
 		<template v-else-if="type === 'admin'">
-			<ModrinthIcon aria-hidden="true" /> {{ formatMessage(messages.modrinthTeamLabel) }}
+			<ShroudEditIcon aria-hidden="true" /> {{ formatMessage(messages.shroudeditTeamLabel) }}
 		</template>
 		<template v-else-if="type === 'moderator'">
 			<ScaleIcon aria-hidden="true" /> {{ formatMessage(messages.moderatorLabel) }}
@@ -92,14 +92,14 @@ import {
 	GlobeIcon,
 	LinkIcon,
 	LockIcon,
-	ModrinthIcon,
+	ShroudEditIcon,
 	ScaleIcon,
 	ShieldAlertIcon,
 	ShieldCheckIcon,
 	UpdatedIcon,
 	XIcon,
-} from '@modrinth/assets'
-import { capitalizeString } from '@modrinth/utils'
+} from '@shroudedit/assets'
+import { capitalizeString } from '@shroudedit/utils'
 
 import { defineMessages, useVIntl } from '../../composables/i18n'
 
@@ -140,9 +140,9 @@ const messages = defineMessages({
 		id: 'omorphia.component.badge.label.moderator',
 		defaultMessage: 'Moderator',
 	},
-	modrinthTeamLabel: {
-		id: 'omorphia.component.badge.label.modrinth-team',
-		defaultMessage: 'Modrinth Team',
+	shroudeditTeamLabel: {
+		id: 'omorphia.component.badge.label.shroudedit-team',
+		defaultMessage: 'ShroudEdit Team',
 	},
 	pendingLabel: {
 		id: 'omorphia.component.badge.label.pending',

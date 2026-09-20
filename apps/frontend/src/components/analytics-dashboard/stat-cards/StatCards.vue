@@ -1,29 +1,5 @@
 <template>
 	<div class="flex w-full flex-col gap-3">
-		<Admonition
-			v-if="showMonetizationBanner"
-			type="info"
-			:header="formatMessage(analyticsStatCardMessages.monetizationBannerTitle)"
-			show-actions-underneath
-			dismissible
-			@dismiss="dismissMonetizationBanner"
-		>
-			<div class="text-primary">
-				{{ formatMessage(analyticsStatCardMessages.monetizationBannerBody) }}
-			</div>
-			<template #actions>
-				<ButtonLink
-					type="colored"
-					color="blue"
-					href="https://modrinth.com/legal/cmp-info"
-					target="_blank"
-					class="w-fit !px-4"
-				>
-					{{ formatMessage(analyticsStatCardMessages.monetizationBannerLearnMore) }}
-					<RightArrowIcon aria-hidden="true" />
-				</ButtonLink>
-			</template>
-		</Admonition>
 		<div class="grid grid-cols-2 gap-3 lg:grid-cols-4">
 			<StatCard
 				v-for="card in statCards"
@@ -42,9 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { RightArrowIcon } from '@modrinth/assets'
-import { Admonition, ButtonLink, useFormatNumber, useVIntl } from '@modrinth/ui'
-import { useLocalStorage } from '@vueuse/core'
+import { useFormatNumber, useVIntl } from '@shroudedit/ui'
 
 import {
 	type AnalyticsDashboardStat,
@@ -55,7 +29,6 @@ import { analyticsStatCardMessages, formatAnalyticsStatLabel } from '../analytic
 import { formatAnalyticsTableFullPlaytime } from '../analytics-table/analytics-table-formatting.ts'
 import StatCard from './StatCard.vue'
 
-const MONETIZATION_BANNER_DISMISSED_KEY = 'analytics-monetization-banner-dismissed'
 
 const {
 	activeStat,
@@ -69,10 +42,6 @@ const {
 } = injectAnalyticsDashboardContext()
 const formatNumber = useFormatNumber()
 const { formatMessage } = useVIntl()
-const monetizationBannerDismissed = useLocalStorage(MONETIZATION_BANNER_DISMISSED_KEY, false)
-const showMonetizationBanner = computed(
-	() => selectedBreakdowns.value.includes('monetization') && !monetizationBannerDismissed.value,
-)
 const MAX_PREVIOUS_PERIOD_PERCENT_DISPLAY = 1000
 
 const compactNumberFormatter = computed(
@@ -84,22 +53,6 @@ const compactNumberFormatter = computed(
 )
 
 const underDollarRevenueFormatter = computed(
-	() =>
-		new Intl.NumberFormat(undefined, {
-			minimumFractionDigits: 2,
-			maximumFractionDigits: 2,
-		}),
-)
-
-const preciseRevenueFormatter = computed(
-	() =>
-		new Intl.NumberFormat(undefined, {
-			minimumFractionDigits: 5,
-			maximumFractionDigits: 5,
-		}),
-)
-
-const tooltipRevenueFormatter = computed(
 	() =>
 		new Intl.NumberFormat(undefined, {
 			minimumFractionDigits: 2,
@@ -135,21 +88,6 @@ function formatRevenueNumber(value: number): string {
 	}
 
 	return formatStatNumber(value)
-}
-
-function formatRevenueValue(value: number): string {
-	return formatMessage(analyticsStatCardMessages.revenueValue, {
-		value: formatRevenueNumber(value),
-	})
-}
-
-function formatPreciseRevenueValue(value: number): string {
-	return formatMessage(analyticsStatCardMessages.revenueValue, {
-		value:
-			Math.abs(value) < 1
-				? preciseRevenueFormatter.value.format(value)
-				: tooltipRevenueFormatter.value.format(value),
-	})
 }
 
 function formatPlaytimeTooltip(value: number): string {
@@ -237,9 +175,6 @@ function formatPreviousPeriodComparison(
 	}
 }
 
-function dismissMonetizationBanner() {
-	monetizationBannerDismissed.value = true
-}
 
 const statCards = computed<
 	{
@@ -279,20 +214,6 @@ const statCards = computed<
 		),
 		icon: 'download',
 		disabled: !isAnalyticsDashboardStatRelevant('downloads', selectedBreakdowns.value),
-	},
-	{
-		key: 'revenue',
-		label: formatAnalyticsStatLabel('revenue', formatMessage),
-		statLabel: formatRevenueValue(currentTotals.value.revenue),
-		statTooltip: formatPreciseRevenueValue(currentTotals.value.revenue),
-		vsPrevPeriodPercent: formatPreviousPeriodComparison(
-			'revenue',
-			percentChanges.value.revenue,
-			currentTotals.value.revenue,
-			previousTotals.value.revenue,
-		),
-		icon: 'dollar',
-		disabled: !isAnalyticsDashboardStatRelevant('revenue', selectedBreakdowns.value),
 	},
 	{
 		key: 'playtime',

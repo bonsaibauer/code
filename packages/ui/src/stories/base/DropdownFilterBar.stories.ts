@@ -1,4 +1,4 @@
-import { BoxIcon } from '@modrinth/assets'
+import { BoxIcon } from '@shroudedit/assets'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
 

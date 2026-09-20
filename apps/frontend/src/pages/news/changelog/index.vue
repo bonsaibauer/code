@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { getChangelog, type Product } from '@modrinth/blog'
-import { ChangelogEntry, NavTabs } from '@modrinth/ui'
-import Timeline from '@modrinth/ui/src/components/base/Timeline.vue'
+import { getChangelog, type Product } from '@shroudedit/blog'
+import { ChangelogEntry, NavTabs } from '@shroudedit/ui'
+import Timeline from '@shroudedit/ui/src/components/base/Timeline.vue'
 
 const route = useRoute()
 
@@ -38,14 +38,6 @@ const changelogEntries = computed(() =>
 			{
 				label: 'Platform',
 				href: 'web',
-			},
-			{
-				label: 'Hosting',
-				href: 'hosting',
-			},
-			{
-				label: 'App',
-				href: 'app',
 			},
 		]"
 		query="filter"

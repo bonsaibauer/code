@@ -1,5 +1,5 @@
-import { LeftArrowIcon, RightArrowIcon } from '@modrinth/assets'
-import type { StageConfigInput } from '@modrinth/ui'
+import { LeftArrowIcon, RightArrowIcon } from '@shroudedit/assets'
+import type { StageConfigInput } from '@shroudedit/ui'
 import { markRaw } from 'vue'
 
 import McVersionsStage from '~/components/ui/create-project-version/stages/McVersionsStage.vue'

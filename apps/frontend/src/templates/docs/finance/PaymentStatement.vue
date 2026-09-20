@@ -26,13 +26,13 @@ import StyledDoc from '../shared/StyledDoc.vue'
 					<Text class="m-0 mb-3 border-b border-divider pb-2 text-base text-sm font-semibold">
 						From
 					</Text>
-					<Text class="m-0 mb-1 text-base text-sm font-semibold">Rinth, Inc.</Text>
-					<Text class="m-0 text-sm leading-tight text-secondary">800 N King St</Text>
-					<Text class="m-0 text-sm leading-tight text-secondary">Suite 304 #3133</Text>
-					<Text class="m-0 text-sm leading-tight text-secondary">Wilmington, DE 19801</Text>
+					<Text class="m-0 mb-1 text-base text-sm font-semibold">Philipp Feierabend</Text>
+					<Text class="m-0 text-sm leading-tight text-secondary">Straße, Hausnummer</Text>
+					<Text class="m-0 text-sm leading-tight text-secondary">PLZ, Stadt</Text>
+					<Text class="m-0 text-sm leading-tight text-secondary">Germany</Text>
 					<Text class="m-0 mt-2 text-sm text-secondary">
-						<VLink href="mailto:support@modrinth.com" class="text-blue no-underline">
-							support@modrinth.com
+						<VLink href="mailto:support@shroudedit.com" class="text-blue no-underline">
+							support@shroudedit.com
 						</VLink>
 					</Text>
 				</div>
@@ -90,7 +90,7 @@ import StyledDoc from '../shared/StyledDoc.vue'
 				Purpose of Payment
 			</Text>
 			<Text class="m-0 text-sm leading-relaxed text-secondary">
-				This payout reflects the creator's earnings from their activity on the Modrinth platform.
+				This payout reflects the creator's earnings from their activity on the ShroudEdit platform.
 				Such earnings are based on advertising revenue derived from user engagement with the
 				creator's published projects and/or affiliate commissions in accordance with the Rewards
 				Program Terms.
@@ -99,7 +99,7 @@ import StyledDoc from '../shared/StyledDoc.vue'
 
 		<Section class="mt-12 border-t border-divider pt-6">
 			<Text class="text-muted m-0 text-center text-xs">
-				This statement records a payout issued by Rinth, Inc. to the creator and may be retained as
+				This statement records a payout issued by ShroudEdit to the creator and may be retained as
 				proof of payment.
 			</Text>
 		</Section>

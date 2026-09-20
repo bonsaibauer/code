@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ListPlusIcon, RadioTowerIcon, TrashIcon } from '@modrinth/assets'
+import { ListPlusIcon, RadioTowerIcon, TrashIcon } from '@shroudedit/assets'
 import {
 	Button,
 	Chips,
@@ -10,7 +10,7 @@ import {
 	Input,
 	SettingsFormGroup,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@shroudedit/ui'
 import { watch } from 'vue'
 
 import DisclosureToggleCard from './DisclosureToggleCard.vue'
@@ -59,7 +59,7 @@ const messages = defineMessages({
 	dataPlaceholder: {
 		id: 'project.settings.disclosures.telemetry.data-placeholder',
 		defaultMessage:
-			'e.g. Anonymous launch analytics to track Minecraft version and mod loader usage.',
+			'e.g. Anonymous launch analytics to track Enshrouded version and mod loader usage.',
 	},
 })
 
@@ -89,7 +89,7 @@ function removeEntry(index: number) {
 		:icon="RadioTowerIcon"
 		:title="formatMessage(messages.title)"
 		:description="formatMessage(messages.description)"
-		info-link="https://support.modrinth.com/en/articles/16567675#h_490dcf364b"
+		info-link="https://support.shroudedit.com/en/articles/16567675#h_490dcf364b"
 		@set-lock-status="emit('setLockStatus', $event)"
 	>
 		<template #expanded>
